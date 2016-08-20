@@ -35,7 +35,8 @@ gem 'devise', '~> 4.2'
 # Use Dotevn-rails to create enviroment variables throughout the app
 gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
 
-
+#MailCatcher runs a super simple SMTP server which catches any message sent to it to display in a web interface
+gem 'mailcatcher'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
