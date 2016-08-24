@@ -30,10 +30,20 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 #Use devise gem for user authentication and encripted password
 gem 'devise', '~> 4.2'
+
+#Use omniauth gem.
+gem 'omniauth'
+
+#Use omniauth facebook gem.
+gem 'omniauth-facebook'
+
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 # Use Dotevn-rails to create enviroment variables throughout the app
-gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
+group :development, :test do
+  gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
+end
 
 #MailCatcher runs a super simple SMTP server which catches any message sent to it to display in a web interface
 gem 'mailcatcher'
