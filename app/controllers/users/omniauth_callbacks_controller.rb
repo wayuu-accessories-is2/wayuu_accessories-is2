@@ -27,7 +27,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     render :file => "#{Rails.root}/public/404.html", :status => 404, :layout => false
   end
 
-end
 
 
   # You should also create an action method in this controller like this:
