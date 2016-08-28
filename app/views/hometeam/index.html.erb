@@ -9,10 +9,10 @@
     				<nav class="top-nav">
     				  <ul class="top-nav">
     					  <li><%= link_to( 'web page', '#web page', class:'scroll' ) %></li>
-    						<li><a href="#about" class="scroll">about</a></li>
-    						<li><a href="#process" class="scroll">process</a></li>
-    						<li class="page-scroll"><a href="#contact" class="scroll">contact</a></li>
-    						<li class="active-join" class="page-scroll"><a href="#team" class="scroll">join us</a></li>
+                <li><%= link_to( 'about', '#about', class:'scroll' ) %></li>
+    						<li><%= link_to( 'process', '#process', class:'scroll' ) %></li>
+                <li class="page-scroll"><%= link_to( 'contact', '#contact', class:'scroll' ) %></li>
+                <li class="active-join" class="page-scroll"><%= link_to( 'join us', '#team', class:'scroll' ) %></li>
     					</ul>
     					<a href="#" id="pull"><%= image_tag('nav-icon.png', title: 'menu')%></a>
     				</nav>
@@ -57,7 +57,7 @@
     			  <%= image_tag('about-pic2.jpg', title:'name')%>
     			</div>
     			<div class="about-grid-info">
-    			  <h4><a href="#">work methodology</a></h4>
+    			  <h4><a>work methodology</a></h4>
     				<p>Scrum is an agile methodology that allows iterative collaborative work.
     				   Its development is incremental with easy adoption of new requirements
     					 that enable functional software soon</p>
@@ -65,7 +65,7 @@
     		</div>
     		<div class="col-md-4 about-grid about-grid1 wow fadeInRight" data-wow-delay="0.4s">
     		  <div class="about-grid-info">
-    			  <h4><a href="#">Sprints</a></h4>
+    			  <h4><a>Sprints</a></h4>
     				<p>The iteration will be 2 weeks long, during which the team will develop
     					 and attend new requirements and requests. To fulfill  this, the team
     					 will keep a constant communication channel with the product owner</p>
@@ -88,19 +88,19 @@
     	  <div class="process-grids text-center wow bounce" data-wow-delay="0.4s">
     		  <div class="col-md-3 process-grid process-grid1 wow bounceInUp" data-wow-delay="0.4s">
     			  <span class="p-icon1"> </span>
-    				<h4><a href="#">Define</a></h4>
+    				<h4><a>Define</a></h4>
     			</div>
     			<div class="col-md-3 process-grid process-grid2 wow bounceInDown" data-wow-delay="0.4s">
     			  <span class="p-icon3"> </span>
-    				<h4><a href="#">Develop</a></h4>
+    				<h4><a>Develop</a></h4>
     			</div>
     			<div class="col-md-3 process-grid process-grid3 wow bounceInUp" data-wow-delay="0.4s">
     			  <span class="p-icon2"> </span>
-    				<h4><a href="#">Test</a></h4>
+    				<h4><a>Test</a></h4>
     			</div>
     			<div class="col-md-3 process-grid process-grid4 wow bounceInDown" data-wow-delay="0.4s">
     			  <span class="p-icon4"> </span>
-    				<h4><a href="#">Review</a></h4>
+    				<h4><a>Review</a></h4>
     			</div>
     			<div class="clearfix"> </div>
     		</div>
@@ -111,7 +111,7 @@
       <div class="container">
     	  <h4>YOU ALSO WANT? WORK WITH US!</h4>
     		<p>Send the application form for a free call and our manager will contact with you</p>
-    		<a class="catch-me wow shake" data-wow-delay="0.3s" href="#contact">contact us</a>
+        <%= link_to( 'contact us', '#contact', class:'catch-me wow shake scroll', delay:'0.3s' ) %>
     	</div>
     </div>
 
@@ -155,7 +155,7 @@
 
     	</div>
     </div>
-<!------------------------------------------------------------------------------------>
+
     <div id="contact" class="map">
       <div class="contact-info text-center wow fadeInLeft" data-wow-delay="0.4s">
     	  <h4><span>Wayuu</span>development team</h4>
@@ -168,6 +168,6 @@
     <div class="clearfix"> </div>
     <div class="footer text-center">
       <div class="container">
-        <a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+        <a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"></span></a>
     	</div>
     </div>
