@@ -5,3 +5,4 @@
 //= require move-top
 //= require owl.carousel
 //= require wow.minS
+//= require hometeamfunctions
