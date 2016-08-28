@@ -2,11 +2,11 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-#= require easing
-#= require jquery.corner
-#= require jquery.min
-#= require jquery.mixitup.min
-#= require move-top
-#= require owl.carousel
-#= require wow.min
-#= require hometeamfunctions
+#= require team_page/easing
+#= require team_page/jquery.corner
+#= require team_page/jquery.min
+#= require team_page/jquery.mixitup.min
+#= require team_page/move-top
+#= require team_page/owl.carousel
+#= require team_page/wow.min
+#= require team_page/hometeamfunctions
