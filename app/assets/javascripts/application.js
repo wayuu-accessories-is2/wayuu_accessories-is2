@@ -14,10 +14,8 @@
 //= require jquery.min
 //= require jquery.mixitup.min
 //= require jquery_ujs
-//= require turbolinks
 //= require bootstrap.min
 //= require easing
 //= require move-top
 //= require owl.carousel
 //= require wow.min
-//= require_tree 
