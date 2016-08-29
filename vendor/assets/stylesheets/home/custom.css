@@ -1,0 +1,34 @@
+.font-gray {
+	color: #808080 !important;
+}
+
+.cd-search-trigger::before {
+	border: 3px solid #808080 !important;
+}
+
+.cd-search-trigger::after {
+	background: #808080 !important;
+}
+
+.navbar-default .navbar-nav > li > a {
+	color: #808080 !important;
+}
+.logo-nav-left1 ul li.active a.act{
+	color:#808080 !important;
+}
+
+.heder-bottom {
+	background: #fff;
+}
+
+.header-top {
+    background: #ddd;
+ }
+
+.top-left  a{
+	color: #5E5E5E;
+}
+
+.top-right ul li a {
+	color:#5E5E5E;
+}
