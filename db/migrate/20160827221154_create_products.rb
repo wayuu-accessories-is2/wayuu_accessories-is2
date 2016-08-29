@@ -4,13 +4,12 @@ class CreateProducts < ActiveRecord::Migration[5.0]
       t.string :name
       t.integer :quantity
       t.float :price
-      t.float :weight
+      t.float :length
       t.float :width
       t.float :height
       t.string :status
       t.string :description
       t.references :stock_status, foreign_key: true
-
       t.timestamps
     end
   end

@@ -35,10 +35,10 @@ ActiveRecord::Schema.define(version: 20160829030407) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
-    t.string   "image"
-    t.integer  "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "description"
+    t.integer  "status",      default: 1
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "category_has_products", force: :cascade do |t|
@@ -54,10 +54,8 @@ ActiveRecord::Schema.define(version: 20160829030407) do
     t.string   "description"
     t.string   "code"
     t.float    "amount"
-    t.integer  "order_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.index ["order_id"], name: "index_confirmation_orders_on_order_id", using: :btree
   end
 
   create_table "countries", force: :cascade do |t|
@@ -70,27 +68,14 @@ ActiveRecord::Schema.define(version: 20160829030407) do
   create_table "coupon_uses", force: :cascade do |t|
     t.float    "amount"
     t.integer  "customer_id"
-    t.integer  "coupon_id"
-    t.integer  "order_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.index ["coupon_id"], name: "index_coupon_uses_on_coupon_id", using: :btree
     t.index ["customer_id"], name: "index_coupon_uses_on_customer_id", using: :btree
-    t.index ["order_id"], name: "index_coupon_uses_on_order_id", using: :btree
   end
 
   create_table "coupons", force: :cascade do |t|
     t.string   "code"
     t.float    "discount"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "currencies", force: :cascade do |t|
-    t.string   "title"
-    t.string   "code"
-    t.string   "symbol"
-    t.integer  "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -138,9 +123,13 @@ ActiveRecord::Schema.define(version: 20160829030407) do
     t.integer  "rating"
     t.integer  "customer_id"
     t.integer  "product_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "order_status_id"
+    t.integer  "cart_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["cart_id"], name: "index_orders_on_cart_id", using: :btree
     t.index ["customer_id"], name: "index_orders_on_customer_id", using: :btree
+    t.index ["order_status_id"], name: "index_orders_on_order_status_id", using: :btree
     t.index ["product_id"], name: "index_orders_on_product_id", using: :btree
   end
 
@@ -167,7 +156,7 @@ ActiveRecord::Schema.define(version: 20160829030407) do
     t.string   "name"
     t.integer  "quantity"
     t.float    "price"
-    t.float    "weight"
+    t.float    "length"
     t.float    "width"
     t.float    "height"
     t.string   "status"
@@ -194,11 +183,9 @@ ActiveRecord::Schema.define(version: 20160829030407) do
   create_table "reviews", force: :cascade do |t|
     t.string   "comment"
     t.integer  "rating"
-    t.integer  "customer_id"
     t.integer  "product_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["customer_id"], name: "index_reviews_on_customer_id", using: :btree
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_reviews_on_product_id", using: :btree
   end
 
@@ -209,6 +196,7 @@ ActiveRecord::Schema.define(version: 20160829030407) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.integer  "customer_id"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -232,6 +220,7 @@ ActiveRecord::Schema.define(version: 20160829030407) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
+    t.index ["customer_id"], name: "index_users_on_customer_id", using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
@@ -241,21 +230,19 @@ ActiveRecord::Schema.define(version: 20160829030407) do
   add_foreign_key "carts", "customers"
   add_foreign_key "category_has_products", "categories"
   add_foreign_key "category_has_products", "products"
-  add_foreign_key "confirmation_orders", "orders"
-  add_foreign_key "coupon_uses", "coupons"
   add_foreign_key "coupon_uses", "customers"
-  add_foreign_key "coupon_uses", "orders"
   add_foreign_key "customer_transactions", "customers"
   add_foreign_key "customer_transactions", "orders"
   add_foreign_key "line_products", "carts"
   add_foreign_key "line_products", "products"
+  add_foreign_key "orders", "carts"
   add_foreign_key "orders", "customers"
+  add_foreign_key "orders", "order_statuses"
   add_foreign_key "orders", "products"
   add_foreign_key "product_discounts", "products"
   add_foreign_key "product_images", "products"
-  add_foreign_key "products", "stock_statuses"
   add_foreign_key "returns", "orders"
   add_foreign_key "returns", "products"
-  add_foreign_key "reviews", "customers"
   add_foreign_key "reviews", "products"
+  add_foreign_key "users", "customers"
 end

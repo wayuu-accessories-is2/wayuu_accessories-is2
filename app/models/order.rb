@@ -1,6 +1,7 @@
 class Order < ApplicationRecord
-  has_one :OrderStatus
-  has_one :country
-  has_one :customer
-  has_one :cart
+  belongs_to :OrderStatus
+  belongs_to :country
+  belongs_to :customer
+  belongs_to :cart
+  has_one :return
 end

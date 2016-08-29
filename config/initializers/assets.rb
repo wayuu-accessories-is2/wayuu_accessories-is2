@@ -7,6 +7,8 @@ Rails.application.config.assets.precompile += %w( hometeam.scss )
 Rails.application.config.assets.precompile += %w( team_page/owl.carousel.css )
 Rails.application.config.assets.precompile += %w( hometeam.coffee )
 Rails.application.config.assets.precompile += %w( team_page/hometeamscript.js )
+Rails.application.config.assets.precompile += %w( admin.css )
+Rails.application.config.assets.precompile += %w( admin.coffee )
 
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path

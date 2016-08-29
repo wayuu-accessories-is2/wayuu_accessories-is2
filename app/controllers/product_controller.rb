@@ -1,5 +1,6 @@
 class ProductController < ApplicationController
   def add
+    @cate = Category.all.order('name ASC')
   end
 
   def new
@@ -14,26 +15,64 @@ class ProductController < ApplicationController
     height = params['height']
     status = params['status']
     category1 = params['category1']
-    category2 = params['category2']
-    category3 = params['category3']
-    category4 = params['category4']
+    @cat = Category.find_by name: category1.to_s
     product_discount_price = params['product_discount_price']
     product_discount_start = params['product_discount_start']
     product_discount_end = params['product_discount_end']
 
+
     temp = Product.new
     temp.name = name
     temp.quantity = quantity.to_i
-    temp.price = price.to_f
-    temp.weight = length.to_f
-    temp.width = width.to_f
-    temp.height = height.to_f
-    temp.status = status
-    temp.description = description
 
-    temp.save!
 
-    redirect_to '/admin/index'
-    imagen = params['images']
+    @stock = StockStatus.find_by( name: "available" )
+    @stock.products << temp
+
+
+    if temp.save
+      puts "Guardo"
+    else
+      puts "#{temp}"
+      puts "#{temp.valid?}"
+    end
+
+    #puts @stock.errors.any?
+    #puts temp.errors.full_messages
+
+    @catego = CategoryHasProduct.new
+    @catego.product_id = temp.id
+    @catego.category_id = @cat.id
+    #@catego.save!
+
+    #redirect_to '/admin/index'
+    #@imagen = params['images']
   end
+
+  def show
+    @list = Product.all.order("id ASC")
+    @consult = CategoryHasProduct.all
+  end
+
+  def edit
+    @cate = Product.find( params[:id] )
+  end
+
+  def update
+    @cate = Category.find( params[:id] )
+    @cate.name = params['category_name']
+    @cate.description = params['category_description']
+    @cate.save!
+    redirect_to '/admin/category/show'
+  end
+
+
+  def update
+    @cate = Category.find( params[:id] )
+    @cate.name = params['category_name']
+    @cate.description = params['category_description']
+    @cate.save!
+    redirect_to '/admin/category/show'
+  end
+
 end

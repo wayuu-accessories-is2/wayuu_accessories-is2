@@ -18,4 +18,6 @@ class User < ApplicationRecord
          email: auth.info.email,
          password: Devise.friendly_token[0,20])
   end
+  has_many :review
+  belongs_to :customer
 end

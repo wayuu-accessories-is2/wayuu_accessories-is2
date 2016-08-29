@@ -1,10 +1,9 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
-
+#= require jquery
 #= require 'team_page/easing'
 #= require 'team_page/jquery.corner'
-#= require 'team_page/jquery.min'
 #= require 'team_page/jquery.mixitup.min'
 #= require 'team_page/move-top'
 #= require 'team_page/owl.carousel'

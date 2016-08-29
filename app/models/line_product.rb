@@ -1,4 +1,4 @@
 class LineProduct < ApplicationRecord
-  has_one :cart
-  has_one :product
+  belongs_to :cart
+  belongs_to :product
 end
