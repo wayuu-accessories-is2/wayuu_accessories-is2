@@ -14,10 +14,10 @@ default: &default
 development:
   <<: *default
   #url: <%= ENV['db_url'] %>
-  host: localhost
-  database: wayuu5
-  username: ingesoft
-  password: 12345
+  #host: localhost
+  database: wayuu1
+  username: wayuu
+  password: admin2016
   #url: <%= ENV['POSTGRE_URL'] %>
   #host: <%= ENV['POSTGRE_HOST'] %>
   #database: <%= ENV['POSTGRE_DB'] %>
