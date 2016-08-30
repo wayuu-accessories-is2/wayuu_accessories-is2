@@ -28,18 +28,23 @@ class ProductController < ApplicationController
     temp = Product.new
     temp.name = name
     temp.quantity = quantity.to_i
+    temp.description = description
+    temp.price = price
+    temp.length = length
+    temp.width = width
+    temp.height = height
+    temp.status = status
 
 
-    @stock = StockStatus.find_by( name: "available" )
+    if temp.quantity >= 1
+      @stock = StockStatus.find( 1 )
+    else
+      @stock = StockStatus.find( 2 )
+    end
     @stock.products << temp
 
 
-    if temp.save
-      puts "Guardo"
-    else
-      puts "#{temp}"
-      puts "#{temp.valid?}"
-    end
+    temp.save!
 
     #puts @stock.errors.any?
     #puts temp.errors.full_messages
@@ -47,16 +52,16 @@ class ProductController < ApplicationController
     @catego = CategoryHasProduct.new
     @catego.product_id = temp.id
     @catego.category_id = @cat.id
-    #@catego.save!
+    @catego.save!
 
-    #redirect_to '/admin/index'
+    redirect_to '/admin/index'
     #@imagen = params['images']
   end
 
   def show
     @list = Product.all.order("id ASC")
     @consult = CategoryHasProduct.all
-    render layout: "admin" 
+    render layout: "admin"
   end
 
   def edit
