@@ -5,6 +5,8 @@ class CreateOrders < ActiveRecord::Migration[5.0]
       t.integer :rating
       t.references :customer, foreign_key: true
       t.references :product, foreign_key: true
+      t.references :order_status, foreign_key: true
+      t.references :cart, foreign_key: true
       t.timestamps
     end
   end

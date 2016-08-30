@@ -1,3 +1,3 @@
 class ProductDiscount < ApplicationRecord
-  has_one :product
+  belongs_to :product
 end

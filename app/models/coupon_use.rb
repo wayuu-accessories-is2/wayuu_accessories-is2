@@ -1,5 +1,5 @@
 class CouponUse < ApplicationRecord
-  has_one :customer
+  belongs_to :customer
   has_one :coupon
   has_one :order
 end

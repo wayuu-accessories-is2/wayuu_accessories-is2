@@ -1,4 +1,4 @@
 class Return < ApplicationRecord
-  has_one :product
-  has_one :order
+  belongs_to :product
+  belongs_to :order
 end

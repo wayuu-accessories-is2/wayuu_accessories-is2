@@ -1,4 +1,4 @@
 class CustomerTransaction < ApplicationRecord
-  has_one :order
-  has_one :customer
+  belongs_to :order
+  belongs_to :customer
 end

@@ -1,4 +1,4 @@
 class Address < ApplicationRecord
-  has_one :customer
-  has_one :country
+  belongs_to :customer
+  belongs_to :country
 end
