@@ -120,20 +120,15 @@
             </div>
             <div class="tab-pane" id="tab-image">
               <div class="form-group required">
-                <div class="table-responsive">
-                  <table id="images" name="images_table" class="table table-striped table-bordered table-hover">
-                    <thead>
-                      <tr>
-                        <td class="text-center">Image</td>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <td><label class="btn btn-default btn-file">
-                        <input type="file" name="images" multiple>
-                        </label></td>
-                    </tbody>
-                  </table>
+
+                  <div class="dropzone">
+                    <div class="fallback">
+                      <input name="file" type="file" multiple />
+                    </div>
+                  </div>
+
                 </div>
+
               </div>
             </div>
           </div>

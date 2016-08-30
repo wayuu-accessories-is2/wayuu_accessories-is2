@@ -4,3 +4,5 @@
 #= require admin/sb-admin-2
 #= require admin/metisMenu
 #= require admin/morris
+#= require admin/dropzone
+#= require admin/drop
