@@ -1,5 +1,6 @@
 class CategoryController < ApplicationController
   def add
+    render layout: "admin"
   end
 
   def new
@@ -19,10 +20,12 @@ class CategoryController < ApplicationController
   def show
     @list = Category.all.order("id ASC")
     @consult = CategoryHasProduct.all
+    render layout: "admin"
   end
 
   def edit
     @cate = Category.find( params[:id] )
+    render layout: "admin" 
   end
 
   def update

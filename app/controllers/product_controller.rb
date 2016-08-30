@@ -1,6 +1,10 @@
 class ProductController < ApplicationController
+
+  respond_to :html, :js
+
   def add
     @cate = Category.all.order('name ASC')
+    render layout: "admin"
   end
 
   def new
@@ -52,20 +56,12 @@ class ProductController < ApplicationController
   def show
     @list = Product.all.order("id ASC")
     @consult = CategoryHasProduct.all
+    render layout: "admin" 
   end
 
   def edit
     @cate = Product.find( params[:id] )
   end
-
-  def update
-    @cate = Category.find( params[:id] )
-    @cate.name = params['category_name']
-    @cate.description = params['category_description']
-    @cate.save!
-    redirect_to '/admin/category/show'
-  end
-
 
   def update
     @cate = Category.find( params[:id] )
