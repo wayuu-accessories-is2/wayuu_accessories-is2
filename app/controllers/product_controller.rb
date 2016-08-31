@@ -4,11 +4,12 @@ class ProductController < ApplicationController
 
   def add
     @cate = Category.all.order('name ASC')
-    render layout: "admin"
+
+    #render layout: "admin"
     respond_to do |format|
-      format.html
-      format.json
-end
+      format.js
+    end
+
 
   end
 

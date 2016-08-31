@@ -112,10 +112,8 @@
                     <a href="#"><i class="fa fa-archive fa-fw"></i>Products<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="/admin/product/add">Add product</a>
-                            <!--<%= link_to "product/add", remote: true do %>
-                              New
-                            <% end %>-->
+                            <!-- <a href="/admin/product/add">Add product</a> -->
+                          <%= link_to 'new', add_product_index_path( :format=>'js' ), remote: true %>
                         </li>
                         <li>
                             <a href="morris.html">Morris.js Charts</a>
