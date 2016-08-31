@@ -1,6 +1,8 @@
 class CategoryController < ApplicationController
   def add
-    render layout: "admin"
+    respond_to do |format|
+      format.js
+    end
   end
 
   def new
@@ -13,19 +15,23 @@ class CategoryController < ApplicationController
 
     temp.save!
 
-    redirect_to '/admin/category/show'
+    redirect_to list_category_index_path
 
   end
 
-  def show
+  def list
     @list = Category.all.order("id ASC")
     @consult = CategoryHasProduct.all
-    render layout: "admin"
+    respond_to do |format|
+      format.js
+    end
   end
 
   def edit
     @cate = Category.find( params[:id] )
-    render layout: "admin" 
+    respond_to do |format|
+      format.js
+    end
   end
 
   def update
@@ -33,7 +39,7 @@ class CategoryController < ApplicationController
     @cate.name = params['category_name']
     @cate.description = params['category_description']
     @cate.save!
-    redirect_to '/admin/category/show'
+    redirect_to list_category_index_path
   end
 
   def status
@@ -44,7 +50,7 @@ class CategoryController < ApplicationController
       @cate.status = 1
     end
     @cate.save!
-    redirect_to '/admin/category/show'
+    redirect_to list_category_index_path
   end
 
 end

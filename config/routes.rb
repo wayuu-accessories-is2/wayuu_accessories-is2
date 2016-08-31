@@ -13,9 +13,9 @@ Rails.application.routes.draw do
 
   get 'product/edit/:id', to: 'category#edit'
   get 'category/edit/:id', to: 'category#edit'
-  get 'category/status/:id', to: 'category#status'
 
-  
+
+
 
 
 
@@ -28,13 +28,16 @@ Rails.application.routes.draw do
     end
   end
 
+  #assert_generates '../category/status', controller: 'category', action: 'status'
+
   resources :category do
     collection do
       get 'add', to: :add
       post 'new', to: :new
       get 'show', to: :show
       post 'update', to: :update
-
+      get 'list', to: :list
+      get 'status', to: :status
     end
   end
 

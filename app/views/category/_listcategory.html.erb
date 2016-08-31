@@ -37,9 +37,12 @@
                   <% else %>
                     <td>Idle</td>
                   <% end %>
-                  <td><a href="/category/edit/<%= t.id %>" data-toggle="tooltip" title="Edit" class="btn btn-default"><i class="fa fa-pencil"></i></a></div>
-                  <a href="/category/status/<%= t.id %>" data-toggle="tooltip" title="Active / Disable" class="btn btn-default"><i class="fa fa-eye"></i></a></td>
-                  <!-- <a href="/admin/index" data-toggle="tooltip" title="Active / Disable" class="btn btn-default"><i class="fa fa-eye"></i></a></div></td> -->
+                  <td><!-- <a href="/category/edit/<%= t.id %>" data-toggle="tooltip" title="Edit" class="btn btn-default"><i class="fa fa-pencil"></i></a>-->
+                  <%= link_to '', edit_category_path( :id => t.id ), :class=>"btn btn-default fa fa-pencil", remote: true %>
+
+                  <%= link_to '', status_category_index_path( :id => t.id ), :class=>"btn btn-default fa fa-eye", remote: true %>
+                  <!-- <a href="/category/status/<%= t.id %>" data-toggle="tooltip" title="Active / Disable" class="btn btn-default"><i class="fa fa-eye"></i></a></td>
+                  <a href="/admin/index" data-toggle="tooltip" title="Active / Disable" class="btn btn-default"><i class="fa fa-eye"></i></a></div></td> -->
                 </tr>
                 <% end %>
               </tbody>

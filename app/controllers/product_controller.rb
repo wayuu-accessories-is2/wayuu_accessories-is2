@@ -67,7 +67,9 @@ class ProductController < ApplicationController
   def show
     @list = Product.all.order("id ASC")
     @consult = CategoryHasProduct.all
-    render layout: "admin"
+    respond_to do |format|
+      format.js
+    end
   end
 
   def edit
