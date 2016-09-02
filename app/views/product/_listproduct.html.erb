@@ -6,12 +6,12 @@
 
     <div class="pull-right">
       <a href="/admin/index" data-toggle="tooltip" title="Cancel" class="btn btn-default"><i class="fa fa-reply"></i></a></div>
-      <h1>Category</h1>
+      <h1>Products</h1>
     </div>
 
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title"><i class="fa fa-pencil"></i>Categories</h3>
+        <h3 class="panel-title"><i class="fa fa-pencil"></i>Products</h3>
       </div>
       <div class="panel-body">
         <div class="tab-pane" id="tab-discount">
@@ -36,7 +36,7 @@
                   <td><%= t.price %></td>
                   <td><%= Category.find( (((CategoryHasProduct.find_by( product_id: t.id.to_s  )).category_id).to_s) ).name %></td>
                   <td><%= ProductDiscount.where("product_id = " + t.id.to_s ).size %></td>
-                  <% if t.status == 1 %>
+                  <% if t.status == "1" %>
                     <td>Active</td>
                   <% else %>
                     <td>Idle</td>
@@ -44,7 +44,7 @@
                   <td><!-- <a href="/category/edit/<%= t.id %>" data-toggle="tooltip" title="Edit" class="btn btn-default"><i class="fa fa-pencil"></i></a>-->
                   <%= link_to '', edit_product_path( :id => t.id ), :class=>"btn btn-default fa fa-pencil", remote: true %>
 
-                  <%= link_to '', status_category_index_path( :id => t.id ), :class=>"btn btn-default fa fa-eye", remote: true %>
+                  <%= link_to '', status_product_index_path( :id => t.id ), :class=>"btn btn-default fa fa-eye", remote: true %>
                   <!-- <a href="/category/status/<%= t.id %>" data-toggle="tooltip" title="Active / Disable" class="btn btn-default"><i class="fa fa-eye"></i></a></td>
                   <a href="/admin/index" data-toggle="tooltip" title="Active / Disable" class="btn btn-default"><i class="fa fa-eye"></i></a></div></td> -->
                 </tr>
@@ -54,5 +54,6 @@
           </div>
         </div>
       </div>
+
     </div>
   </div>

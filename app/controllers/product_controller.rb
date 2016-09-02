@@ -96,12 +96,12 @@ class ProductController < ApplicationController
 
   def status
     @pro = Product.find( params[:id] )
-    if @pro.status == 1
-      @pro.status = 0
+    if @pro.status == "1"
+      @pro.status = "0"
     else
-      @pro.status = 1
+      @pro.status = "1"
     end
-    @cate.save!
+    @pro.save!
     redirect_to list_product_index_path
 
   end
