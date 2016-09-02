@@ -15,7 +15,7 @@ development:
   <<: *default
   #url: <%= ENV['db_url'] %>
   host: localhost
-  database: wayuu1
+  database: wayuu
   username: postgres
   password:
   #url: <%= ENV['POSTGRE_URL'] %>

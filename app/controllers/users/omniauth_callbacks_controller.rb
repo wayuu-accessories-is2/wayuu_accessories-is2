@@ -10,7 +10,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       current_user
     )
 
-
     if @user.persisted?
       sign_in_and_redirect @user,
         :event => :authentication
@@ -27,6 +26,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     render :file => "#{Rails.root}/public/404.html", :status => 404, :layout => false
   end
 
+  def current_user
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
 
 
   # You should also create an action method in this controller like this:
