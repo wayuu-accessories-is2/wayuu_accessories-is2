@@ -39,10 +39,18 @@ gem 'omniauth-facebook'
 group :development, :test do
   gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
 end
+# Gems requiried for images uploads
+gem 'carrierwave', '~> 0.11.2'
+gem 'fog', '~> 1.38'
+gem 'mini_magick', '~> 4.5', '>= 4.5.1'
+gem 'tinymce-rails'
+#gem 'active_model_serializers'
+gem 'dropzone', '~> 1.0', '>= 1.0.6'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
 end
+
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console'

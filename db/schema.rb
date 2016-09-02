@@ -159,11 +159,11 @@ ActiveRecord::Schema.define(version: 20160829030407) do
     t.float    "length"
     t.float    "width"
     t.float    "height"
-    t.string   "status"
+    t.string   "status",          default: "1"
     t.string   "description"
     t.integer  "stock_status_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.index ["stock_status_id"], name: "index_products_on_stock_status_id", using: :btree
   end
 
@@ -241,6 +241,7 @@ ActiveRecord::Schema.define(version: 20160829030407) do
   add_foreign_key "orders", "products"
   add_foreign_key "product_discounts", "products"
   add_foreign_key "product_images", "products"
+  add_foreign_key "products", "stock_statuses"
   add_foreign_key "returns", "orders"
   add_foreign_key "returns", "products"
   add_foreign_key "reviews", "products"
