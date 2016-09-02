@@ -78,7 +78,8 @@ class ProductController < ApplicationController
   end
 
   def edit
-    @cate = Product.find( params[:id] )
+    @pro = Product.find( params[:id] )
+    @cate = Category.all
   end
 
   def update
@@ -91,6 +92,18 @@ class ProductController < ApplicationController
 
   def list
     @products = Product.all
+  end
+
+  def status
+    @pro = Product.find( params[:id] )
+    if @pro.status == 1
+      @pro.status = 0
+    else
+      @pro.status = 1
+    end
+    @cate.save!
+    redirect_to list_product_index_path
+
   end
 
   def orderimages

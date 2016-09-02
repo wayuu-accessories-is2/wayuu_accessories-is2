@@ -15,6 +15,7 @@ Rails.application.routes.draw do
         get 'orderimages', to: :orderimages
         post 'change', to: :change
         get 'list', to: :list
+        get 'status', to: :status
       end
     end
   end

@@ -22,7 +22,7 @@
                   <td class="text-left">Name</td>
                   <td class="text-left">Description</td>
                   <td class="text-left">Price</td>
-                  <td class="text-left">Tax class</td>
+                  <td class="text-left">Category</td>
                   <td class="text-left">Discount</td>
                   <td class="text-left">Status</td>
                   <td class="text-left">Action</td>
@@ -34,15 +34,15 @@
                   <td><%= t.name %></td>
                   <td><%= t.description %></td>
                   <td><%= t.price %></td>
-                  <td><%= t.description %></td>
-                  <td><%= @consult.where("category_id = " + t.id.to_s ).size %></td>
+                  <td><%= Category.find( (((CategoryHasProduct.find_by( product_id: t.id.to_s  )).category_id).to_s) ).name %></td>
+                  <td><%= ProductDiscount.where("product_id = " + t.id.to_s ).size %></td>
                   <% if t.status == 1 %>
                     <td>Active</td>
                   <% else %>
                     <td>Idle</td>
                   <% end %>
                   <td><!-- <a href="/category/edit/<%= t.id %>" data-toggle="tooltip" title="Edit" class="btn btn-default"><i class="fa fa-pencil"></i></a>-->
-                  <%= link_to '', edit_category_path( :id => t.id ), :class=>"btn btn-default fa fa-pencil", remote: true %>
+                  <%= link_to '', edit_product_path( :id => t.id ), :class=>"btn btn-default fa fa-pencil", remote: true %>
 
                   <%= link_to '', status_category_index_path( :id => t.id ), :class=>"btn btn-default fa fa-eye", remote: true %>
                   <!-- <a href="/category/status/<%= t.id %>" data-toggle="tooltip" title="Active / Disable" class="btn btn-default"><i class="fa fa-eye"></i></a></td>

@@ -7,7 +7,7 @@ class CreateProducts < ActiveRecord::Migration[5.0]
       t.float :length
       t.float :width
       t.float :height
-      t.string :status
+      t.string :status, :default => 1
       t.string :description
       t.references :stock_status, foreign_key: true
       t.timestamps

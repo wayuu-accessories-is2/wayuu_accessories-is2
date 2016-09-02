@@ -112,6 +112,10 @@
                     <a href="#"><i class="fa fa-archive fa-fw"></i>Products<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
+                            <%= link_to 'Show all', list_product_index_path, remote: true %>
+                        </li>
+
+                        <li>
                             <!-- <a href="/admin/product/add">Add product</a> -->
                           <%= link_to 'New product', add_product_index_path( :format=>'js' ), remote: true %>
                         </li>
@@ -124,11 +128,12 @@
                     <a href="#"><i class="fa fa-users fa-fw"></i>Categories<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <%= link_to 'New category', add_category_index_path( :format=>'js' ), remote: true %>
-                        </li>
-                        <li>
                             <%= link_to 'Show all', list_category_index_path, remote: true %>
                         </li>
+                        <li>
+                            <%= link_to 'New category', add_category_index_path( :format=>'js' ), remote: true %>
+                        </li>
+
 
                     </ul>
                 </li>
