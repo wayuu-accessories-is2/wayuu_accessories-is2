@@ -4,7 +4,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
     :name => "google",
     :scope => "email, profile, puls.me",
     :image_aspect_ratio => 'square',
-    :image_size => 48,
+    :image_size => 50,
     :access_type => 'online',
     :approval_prompt => 'force'
   }
