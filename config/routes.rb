@@ -5,22 +5,44 @@ Rails.application.routes.draw do
     passwords: "users/passwords",
     omniauth_callbacks: "users/omniauth_callbacks"}
 
+  scope 'admin' do
+    resources :product do
+      collection do
+        get 'add', to: :add
+        post 'new', to: :new
+        get 'show', to: :show
+        post 'update', to: :update
+        get 'orderimages', to: :orderimages
+        post 'change', to: :change
+        get 'list', to: :list
+        get 'status', to: :status
+      end
+    end
+  end
+  #assert_generates '../category/status', controller: 'category', action: 'status'
+
+  scope 'admin' do
+    resources :category do
+      collection do
+        get 'add', to: :add
+        post 'new', to: :new
+        post 'update', to: :update
+        get 'list', to: :list
+        get 'status', to: :status
+        post 'change', to: :change
+      end
+    end
+  end
+
+  resources :category, only: [] do
+    resources :product, only: [] do
+      collection do
+        get 'showforcategory', to: :showforcategory
+      end
+    end
+  end
+
   root to: 'hometeam#index'
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get 'admin/index', to: 'admin#admin_index'
-  get 'admin/product/add', to: 'product#add'
-  post 'product/new', to: 'product#new'
-  get 'admin/category/add', to: 'category#add'
-  post 'category/new', to: 'category#new'
-  get 'admin/category/show', to: 'category#show'
-  get 'category/edit/:id', to: 'category#edit', as: :cate
-  post 'category/update/', to: 'category#update'
-  get 'category/status/:id', to: 'category#status'
-  get 'admin/product/show', to: 'product#show'
-  get 'product/edit/:id', to: 'product#edit'
-  post 'product/update/', to: 'product#update'
-  get 'product/delete/:id', to: 'product#delete'
 
-  get 'admin/upload', to: 'upload#upload_photo'
 end

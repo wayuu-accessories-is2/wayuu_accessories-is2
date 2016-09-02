@@ -1,11 +1,17 @@
 class CategoryController < ApplicationController
   def add
-    render layout: "admin"
+    if request.xhr?
+      respond_to do |format|
+        format.js
+      end
+    else
+      render layout: "admin"
+    end
   end
 
   def new
-    name = params['category_name']
-    description = params['category_description']
+    name = params['name']
+    description = params['description']
 
     temp = Category.new
     temp.name = name
@@ -13,27 +19,42 @@ class CategoryController < ApplicationController
 
     temp.save!
 
-    redirect_to '/admin/category/show'
+    redirect_to list_category_index_path
 
   end
 
-  def show
+  def list
     @list = Category.all.order("id ASC")
     @consult = CategoryHasProduct.all
-    render layout: "admin"
+    if request.xhr?
+      respond_to do |format|
+        format.js
+      end
+    else
+      render layout: "admin"
+    end
   end
 
   def edit
     @cate = Category.find( params[:id] )
-    render layout: "admin" 
+    if request.xhr?
+      respond_to do |format|
+        format.js
+      end
+    else
+      render layout: "admin"
+    end
   end
 
-  def update
-    @cate = Category.find( params[:id] )
-    @cate.name = params['category_name']
-    @cate.description = params['category_description']
-    @cate.save!
-    redirect_to '/admin/category/show'
+  def change
+    if request.xhr?
+      @cate = Category.find( params[:id] )
+      @cate.name = params[:name]
+      @cate.description = params[:description]
+      @cate.save!
+      redirect_to list_category_index_path
+    end
+
   end
 
   def status
@@ -44,7 +65,7 @@ class CategoryController < ApplicationController
       @cate.status = 1
     end
     @cate.save!
-    redirect_to '/admin/category/show'
+    redirect_to list_category_index_path
   end
 
 end

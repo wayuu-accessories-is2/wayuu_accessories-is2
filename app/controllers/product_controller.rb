@@ -2,19 +2,25 @@ class ProductController < ApplicationController
 
   respond_to :html, :js
 
+  def index
+    @id = Category.find( params[:id] )
+    @products = Product.where("category_id = " + @id.id )
+  end
+
   def add
     @cate = Category.all.order('name ASC')
-    render layout: "admin"
+
+    #render layout: "admin"
     respond_to do |format|
-      format.html
-      format.json
-end
+      format.js
+    end
+
 
   end
 
   def new
-    name = params['product_name']
-    description = params['product_description']
+    name = params['name']
+    description = params['description']
     model = params['model']
     price = params['price']
     tax_class_id = params['tax_class_id']
@@ -59,26 +65,78 @@ end
     @catego.category_id = @cat.id
     @catego.save!
 
-    redirect_to '/admin/index'
+    redirect_to list_product_index_path
     #@imagen = params['images']
   end
 
   def show
     @list = Product.all.order("id ASC")
     @consult = CategoryHasProduct.all
-    render layout: "admin"
+    respond_to do |format|
+      format.js
+    end
   end
 
   def edit
-    @cate = Product.find( params[:id] )
+    @pro = Product.find( params[:id] )
+    @cate = Category.all
+    @sele = (CategoryHasProduct.find_by( product_id: @pro.id.to_s )).category_id
   end
 
-  def update
-    @cate = Category.find( params[:id] )
-    @cate.name = params['category_name']
-    @cate.description = params['category_description']
-    @cate.save!
-    redirect_to '/admin/category/show'
+  def change
+    t = Product.find( params[:id] )
+    t.name = params['name']
+    t.description = params['description']
+    t.price = params['price']
+    t.quantity = params['quantity']
+    t.length = params['length']
+    t.width = params['width']
+    t.height = params['height']
+    category1 = params['category1']
+    val = CategoryHasProduct.find_by( product_id: t.id )
+    cat = Category.find_by( name: category1.to_s )
+
+    val.category_id = cat.id
+
+    if t.quantity >= 1
+      @stock = StockStatus.find( 1 )
+    else
+      @stock = StockStatus.find( 2 )
+    end
+    @stock.products << t
+
+
+    val.save!
+    t.save!
+
+
+    redirect_to list_product_index_path
+  end
+
+  def list
+    @products = Product.all
+  end
+
+  def status
+    @pro = Product.find( params[:id] )
+    if @pro.status == "1"
+      @pro.status = "0"
+    else
+      @pro.status = "1"
+    end
+    @pro.save!
+    redirect_to list_product_index_path
+
+  end
+
+  def orderimages
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def showforcategory
+
   end
 
 end

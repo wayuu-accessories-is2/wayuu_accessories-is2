@@ -19,5 +19,5 @@ class User < ApplicationRecord
          password: Devise.friendly_token[0,20])
   end
   has_many :review
-  belongs_to :customer
+  belongs_to :customer, optional: true
 end
