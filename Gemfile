@@ -3,8 +3,7 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
-# Use sqlite3 as the database for Active Record
-#gem 'sqlite3'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use postgresql
@@ -31,8 +30,12 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 #Use devise gem for user authentication and encripted password
 gem 'devise', '~> 4.2'
+#Use omniauth
 gem 'omniauth'
+#Use omniauth facebook.
 gem 'omniauth-facebook'
+#Use omniauth google.
+gem "omniauth-google-oauth2", "~> 0.2.1"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 # Use Dotevn-rails to create enviroment variables throughout the app

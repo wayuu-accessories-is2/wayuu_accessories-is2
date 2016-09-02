@@ -2,7 +2,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
   def change
     create_table :users do |t|
 
-      t.references :customer, foreign_key: true 
+      t.references :customer, foreign_key: true
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
@@ -36,6 +36,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.string :provider
       t.string :uid
       t.string :name
+      t.string :oauth_token
+      t.datetime :oauth_expires_at
 
       t.timestamps null: false
 
