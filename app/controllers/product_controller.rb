@@ -80,6 +80,7 @@ class ProductController < ApplicationController
   def edit
     @pro = Product.find( params[:id] )
     @cate = Category.all
+    @sele =  (CategoryHasProduct.find_by( product_id: @pro.id.to_s )).category_id
   end
 
   def update
