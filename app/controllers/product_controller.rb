@@ -80,14 +80,36 @@ class ProductController < ApplicationController
   def edit
     @pro = Product.find( params[:id] )
     @cate = Category.all
-    @sele =  (CategoryHasProduct.find_by( product_id: @pro.id.to_s )).category_id
+    @sele = (CategoryHasProduct.find_by( product_id: @pro.id.to_s )).category_id
   end
 
-  def update
-    @cate = Category.find( params[:id] )
-    @cate.name = params['category_name']
-    @cate.description = params['category_description']
-    @cate.save!
+  def change
+    t = Product.find( params[:id] )
+    t.name = params['name']
+    t.description = params['description']
+    t.price = params['price']
+    t.quantity = params['quantity']
+    t.length = params['length']
+    t.width = params['width']
+    t.height = params['height']
+    category1 = params['category1']
+    val = CategoryHasProduct.find_by( product_id: t.id )
+    cat = Category.find_by( name: category1.to_s )
+
+    val.category_id = cat.id
+
+    if t.quantity >= 1
+      @stock = StockStatus.find( 1 )
+    else
+      @stock = StockStatus.find( 2 )
+    end
+    @stock.products << t
+
+
+    val.save!
+    t.save!
+
+
     redirect_to list_product_index_path
   end
 

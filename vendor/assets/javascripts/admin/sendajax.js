@@ -40,7 +40,9 @@ $(document).ready(function(){
 		$.ajax({
 			url: '/admin/product/change',
 			type: 'POST',
-			data: {name: $("#name").val(), description: $("#description").val(), id: $("#id").val() },
+			data: { id: $("#id").val(), name: $("#name").val(), description: $("#description").val(), model: $("#model").val(),
+		 				price: $("#price").val(), quantity: $("#quantity").val(),	length: $("#length").val(), width: $("#width").val(), height: $("#height").val(),
+						status: $("#status").val(), category1: $("#category1").val() },
 			success: function( result ){}
 		});
 	});
