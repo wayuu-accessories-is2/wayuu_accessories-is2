@@ -1,13 +1,17 @@
 class CategoryController < ApplicationController
   def add
-    respond_to do |format|
-      format.js
+    if request.xhr?
+      respond_to do |format|
+        format.js
+      end
+    else
+      render layout: "admin"
     end
   end
 
   def new
-    name = params['category_name']
-    description = params['category_description']
+    name = params['name']
+    description = params['description']
 
     temp = Category.new
     temp.name = name
@@ -27,14 +31,18 @@ class CategoryController < ApplicationController
         format.js
       end
     else
-      render layout: 'admin'
+      render layout: "admin"
     end
   end
 
   def edit
     @cate = Category.find( params[:id] )
-    respond_to do |format|
-      format.js
+    if request.xhr?
+      respond_to do |format|
+        format.js
+      end
+    else
+      render layout: "admin"
     end
   end
 

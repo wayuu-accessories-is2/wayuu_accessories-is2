@@ -2,6 +2,11 @@ class ProductController < ApplicationController
 
   respond_to :html, :js
 
+  def index
+    @id = Category.find( params[:id] )
+    @products = Product.where("category_id = " + @id.id )
+  end
+
   def add
     @cate = Category.all.order('name ASC')
 
@@ -14,8 +19,8 @@ class ProductController < ApplicationController
   end
 
   def new
-    name = params['product_name']
-    description = params['product_description']
+    name = params['name']
+    description = params['description']
     model = params['model']
     price = params['price']
     tax_class_id = params['tax_class_id']
@@ -60,7 +65,7 @@ class ProductController < ApplicationController
     @catego.category_id = @cat.id
     @catego.save!
 
-    redirect_to '/admin/index'
+    redirect_to list_product_index_path
     #@imagen = params['images']
   end
 
@@ -81,13 +86,21 @@ class ProductController < ApplicationController
     @cate.name = params['category_name']
     @cate.description = params['category_description']
     @cate.save!
-    redirect_to '/admin/category/show'
+    redirect_to list_product_index_path
+  end
+
+  def list
+    @products = Product.all
   end
 
   def orderimages
     respond_to do |format|
       format.js
     end
+  end
+
+  def showforcategory
+
   end
 
 end
