@@ -7,3 +7,5 @@
 #= require admin/morris
 #= require admin/dropzone
 #= require admin/drop
+#= require admin/drag
+#= require admin/sortable

@@ -9,10 +9,10 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get 'admin/index', to: 'admin#admin_index'
-
+  post 'admin/index', to: 'admin#admin_index'
 
   get 'product/edit/:id', to: 'category#edit'
-  get 'category/edit/:id', to: 'category#edit'
+  #get 'category/edit/:id', to: 'category#edit'
 
 
 
@@ -25,6 +25,7 @@ Rails.application.routes.draw do
       post 'new', to: :new
       get 'show', to: :show
       post 'update', to: :update
+      get 'orderimages', to: :orderimages
     end
   end
 
@@ -34,10 +35,10 @@ Rails.application.routes.draw do
     collection do
       get 'add', to: :add
       post 'new', to: :new
-      get 'show', to: :show
       post 'update', to: :update
       get 'list', to: :list
       get 'status', to: :status
+      post 'change', to: :change
     end
   end
 

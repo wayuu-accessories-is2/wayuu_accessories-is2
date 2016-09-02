@@ -22,8 +22,12 @@ class CategoryController < ApplicationController
   def list
     @list = Category.all.order("id ASC")
     @consult = CategoryHasProduct.all
-    respond_to do |format|
-      format.js
+    if request.xhr?
+      respond_to do |format|
+        format.js
+      end
+    else
+      render layout: 'admin'
     end
   end
 
@@ -34,12 +38,15 @@ class CategoryController < ApplicationController
     end
   end
 
-  def update
-    @cate = Category.find( params[:id] )
-    @cate.name = params['category_name']
-    @cate.description = params['category_description']
-    @cate.save!
-    redirect_to list_category_index_path
+  def change
+    if request.xhr?
+      @cate = Category.find( params[:id] )
+      @cate.name = params[:name]
+      @cate.description = params[:description]
+      @cate.save!
+      redirect_to list_category_index_path
+    end
+
   end
 
   def status

@@ -84,4 +84,10 @@ class ProductController < ApplicationController
     redirect_to '/admin/category/show'
   end
 
+  def orderimages
+    respond_to do |format|
+      format.js
+    end
+  end
+
 end
