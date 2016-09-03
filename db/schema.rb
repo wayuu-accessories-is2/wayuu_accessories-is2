@@ -144,7 +144,7 @@ ActiveRecord::Schema.define(version: 20160829030407) do
   end
 
   create_table "product_images", force: :cascade do |t|
-    t.string   "link"
+    t.string   "image"
     t.integer  "sort_order"
     t.integer  "product_id"
     t.datetime "created_at", null: false

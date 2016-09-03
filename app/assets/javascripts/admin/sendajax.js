@@ -1,6 +1,4 @@
-alert("si carga-1");
 $(document).ready(function(){
-	//alert("si carga0");
 	$(document).on("click","#addcategory",function(){
 		alert("si carga1");
 		$.ajax({
@@ -19,7 +17,6 @@ $(document).ready(function(){
 		});
 	});
 	$(document).on("click","#addproduct",function(){
-		alert("si carga-2");
 		$.ajax({
 			url: '/admin/product/new',
 			type: 'POST',
