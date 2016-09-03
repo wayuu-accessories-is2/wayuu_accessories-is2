@@ -1,0 +1,16 @@
+.container {
+    position: relative;
+}
+
+.cd-header-buttons {
+    top: 14px;
+    right: 17%;
+}
+
+.cd-search {
+    top: 119%;
+}
+
+.core-slider_item img {
+    width: 100%;
+}
