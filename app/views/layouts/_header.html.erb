@@ -2,7 +2,7 @@
 	<div class="header-top">
 		<div class="container">
 			<div class="top-left">
-				<a href="#"> Help </i> 214-385-9926</a>
+				<a href="#"> Help  <i class="glyphicon glyphicon-phone" aria-hidden="true"></i> +214-385-9926</a>
 			</div>
 			<div class="top-right">
 				<ul>
@@ -62,10 +62,10 @@
 												</ul>
 											</div>
 											<div class="col-sm-3  multi-gd-img">
-												<a href="products.html"><img src="images/woo.jpg" alt=" "/></a>
+												<a href="products.html"><%= image_tag("woo.jpg") %></a>
 											</div> 
 											<div class="col-sm-3  multi-gd-img">
-												<a href="products.html"><img src="images/woo1.jpg" alt=" "/></a>
+												<a href="products.html"><%= image_tag("woo1.jpg") %></a>												
 											</div>
 											<div class="clearfix"></div>
 										</div>
@@ -99,10 +99,10 @@
 												</ul>
 											</div>
 											<div class="col-sm-3  multi-gd-img">
-												<a href="products1.html"><img src="images/woo3.jpg" alt=" "/></a>
+												<a href="products1.html"><%= image_tag("woo3.jpg") %></a>
 											</div> 
 											<div class="col-sm-3  multi-gd-img">
-												<a href="products1.html"><img src="images/woo4.jpg" alt=" "/></a>
+												<a href="products1.html"><%= image_tag("woo4.jpg") %></a>
 											</div>
 											<div class="clearfix"></div>
 										</div>
@@ -127,7 +127,7 @@
 						<a href="checkout.html">
 							<h3 class="font-gray"> <div class="total">
 								<span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</div>
-								<img src="images/bag.png" alt="" />
+								<%= image_tag("vendor/bag.png") %>
 							</h3>
 						</a>
 						<p><a href="javascript:;" class="simpleCart_empty font-gray">Empty Cart</a></p>

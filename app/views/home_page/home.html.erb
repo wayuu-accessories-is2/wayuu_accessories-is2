@@ -5,16 +5,16 @@
 			<div class="core-slider_viewport">
 				<div class="core-slider_list">
 					<div class="core-slider_item">
-						<img src="<%= asset_path 'b1.png' %>" class="img-responsive" alt="">
+						<%= image_tag("b1.png", class: "img-responsive") %>
 					</div>
 					<div class="core-slider_item">
-						<img src="<%= asset_path 'b2.jpg' %>" class="img-responsive" alt="">
+						<%= image_tag("b2.jpg", class: "img-responsive") %>
 					</div>
 					<div class="core-slider_item">
-						<img src="<%= asset_path 'b3.jpg' %>" class="img-responsive" alt="">
+						<%= image_tag("b3.jpg", class: "img-responsive") %>
 					</div>
 					<div class="core-slider_item">
-						<img src="<%= asset_path 'b4.jpg' %>" class="img-responsive" alt="">
+						<%= image_tag("b4.jpg", class: "img-responsive") %>
 					</div>
 				</div>
 			</div>
@@ -25,14 +25,6 @@
 			<div class="core-slider_control-nav"></div>
 		</div>
 	</div>
-	<link href="css/coreSlider.css" rel="stylesheet" type="text/css">
-	<script src="js/coreSlider.js"></script>
-	<script>
-		$('#example1').coreSlider({
-			pauseOnHover: false,
-			interval: 3000,
-			controlNavEnabled: true
-		});
-	</script>
+	<%= javascript_include_tag 'home/home_functions' %>
 </div>	
 <!--banner-->
