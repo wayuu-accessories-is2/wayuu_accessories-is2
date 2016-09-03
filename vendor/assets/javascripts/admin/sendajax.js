@@ -10,9 +10,6 @@ $(document).ready(function(){
 			success: function( result ){}
 		});
 	});
-});
-
-$(document).ready(function(){
 	$(document).on("click","#editcategory",function(){
 		$.ajax({
 			url: '/admin/category/change',
@@ -21,9 +18,6 @@ $(document).ready(function(){
 			success: function( result ){}
 		});
 	});
-});
-
-$(document).ready(function(){
 	$(document).on("click","#addproduct",function(){
 		$.ajax({
 			url: '/admin/product/new',
@@ -36,9 +30,6 @@ $(document).ready(function(){
 			success: function( result ){}
 		});
 	});
-});
-
-$(document).ready(function(){
 	$(document).on("click","#editproduct",function(){
 		$.ajax({
 			url: '/admin/product/change',
