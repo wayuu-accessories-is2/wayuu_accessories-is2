@@ -19,6 +19,7 @@ $(document).ready(function(){
 		});
 	});
 	$(document).on("click","#addproduct",function(){
+		alert("si carga-2");
 		$.ajax({
 			url: '/admin/product/new',
 			type: 'POST',
