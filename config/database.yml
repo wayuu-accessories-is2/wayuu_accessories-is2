@@ -15,7 +15,7 @@ development:
   <<: *default
   #url: <%= ENV['db_url'] %>
   host: localhost
-  database: wayuu3
+  database: wayuu1
   username: ingesoft
   password: 12345
   #url: <%= ENV['POSTGRE_URL'] %>
