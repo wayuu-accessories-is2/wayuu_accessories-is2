@@ -11,13 +11,14 @@ body, html {
 }
 
 .card-container.card {
-    max-width: 350px;
-    padding: 40px 40px;
+    max-width: 400px;
+    padding: 25px 40px;
 }
 
 .btn {
     font-weight: 700;
-    height: 36px;
+    height: 30px;
+    width: 20px;
     -moz-user-select: none;
     -webkit-user-select: none;
     user-select: none;
@@ -43,8 +44,8 @@ body, html {
 }
 
 .profile-img-card {
-    width: 96px;
-    height: 96px;
+    width: 100px;
+    height: 100px;
     margin: 0 auto 10px;
     display: block;
     -moz-border-radius: 50%;
@@ -59,15 +60,15 @@ body, html {
     font-size: 16px;
     font-weight: bold;
     text-align: center;
-    margin: 10px 0 0;
-    min-height: 1em;
+    margin: 5px 0 0;
+    min-height: 0.5em;
 }
 
 .reauth-email {
     display: block;
     color: #404040;
     line-height: 2;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     font-size: 14px;
     text-align: center;
     overflow: hidden;
@@ -79,16 +80,23 @@ body, html {
 }
 
 .form-signin #inputEmail,
-.form-signin #inputPassword {
+.form-signin #inputPassword,
+.form-signin #inputPasswordConfirmation{
     direction: inherit;
-    height: 35px;
-    font-size: 15px;
+    height: 40px;
+    font-size: 23px;
+    font-family: "Times New Roman";
+    font-style:normal;
+    text-align: center;
 }
+
+
 
 .form-signin input[type=email],
 .form-signin input[type=password],
 .form-signin input[type=text],
 .form-signin button {
+
     width: 100%;
     display: block;
     margin-bottom: 10px;
@@ -98,6 +106,13 @@ body, html {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
+
+
+
+
+
+
+
 
 .form-signin .form-control:focus {
     border-color: rgb(104, 145, 162);
@@ -138,4 +153,27 @@ body, html {
 .forgot-password:active,
 .forgot-password:focus{
     color: rgb(12, 97, 33);
+}
+
+.remember_me{
+  font-size: 25px;
+  font-family: verdana;
+}
+
+
+.btn-fb{
+     color: #fff;
+     background-color:#496ebc
+}
+.btn-fb:hover{
+    color: #fff;
+    background-color:#496ebd
+}
+.btn-tw{
+    color: #000;
+    background-color:#ffffff;
+}
+.btn-tw:hover{
+    color: #000;
+    background-color:#ffffff;
 }
