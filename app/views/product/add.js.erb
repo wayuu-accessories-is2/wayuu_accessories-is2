@@ -1,1 +1,2 @@
 $( "#indexcambio" ).html( "<%= escape_javascript( render( "addproduct" ) ) %>" );
+$( 'body' ).append( "<script>$( function() {$( '#sortable' ).sortable();$( '#sortable' ).disableSelection();} );</script>" );

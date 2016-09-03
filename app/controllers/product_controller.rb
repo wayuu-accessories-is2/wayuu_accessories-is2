@@ -89,14 +89,6 @@ class ProductController < ApplicationController
 
     val.category_id = cat.id
 
-    if t.quantity >= 1
-      @stock = StockStatus.find( 1 )
-    else
-      @stock = StockStatus.find( 2 )
-    end
-    @stock.products << t
-
-
     val.save!
     t.save!
 
