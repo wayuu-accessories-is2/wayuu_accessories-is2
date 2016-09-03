@@ -5,7 +5,7 @@
 #= require admin/sb-admin-2
 #= require admin/metisMenu
 #= require admin/morris
-#= require admin/dropzone
-#= require admin/drop
 #= require admin/sendajax
 #= require admin/sortable
+#= require dropzone
+#= require product_image

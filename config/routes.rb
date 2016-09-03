@@ -44,5 +44,5 @@ Rails.application.routes.draw do
 
   root to: 'hometeam#index'
   get 'admin/index', to: 'admin#admin_index'
-
+  resources :product_images
 end

@@ -2,8 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 // require_tree ../../../vendor/assets/stylesheets/admin/.
+
 //= require admin/bootstrap
 //= require admin/sb-admin-2
 //= require admin/font-awesome
 //= require admin/basic
-//= require admin/dropzone
+//= require dropzone/dropzone
+//= require product_image 

@@ -20,8 +20,9 @@
             <li class="active"><a href="#tab-data" data-toggle="tab">General</a></li>
             <li><a href="#tab-links" data-toggle="tab">Links</a></li>
             <li><a href="#tab-discount" data-toggle="tab">Discount</a></li>
-            <li><a href="#tab-image" data-toggle="tab">Image</a></li>
+            <li id="idImage"><a href="#tab-image" data-toggle="tab">Image</a></li>
           </ul>
+
           <div class="tab-content" style="margin-top: 15px">
             <div class="tab-pane active" id="tab-data">
               <div class="form-group required">
@@ -118,21 +119,18 @@
                 </table>
               </div>
             </div>
+            </form>
             <div class="tab-pane" id="tab-image">
-              <div class="form-group required">
-
-                  <div class="dropzone">
-                    <div class="fallback">
-                      <input name="file" type="file" multiple />
-                    </div>
+              <div class="modal-body">
+                <form method="post" action="/product_images" id="image" class="dropzone" enctype="multipart/form-data">
+                  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                  <div class="fallback">
+                    <input name="media" type="file"/>
                   </div>
-
-                </div>
-
+                </form>
               </div>
             </div>
           </div>
-        </form>
       </div>
     </div>
   </div>

@@ -49,8 +49,8 @@ class ProductController < ApplicationController
 
     if temp.quantity >= 1
       @stock = StockStatus.find( 1 )
-    else
-      @stock = StockStatus.find( 2 )
+    # else
+    #   @stock = StockStatus.find( 2 )
     end
     @stock.products << temp
 
