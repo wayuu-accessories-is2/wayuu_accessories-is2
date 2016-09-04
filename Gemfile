@@ -20,6 +20,8 @@ gem 'coffee-rails', '~> 4.2'
 gem 'bootstrap-sass', '~> 3.3.6'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+# Use jquery-ui as the JavaScript library
+gem 'jquery-ui-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 #gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -42,10 +44,18 @@ gem "omniauth-google-oauth2", "~> 0.2.1"
 group :development, :test do
   gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
 end
+# Gems requiried for images uploads
+gem 'carrierwave'
+gem 'fog'
+gem 'mini_magick', '~> 4.5', '>= 4.5.1'
+gem 'tinymce-rails'
+#gem 'active_model_serializers'
+gem 'dropzonejs-rails'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
 end
+
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console'

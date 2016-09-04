@@ -1,1 +1,8 @@
 
+<div class="modal-body">
+  <%= form_tag @product_image, method: :post, class: 'dropzone', id: 'media-dropzone' do %>
+    <div class="fallback">
+      <%= file_field_tag 'image', multiple: true %>
+    </div>
+  <% end %>
+</div>
