@@ -16,16 +16,23 @@
   <% end %>
 
   <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
-    <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />
+    <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br /></br>
   <% end %>
-
-      <a class="btn-fb"><i class="fa fa-facebook" aria-hidden="true"></i>
-      <%= link_to "#{OmniAuth::Utils.camelize(:facebook)}", omniauth_authorize_path(resource_name, :facebook) %><br />
-    </a>
-      <i class="fa fa-google-plus" aria-hidden="true"></i>
-      <%= link_to "#{OmniAuth::Utils.camelize(:google_oauth2)}", omniauth_authorize_path(resource_name, :google_oauth2) %><br />
-
-
+ </br>
+ <div class="row">
+  <div class="actions">
+    <div class="cuadro1">
+      <i class="fa fa-facebook" style="color:white"></i>
+      <%= link_to "Facebook", omniauth_authorize_path(resource_name, :facebook), :class=>"button"%>
+    </div>
+  </div>
+  <div class="col-md-1">
+    <div class="cuadro2">
+      <i class="fa fa-google-plus" style="color:white" ></i>
+      <%= link_to "Google", omniauth_authorize_path(resource_name, :google_oauth2), :class=>"button" %>
+    </div>
+  </div>
+   </div>
 
 
 </div>

@@ -1,3 +1,13 @@
+$(document).ready(function() {
+    $('#user').hover(function() {
+        $('#popup').show();
+    }, function() {
+        $('#popup').hide();
+    });
+});
+
+
+
 $( document ).ready(function() {
     // DOM ready
 

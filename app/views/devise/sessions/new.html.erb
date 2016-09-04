@@ -2,12 +2,10 @@
 <div class="modal-open" align="center">
   <div class="card card-container">
 
-    <h1 class="modal-title" align="center">Sign in</h1>
+    <div class="modal-title" style="font-size:42px" align="center">Sign in</div></br>
     <img id="profile_img" class="profile-img-card" src="<%= asset_path("profileimg.jpg") %>">
     <!--<p id="profile_name" class="profile-name-card"></p>-->
     <form class="form-signin">
-
-
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     </br>
     <div align="center" >
@@ -20,7 +18,6 @@
       <%= f.password_field :password, :id=>"inputPassword", :class=>"form-control", :placeholder=>"Password", :align=>"center", autofocus: true, autocomplete: "off" %>
     </div>
 
-  </br>
   <% if devise_mapping.rememberable? %>
     <div class="field">
       <%= f.check_box :remember_me %>
