@@ -9,7 +9,6 @@ class CreateProducts < ActiveRecord::Migration[5.0]
       t.float :height
       t.string :status, :default => 1
       t.string :description
-      t.references :stock_status, foreign_key: true
       t.timestamps
     end
   end
