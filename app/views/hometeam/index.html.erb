@@ -1,19 +1,18 @@
 <div class="bg">
-
       <div class="container">
         <div id="home" class="header wow bounceInDown" data-wow-delay="0.4s">
     		  <div class="top-header">
-            <div class="logo">
+            <div class="logo" align="center">
               <%= link_to 'Wayuu', '#' %>
     				</div>
     				<nav class="top-nav">
     				  <ul class="top-nav">
-    					  <li><%= link_to( 'web page', 'users/sign_up') %></li>
+                <li><a href="" data-toggle="modal" data-target="#myModal" data-keyboard="true">Home</a></li>
                 <li><%= link_to( 'about', '#about', class:'scroll' ) %></li>
     						<li><%= link_to( 'process', '#process', class:'scroll' ) %></li>
                 <li class="page-scroll"><%= link_to( 'contact', '#contact', class:'scroll' ) %></li>
                 <li class="active-join" class="page-scroll"><%= link_to( 'join us', '#team', class:'scroll' ) %></li>
-                <li><a href="users/sign_in">Sign_in</a></li>
+                <li><a href="users/sign_in">sign_in</a></li>
     					</ul>
     					<a href="#" id="pull"><%= image_tag('nav-icon.png', title: 'menu')%></a>
     				</nav>
@@ -21,6 +20,60 @@
     			</div>
     		</div>
     	</div>
+
+      <div id="myModal" class="modal" align="center" >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <div class="card card-container">
+                <div class="modal-title" style="font-size:42px" align="center">
+                  Sign in
+                </div>
+                <div class="modal-body">
+                    <img id="profile_img" class="profile-img-card" src="<%= asset_path("profileimg.jpg") %>">
+                    <!--<p id="profile_name" class="profile-name-card"></p>-->
+                    <form class="form-signin">
+                    </br>
+                      <div align="center" >
+                        Email
+                      </div>
+
+                    <div align="center">
+                      Password
+                    </div>
+
+
+                    <div class="field" check_box="true">
+                        Remember_me
+                    </div>
+                  </br>
+                  </div>
+
+                <div class="modal-footer">
+                  <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
+                </div>
+
+                <div class="row">
+                 <div class="actions">
+                   <div class="cuadro3">
+                     <i class="fa fa-facebook" style="color:white"></i>
+                     Facebook
+                   </div>
+                 </div>
+                 <div class="col-md-1">
+                   <div class="cuadro4">
+                     <i class="fa fa-google-plus" style="color:white" ></i>
+                     Google
+                   </div>
+                 </div>
+                  </div>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <div class="banner-info">
     	  <div class="container">

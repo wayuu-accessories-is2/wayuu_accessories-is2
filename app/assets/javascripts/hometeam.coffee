@@ -2,6 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 #= require jquery
+#= require 'team_page/bootstrap.min'
 #= require 'team_page/easing'
 #= require 'team_page/jquery.corner'
 #= require 'team_page/jquery.mixitup.min'
