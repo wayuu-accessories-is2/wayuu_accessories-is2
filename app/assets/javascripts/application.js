@@ -1,4 +1,4 @@
-//= require jquery3
+//= require jquery
 //= require store_template/jquery.min.js
 //= require store_template/jquery-ui.js
 //= require store_template/jquery-ui.min.js
