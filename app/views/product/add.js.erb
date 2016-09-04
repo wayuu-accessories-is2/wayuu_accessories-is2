@@ -1,2 +1,3 @@
 $( "#indexcambio" ).html( "<%= escape_javascript( render( "addproduct" ) ) %>" );
-$( 'body' ).append( "<script>$( function() {$( '#sortable' ).sortable();$( '#sortable' ).disableSelection();} );</script>" );
+//$( 'body' ).append( "<script>$( function() {$( '#sortable' ).sortable();$( '#sortable' ).disableSelection();} );</script>" );
+//$( 'body' ).append(  "<script>$(function () {$('#sortable').sortable({ update: function (event, ui) { var order = $(this).sortable('serialize'); $(document).on('click', '#saveorder', function () { $.ajax({data: order, type: 'POST',url: '/admin/product/sortimages' }); });}}).disableSelection();$('#saveorder').on('click', function () { var r = $('#sortable').sortable('toArray'); var a = $('#sortable').sortable('serialize');console.log(r, a);});});</script>" );

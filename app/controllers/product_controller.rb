@@ -122,4 +122,11 @@ class ProductController < ApplicationController
 
   end
 
+  def sortimages
+    arreglo = params[:data]
+    puts arreglo[0]
+    puts "veaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    redirect_to list_product_index_path
+  end
+
 end

@@ -8,3 +8,4 @@
 //= require admin/morris
 //= require admin/dropzone
 //= require admin/sendajax
+//= require admin/drag

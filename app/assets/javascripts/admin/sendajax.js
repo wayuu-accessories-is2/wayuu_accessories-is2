@@ -1,6 +1,7 @@
 alert("si carga-1");
 $(document).ready(function(){
 	//alert("si carga0");
+
 	$(document).on("click","#addcategory",function(){
 		alert("si carga1");
 		$.ajax({
@@ -40,4 +41,11 @@ $(document).ready(function(){
 			success: function( result ){}
 		});
 	});
+	
+
 });
+//$( function() {
+	//$( '#sortable' ).sortable();
+	//$( '#sortable' ).disableSelection();
+//});
+//function update_order() {window.location.href = '/admin/product/sortimages?'+$('#sortable').sortable('serialize');
