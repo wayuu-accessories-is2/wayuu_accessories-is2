@@ -40,7 +40,7 @@ group :development, :test do
   gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
 end
 # Gems requiried for images uploads
-gem 'carrierwave', '~> 0.9.0'
+gem 'carrierwave'
 gem 'fog'
 gem 'mini_magick', '~> 4.5', '>= 4.5.1'
 gem 'tinymce-rails'

@@ -24,11 +24,10 @@ class ProductImagesController < ApplicationController
    # POST /images
    # POST /images.json
    def create
-    p "#{params[:media]}"
-    @image = ProductImage.new(image: params[:media])
+    @image = ProductImage.new(image: params[:file])
     if @image.save
       p "guardo"
-    end  
+    end
     # respond_to do |format|
     #   # if @image.save
     #   #   format.html { redirect_to @image, notice: 'Image was successfully created.' }
