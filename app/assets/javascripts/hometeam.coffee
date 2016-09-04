@@ -3,7 +3,6 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 #= require jquery
 #= require 'team_page/easing'
-#= require 'team_page/jquery.corner'
 #= require 'team_page/jquery.mixitup.min'
 #= require 'team_page/move-top'
 #= require 'team_page/owl.carousel'
