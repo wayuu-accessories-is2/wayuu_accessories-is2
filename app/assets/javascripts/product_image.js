@@ -1,5 +1,5 @@
 $(document).on("ready",function(){
-  $(document).on("click","#idImage",function(){
+  $(document).on("click",function(){
     var mediaDropzone = new Dropzone("#image");
     Dropzone.options.mediaDropzone = {
     success: function (response) {
