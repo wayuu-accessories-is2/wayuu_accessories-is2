@@ -1,11 +1,11 @@
 $(document).on("ready",function(){
   $(document).on("click","#idImage",function(){
     var mediaDropzone = new Dropzone("#image");
-    // Dropzone.options.image = {
-    // success: function (response) {
-    //             eval(response.xhr.response);
-    //         }
-    // };
+    Dropzone.options.image = {
+    success: function (response) {
+                eval(response.xhr.response);
+            }
+    };
     mediaDropzone.options.acceptedFiles = ".jpeg,.jpg,.png,.gif";
     mediaDropzone.options.maxFiles = 7;
     mediaDropzone.options.autoProcessQueue = false;
@@ -37,8 +37,7 @@ $(document).on("ready",function(){
                    }
                 });
             });
-
-          mediaDropzone.files = newQueue;
+        mediaDropzone.files = newQueue;
 
           }
       });
