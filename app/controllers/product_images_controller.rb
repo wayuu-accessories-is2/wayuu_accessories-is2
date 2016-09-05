@@ -25,7 +25,8 @@ class ProductImagesController < ApplicationController
    # POST /images.json
    def create
     @image = ProductImage.new(image: params[:file])
-    @image.sort_order = -1
+    @image.sort_order = session[:order]
+    session[:order] += 1 
     @image.product_id = session[:productid]
     @image.save
     #respond_to do |format|

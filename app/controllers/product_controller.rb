@@ -47,7 +47,7 @@ class ProductController < ApplicationController
     temp.status = status
 
     temp.save!
-
+    session[:order] = 1
     #puts @stock.errors.any?
     #puts temp.errors.full_messages
 
