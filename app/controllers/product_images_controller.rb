@@ -28,7 +28,6 @@ class ProductImagesController < ApplicationController
     @image.sort_order = -1
     @image.product_id = session[:productid]
     @image.save
-    redirect_to list_product_index_path
     #respond_to do |format|
       #if @image.save
         #format.html { redirect_to @image, notice: 'Image was successfully created.' }
