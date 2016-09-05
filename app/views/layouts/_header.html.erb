@@ -20,6 +20,7 @@
 				<div class="logo-nav-left">
 					
 					<%= link_to( image_tag("brand-logo.png", class: "brand-logo"), 'home') %>
+					<!-- link_to( image_tag("brand-logo.png", class: "brand-logo"), home_page_path(@home)) -->
 				</div>
 				<div class="logo-nav-left1 logo-nav-left1-custom">
 					<nav class="navbar navbar-default">
@@ -34,7 +35,7 @@
 						</div> 
 						<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 							<ul class="nav navbar-nav">
-								<li class="active"><%= link_to("Home", "home", class: "act")%></li>
+								<li class="active"><a href="home" class="act">Home</a></li>	
 								<!-- Mega Menu -->
 								<li class="dropdown">
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Shop Categories<b class="caret"></b></a>
@@ -77,7 +78,6 @@
 													<li><a href="products.html">WalletsWalletsWallets</a></li>
 													<li><a href="products.html">Privacy Policy</a></li>
 													<li><a href="products.html">Terms and Conditions</a></li>
-													<li><%= link_to("Developer Team", "team")%></li>
 												</ul>
 											</div>
 											<div class="clearfix"></div>

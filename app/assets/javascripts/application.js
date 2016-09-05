@@ -1,14 +1,19 @@
-// This is a manifest file that'll be compiled into application.js, which will include all the files
-// listed below.
-//
-// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
-// or any plugin's vendor/assets/javascripts directory can be referenced here using a relative path.
-//
-// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
-// compiled file. JavaScript code in this file should be added after the last require_* statement.
-//
-// Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
-// about supported directives.
-//
-//= require jquery
-//= require jquery_ujs
+//= require jquery3
+//= require store_template/jquery.min.js
+//= require store_template/jquery-ui.js
+//= require store_template/jquery-ui.min.js
+//= require store_template/jquery.mycart.js
+//= require store_template/jquery.flexslider.js
+//= require store_template/jquery.mousewheel.js
+//= require store_template/jquery.jscrollpane.min.js
+//= require store_template/bootstrap.js
+//= require store_template/bootstrap-3.1.1.min.js
+//= require store_template/main.js
+//= require store_template/jstarbox.js
+//= require store_template/imagezoom.js
+//= require store_template/coreSlider.js
+//= require store_template/home_page.js
+//= require store_template/owl.carousel.js
+//= require store_template/simpleCart.min.js
+//= require store_template/responsiveslides.min.js
+//= require store_template/custom.js

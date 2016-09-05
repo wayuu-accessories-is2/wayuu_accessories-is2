@@ -5,39 +5,21 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: postgresql
-  encoding: unicode
-  # For details on connection pooling, see rails configuration guide
-  # http://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  adapter: sqlite3
+  pool: 5
+  timeout: 5000
 
 development:
   <<: *default
-  #url: <%= ENV['db_url'] %>
-  # host: localhost
-  # database: wayuu1
-  # username: ingesoft
-  # password: 12345
-  url: <%= ENV['POSTGRE_URL'] %>
-  host: <%= ENV['POSTGRE_HOST'] %>
-  database: <%= ENV['POSTGRE_DB'] %>
-  username: <%= ENV['POSTGRE_USERNAME'] %>
-  password: <%= ENV['POSTGRE_PASSWORD'] %>
+  database: db/development.sqlite3
+
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  url: <%= ENV['DB_URL'] %>
-  host: <%= ENV['POSTGRE_HOST'] %>
-  database: <%= ENV['DB_USER'] %>
-  username: <%= ENV['DB_USER'] %>
-  password: <%= ENV['DB_PASS'] %>
+  database: db/test.sqlite3
 
 production:
   <<: *default
-  url: <%= ENV['DB_URL'] %>
-  host: <%= ENV['POSTGRE_HOST'] %>
-  database: <%= ENV['DB_USER'] %>
-  username: <%= ENV['DB_USER'] %>
-  password: <%= ENV['DB_PASS'] %>
+  database: db/production.sqlite3
