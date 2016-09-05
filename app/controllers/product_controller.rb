@@ -89,14 +89,6 @@ class ProductController < ApplicationController
 
     val.category_id = cat.id
 
-    if t.quantity >= 1
-      @stock = StockStatus.find( 1 )
-    else
-      @stock = StockStatus.find( 2 )
-    end
-    @stock.products << t
-
-
     val.save!
     t.save!
 
@@ -128,6 +120,14 @@ class ProductController < ApplicationController
 
   def showforcategory
 
+  end
+
+  def sortimages
+    arreglo = params['info']
+    puts arreglo.length
+    puts arreglo
+    puts "veaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    redirect_to list_product_index_path
   end
 
 end

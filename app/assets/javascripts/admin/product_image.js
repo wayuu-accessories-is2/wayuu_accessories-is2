@@ -14,7 +14,7 @@ $(document).on("ready",function(){
         mediaDropzone.removeAllFiles();
         mediaDropzone.addFile(file);
     });
-    var submitButton = document.querySelector("#addproduct")
+    var submitButton = document.querySelector("#saveimage")
     submitButton.addEventListener("click", function() {
         mediaDropzone.processQueue();  // Tell Dropzone to process all queued files.
     });

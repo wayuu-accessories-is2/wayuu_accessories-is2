@@ -13,10 +13,10 @@ Rails.application.routes.draw do
         post 'new', to: :new
         get 'show', to: :show
         post 'update', to: :update
-        get 'orderimages', to: :orderimages
         post 'change', to: :change
         get 'list', to: :list
         get 'status', to: :status
+        post 'sortimages', to: :sortimages
       end
     end
   end

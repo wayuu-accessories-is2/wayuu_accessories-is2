@@ -5,6 +5,8 @@
 
     <div class="pull-right">
       <button data-toggle="tooltip" title="Save" id="addproduct" class="btn btn-primary"><i class="fa fa-save"></i></button>
+      <button title="Saveimage" id="saveimage" class="btn btn-primary"><i class="fa fa-save"></i></button>
+      <button title="Order" id="saveorder" class="btn btn-primary"><i class="fa fa-sort"></i></button>
       <a href="/admin/index" data-toggle="tooltip" title="Cancel" class="btn btn-default"><i class="fa fa-reply"></i></a></div>
       <h1>Product</h1>
     </div>
@@ -21,6 +23,7 @@
             <li><a href="#tab-links" data-toggle="tab">Links</a></li>
             <li><a href="#tab-discount" data-toggle="tab">Discount</a></li>
             <li id="idImage"><a href="#tab-image" data-toggle="tab">Image</a></li>
+            <li><a href="#tab-sort" data-toggle="tab">Sort images</a></li>
           </ul>
 
           <div class="tab-content" style="margin-top: 15px">
@@ -109,11 +112,7 @@
                   </thead>
                   <tbody>
                     <td class="text-right"><input type="text" id="product_discount_price" value="" placeholder="Price" class="form-control" /></td>
-                    <!-- <td><div class='col-sm-12'><div class="form-group"><div class='input-group date' name="product_discount_start" id='datetimepicker2'><input type='text' class="form-control" />
-                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span></div></div></div></td> -->
                     <td class="text-left"><input type="text" id="product_discount_start" value="" placeholder="Date Start" class="form-control" /></td>
-                    <!-- <td><div class='col-sm-12'><div class="form-group"><div class='input-group date' name="product_discount_end" id='datetimepicker2'><input type='text' class="form-control" />
-                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span></div></div></div></td> -->
                     <td class="text-left"><input type="text" id="product_discount_end" value="" placeholder="Date End" class="form-control" /></td>
                   </tbody>
                 </table>
@@ -130,7 +129,19 @@
                 </form>
               </div>
             </div>
+            <div class="tab-pane" id="tab-sort" align="center">
+              <div class="form-group required">
+                <ul id="sortable">
+                  <li id="1"  class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 1</li>
+                  <li id="2" class="ui-state-default"><span  class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
+                  <li id="3" class="ui-state-default"><span  class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</li>
+                  <li id="4" class="ui-state-default"><span  class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 4</li>
+                  <li id="5" class="ui-state-default"><span  class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 5</li>
+                  <li id="6" class="ui-state-default"><span  class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 6</li>
+                  <li id="7" class="ui-state-default"><span  class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 7</li>
+                </ul>
+              </div>
+            </div>
           </div>
-      </div>
+        </div>
     </div>
-  </div>
