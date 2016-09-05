@@ -26,10 +26,11 @@ class ProductImagesController < ApplicationController
    def create
     @image = ProductImage.new(image: params[:file])
     @image.sort_order = -1
+    @image.product_id = session[:productid]
     respond_to do |format|
       if @image.save
         #format.html { redirect_to @image, notice: 'Image was successfully created.' }
-        format.js { }#render :listproduct, status: :created, location: @image }
+        format.js { render :listproduct, status: :created, location: @image }
       else
         #format.html { render :new }
         format.json { render json: @image.errors, status: :unprocessable_entity }
