@@ -52,6 +52,7 @@ $(document).ready(function(){
 		});
 	});
 	//$(document).on("click","#saveimage",function(){
+		//$( "#indexcambio" ).html( "<%= escape_javascript( render( "addproduct" ) ) %>" );
 		// $('#tab-image').removeClass('active');
 		// $('#saveimage').addClass('hidden');
 		// $('#saveorder').removeClass('hidden');

@@ -3,8 +3,7 @@ $(document).on("ready",function(){
     var mediaDropzone = new Dropzone("#image");
     Dropzone.options.mediaDropzone = {
     success: function (response) {
-                eval(response.xhr.response),
-                $( "#indexcambio" ).html( "<%= escape_javascript( render( "product/addproduct" ) ) %>" );
+                eval(response.xhr.response);
             }
     };
     mediaDropzone.options.acceptedFiles = ".jpeg,.jpg,.png,.gif";
