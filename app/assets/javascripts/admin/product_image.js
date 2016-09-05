@@ -8,16 +8,16 @@ $(document).on("ready",function(){
     };
     mediaDropzone.options.acceptedFiles = ".jpeg,.jpg,.png,.gif";
     mediaDropzone.options.maxFiles = 7;
-    mediaDropzone.options.autoProcessQueue = false;
+    mediaDropzone.options.autoProcessQueue = true;
     mediaDropzone.options.parallelUploads = 1;
     mediaDropzone.on("maxfilesexceeded", function(file) {
         mediaDropzone.removeAllFiles();
         mediaDropzone.addFile(file);
     });
     var submitButton = document.querySelector("#saveimage")
-    submitButton.addEventListener("click", function() {
-        mediaDropzone.processQueue();  // Tell Dropzone to process all queued files.
-    });
+    // submitButton.addEventListener("click", function() {
+    //     mediaDropzone.processQueue();  // Tell Dropzone to process all queued files.
+    // });
     $(function() {
       $("#image").sortable({
         items: '.dz-preview',
@@ -28,6 +28,7 @@ $(document).on("ready",function(){
         tolerance: 'pointer',
         stop: function () {
             var queue = mediaDropzone.files;
+            console.log(queue);
             $('#image .dz-preview .dz-filename [data-dz-name]').each(function (count, el) {
                 var name = el.getAttribute('data-name');
                 console.log(el.getAttribute('data-name'));
