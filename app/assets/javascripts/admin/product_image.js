@@ -4,7 +4,7 @@ $(document).on("ready",function(){
     Dropzone.options.mediaDropzone = {
     success: function (response) {
                 eval(response.xhr.response);
-                $( "#indexcambio" ).html( "<%= escape_javascript( render( "product/addproduct" ) ) %>" );
+                $( "#indexcambio" ).html( "<%= escape_javascript( render( "addproduct" ) ) %>" );
             }
     };
     mediaDropzone.options.acceptedFiles = ".jpeg,.jpg,.png,.gif";
