@@ -9,7 +9,7 @@ $(document).on("ready",function(){
     mediaDropzone.options.acceptedFiles = ".jpeg,.jpg,.png,.gif";
     mediaDropzone.options.maxFiles = 7;
     mediaDropzone.options.autoProcessQueue = false;
-
+    mediaDropzone.options.parallelUploads = 1;
     mediaDropzone.on("maxfilesexceeded", function(file) {
         mediaDropzone.removeAllFiles();
         mediaDropzone.addFile(file);
