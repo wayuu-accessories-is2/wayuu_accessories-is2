@@ -1,7 +1,7 @@
 $(document).on("ready",function(){
   $(document).on("click","#addproduct",function(){
     var mediaDropzone = new Dropzone("#image");
-    Dropzone.options.image = {
+    Dropzone.options.mediaDropzone = {
     success: function (response) {
                 eval(response.xhr.response);
             }
