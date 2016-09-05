@@ -30,7 +30,8 @@ class ProductImagesController < ApplicationController
     respond_to do |format|
       if @image.save
         #format.html { redirect_to @image, notice: 'Image was successfully created.' }
-        format.js { render :listproduct, status: :created, location: @image }
+        #format.js { render :listproduct, status: :created, location: @image }
+        redirect_to list_product_index_path
       else
         #format.html { render :new }
         format.json { render json: @image.errors, status: :unprocessable_entity }
