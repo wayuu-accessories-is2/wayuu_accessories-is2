@@ -28,7 +28,8 @@ $(document).on("ready",function(){
         tolerance: 'pointer',
         stop: function () {
             var queue = mediaDropzone.files;
-            console.log(queue);
+            var newQueue = [];
+            console.log(queue[0].original_filename);
             $('#image .dz-preview .dz-filename [data-dz-name]').each(function (count, el) {
                 var name = el.getAttribute('data-name');
                 console.log(el.getAttribute('data-name'));
