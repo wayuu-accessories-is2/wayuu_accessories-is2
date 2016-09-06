@@ -38,6 +38,7 @@ $(document).ready(function(){
 		$('#general').addClass('hidden');
 		$('#link').addClass('hidden');
 		$('#tab-data').removeClass('active');
+		$('#tab-links').removeClass('active');
 		$('#tab-image').addClass('active');
 
 	});
