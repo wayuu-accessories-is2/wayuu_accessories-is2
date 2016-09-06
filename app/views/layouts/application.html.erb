@@ -1,16 +1,28 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-  <head>
-    <title>Wayuu</title>
-    <%= csrf_meta_tags %>
-    <p class="notice"><%= notice %></p>
+<head>
+	<title>Wayuu</title>
+	<%= csrf_meta_tags %>
+	<p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
-  </head>
-
-  <body>
-    <%= render 'shared/facebook_sdk' %>
-    <%= yield %>
-  </body>
+	<%= stylesheet_link_tag    'application', media: 'all' %>
+	<%= javascript_include_tag 'application' %>	
+	<link href='https://fonts.googleapis.com/css?family=Cagliostro' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,800italic,800,700italic,700,600italic,600,400italic,300italic,300' rel='stylesheet' type='text/css'>
+</head>
+<body>
+	<!--header-->
+	<%= render partial: 'layouts/header' %>
+	<!--header-->
+	<!--content-->
+	<%= yield %>
+	<!--content-->
+	<!--footer-->
+	<%= render partial: 'layouts/footer' %>
+	<!---footer-->
+	<!--copy-->
+	<%= render partial: 'layouts/copy' %>
+	<!--copy-->
+	<%= render 'shared/facebook_sdk' %>
+</body>
 </html>
