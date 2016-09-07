@@ -39,6 +39,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.string :oauth_token
       t.datetime :oauth_expires_at
 
+      t.string :auth_token, default: Devise.friendly_token
       t.timestamps null: false
 
 
@@ -47,6 +48,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
     add_index :users, :email,                unique: true
     add_index :users, :reset_password_token, unique: true
     add_index :users, :confirmation_token,   unique: true
+    add_index :users, :auth_token,   unique: true
     # add_index :users, :unlock_token,         unique: true
   end
 end

@@ -185,12 +185,12 @@ ActiveRecord::Schema.define(version: 20160829030407) do
 
   create_table "users", force: :cascade do |t|
     t.integer  "customer_id"
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",                     null: false
+    t.string   "encrypted_password",     default: "",                     null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,                      null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
@@ -199,7 +199,7 @@ ActiveRecord::Schema.define(version: 20160829030407) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.integer  "failed_attempts",        default: 0,  null: false
+    t.integer  "failed_attempts",        default: 0,                      null: false
     t.string   "unlock_token"
     t.datetime "locked_at"
     t.string   "provider"
@@ -207,8 +207,10 @@ ActiveRecord::Schema.define(version: 20160829030407) do
     t.string   "name"
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.string   "auth_token",             default: "EuFQAgdUiRQsUqXiJLbS"
+    t.datetime "created_at",                                              null: false
+    t.datetime "updated_at",                                              null: false
+    t.index ["auth_token"], name: "index_users_on_auth_token", unique: true, using: :btree
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
     t.index ["customer_id"], name: "index_users_on_customer_id", using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
