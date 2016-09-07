@@ -1,0 +1,5 @@
+<p>
+  <strong>Image</strong>
+    <%@product_img = ProductImage.where("product_image_id = 1")%>
+    <%=image_tag(@product_img.image.url)%>
+</p>
