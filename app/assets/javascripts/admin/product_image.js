@@ -30,6 +30,7 @@ $(document).on("ready",function(){
 // disable queue auto processing on upload complete
     mediaDropzone.on("queuecomplete", function() {
       mediaDropzone.options.autoProcessQueue = false;
+      
     });
     var newQueue = [];
     $(function() {
