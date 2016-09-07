@@ -5,8 +5,8 @@
 
     <div class="pull-right">
       <button data-toggle="tooltip" title="Save" id="addproduct" class="btn btn-primary"><i class="fa fa-save"></i></button>
-      <button title="Saveimage" id="saveimage" class="btn btn-primary"><i class="fa fa-save"></i></button>
-      <button title="Order" id="saveorder" class="btn btn-primary"><i class="fa fa-sort"></i></button>
+      <button title="Saveimage" id="saveimage" class="btn btn-primary hidden"><i class="fa fa-save"></i></button>
+      <button title="Order" id="saveorder" class="btn btn-primary hidden"><i class="fa fa-sort"></i></button>
       <a href="/admin/index" data-toggle="tooltip" title="Cancel" class="btn btn-default"><i class="fa fa-reply"></i></a></div>
       <h1>Product</h1>
     </div>
@@ -19,11 +19,10 @@
         <form action="/product/new" method="post" enctype="multipart/form-data" id="form-product" class="form-horizontal">
           <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
           <ul class="nav nav-tabs">
-            <li class="active"><a href="#tab-data" data-toggle="tab">General</a></li>
-            <li><a href="#tab-links" data-toggle="tab">Links</a></li>
-            <li><a href="#tab-discount" data-toggle="tab">Discount</a></li>
-            <li id="idImage"><a href="#tab-image" data-toggle="tab">Image</a></li>
-            <li><a href="#tab-sort" data-toggle="tab">Sort images</a></li>
+            <li class="active" id="general"><a href="#tab-data" data-toggle="tab">General</a></li>
+            <li id="link"><a href="#tab-links" data-toggle="tab">Links</a></li>
+            <li id="idImage" class="hidden"><a href="#tab-image" data-toggle="tab">Image</a></li>
+            <li id="idSort" class="hidden"><a href="#tab-sort" data-toggle="tab">Sort images</a></li>
           </ul>
 
           <div class="tab-content" style="margin-top: 15px">
@@ -100,24 +99,6 @@
                 </div>
               </div>
             </div>
-            <div class="tab-pane" id="tab-discount">
-              <div class="table-responsive">
-                <table id="discount" class="table table-striped table-bordered table-hover">
-                  <thead>
-                    <tr>
-                      <td class="text-right">Price</td>
-                      <td class="text-left">Date Start</td>
-                      <td class="text-left">Date End</td>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <td class="text-right"><input type="text" id="product_discount_price" value="" placeholder="Price" class="form-control" /></td>
-                    <td class="text-left"><input type="text" id="product_discount_start" value="" placeholder="Date Start" class="form-control" /></td>
-                    <td class="text-left"><input type="text" id="product_discount_end" value="" placeholder="Date End" class="form-control" /></td>
-                  </tbody>
-                </table>
-              </div>
-            </div>
             </form>
             <div class="tab-pane" id="tab-image">
               <div class="modal-body">
@@ -129,7 +110,7 @@
                 </form>
               </div>
             </div>
-            <div class="tab-pane" id="tab-sort" align="center">
+            <div class="tab-pane disabled" id="tab-sort" align="center">
               <div class="form-group required">
                 <ul id="sortable">
                   <li id="1"  class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 1</li>

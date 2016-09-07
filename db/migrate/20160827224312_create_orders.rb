@@ -4,7 +4,7 @@ class CreateOrders < ActiveRecord::Migration[5.0]
       t.references :customer, foreign_key: true
       t.references :order_status, foreign_key: true
       t.references :cart, foreign_key: true
-      t.references :confirmation_order, foreign_key: true
+      #t.references :confirmation_order, foreign_key: true
       t.timestamps
     end
   end

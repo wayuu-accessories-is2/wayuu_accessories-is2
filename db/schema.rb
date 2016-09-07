@@ -119,10 +119,7 @@ ActiveRecord::Schema.define(version: 20160829030407) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.string   "comment"
-    t.integer  "rating"
     t.integer  "customer_id"
-    t.integer  "product_id"
     t.integer  "order_status_id"
     t.integer  "cart_id"
     t.datetime "created_at",      null: false
@@ -130,7 +127,6 @@ ActiveRecord::Schema.define(version: 20160829030407) do
     t.index ["cart_id"], name: "index_orders_on_cart_id", using: :btree
     t.index ["customer_id"], name: "index_orders_on_customer_id", using: :btree
     t.index ["order_status_id"], name: "index_orders_on_order_status_id", using: :btree
-    t.index ["product_id"], name: "index_orders_on_product_id", using: :btree
   end
 
   create_table "product_discounts", force: :cascade do |t|
@@ -232,7 +228,6 @@ ActiveRecord::Schema.define(version: 20160829030407) do
   add_foreign_key "orders", "carts"
   add_foreign_key "orders", "customers"
   add_foreign_key "orders", "order_statuses"
-  add_foreign_key "orders", "products"
   add_foreign_key "product_discounts", "products"
   add_foreign_key "product_images", "products"
   add_foreign_key "returns", "orders"

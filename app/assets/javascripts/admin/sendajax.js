@@ -30,6 +30,17 @@ $(document).ready(function(){
 						product_discount_start: $("#product_discount_start").val(), product_discount_end: $("#product_discount_end").val()},
 			success: function( result ){}
 		});
+		$('#addproduct').addClass('hidden');
+		$('#saveimage').removeClass('hidden');
+		$('#idImage').removeClass('hidden');
+		$('#idImage').addClass('active');
+		$('#general').removeClass('active');
+		$('#general').addClass('hidden');
+		$('#link').addClass('hidden');
+		$('#tab-data').removeClass('active');
+		$('#tab-links').removeClass('active');
+		$('#tab-image').addClass('active');
+
 	});
 	$(document).on("click","#editproduct",function(){
 		$.ajax({
@@ -41,7 +52,17 @@ $(document).ready(function(){
 			success: function( result ){}
 		});
 	});
-	
+	//$(document).on("click","#saveimage",function(){
+		//$( "#indexcambio" ).html( "<%= escape_javascript( render( "addproduct" ) ) %>" );
+		// $('#tab-image').removeClass('active');
+		// $('#saveimage').addClass('hidden');
+		// $('#saveorder').removeClass('hidden');
+		// $('#tab-sort').addClass('active');
+		// $('#idImage').removeClass('active');
+		// $('#idSort').addClass('active');
+		// $('#idImage').addClass('hidden');
+		// $('#idSort').removeClass('hidden');
+	//});
 
 });
 //$( function() {

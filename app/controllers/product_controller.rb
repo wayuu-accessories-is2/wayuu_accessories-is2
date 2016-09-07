@@ -47,7 +47,7 @@ class ProductController < ApplicationController
     temp.status = status
 
     temp.save!
-
+    session[:order] = 1
     #puts @stock.errors.any?
     #puts temp.errors.full_messages
 
@@ -55,8 +55,8 @@ class ProductController < ApplicationController
     @catego.product_id = temp.id
     @catego.category_id = @cat.id
     @catego.save!
-
-    redirect_to list_product_index_path
+    session[:productid] = temp.id
+    #redirect_to list_product_index_path
     #@imagen = params['images']
   end
 
