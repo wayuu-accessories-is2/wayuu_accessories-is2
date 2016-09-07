@@ -9,16 +9,17 @@ $(document).on("ready",function(){
     mediaDropzone.options.acceptedFiles = ".jpeg,.jpg,.png,.gif";
     mediaDropzone.options.maxFiles = 7;
     mediaDropzone.options.autoProcessQueue = false;
-    mediaDropzone.options.parallelUploads = 1;
+    mediaDropzone.options.parallelUploads = 7;
     mediaDropzone.on("maxfilesexceeded", function(file) {
         mediaDropzone.removeAllFiles();
         mediaDropzone.addFile(file);
     });
-    mediaDropzone.on('success', mediaDropzone.processQueue());
+
     var submitButton = document.querySelector("#saveimage");
     submitButton.addEventListener("click", function() {
          mediaDropzone.processQueue();  // Tell Dropzone to process all queued files.
     });
+      $(function() { mediaDropzone.processQueue() });
     var newQueue = [];
     $(function() {
       $("#image").sortable({
