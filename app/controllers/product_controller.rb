@@ -118,6 +118,10 @@ class ProductController < ApplicationController
     end
   end
 
+  def showimage
+    
+  end
+
   def showforcategory
 
   end
