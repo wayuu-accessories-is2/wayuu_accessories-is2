@@ -3,7 +3,6 @@
 # Version of your assets, change this if you want to expire all your assets.
 Rails.application.config.assets.version = '1.0'
 
-Rails.application.config.assets.precompile += %w( store_template/home_page.js )
 Rails.application.config.assets.precompile += %w( hometeam.scss )
 Rails.application.config.assets.precompile += %w( hometeam.coffee )
 Rails.application.config.assets.precompile += %w( admin.css )
@@ -18,6 +17,11 @@ Rails.application.config.assets.precompile += %w( glyphicons-halflings-regular.s
 Rails.application.config.assets.precompile += %w( glyphicons-halflings-regular.ttf )
 Rails.application.config.assets.precompile += %w( glyphicons-halflings-regular.woff )
 Rails.application.config.assets.precompile += %w( glyphicons-halflings-regular.woff2 )
+
+Rails.application.config.assets.precompile += %w( application.scss )
+Rails.application.config.assets.precompile += %w( application.js )
+Rails.application.config.assets.precompile += %w( store_template/home_page.js )
+
 
 #Rails.application.config.assets.precompile += %w( team_page/hometeamscript.js )
 #Rails.application.config.assets.precompile += %w( team_page/owl.carousel.css )
