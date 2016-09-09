@@ -1,9 +1,9 @@
 <div align="center">
   <div class="card card-container1">
-      <h1 class="modal-title" align="center">Sign up</h1></br>
+      <h1 class="modal-title" align="center">Sign_up</h1></br>
       <img id="profile_img" class="profile-img-card" src="<%= asset_path("profileimg.jpg") %>">
       <p id="profile_name" class="profile-name-card"></p>
-      <form class="form-signin">
+      <div class="form-signin">
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= devise_error_messages! %>
 
@@ -36,6 +36,6 @@
 
        <%= render "devise/shared/links" %>
        <% end %>
-       </form>
+     </div>
      </div><!-- /card-container -->
 </div>
