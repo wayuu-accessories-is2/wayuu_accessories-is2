@@ -17,7 +17,6 @@ Rails.application.routes.draw do
         get 'list', to: :list
         get 'status', to: :status
         post 'sortimages', to: :sortimages
-        get 'showimage', to: :showimage
       end
     end
   end
