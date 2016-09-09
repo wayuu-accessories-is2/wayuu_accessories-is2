@@ -42,4 +42,14 @@ class User < ApplicationRecord
         self.auth_token = Devise.friendly_token
       end while self.class.exists?(auth_token: auth_token)
     end
+
+    def admin?
+      self.role == 53
+    end
+
+    def linguist?
+      self.role == 7
+    end
+
+    
 end
