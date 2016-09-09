@@ -207,6 +207,7 @@ ActiveRecord::Schema.define(version: 20160908000703) do
     t.string   "name"
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
+    t.integer  "role"
     t.string   "auth_token"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
