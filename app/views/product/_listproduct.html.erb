@@ -33,12 +33,12 @@
                 <% @products.each do |t| %>
                 <tr>
 
-                  <td><%=image_tag ProductImage.find_by(product_id: t.id.to_s ).image.thumb.url%></td>
+                  <td><%#=image_tag ProductImage.find_by(product_id: t.id.to_s ).image.thumb.url%></td>
                   <td><%= t.name %></td>
                   <td><%= t.description %></td>
                   <td><%= t.price %></td>
                   <td><%= Category.find( (((CategoryHasProduct.find_by( product_id: t.id.to_s  )).category_id).to_s) ).name %></td>
-                  <td><%= ProductDiscount.where("product_id = " + t.id.to_s ).size %></td>
+                  <td><%=ProductDiscount.where("product_id = " + t.id.to_s ).size %></td>
                   <% if t.status == "1" %>
                     <td>Active</td>
                   <% else %>

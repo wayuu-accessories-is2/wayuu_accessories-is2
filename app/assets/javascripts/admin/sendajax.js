@@ -52,17 +52,17 @@ $(document).ready(function(){
 			success: function( result ){}
 		});
 	});
-	//$(document).on("click","#saveimage",function(){
-		//$( "#indexcambio" ).html( "<%= escape_javascript( render( "addproduct" ) ) %>" );
-		// $('#tab-image').removeClass('active');
-		// $('#saveimage').addClass('hidden');
-		// $('#saveorder').removeClass('hidden');
-		// $('#tab-sort').addClass('active');
-		// $('#idImage').removeClass('active');
-		// $('#idSort').addClass('active');
-		// $('#idImage').addClass('hidden');
-		// $('#idSort').removeClass('hidden');
-	//});
+	// $(document).on("click","#saveimage",function(){
+	// 	$( "#indexcambio" ).html( "<%= escape_javascript( render( "addproduct" ) ) %>" );
+	// 	$('#tab-image').removeClass('active');
+	// 	$('#saveimage').addClass('hidden');
+	// 	$('#saveorder').removeClass('hidden');
+	// 	$('#tab-sort').addClass('active');
+	// 	$('#idImage').removeClass('active');
+	// 	$('#idSort').addClass('active');
+	// 	$('#idImage').addClass('hidden');
+	// 	$('#idSort').removeClass('hidden');
+	// });
 
 });
 //$( function() {

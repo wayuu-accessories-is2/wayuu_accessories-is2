@@ -1,25 +1,47 @@
 $(document).on("ready",function(){
   $(document).on("click","#addproduct",function(){
     var mediaDropzone = new Dropzone("#image");
+    mediaDropzone.options.acceptedFiles = ".jpeg,.jpg,.png,.gif";
+    mediaDropzone.options.maxFiles = 7;
+    mediaDropzone.options.autoProcessQueue = false;
+    mediaDropzone.options.parallelUploads = 1;
+
     Dropzone.options.mediaDropzone = {
     success: function (response) {
                 eval(response.xhr.response),
                 mediaDropzone.processQueue();
             }
     };
-    mediaDropzone.options.acceptedFiles = ".jpeg,.jpg,.png,.gif";
-    mediaDropzone.options.maxFiles = 7;
-    mediaDropzone.options.autoProcessQueue = false;
-    mediaDropzone.options.parallelUploads = 1;
+    mediaDropzone.on("addedfile", function(file) {
+
+        var removeButton = Dropzone.createElement('<button class="btn btn-link">Remove file</button>');
+
+        removeButton.style.cssText = 'position:absolute;left:5px';
+        file.previewElement.appendChild(removeButton);
+        // Capture the Dropzone instance as closure.
+        var _this = this;
+
+        //Listen to the click event
+        removeButton.addEventListener("click", function(e) {
+          // Make sure the button click doesn't submit the form:
+          e.preventDefault();
+          e.stopPropagation();
+          // Remove the file preview.
+          x = confirm("Do you want to delete this file?")
+          if (x){
+            _this.removeFile(file);
+          }else {
+            return false;
+          }
+          // If you want to the delete the file on the server as well,
+          // you can do the AJAX request here.
+        });
+      });
     mediaDropzone.on("maxfilesexceeded", function(file) {
         mediaDropzone.removeAllFiles();
         mediaDropzone.addFile(file);
     });
 
-    //var submitButton = document.querySelector("#saveimage");
-    //submitButton.addEventListener("click", function() {
-         //mediaDropzone.processQueue();  // Tell Dropzone to process all queued files.
-    //});
     $(document).on('click', '#saveimage', function () {
     // enable auto process queue after uploading started
       mediaDropzone.options.autoProcessQueue = true;
@@ -30,7 +52,7 @@ $(document).on("ready",function(){
 // disable queue auto processing on upload complete
     mediaDropzone.on("queuecomplete", function() {
       mediaDropzone.options.autoProcessQueue = false;
-      
+
     });
     var newQueue = [];
     $(function() {
