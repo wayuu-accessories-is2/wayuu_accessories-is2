@@ -75,7 +75,7 @@ Devise.setup do |config|
   # It will change confirmation, password recovery and other workflows
   # to behave the same regardless if the e-mail provided was right or wrong.
   # Does not affect registerable.
-  # config.paranoid = true
+  config.paranoid = true
 
   # By default Devise will store the user in session. You can skip storage for
   # particular strategies by setting this option.
@@ -111,8 +111,8 @@ Devise.setup do |config|
   # config.pepper = 'a870dc7b1504cd0035869191c2d3dab71fde0c7abccb7ac2a128f6faa8f783f410e0577ba6b78f5fd7075ff6c2646112173e2be35ffbe916181327b46165a6e7'
 
   # Send a notification email when the user's password is changed
-  # config.send_password_change_notification = false
-
+  config.send_password_change_notification = true
+  #config.min_password_score = 1
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
   # confirming their account. For instance, if set to 2.days, the user will be
@@ -164,7 +164,7 @@ Devise.setup do |config|
   # ==> Configuration for :timeoutable
   # The time you want to timeout the user session without activity. After this
   # time the user will be asked for credentials again. Default is 30 minutes.
-  # config.timeout_in = 30.minutes
+  config.timeout_in = 30.minutes
 
   # ==> Configuration for :lockable
   # Defines which strategy will be used to lock an account.
