@@ -9,6 +9,12 @@
 
         <!--<span id="reauth-email" class="reauth-email"></span>-->
         <div align="center" >
+         <h3 class="fonts">Name</h3>
+         <% f.label :name %>
+         <%= f.text_field :name, :id=>"inputEmail", :class=>"form-control", :placeholder=>"Name", autofocus: true, autocomplete: "off" %>
+        </div>
+
+        <div align="center" >
          <h3 class="fonts">Email</h3>
          <% f.label :email %>
          <%= f.email_field :email, :id=>"inputEmail", :class=>"form-control", :placeholder=>"Email address", autofocus: true, autocomplete: "off" %>
@@ -33,7 +39,7 @@
         <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign up</button>
         <% f.submit "Sign up" %>
       </div>
-
+      </br>
        <%= render "devise/shared/links" %>
        <% end %>
      </div>

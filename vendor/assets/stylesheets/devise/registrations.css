@@ -30,6 +30,27 @@ head{
     cursor: default;
 }
 
+.btn1 {
+    font-weight: 500;
+    color: white;
+    background-color: rgb(12, 97, 33);
+    width: 70%;
+    display: block;
+    margin-bottom: 2px;
+    z-index: 0;
+    position: relative;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: "Times New Roman";
+    align-self: center;
+
+    height: 35px;
+    user-select: none;
+    cursor: default;
+}
+
+
 .btnup {
     align-self: center;
     font-weight: 500;
@@ -60,6 +81,11 @@ head{
 }
 
 .fonts{
+  font-family: "Times New Roman";
+}
+
+.fonts1{
+  font-size: 17px;
   font-family: "Times New Roman";
 }
 
@@ -112,6 +138,18 @@ head{
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
+
+.inputEmail,
+.inputPassword{
+  height: 40%;
+  width: 100%;
+  margin-bottom: 5px;
+  font-size: 23px;
+  font-family: "Times New Roman";
+  font-style:normal;
+  text-align: center;
+}
+
 
 .form-signin #inputEmail,
 .form-signin #inputPassword,
