@@ -1,5 +1,5 @@
 $(document).on("ready",function(){
-  $(document).on("click","#addproduct",function(){
+  $(document).on("click","#addproduct,#editproduct",function(){
     var mediaDropzone = new Dropzone("#image");
     mediaDropzone.options.acceptedFiles = ".jpeg,.jpg,.png,.gif";
     mediaDropzone.options.maxFiles = 7;
