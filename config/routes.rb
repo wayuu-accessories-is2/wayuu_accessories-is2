@@ -21,6 +21,7 @@ Rails.application.routes.draw do
         post 'change', to: :change
         get 'list', to: :list
         get 'status', to: :status
+        get 'showimage', to: :showimage
         post 'sortimages', to: :sortimages
       end
     end

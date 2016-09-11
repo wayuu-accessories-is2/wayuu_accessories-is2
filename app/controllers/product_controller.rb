@@ -117,7 +117,7 @@ class ProductController < ApplicationController
       format.js
     end
   end
-
+  
   def showforcategory
 
   end

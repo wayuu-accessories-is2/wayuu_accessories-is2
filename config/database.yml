@@ -10,8 +10,8 @@ development:
   <<: *default
   #url: <%= ENV['db_url'] %>
   host: localhost
-  database: wayuu4
-  username: postgres
+  database: wayuu1
+  username: ingesoft
   password: 12345
   # url: <%= ENV['POSTGRE_URL'] %>
   #host: <%= ENV['POSTGRE_HOST'] %>
