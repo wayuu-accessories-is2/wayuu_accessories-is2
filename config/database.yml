@@ -10,6 +10,9 @@ development:
   <<: *default
   #url: <%= ENV['db_url'] %>
   host: localhost
+  # Configuracion cristian
+  # database: wayuu5
+  # username: postgres
   database: wayuu1
   username: ingesoft
   password: 12345
