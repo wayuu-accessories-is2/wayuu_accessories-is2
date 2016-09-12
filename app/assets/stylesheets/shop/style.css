@@ -28,6 +28,7 @@ html, body{
 .number-phone{
 	font-family: "JosefinSansRegular", helvetica;
 	margin-top:12px;
+	text-decoration: none;
 }
 .number img{
 	margin-top: 5px;
