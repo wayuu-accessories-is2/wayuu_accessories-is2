@@ -383,8 +383,6 @@ p.home {
 	font-family: "LatoRegular", helvetica;
 }
 .copyright {
-	width: 100%;
-	height: auto;
 	padding: 10px;
 	background-color: #171717;
 	color: #E8E8E8;
