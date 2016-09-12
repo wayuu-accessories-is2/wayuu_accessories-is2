@@ -306,7 +306,7 @@ p.home {
 	font-size: 15px;
 	color: #808080;
 	display: block;
-	transition: 0.3s
+	transition: 0.3s;
 	border-style: solid;
 }
 .sidenav a:hover, .offcanvas a:focus{
