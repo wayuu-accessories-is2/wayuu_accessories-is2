@@ -17,11 +17,11 @@ Rails.application.config.assets.precompile += %w( glyphicons-halflings-regular.s
 Rails.application.config.assets.precompile += %w( glyphicons-halflings-regular.ttf )
 Rails.application.config.assets.precompile += %w( glyphicons-halflings-regular.woff )
 Rails.application.config.assets.precompile += %w( glyphicons-halflings-regular.woff2 )
-
-Rails.application.config.assets.precompile += %w( shop/JosefinSans-Bold.ttf )
-Rails.application.config.assets.precompile += %w( shop/JosefinSans-Regular.ttf )
-Rails.application.config.assets.precompile += %w( shop/Lato-Regular.ttf )
-Rails.application.config.assets.precompile += %w( shop/Montserrat-SemiBold.otf )
+Rails.application.config.assets.precompile += %w( JosefinSans-Bold.ttf )
+Rails.application.config.assets.precompile += %w( JosefinSans-Regular.ttf )
+Rails.application.config.assets.precompile += %w( Lato-Regular.ttf )
+Rails.application.config.assets.precompile += %w( Montserrat-SemiBold.otf )
+Rails.application.config.assets.precompile += %w( Montserrat-Black.otf )
 
 Rails.application.config.assets.precompile += %w( *.png *.jpg)
 

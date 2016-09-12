@@ -28,6 +28,7 @@ html, body{
 .number-phone{
 	font-family: "JosefinSansRegular", helvetica;
 	margin-top:12px;
+	text-decoration: none;
 }
 .number img{
 	margin-top: 5px;
@@ -306,8 +307,7 @@ p.home {
 	font-size: 15px;
 	color: #808080;
 	display: block;
-	transition: 0.3s
-	border-style: solid;
+	transition: 0.3s;
 }
 .sidenav a:hover, .offcanvas a:focus{
 	color: #E25FA3;

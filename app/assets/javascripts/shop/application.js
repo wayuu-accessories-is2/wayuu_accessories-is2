@@ -10,7 +10,7 @@ function displayMenu(menu){
 }
 function openNav() {
 	document.getElementById("mask").style.display = "block";
-	document.getElementById("sideNav").style.width = "19em";
+	document.getElementById("sideNav").style.width = "17em";
 }
 function closeNav() {
 	document.getElementById("mask").style.display = "none";
