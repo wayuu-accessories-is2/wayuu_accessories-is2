@@ -32,7 +32,12 @@
               <tbody>
                 <% @products.each do |t| %>
                 <tr>
-                  <td><%=image_tag ProductImage.find_by(product_id: t.id.to_s ).image.thumb.url%></td>
+                  <% showImage = ProductImage.find_by(product_id: t.id.to_s ) %>
+                  <% unless showImage.nil?%>
+                    <td><%=image_tag showImage.image.thumb.url%></td>
+                  <%else%>
+                    <td>No image available</td>
+                  <%end%>
                   <td><%= t.name %></td>
                   <td><%= t.description %></td>
                   <td><%= t.price %></td>
