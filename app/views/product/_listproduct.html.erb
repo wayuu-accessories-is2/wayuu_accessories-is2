@@ -32,7 +32,6 @@
               <tbody>
                 <% @products.each do |t| %>
                 <tr>
-
                   <td><%=image_tag ProductImage.find_by(product_id: t.id.to_s ).image.thumb.url%></td>
                   <td><%= t.name %></td>
                   <td><%= t.description %></td>

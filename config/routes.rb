@@ -51,6 +51,8 @@ Rails.application.routes.draw do
 
   root to: 'home_page#home'
 
+  get 'home', to: 'home_page#home'
+
   get 'team', to: 'hometeam#index'
 
   get 'admin/index', to: 'admin#admin_index'
