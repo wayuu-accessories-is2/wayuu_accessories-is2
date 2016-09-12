@@ -5,11 +5,11 @@ html, body{
 	text-align: center;
 }
 
-@font-face { font-family: JosefinSansRegular; src: font-url('JosefinSans-Regular.ttf'); }
-@font-face { font-family: JosefinSansBold; src: font-url('JosefinSans-Bold.ttf'); }
-@font-face { font-family: LatoRegular; src: font-url('Lato-Regular.ttf'); }
-@font-face { font-family: MontserratSemiBold; src: font-url('Montserrat-SemiBold.otf'); }
-@font-face { font-family: MontserratBlack; src: font-url('Montserrat-Black.otf'); }
+@font-face { font-family: JosefinSansRegular; src: url('JosefinSans-Regular.ttf'); }
+@font-face { font-family: JosefinSansBold; src: url('JosefinSans-Bold.ttf'); }
+@font-face { font-family: LatoRegular; src: url('Lato-Regular.ttf'); }
+@font-face { font-family: MontserratSemiBold; src: url('Montserrat-SemiBold.otf'); }
+@font-face { font-family: MontserratBlack; src: url('Montserrat-Black.otf'); }
 
 .top-header{
 	width:100%;
@@ -307,7 +307,6 @@ p.home {
 	color: #808080;
 	display: block;
 	transition: 0.3s;
-	border-style: solid;
 }
 .sidenav a:hover, .offcanvas a:focus{
 	color: #E25FA3;
