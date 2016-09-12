@@ -21,6 +21,7 @@ Rails.application.routes.draw do
         post 'change', to: :change
         get 'list', to: :list
         get 'status', to: :status
+        get 'showimage', to: :showimage
         post 'sortimages', to: :sortimages
       end
     end
@@ -49,6 +50,8 @@ Rails.application.routes.draw do
   end
 
   root to: 'home_page#home'
+
+  get 'home', to: 'home_page#home'
 
   get 'team', to: 'hometeam#index'
 

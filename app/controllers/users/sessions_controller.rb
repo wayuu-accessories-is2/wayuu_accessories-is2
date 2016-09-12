@@ -1,5 +1,8 @@
 class Users::SessionsController < Devise::SessionsController
 # before_action :configure_sign_in_params, only: [:create]
+
+   before_action :configure_sign_in_params, only: [:create]
+
   def create
     user = User.from_omniauth(env["omniauth.auth"])
     session[:user_id] = user.id
@@ -11,9 +14,9 @@ class Users::SessionsController < Devise::SessionsController
     redirect_to root_path
   end
   # GET /resource/sign_in
-  # def new
-  #   super
-  # end
+  def new
+     super
+  end
 
   # POST /resource/sign_in
   # def create

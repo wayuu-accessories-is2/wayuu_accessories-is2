@@ -119,10 +119,7 @@ ActiveRecord::Schema.define(version: 20160908000703) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.string   "comment"
-    t.integer  "rating"
     t.integer  "customer_id"
-    t.integer  "product_id"
     t.integer  "order_status_id"
     t.integer  "cart_id"
     t.datetime "created_at",      null: false
@@ -130,7 +127,6 @@ ActiveRecord::Schema.define(version: 20160908000703) do
     t.index ["cart_id"], name: "index_orders_on_cart_id", using: :btree
     t.index ["customer_id"], name: "index_orders_on_customer_id", using: :btree
     t.index ["order_status_id"], name: "index_orders_on_order_status_id", using: :btree
-    t.index ["product_id"], name: "index_orders_on_product_id", using: :btree
   end
 
   create_table "product_discounts", force: :cascade do |t|
@@ -144,7 +140,7 @@ ActiveRecord::Schema.define(version: 20160908000703) do
   end
 
   create_table "product_images", force: :cascade do |t|
-    t.string   "link"
+    t.string   "image"
     t.integer  "sort_order"
     t.integer  "product_id"
     t.datetime "created_at", null: false
@@ -211,8 +207,11 @@ ActiveRecord::Schema.define(version: 20160908000703) do
     t.string   "name"
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
+    t.integer  "role"
+    t.string   "auth_token"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.index ["auth_token"], name: "index_users_on_auth_token", unique: true, using: :btree
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
     t.index ["customer_id"], name: "index_users_on_customer_id", using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
@@ -232,7 +231,6 @@ ActiveRecord::Schema.define(version: 20160908000703) do
   add_foreign_key "orders", "carts"
   add_foreign_key "orders", "customers"
   add_foreign_key "orders", "order_statuses"
-  add_foreign_key "orders", "products"
   add_foreign_key "product_discounts", "products"
   add_foreign_key "product_images", "products"
   add_foreign_key "returns", "orders"

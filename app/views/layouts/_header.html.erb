@@ -7,13 +7,14 @@
 			<div class="top-right">
 				<ul>
 					<li><a href="checkout.html">Checkout</a></li>
-					<li><a href="<%= new_user_session_path %>">Login</a></li>
-					<li><a href="<%= new_user_registration_path %>"> Create Account </a></li>
+					<li><a href="#myModal" data-toggle="modal" data-keyboard="true">Login</a></li>
+					 <li><a href="<%= new_user_registration_path %>#exactline"> Create Account </a></li>
 				</ul>
 			</div>
 			<div class="clearfix"></div>
 		</div>
 	</div>
+
 	<div class="heder-bottom">
 		<div class="container">
 			<div class="logo-nav">
@@ -114,3 +115,52 @@
 		</div>
 	</div>
 </div>
+
+
+
+<div class="modal" id="myModal" align="center">
+<div class="modal-dialog modal-md">
+	<div class="modal-content modal-md" align="center">
+		<div class="card card-container" align="center">
+		 <div class="modal-header" align="center">
+			 <button type="button" class="close" data-dismiss="modal">&times;</button>
+				<div class="modal-title1" style="font-size:42px" align="center">
+					Sign in
+				</div>
+
+		 </div>
+		 	<div class="modal-body">
+				<img id="profile_img2" class="profile-img2-card" src="<%= asset_path("profileimg.jpg") %>">
+				<form class="form-signin">
+					<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+						<% f.label :email %>
+						<%= f.email_field :email, :id=>"inputEmail", :class=>"form-control", :placeholder=>"Email", autofocus: true, autocomplete: "off" %>
+
+						<% f.label :password %>
+						<%= f.password_field :password, :id=>"inputPassword", :class=>"form-control", :placeholder=>"Password", :align=>"center", autofocus: true, autocomplete: "off" %>
+
+						<% if devise_mapping.rememberable? %>
+							<%= f.check_box :remember_me %>
+							<%= f.label :remember_me, :id=>"remember_me", autofocus: true, autocomplete: "off" %>
+						<% end %>
+					</br>
+
+			<div class="row">
+				<div align="center">
+					<div class="form-group">
+							<button align="center" class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
+							<% f.submit "Log in" %>
+					</div>
+				</div>
+			</div>
+	   </div>
+
+			<div class="fontlinks">
+			<%= render "devise/shared/links" %>
+			</div>
+			<% end %>
+		</div>
+		</div>
+	</div>
+ </div>

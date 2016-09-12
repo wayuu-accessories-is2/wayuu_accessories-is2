@@ -3,26 +3,180 @@
 <head>
 	<title>Wayuu</title>
 	<%= csrf_meta_tags %>
-	<p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+	<!--p class="notice"><% notice %></p-->
+	<!--p class="alert"><% alert %></p-->
 	<%= stylesheet_link_tag    'application', media: 'all' %>
-	<%= javascript_include_tag 'application' %>	
-	<link href='https://fonts.googleapis.com/css?family=Cagliostro' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,800italic,800,700italic,700,600italic,600,400italic,300italic,300' rel='stylesheet' type='text/css'>
+	<%= javascript_include_tag 'application' %>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+
 </head>
 <body>
-	<!--header-->
-	<%= render partial: 'layouts/header' %>
-	<!--header-->
-	<!--content-->
+	<div class="top-header">
+		<div class="number">
+
+			<div><%= image_tag("shop/phone.png") %></div>
+			<div class="number-phone">1(855) 929-8855</div>
+		</div>
+		<div id="socialNetworks" class="social-networks">
+			<div>
+				<%= link_to( image_tag("shop/1facebook.png"), "https://www.facebook.com/WayuumBags") %>
+			</div>
+			<div>
+				<%= link_to( image_tag("shop/1instagram.png"), "https://www.instagram.com/wayuumbags") %>
+			</div>
+			<div>
+				<%= link_to( image_tag("shop/1googleplus.png"), "https://plus.google.com/+WayuumochilabagsStore") %>
+			</div>
+			<div>
+				<%= link_to( image_tag("shop/1twitter.png"), "https://twitter.com/wayuumbags") %>
+			</div>
+			<div>
+				<%= link_to( image_tag("shop/1tumblr.png"), "https://www.tumblr.com/search/wayuumbags") %>
+			</div>
+			<div>
+				<%= link_to( image_tag("shop/1youtube.png"), "https://www.youtube.com/channel/UCL30I8UIIDth2U-KHJm2Fpw") %>
+			</div>
+		</div>
+		<div class="sign">
+			<a href="#myModal" data-toggle="modal" data-keyboard="true">sign in</a>
+			<a href="<%= new_user_registration_path %>#exactline">sign up</a>
+		</div>
+	</div>
+	<div class="header">
+		<nav class="logo">
+			<a href="home"><%= image_tag("shop/wmroundlogo.png") %><span class="img-helper"/></a>
+		</nav>
+		<nav class="nav" id="nav">
+			<ul class="nav-ul">
+				<li class="nav-li"><%= link_to("Home", "home")%></li>
+				<li class="nav-li"><a href="#">Shop Categories</a>
+					<ul class="drop-down-menu">
+						<li><a href="#">Gift Cards</a></li>
+						<li><a href="#">Single Thread Mochilas</a></li>
+						<li><a href="#">Jeweled Mochilas</a></li>
+						<li><a href="#">Drawstring Mochilas</a></li>
+						<li><a href="#">Mini Single Thread Mochilas</a></li>
+						<li><a href="#">Mini Mochilas</a></li>
+						<li><a href="#">Solid Colors</a></li>
+						<li><a href="#">Pom Pom Mochilas</a></li>
+						<li><a href="#">Neon Pink</a></li>
+						<li><a href="#">Neon Colors</a></li>
+						<li><a href="#">Traditional Pink</a></li>
+						<li><a href="#">Traditional Colors</a></li>
+						<li><a href="#">Black, Grey, and White</a></li>
+						<li><a href="#">Earth/Brown</a></li>
+					</ul>
+				</li>
+				<li class="nav-li"><a href="#">Blog</a></li>
+				<li class="nav-li"><a href="#">About Us</a>
+					<ul class="nav-ul">
+						<li><a href="#">Customer Survey</a></li>
+						<li><a href="#">Customer Reviews</a></li>
+						<li><a href="#">FAQ's</a></li>
+						<li><a href="#">Shipping</a></li>
+						<li><a href="#">Return Policy</a></li>
+						<li><a href="#">Privacy Policy</a></li>
+						<li><a href="#">Terms and Conditions</a></li>
+						<li><%= link_to("Developer Team", "team")%></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+		<div class="cart">
+			<a href="#"><%= image_tag("shop/cart-icon.png") %><span class="img-helper"/></a>
+			<span class="cart-count">0</span>
+		</div>
+		<div id="menuToggle" class="mobile-toggle">
+			<a href="#" onclick="openNav()"><%= image_tag("shop/menu-button.png") %><span class="img-helper"/></a>
+		</div>		
+	</div>
+	<div id="mask" class="mask" onclick="closeNav()"></div>
+	<div id="sideNav" class="sidenav">
+		<a href="#" class="closebtn" onclick="closeNav()">&times;</a>
+		<ul class="side-nav">
+			<li><a href="index.html">Home</a></li>
+			<li><a href="#" onclick="displayMenu('shop')">Shop Categories</a>
+				<ul id="shop" class="side-nav">
+					<li><a href="#">Gift Cards</a></li>
+					<li><a href="#">Single Thread Mochilas</a></li>
+					<li><a href="#">Jeweled Mochilas</a></li>
+					<li><a href="#">Drawstring Mochilas</a></li>
+					<li><a href="#">Mini Single Thread Mochilas</a></li>
+					<li><a href="#">Mini Mochilas</a></li>
+					<li><a href="#">Solid Colors</a></li>
+					<li><a href="#">Pom Pom Mochilas</a></li>
+					<li><a href="#">Neon Pink</a></li>
+					<li><a href="#">Neon Colors</a></li>
+					<li><a href="#">Traditional Pink</a></li>
+					<li><a href="#">Traditional Colors</a></li>
+					<li><a href="#">Black, Grey, and White</a></li>
+					<li><a href="#">Earth/Brown</a></li>
+				</ul>
+			</li>
+			<li><a href="#">Blog</a></li>
+			<li><a href="#" onclick="displayMenu('about') ">About Us</a>
+				<ul id="about" class="side-nav">
+					<li><a href="products.html">Customer Survey</a></li>
+					<li><a href="products.html">Customer Reviews</a></li>
+					<li><a href="products.html">FAQ's</a></li>
+					<li><a href="products.html">Shipping</a></li>
+					<li><a href="products.html">Return Policy</a></li>
+					<li><a href="products.html">Privacy Policy</a></li>
+					<li><a href="products.html">Terms and Conditions</a></li>
+				</ul>
+			</li>
+		</ul>
+		<div class="side-social-networks">
+			<div>
+				<%= link_to( image_tag("shop/1facebook.png"), "https://www.facebook.com/WayuumBags") %>
+			</div>
+			<div>
+				<%= link_to( image_tag("shop/1instagram.png"), "https://www.instagram.com/wayuumbags") %>
+			</div>
+		</div>
+	</div>
+	
 	<%= yield %>
-	<!--content-->
-	<!--footer-->
-	<%= render partial: 'layouts/footer' %>
-	<!---footer-->
-	<!--copy-->
-	<%= render partial: 'layouts/copy' %>
-	<!--copy-->
-	<%= render 'shared/facebook_sdk' %>
+
+	<div class="footer">
+		<div class="footer-container">
+			<div class="footer-col">
+				<%= image_tag("shop/location-footer.png") %>
+				<p>
+					U.S.A. Office<br>
+					1312 Elm Dr.<br>
+					Office 1<br>
+					Wylie, Texas<br>
+					United States of America<br>
+					Colombia Office<br>
+					Carrera 60#4g-59<br>
+					Bogota, Colombia<br>
+					Coming Soon<br>
+					Riohacha, Colombia
+				</p>
+			</div>
+			<div class="footer-col">
+				<%= image_tag("shop/mail-footer.png") %>
+				<p>
+					e-Mail us<br>
+					Help@Wayuu-Mochila-Bags.com
+				</p>
+			</div>
+			<div class="footer-col">
+				<%= image_tag("shop/phone-footer.png") %>
+				<p>
+					Toll Free 1(855) WAYUU-55<br>
+					or <br>
+					1(855) 929-8855
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="copyright">Copyright 2016<br>Wayuu Developer Team</div>
+
+	<% render 'shared/facebook_sdk' %>
+
 </body>
 </html>

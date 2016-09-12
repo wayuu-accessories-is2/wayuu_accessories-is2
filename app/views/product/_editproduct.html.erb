@@ -17,9 +17,9 @@
          <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
          <%= hidden_field_tag :id, @pro.id %>
          <ul class="nav nav-tabs">
-           <li class="active"><a href="#tab-data" data-toggle="tab">General</a></li>
-           <li><a href="#tab-links" data-toggle="tab">Links</a></li>
-           <li><a href="#tab-image" data-toggle="tab">Image</a></li>
+           <li class="active" id="general"><a href="#tab-data" data-toggle="tab">General</a></li>
+           <li id="link"><a href="#tab-links" data-toggle="tab">Links</a></li>
+           <li id="idImage" class="hidden"><a href="#tab-image" data-toggle="tab">Image</a></li>
          </ul>
          <div class="tab-content" style="margin-top: 15px">
            <div class="tab-pane active" id="tab-data">

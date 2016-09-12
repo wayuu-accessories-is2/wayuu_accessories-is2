@@ -18,10 +18,12 @@ Rails.application.config.assets.precompile += %w( glyphicons-halflings-regular.t
 Rails.application.config.assets.precompile += %w( glyphicons-halflings-regular.woff )
 Rails.application.config.assets.precompile += %w( glyphicons-halflings-regular.woff2 )
 
-Rails.application.config.assets.precompile += %w( application.scss )
-Rails.application.config.assets.precompile += %w( application.js )
-Rails.application.config.assets.precompile += %w( store_template/home_page.js )
+Rails.application.config.assets.precompile += %w( shop/JosefinSans-Bold.ttf )
+Rails.application.config.assets.precompile += %w( shop/JosefinSans-Regular.ttf )
+Rails.application.config.assets.precompile += %w( shop/Lato-Regular.ttf )
+Rails.application.config.assets.precompile += %w( shop/Montserrat-SemiBold.otf )
 
+Rails.application.config.assets.precompile += %w( *.png *.jpg)
 
 #Rails.application.config.assets.precompile += %w( team_page/hometeamscript.js )
 #Rails.application.config.assets.precompile += %w( team_page/owl.carousel.css )
