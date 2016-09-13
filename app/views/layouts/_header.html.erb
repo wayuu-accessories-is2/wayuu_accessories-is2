@@ -26,8 +26,7 @@
 		</div>
 
 		<div class="sign">
-				<!--<a href="<%= new_user_session_path %>">sign in</a>-->
-				<a data-toggle="modal" href="#myModal" data-keyboard="true">sign in</a>
+				<a data-toggle="modal" href="#myModal" data-keyboard="true">Log in</a>
 				<a data-toggle="modal" href="#myModal1" data-keyboard="true">sign up</a>
 		</div>
 	</div>
@@ -141,7 +140,7 @@
 				<div class="modal-title1" style="font-size:42px" align="center">
 					Sign in
 				</div>
-
+		 </br>
 		 </div>
 		 	<div class="modal-body">
 				<img id="profile_img2" class="profile-img2-card" src="<%= asset_path("profileimg.jpg") %>">
@@ -154,10 +153,12 @@
 						<% f.label :password %>
 						<%= f.password_field :password, :id=>"inputPassword", :class=>"form-control", :placeholder=>"Password", :align=>"center", autofocus: true, autocomplete: "off" %>
 
+						<div class="fonts">
 						<% if devise_mapping.rememberable? %>
 							<%= f.check_box :remember_me %>
 							<%= f.label :remember_me, :id=>"remember_me", autofocus: true, autocomplete: "off" %>
 						<% end %>
+					</div>
 					</br>
 
 			<div class="row">
