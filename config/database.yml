@@ -1,4 +1,3 @@
-
 default: &default
   adapter: postgresql
   encoding: unicode
@@ -13,7 +12,8 @@ development:
   #database: wayuu3
   #database: wayuu4
   #database: wayuu5
-  username: postgres
+  #username: ingesoft
+  username: postgres 
   password: 12345
 
   #url: <%= ENV['POSTGRE_URL'] %>
