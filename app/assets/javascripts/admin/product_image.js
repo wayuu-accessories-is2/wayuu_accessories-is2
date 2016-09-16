@@ -1,5 +1,5 @@
 $(document).on("ready",function(){
-  $(document).on("click","#addproduct,#editproduct",function(){
+  $(document).on("click","#addproduct, #editproduct",function(){
     var mediaDropzone = new Dropzone("#image");
     mediaDropzone.options.acceptedFiles = ".jpeg,.jpg,.png,.gif";
     mediaDropzone.options.maxFiles = 7;
@@ -42,7 +42,7 @@ $(document).on("ready",function(){
         mediaDropzone.addFile(file);
     });
 
-    $(document).on('click', '#saveimage', function () {
+    $(document).on('click', '#saveimage, #editimage', function () {
     // enable auto process queue after uploading started
       mediaDropzone.options.autoProcessQueue = true;
     // queue processing
@@ -74,7 +74,6 @@ $(document).on("ready",function(){
               }
             });
           });
-          console.log( newQueue[0].filename );
           mediaDropzone.files = newQueue;
 
           }

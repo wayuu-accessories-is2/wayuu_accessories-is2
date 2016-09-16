@@ -93,7 +93,7 @@ class ProductController < ApplicationController
     t.save!
 
 
-    redirect_to list_product_index_path
+    #redirect_to list_product_index_path
   end
 
   def list
@@ -117,17 +117,14 @@ class ProductController < ApplicationController
       format.js
     end
   end
-  
+
   def showforcategory
 
   end
 
   def sortimages
     arreglo = params['info']
-    puts arreglo.length
-    puts arreglo
-    puts "veaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-    redirect_to list_product_index_path
+    #redirect_to list_product_index_path
   end
 
 end

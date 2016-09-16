@@ -1,1 +1,46 @@
 $( "#indexcambio" ).html( "<%= escape_javascript( render( "editproduct" ) ) %>" );
+$( 'body' ).append(  "<script>$(function () {$('#sortable').sortable({ update: function (event, ui) { 	var order = $(this).sortable('serialize'); $(document).on('click', '#saveorder', function () { });}}).disableSelection();$('#saveorder').on('click', function () {	var r = $('#sortable').sortable('toArray'); 	var a = $('#sortable').sortable('serialize');	$.ajax({data: {info: r}, type: 'POST',url: '/admin/product/sortimages', success: function( result ){} }); console.log(r);});});</script>" );
+$('#editproduct' ).click(function(){
+    $('#general').addClass('hidden');
+    $('#link').addClass('hidden');
+    $('#tab-data').removeClass('active');
+    $('#tab-links').removeClass('active');
+    $('#tab-sort').removeClass('hidden');
+    $('#tab-sort').addClass('active');
+    $('#tab-image').removeClass('hidden');
+    $('#tab-image').addClass('active');
+    $('#editproduct').addClass('hidden');
+
+    <% showImage = ProductImage.find_by(product_id: @pro.id  ) %>
+      <% unless showImage.nil?%>
+         $('#saveorder').removeClass('hidden');
+         $('#saveorder').click(function(){
+            $('#addimages').removeClass('hidden');
+         });
+         $('#idSort').removeClass('hidden');
+         $('#idSort').addClass('active');
+         $('#tab-image').removeClass('active');
+         $('#tab-image').addClass('hidden');
+      <%else%>
+         $('#editimages').removeClass('hidden');
+         $('#idImage').removeClass('hidden');
+         $('#idImage').addClass('active');
+         $('#tab-sort').removeClass('active');
+         $('#tab-sort').addClass('hidden');
+      <%end%>
+});
+
+$('#addimages').click(function(){
+    $('#saveorder').removeClass('active');
+    $('#saveorder').addClass('hidden');
+    $('#addimages').removeClass('active');
+    $('#addimages').addClass('hidden');
+    $('#tab-image').removeClass('hidden');
+    $('#tab-image').addClass('active');
+    $('#tab-sort').removeClass('active');
+    $('#editimages').removeClass('hidden');
+    $('#editimages').addClass('active');
+    $('#idImage').removeClass('hidden');
+    $('#idSort').addClass('hidden');
+    $('#idImage').addClass('active');
+});
