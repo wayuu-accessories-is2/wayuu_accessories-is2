@@ -61,11 +61,19 @@ class ProductController < ApplicationController
   end
 
   def show
-    @list = Product.all.order("id ASC")
-    @consult = CategoryHasProduct.all
+    #@list = Product.all.order("id ASC")
+    #@consult = CategoryHasProduct.all
+    #respond_to do |format|
+    #  format.js
+    #end
+    @product = Product.find( params[:id] )
+    @cate = Category.all.order('name ASC')
     respond_to do |format|
-      format.js
+      format.html
     end
+    render layout: "application"
+
+    puts @product
   end
 
   def edit
@@ -117,16 +125,16 @@ class ProductController < ApplicationController
       format.js
     end
   end
-  
+
   def showforcategory
 
   end
 
   def sortimages
     arreglo = params['info']
-    puts arreglo.length
-    puts arreglo
-    puts "veaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    #puts arreglo.length
+    #puts arreglo
+    #puts "veaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
     redirect_to list_product_index_path
   end
 

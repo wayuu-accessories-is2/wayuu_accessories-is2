@@ -16,13 +16,16 @@ Rails.application.routes.draw do
       collection do
         get 'add', to: :add
         post 'new', to: :new
-        get 'show', to: :show
+        #get 'show', to: :show
         post 'update', to: :update
         post 'change', to: :change
         get 'list', to: :list
         get 'status', to: :status
         get 'showimage', to: :showimage
         post 'sortimages', to: :sortimages
+      end
+      member do
+          get 'show', to: :show
       end
     end
   end
