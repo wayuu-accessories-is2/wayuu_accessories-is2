@@ -16,7 +16,6 @@ Rails.application.routes.draw do
       collection do
         get 'add', to: :add
         post 'new', to: :new
-        #get 'show', to: :show
         post 'update', to: :update
         post 'change', to: :change
         get 'list', to: :list
@@ -24,12 +23,14 @@ Rails.application.routes.draw do
         get 'showimage', to: :showimage
         post 'sortimages', to: :sortimages
       end
-      member do
-          get 'show', to: :show
-      end
     end
   end
   #assert_generates '../category/status', controller: 'category', action: 'status'
+  resources :product do
+    member do
+        get 'show', to: :show
+    end
+  end
 
   scope 'admin' do
     resources :category do
