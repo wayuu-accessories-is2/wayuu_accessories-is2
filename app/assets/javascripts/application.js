@@ -1,9 +1,6 @@
-//= require jquery
-//= require jquery_ujs
-//= require store_template/jquery.min.js
-//= require store_template/jquery-ui.js
-//= require store_template/jquery-ui.min.js
-//= require store_template/bootstrap.js
-//= require store_template/bootstrap-3.1.1.min.js
-//= require shop/application
-//= require shop/home_page
+//= require shop_template/jquery.cookie.js
+//= require shop_template/waypoints.min.js
+//= require shop_template/jquery.counterup.min.js
+//= require shop_template/jquery.parallax-1.1.3.js
+//= require shop_template/front.js
+//= require shop_template/owl.carousel.min.js
