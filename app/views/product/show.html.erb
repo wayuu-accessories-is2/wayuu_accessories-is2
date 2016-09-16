@@ -1,0 +1,251 @@
+
+<div id="heading-breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+                <h1><%= @product.name %></h1>
+            </div>
+            <div class="col-md-5">
+                <ul class="breadcrumb">
+                    <li><a href="index.html">Home</a>
+                    </li>
+                    <li><a><%= Category.find( (((CategoryHasProduct.find_by( product_id: @product.id.to_s  )).category_id).to_s) ).name %></a>
+                    </li>
+                    <li><%= @product.name %></li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="content">
+    <div class="container">
+
+        <div class="row">
+
+            <!-- *** LEFT COLUMN ***
+_________________________________________________________ -->
+
+            <div class="col-md-9">
+
+                <p class="lead"><%= @product.description %>
+                </p>
+                <p class="goToDescription"><a href="#details" class="scroll-to text-uppercase">Scroll to product details, material & care and sizing</a>
+                </p>
+                <div> <hr> </div>
+                <div class="row" id="productMain">
+                    <div class="col-sm-6">
+                        <div id="mainImage">
+                            <img src="https://wayuu-mochila-bags.com/wp-content/uploads/2016/08/Authentic-WAYUU-Large-Mochila-Bag-100_-Colombian-Boho-Hobo-Finest-Handmade-412-1.jpg" alt="" class="img-responsive">
+                        </div>
+
+
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="box">
+
+                          <div class="stock">
+                            <% if @product.quantity > 0 %>
+                              <h3>Available</h3>
+                            <% else %>
+                              <h3>Not available</h3>
+                            <% end %>
+                          </div>
+
+                            <form>
+
+
+                                <p class="price">$<%= @product.price %></p>
+
+                                <p class="text-center">
+                                  <% if @product.quantity > 0 %>
+                                    <button type="submit" class="btn btn-template-main"><i class="fa fa-shopping-cart"></i> Add to cart </button>
+                                  <% else %>
+                                    <button type="submit" class="btn btn-template-main" disabled><i class="fa fa-shopping-cart"></i> Add to cart </button>
+                                  <% end %>
+
+                                    <button type="submit" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Add to wishlist"><i class="fa fa-heart-o"></i>
+                                    </button>
+                                </p>
+
+                            </form>
+                        </div>
+
+                        <div class="row" id="thumbs">
+                            <div class="col-xs-4">
+                                <a href="https://wayuu-mochila-bags.com/wp-content/uploads/2016/08/Authentic-WAYUU-Large-Mochila-Bag-100_-Colombian-Boho-Hobo-Finest-Handmade-412-2.jpg" class="thumb">
+                                    <img src="https://wayuu-mochila-bags.com/wp-content/uploads/2016/08/Authentic-WAYUU-Large-Mochila-Bag-100_-Colombian-Boho-Hobo-Finest-Handmade-412-2.jpg" alt="" class="img-responsive">
+                                </a>
+                            </div>
+                            <div class="col-xs-4">
+                                <a href="https://wayuu-mochila-bags.com/wp-content/uploads/2016/08/Authentic-WAYUU-Large-Mochila-Bag-100_-Colombian-Boho-Hobo-Finest-Handmade-412-2.jpg" class="thumb">
+                                    <img src="https://wayuu-mochila-bags.com/wp-content/uploads/2016/08/Authentic-WAYUU-Large-Mochila-Bag-100_-Colombian-Boho-Hobo-Finest-Handmade-412-2.jpg" alt="" class="img-responsive">
+                                </a>
+                            </div>
+                            <div class="col-xs-4">
+                                <a href="https://wayuu-mochila-bags.com/wp-content/uploads/2016/08/Authentic-WAYUU-Large-Mochila-Bag-100_-Colombian-Boho-Hobo-Finest-Handmade-412-2.jpg" class="thumb">
+                                    <img src="https://wayuu-mochila-bags.com/wp-content/uploads/2016/08/Authentic-WAYUU-Large-Mochila-Bag-100_-Colombian-Boho-Hobo-Finest-Handmade-412-2.jpg" alt="" class="img-responsive">
+                                </a>
+                            </div>
+                            <div class="col-xs-4">
+                                <a href="https://wayuu-mochila-bags.com/wp-content/uploads/2016/08/Authentic-WAYUU-Large-Mochila-Bag-100_-Colombian-Boho-Hobo-Finest-Handmade-412-2.jpg" class="thumb">
+                                    <img src="https://wayuu-mochila-bags.com/wp-content/uploads/2016/08/Authentic-WAYUU-Large-Mochila-Bag-100_-Colombian-Boho-Hobo-Finest-Handmade-412-2.jpg" alt="" class="img-responsive">
+                                </a>
+                            </div>
+                            <div class="col-xs-4">
+                                <a href="https://wayuu-mochila-bags.com/wp-content/uploads/2016/08/Authentic-WAYUU-Large-Mochila-Bag-100_-Colombian-Boho-Hobo-Finest-Handmade-412-2.jpg" class="thumb">
+                                    <img src="https://wayuu-mochila-bags.com/wp-content/uploads/2016/08/Authentic-WAYUU-Large-Mochila-Bag-100_-Colombian-Boho-Hobo-Finest-Handmade-412-2.jpg" alt="" class="img-responsive">
+                                </a>
+                            </div>
+                            <div class="col-xs-4">
+                                <a href="https://wayuu-mochila-bags.com/wp-content/uploads/2016/08/Authentic-WAYUU-Large-Mochila-Bag-100_-Colombian-Boho-Hobo-Finest-Handmade-412-2.jpg" class="thumb">
+                                    <img src="https://wayuu-mochila-bags.com/wp-content/uploads/2016/08/Authentic-WAYUU-Large-Mochila-Bag-100_-Colombian-Boho-Hobo-Finest-Handmade-412-2.jpg" alt="" class="img-responsive">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div> <hr> </div>
+
+                <div class="box" id="details" align="left">
+                    <p>
+                        <h4>Product details</h4>
+                        <p>White lace top, woven, has a round neck, short sleeves, has knitted lining attached</p>
+                        <h4>Material & care</h4>
+                        <ul>
+                            <li>Polyester</li>
+                            <li>Machine wash</li>
+                        </ul>
+                        <h4>Size & Fit</h4>
+                        <ul>
+                            <li>Regular fit</li>
+                            <li>The model (height 5'8" and chest 33") is wearing a size S</li>
+                        </ul>
+
+                        <blockquote>
+                            <p><em>Define style this season with Armani's new range of trendy tops, crafted with intricate details. Create a chic statement look by teaming this lace number with skinny jeans and pumps.</em>
+                            </p>
+                        </blockquote>
+                </div>
+
+                <div> <hr> </div>
+                <div> <hr> </div>
+
+                <div class="box social" id="product-social">
+                    <h4>Show it to your friends</h4>
+                    <p>
+                        <a href="#" class="external facebook" data-animate-hover="pulse"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="external gplus" data-animate-hover="pulse"><i class="fa fa-google-plus"></i></a>
+                        <a href="#" class="external twitter" data-animate-hover="pulse"><i class="fa fa-twitter"></i></a>
+                        <a href="#" class="email" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>
+                    </p>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="box text-uppercase">
+                            <h3>You may also like these products</h3>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6">
+                        <div class="product">
+                            <div class="image">
+                                <a href="#">
+                                    <img src="https://i.ytimg.com/vi/_LbbKKuimaM/maxresdefault.jpg" alt="" class="img-responsive image1">
+                                </a>
+                            </div>
+                            <div class="text">
+                                <h3>Fur coat</h3>
+                                <p class="price">$143</p>
+
+                            </div>
+                        </div>
+                        <!-- /.product -->
+                    </div>
+
+                    <div class="col-md-3 col-sm-6">
+                        <div class="product">
+                            <div class="image">
+                                <a href="#">
+                                    <img src="https://i.ytimg.com/vi/_LbbKKuimaM/maxresdefault.jpg" alt="" class="img-responsive image1">
+                                </a>
+                            </div>
+                            <div class="text">
+                                <h3>Fur coat</h3>
+                                <p class="price">$143</p>
+                            </div>
+                        </div>
+                        <!-- /.product -->
+                    </div>
+
+                    <div class="col-md-3 col-sm-6">
+                        <div class="product">
+                            <div class="image">
+                                <a href="#">
+                                    <img src="https://i.ytimg.com/vi/_LbbKKuimaM/maxresdefault.jpg" alt="" class="img-responsive image1">
+                                </a>
+                            </div>
+                            <div class="text">
+                                <h3>Fur coat</h3>
+                                <p class="price">$143</p>
+                            </div>
+                        </div>
+                        <!-- /.product -->
+                    </div>
+
+                </div>
+
+
+
+            </div>
+            <!-- /.col-md-9 -->
+
+
+            <!-- *** LEFT COLUMN END *** -->
+
+            <!-- *** RIGHT COLUMN ***
+_________________________________________________________ -->
+
+            <div class="col-sm-3">
+
+                <!-- *** MENUS AND FILTERS ***
+_________________________________________________________ -->
+                <div class="panel panel-default sidebar-menu">
+
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Categories</h3>
+                    </div>
+
+                    <div class="panel-body">
+                      <% @cate.each do |t| %>
+                        <ul class="nav nav-pills nav-stacked category-menu">
+                          <div>
+                            <li > <a href="<%= showforcategory_category_product_index_path( t.id ) %>"><%= t.name %></a>
+                            </li>
+                          </div>
+
+                        </ul>
+                      <% end %>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+            <!-- /.col-md-3 -->
+
+            <!-- *** RIGHT COLUMN END *** -->
+
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+</div>
