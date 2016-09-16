@@ -2,28 +2,26 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  # For details on connection pooling, see rails configuration guide
-  # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
-  #url: <%= ENV['db_url'] %>
+
   host: localhost
-  # Configuracion cristian
-  # database: wayuu5
-  # username: postgres
-  database: wayuu5
+  database: wayuu1
+  #database: wayuu2
+  #database: wayuu3
+  #database: wayuu4
+  #database: wayuu5
   username: postgres
   password: 12345
-  # url: <%= ENV['POSTGRE_URL'] %>
+
+  #url: <%= ENV['POSTGRE_URL'] %>
   #host: <%= ENV['POSTGRE_HOST'] %>
   #database: <%= ENV['POSTGRE_DB'] %>
   #username: <%= ENV['POSTGRE_USERNAME'] %>
   #password: <%= ENV['POSTGRE_PASSWORD'] %>
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or production.
+
 test:
   <<: *default
   url: <%= ENV['DB_URL'] %>
