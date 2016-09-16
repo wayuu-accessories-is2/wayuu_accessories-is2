@@ -1,49 +1,35 @@
-<div class="footer-w3l">
-	<div class="container">
-		<div class="footer-grids">
-			<div class="col-md-3 footer-grid">
-				<h4>About </h4>
-				<p>...</p>
-				<div class="social-icon">
-					<a href="#"><i class="icon"></i></a>
-					<a href="#"><i class="icon1"></i></a>
-					<a href="#"><i class="icon2"></i></a>
-					<a href="#"><i class="icon3"></i></a>
-				</div>
-			</div>
-			<div class="col-md-3 footer-grid">
-				<h4>My Account</h4>
-				<ul>
-					<li><a href="checkout.html">Checkout</a></li>
-					<li><a href="<%= new_user_session_path %>">Login</a></li>
-					<li><a href="<%= new_user_registration_path %>">Create Account</a></li>
-				</ul>
-			</div>
-			<div class="col-md-3 footer-grid">
-				<h4>Information</h4>
-				<ul>
-					<li><a href="index.html">Home</a></li>
-					<li><a href="products.html">Products</a></li>
-					<li><a href="codes.html">Short Codes</a></li>
-					<li><a href="mail.html">Mail Us</a></li>
-					<li><a href="products1.html">products1</a></li>
-				</ul>
-			</div>
-			<div class="col-md-3 footer-grid foot">
-				<h4>Contacts</h4>
-				<ul>
-					<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i><a href="#"><br>
-					U.S.A.: 1312 Elm Dr., Wylie, Texas<br>
-					Colombia: Carrera 60#4g-59, Bogota<br>
-					Coming Soon: Riohacha, Colombia
-					</a></li>
-					<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i><a href="#">1(855) 929-8855</a></li>
-					<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:example@mail.com">Help@Wayuu-Mochila-Bags.com</a></li>
-
-				</ul>
-			</div>
-			<div class="clearfix"> </div>
+<div class="footer">
+	<div class="footer-container">
+		<div class="footer-col">
+			<%= image_tag("shop/location-footer.png") %>
+			<p>
+				U.S.A. Office<br>
+				1312 Elm Dr.<br>
+				Office 1<br>
+				Wylie, Texas<br>
+				United States of America<br>
+				Colombia Office<br>
+				Carrera 60#4g-59<br>
+				Bogota, Colombia<br>
+				Coming Soon<br>
+				Riohacha, Colombia
+			</p>
 		</div>
-
+		<div class="footer-col">
+			<%= image_tag("shop/mail-footer.png") %>
+			<p>
+				e-Mail us<br>
+				Help@Wayuu-Mochila-Bags.com
+			</p>
+		</div>
+		<div class="footer-col">
+			<%= image_tag("shop/phone-footer.png") %>
+			<p>
+				Toll Free 1(855) WAYUU-55<br>
+				or <br>
+				1(855) 929-8855
+			</p>
+		</div>
 	</div>
 </div>
+<div class="copyright">Copyright 2016<br>Wayuu Developer Team</div>

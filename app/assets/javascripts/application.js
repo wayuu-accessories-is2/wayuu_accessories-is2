@@ -1,2 +1,9 @@
+//= require jquery
+//= require jquery_ujs
+//= require store_template/jquery.min.js
+//= require store_template/jquery-ui.js
+//= require store_template/jquery-ui.min.js
+//= require store_template/bootstrap.js
+//= require store_template/bootstrap-3.1.1.min.js
 //= require shop/application
 //= require shop/home_page

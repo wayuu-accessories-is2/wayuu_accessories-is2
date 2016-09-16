@@ -1,123 +1,136 @@
 <div class="header">
-	<div class="header-top">
-		<div class="container">
-			<div class="top-left">
-				<a href="#"> Help  <i class="glyphicon glyphicon-phone" aria-hidden="true"></i> 1(855) 929-8855</a>
+  <div class="top-header">
+		<div class="number">
+				<div><%= image_tag("shop/phone.png") %></div>
+				<div class="number-phone">1(855) 929-8855</div>
+		</div>
+		<div id="socialNetworks" class="social-networks">
+			<div>
+					<%= link_to( image_tag("shop/1facebook.png"), "https://www.facebook.com/WayuumBags") %>
 			</div>
-			<div class="top-right">
-				<ul>
-					<li><a href="checkout.html">Checkout</a></li>
-					<li><a href="#myModal" data-toggle="modal" data-keyboard="true">Login</a></li>
-					 <li><a href="<%= new_user_registration_path %>#exactline"> Create Account </a></li>
-				</ul>
-			</div>
-			<div class="clearfix"></div>
+				<div>
+					<%= link_to( image_tag("shop/1instagram.png"), "https://www.instagram.com/wayuumbags") %>
+				</div>
+				<div>
+					<%= link_to( image_tag("shop/1googleplus.png"), "https://plus.google.com/+WayuumochilabagsStore") %>
+				</div>
+				<div>
+					<%= link_to( image_tag("shop/1twitter.png"), "https://twitter.com/wayuumbags") %>
+				</div>
+				<div>
+					<%= link_to( image_tag("shop/1tumblr.png"), "https://www.tumblr.com/search/wayuumbags") %>
+				</div>
+				<div>
+					<%= link_to( image_tag("shop/1youtube.png"), "https://www.youtube.com/channel/UCL30I8UIIDth2U-KHJm2Fpw") %>
+				</div>
+		</div>
+
+		<div class="sign">
+				<a data-toggle="modal" href="#myModal" data-keyboard="true">Log in</a>
+				<a data-toggle="modal" href="#myModal1" data-keyboard="true">sign up</a>
 		</div>
 	</div>
 
-	<div class="heder-bottom">
-		<div class="container">
-			<div class="logo-nav">
-				<div class="logo-nav-left">
-					<%= link_to( image_tag("brand-logo.png", class: "brand-logo"), 'home') %>
-				</div>
-				<div class="logo-nav-left1 logo-nav-left1-custom">
-					<nav class="navbar navbar-default">
-						<!-- Brand and toggle get grouped for better mobile display -->
-						<div class="navbar-header nav_2">
-							<button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
-								<span class="sr-only">Toggle navigation</span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-							</button>
-						</div>
-						<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
-							<ul class="nav navbar-nav">
-								<li class="active"><%= link_to("Home", "home", class: "act")%></li>
-								<!-- Mega Menu -->
-								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Shop Categories<b class="caret"></b></a>
-									<ul class="dropdown-menu multi-column columns-3">
-										<div class="row">
-											<div class="col-sm-3  multi-gd-img">
-												<ul class="multi-column-dropdown">
-													<li><a href="products.html">Gift Cards</a></li>
-													<li><a href="products.html">Single Thread Mochilas</a></li>
-													<li><a href="products.html">Jeweled Mochilas</a></li>
-													<li><a href="products.html">Drawstring Mochilas</a></li>
-													<li><a href="products.html">Mini Single Thread Mochilas</a></li>
-													<li><a href="products.html">Mini Mochilas</a></li>
-													<li><a href="products.html">Solid Colors</a></li>
-													<li><a href="products.html">Pom Pom Mochilas</a></li>
-													<li><a href="products.html">Neon Pink</a></li>
-													<li><a href="products.html">Neon Colors</a></li>
-													<li><a href="products.html">Traditional Pink</a></li>
-													<li><a href="products.html">Traditional Colors</a></li>
-													<li><a href="products.html">Black, Grey, and White</a></li>
-													<li><a href="products.html">Earth/Brown</a></li>
-												</ul>
-											</div>
-											<div class="clearfix"></div>
-										</div>
-									</ul>
-								</li>
-								<li><a href="codes.html">Blog</a></li>
-								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">About Us<b class="caret"></b></a>
-									<ul class="dropdown-menu multi-column columns-3">
-										<div class="row">
-											<div class="col-sm-3  multi-gd-img">
-												<ul class="multi-column-dropdown">
-													<li><a href="products.html">Customer Survey</a></li>
-													<li><a href="products.html">Customer Reviews</a></li>
-													<li><a href="products.html">FAQ’s</a></li>
-													<li><a href="products.html">Shipping</a></li>
-													<li><a href="products.html">Return Policy</a></li>
-													<li><a href="products.html">WalletsWalletsWallets</a></li>
-													<li><a href="products.html">Privacy Policy</a></li>
-													<li><a href="products.html">Terms and Conditions</a></li>
-													<li><%= link_to("Developer Team", "team")%></li>
-												</ul>
-											</div>
-											<div class="clearfix"></div>
-										</div>
-									</ul>
-								</li>
-							</ul>
-						</div>
-					</nav>
-				</div>
-				<div class="logo-nav-right">
-					<ul class="cd-header-buttons">
-						<li><a class="cd-search-trigger" href="#cd-search"> <span></span></a></li>
-					</ul> <!-- cd-header-buttons -->
-					<div id="cd-search" class="cd-search">
-						<form action="#" method="post">
-							<input name="Search" type="search" placeholder="Search...">
-						</form>
-					</div>
-				</div>
-				<div class="header-right2">
-					<div class="cart box_1">
-						<a href="checkout.html">
-							<h3 class="font-gray"> <div class="total">
-								<span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</div>
-								<%= image_tag("vendor/bag.png") %>
-							</h3>
-						</a>
-						<p><a href="javascript:;" class="simpleCart_empty font-gray">Empty Cart</a></p>
-						<div class="clearfix"> </div>
-					</div>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
-		</div>
-	</div>
+ 	<nav class="logo">
+	 		<a href="/home"><%= image_tag("shop/wmroundlogo.png") %><span class="img-helper"/></a>
+ 	</nav>
+
+ 	<nav class="nav" id="nav">
+ 		<ul class="nav-ul">
+ 			<li class="nav-li"><%= link_to("Home", "/home")%></li>
+ 			<li class="nav-li"><a href="#">Shop Categories</a>
+ 				<ul class="drop-down-menu">
+ 					<li><a href="#">Gift Cards</a></li>
+ 					<li><a href="#">Single Thread Mochilas</a></li>
+ 					<li><a href="#">Jeweled Mochilas</a></li>
+ 					<li><a href="#">Drawstring Mochilas</a></li>
+ 					<li><a href="#">Mini Single Thread Mochilas</a></li>
+ 					<li><a href="#">Mini Mochilas</a></li>
+					<li><a href="#">Solid Colors</a></li>
+ 					<li><a href="#">Pom Pom Mochilas</a></li>
+ 					<li><a href="#">Neon Pink</a></li>
+ 					<li><a href="#">Neon Colors</a></li>
+ 					<li><a href="#">Traditional Pink</a></li>
+ 					<li><a href="#">Traditional Colors</a></li>
+ 					<li><a href="#">Black, Grey, and White</a></li>
+ 					<li><a href="#">Earth/Brown</a></li>
+			</ul>
+		</li>
+	 			<li class="nav-li"><a href="#">Blog</a></li>
+	 			<li class="nav-li"><a href="#">About Us</a>
+	 				<ul class="nav-ul">
+	 					<li><a href="#">Customer Survey</a></li>
+	 					<li><a href="#">Customer Reviews</a></li>
+	 					<li><a href="#">FAQ's</a></li>
+	 					<li><a href="#">Shipping</a></li>
+	 					<li><a href="#">Return Policy</a></li>
+	 					<li><a href="#">Privacy Policy</a></li>
+	 					<li><a href="#">Terms and Conditions</a></li>
+	 					<li><%= link_to("Developer Team", "team")%></li>
+	 				</ul>
+	 			</li>
+	 		</ul>
+	 	</nav>
+
+		<div class="cart">
+	 		<a href="#"><%= image_tag("shop/cart-icon.png") %><span class="img-helper"/></a>
+	 		<span class="cart-count">0</span>
+	 	</div>
+
+		<div id="menuToggle" class="mobile-toggle">
+	 		<a href="#" onclick="openNav()"><%= image_tag("shop/menu-button.png") %><span class="img-helper"/></a>
+	 	</div>
+
+	  <div id="mask" class="mask" onclick="closeNav()"></div>
+	  <div id="sideNav" class="sidenav">
+	 	<a href="#" class="closebtn" onclick="closeNav()">&times;</a>
+	 	<ul class="side-nav">
+	 		<li><a href="/home">Home</a></li>
+	 		<li><a href="#" onclick="displayMenu('shop')">Shop Categories</a>
+	 			<ul id="shop" class="side-nav">
+	 				<li><a href="#">Gift Cards</a></li>
+	 				<li><a href="#">Single Thread Mochilas</a></li>
+	 				<li><a href="#">Jeweled Mochilas</a></li>
+	 				<li><a href="#">Drawstring Mochilas</a></li>
+	 				<li><a href="#">Mini Single Thread Mochilas</a></li>
+	 				<li><a href="#">Mini Mochilas</a></li>
+	 				<li><a href="#">Solid Colors</a></li>
+	 				<li><a href="#">Pom Pom Mochilas</a></li>
+	 				<li><a href="#">Neon Pink</a></li>
+	 				<li><a href="#">Neon Colors</a></li>
+	 				<li><a href="#">Traditional Pink</a></li>
+	 				<li><a href="#">Traditional Colors</a></li>
+	 				<li><a href="#">Black, Grey, and White</a></li>
+	 				<li><a href="#">Earth/Brown</a></li>
+	 			</ul>
+	 		</li>
+	 		<li><a href="#">Blog</a></li>
+	 		<li><a href="#" onclick="displayMenu('about') ">About Us</a>
+	 			<ul id="about" class="side-nav">
+	 				<li><a href="products.html">Customer Survey</a></li>
+	 				<li><a href="products.html">Customer Reviews</a></li>
+	 				<li><a href="products.html">FAQ's</a></li>
+	 				<li><a href="products.html">Shipping</a></li>
+	 				<li><a href="products.html">Return Policy</a></li>
+	 				<li><a href="products.html">Privacy Policy</a></li>
+	 				<li><a href="products.html">Terms and Conditions</a></li>
+	 				<li><%= link_to("Developer Team", "team")%></li>
+	 			</ul>
+	 		</li>
+	 	</ul>
+	 	<div class="side-social-networks">
+	 		<div>
+	 			<%= link_to( image_tag("shop/1facebook.png"), "https://www.facebook.com/WayuumBags") %>
+	 		</div>
+	 		<div>
+	 			<%= link_to( image_tag("shop/1instagram.png"), "https://www.instagram.com/wayuumbags") %>
+	 		</div>
+	 	</div>
+	 </div>
 </div>
 
 
-
+<!-- SIGN IN -->
 <div class="modal" id="myModal" align="center">
 <div class="modal-dialog modal-md">
 	<div class="modal-content modal-md" align="center">
@@ -127,11 +140,11 @@
 				<div class="modal-title1" style="font-size:42px" align="center">
 					Sign in
 				</div>
-
+		 </br>
 		 </div>
 		 	<div class="modal-body">
 				<img id="profile_img2" class="profile-img2-card" src="<%= asset_path("profileimg.jpg") %>">
-				<form class="form-signin">
+				<div class="form-signin">
 					<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
 						<% f.label :email %>
@@ -140,10 +153,12 @@
 						<% f.label :password %>
 						<%= f.password_field :password, :id=>"inputPassword", :class=>"form-control", :placeholder=>"Password", :align=>"center", autofocus: true, autocomplete: "off" %>
 
+						<div class="fonts">
 						<% if devise_mapping.rememberable? %>
 							<%= f.check_box :remember_me %>
 							<%= f.label :remember_me, :id=>"remember_me", autofocus: true, autocomplete: "off" %>
 						<% end %>
+					</div>
 					</br>
 
 			<div class="row">
@@ -164,3 +179,64 @@
 		</div>
 	</div>
  </div>
+ </div>
+
+
+<!-- SIGN UP -->
+<div class="modal" id="myModal1" align="center">
+<div class="modal-dialog modal-md">
+	<div class="modal-content modal-md" align="center">
+		<div class="card card-container1" align="center">
+		 <div class="modal-header" align="center">
+			 <button type="button" class="close" data-dismiss="modal">&times;</button>
+				<div class="modal-title1" style="font-size:42px" align="center">
+					Sign up
+				</div>
+		</div>
+		<div class="modal-body">
+			<img id="profile_img2" class="profile-img2-card" src="<%= asset_path("profileimg.jpg") %>">
+			<div class="form-signin">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
+
+        <!--<span id="reauth-email" class="reauth-email"></span>-->
+        <div align="center" >
+         <h3 class="fonts">Name</h3>
+         <% f.label :name %>
+         <%= f.text_field :name, :id=>"inputEmail", :class=>"form-control", :placeholder=>"Name", autofocus: true, autocomplete: "off" %>
+        </div>
+
+        <div align="center" >
+         <h3 class="fonts">Email</h3>
+         <% f.label :email %>
+         <%= f.email_field :email, :id=>"inputEmail", :class=>"form-control", :placeholder=>"Email address", autofocus: true, autocomplete: "off" %>
+        </div>
+
+        <div align="center">
+          <h3 class="fonts">Password</h3>
+          <% f.label :password %><% if @minimum_password_length %>
+          <h5><em>(<%= @minimum_password_length %> characters minimum)</em></h5>
+          <% end %>
+          <%= f.password_field :password, :id=>"inputPassword", :class=>"form-control", :placeholder=>"Password", :align=>"center", autofocus: true, autocomplete: "off" %>
+        </div>
+
+
+        <div align="center">
+          <h3 class="fonts">Password Confirmation</h3>
+          <% f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation, :id=>"inputPasswordConfirmation", :class=>"form-control", :placeholder=>"Password", :align=>"center", autofocus: true, autocomplete: "off" %>
+        </div>
+      </br>
+      <div>
+        <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign up</button>
+        <% f.submit "Sign up" %>
+      </div>
+      </div>
+       <%= render "devise/shared/links" %>
+       <% end %>
+
+  		</div><!-- /card-container -->
+			</div>
+		</div>
+	</div>
+</div>

@@ -13,8 +13,8 @@ development:
   # Configuracion cristian
   # database: wayuu5
   # username: postgres
-  database: wayuu1
-  username: ingesoft
+  database: wayuu5
+  username: postgres
   password: 12345
   # url: <%= ENV['POSTGRE_URL'] %>
   #host: <%= ENV['POSTGRE_HOST'] %>
