@@ -14,7 +14,7 @@ $(document).on("ready",function(){
     };
     mediaDropzone.on("addedfile", function(file) {
 
-        var removeButton = Dropzone.createElement('<button class="btn btn-link">Remove file</button>');
+        var removeButton = Dropzone.createElement('<button class="btn btn-link" >Remove file</button>');
 
         removeButton.style.cssText = 'position:absolute;left:5px';
         file.previewElement.appendChild(removeButton);

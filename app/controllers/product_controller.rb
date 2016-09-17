@@ -56,6 +56,7 @@ class ProductController < ApplicationController
     @catego.category_id = @cat.id
     @catego.save!
     session[:productid] = temp.id
+     puts "Funciona malparido 1"
     #redirect_to list_product_index_path
     #@imagen = params['images']
   end
@@ -72,6 +73,7 @@ class ProductController < ApplicationController
     @pro = Product.find( params[:id] )
     @cate = Category.all
     @sele = (CategoryHasProduct.find_by( product_id: @pro.id.to_s )).category_id
+    @image_show = ProductImage.where( :product_id => @pro.id.to_s)
   end
 
   def change
@@ -121,9 +123,9 @@ class ProductController < ApplicationController
   def showforcategory
 
   end
-
   def sortimages
     arreglo = params['info']
+    puts "Veaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
     #redirect_to list_product_index_path
   end
 
