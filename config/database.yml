@@ -7,13 +7,13 @@ development:
   <<: *default
 
   host: localhost
-  database: wayuu1
+  database: wayuu5
   #database: wayuu2
   #database: wayuu3
   #database: wayuu4
   #database: wayuu5
   #username: ingesoft
-  username: postgres 
+  username: postgres
   password: 12345
 
   #url: <%= ENV['POSTGRE_URL'] %>

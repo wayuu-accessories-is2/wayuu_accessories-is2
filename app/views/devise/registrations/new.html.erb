@@ -1,47 +1,44 @@
-<div class="modal" align="center">
+</br>
+</br>
+</br>
+<div align="center">
   <div class="card card-container1">
-      <h1 class="modal-title" align="center">Sign_up</h1></br>
+      <h1 class="modal-title" align="center">Sign up</h1></br>
       <img id="profile_img" class="profile-img-card" src="<%= asset_path("profileimg.jpg") %>">
       <p id="profile_name" class="profile-name-card"></p>
       <div class="form-signin">
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= devise_error_messages! %>
 
-        <!--<span id="reauth-email" class="reauth-email"></span>-->
-        <div align="center" >
-         <h3 class="fonts">Name</h3>
-         <% f.label :name %>
-         <%= f.text_field :name, :id=>"inputEmail", :class=>"form-control", :placeholder=>"Name", autofocus: true, autocomplete: "off" %>
+        <div class="field">
+          <% f.label :email %><br />
+          <%= f.email_field :email, :id=>"inputEmail", :class=>"form-control", :placeholder=>"Email", autofocus: true, autocomplete: "off" %>
         </div>
 
-        <div align="center" >
-         <h3 class="fonts">Email</h3>
-         <% f.label :email %>
-         <%= f.email_field :email, :id=>"inputEmail", :class=>"form-control", :placeholder=>"Email address", autofocus: true, autocomplete: "off" %>
+       </br>
+        <div class="field">
+          <% f.label :password %>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, :id=>"inputPassword", :class=>"form-control", :placeholder=>"Password", :align=>"center", autofocus: true, autocomplete: "off"  %>
         </div>
 
+        <div class="field">
+          <% f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation,:id=>"inputPassword", :class=>"form-control", :placeholder=>"Confirm Password", :align=>"center", autofocus: true, autocomplete: "off"  %>
+        </div>
+
+        </br>
         <div align="center">
-          <h3 class="fonts">Password</h3>
-          <% f.label :password %><% if @minimum_password_length %>
-          <h5><em>(<%= @minimum_password_length %> characters minimum)</em></h5>
-          <% end %>
-          <%= f.password_field :password, :id=>"inputPassword", :class=>"form-control", :placeholder=>"Password", :align=>"center", autofocus: true, autocomplete: "off" %>
-        </div>
+					<div class="actions">
+							<button align="center" class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign up</button>
+							<% f.submit "Sign up" %>
+					</div>
+				</div>
+      <% end %>
 
-
-        <div align="center">
-          <h3 class="fonts">Password Confirmation</h3>
-          <% f.label :password_confirmation %>
-          <%= f.password_field :password_confirmation, :id=>"inputPasswordConfirmation", :class=>"form-control", :placeholder=>"Password", :align=>"center", autofocus: true, autocomplete: "off" %>
-        </div>
-      </br>
-      <div>
-        <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign up</button>
-        <% f.submit "Sign up" %>
+      <%= render "devise/shared/links" %>
       </div>
-      </div>
-       <%= render "devise/shared/links" %>
-       <% end %>
-
-  </div><!-- /card-container -->
-</div>
+    </div>
+  </div>
