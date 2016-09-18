@@ -1,10 +1,14 @@
+/*TOP HEADER*/
 #top .social a {
 	line-height: 25px;
 }
-
 #top .social a:hover.tumblr {
 	background-color: #36465D;
 }
+.nav > li > div {
+	padding: 10px 15px;
+}
+/*HEADER*/
 .logo-header{
 	max-height: 63px;
 }
@@ -14,6 +18,7 @@
 .navbar-brand {
 	padding: 2px 15px;
 }
+/*CAROUSEL*/
 .margin-auto {
 	margin: auto;
 }
@@ -21,6 +26,14 @@
 	margin-right: 0px;
 	margin-left: 0px;
 }
+.home-carousel .owl-carousel {
+	padding-top: 38px;
+	padding-bottom: 0px;
+}
+.home-carousel .dark-mask {
+	background: #202020;
+}
+/*HOME WAYUU TEXT*/
 #moreText {
 	display: block;
 }
@@ -30,11 +43,36 @@
 #seeLessLink {
 	display: none;
 }
-@media (max-width: 768px) {
+/*FOOTER*/
+#footer {
+	background: #272727;
+	color: #D8D8D8;
+}
+.mail-footer {
+	margin-top: 24.5px;
+	margin-bottom: 24.5px;
+}
+/*COPYRIGHT*/
+#copyright {
+	background-color: #171717;
+	color: #E8E8E8;
+}
+/*RESPONSIVE*/
+@media (max-width: 767px) {
+	#top .login {
+		float: right;
+	}
 	#moreText {
 		display: none;
 	}
 	#lessText {
 		display: block;
+	}
+	.mail-footer {
+		margin-top: 0px;
+		margin-bottom: 0px;
+	}
+	.top-footer {
+		margin-bottom: 50px;
 	}
 }

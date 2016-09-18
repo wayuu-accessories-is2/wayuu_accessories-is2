@@ -3,105 +3,111 @@
 	<div id="top">
 		<div class="container">
 			<div class="row">
-				<div class="col-xs-5 contact">
-					<p class="hidden-sm hidden-xs">Contact us on 1(855) 929-8855 or Help@Wayuu-Mochila-Bags.com.</p>
-					<p class="hidden-md hidden-lg"><a href="#" data-animate-hover="pulse"><i class="fa fa-phone"></i></a>  <a href="#" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>
-					</p>
+				<div class="col-xs-6 col-sm-4 contact">
+					<p><i class="fa fa-phone"></i> 1(855) 929-8855</p>
+				</p>
+			</div>
+			<div class="col-xs-6 col-sm-8">
+				<div class="social hidden-xs">
+					<a href="https://www.facebook.com/WayuumBags" class="external facebook"><i class="fa fa-facebook"></i></a>
+					<a href="https://plus.google.com/+WayuumochilabagsStore" class="external gplus"><i class="fa fa-google-plus"></i></a>
+					<a href="https://www.instagram.com/wayuumbags" class="external instagram"><i class="fa fa-instagram"></i></a>
+					<a href="https://twitter.com/wayuumbags" class="external twitter"><i class="fa fa-twitter"></i></a>
 				</div>
-				<div class="col-xs-7">
-					<div class="social">
-						<a href="https://www.facebook.com/WayuumBags" class="external facebook"><i class="fa fa-facebook"></i></a>
-						<a href="https://plus.google.com/+WayuumochilabagsStore" class="external gplus"><i class="fa fa-google-plus"></i></a>
-						<a href="https://www.instagram.com/wayuumbags" class="external instagram"><i class="fa fa-instagram"></i></a>
-						<a href="http://wayuumbags.tumblr.com/" class="external tumblr"><i class="fa fa-tumblr"></i></a>
-						<a href="https://twitter.com/wayuumbags" class="external twitter"><i class="fa fa-twitter"></i></a>
-					</div>
-					<div class="login">
-						<a href="#" data-toggle="modal" data-target="#login-modal"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase">Sign in</span></a>
-						<a href="customer-register.html"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">Sign up</span></a>
-					</div>
+				<div class="login">
+					<a href="#" data-toggle="modal" data-target="#login-modal"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase">Sign in</span></a>
+					<a href="customer-register.html"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">Sign up</span></a>
 				</div>
 			</div>
 		</div>
 	</div>
-	<!-- *** TOP END *** -->
-	<!-- *** NAVBAR *** -->
-	<div class="navbar-affixed-top" data-spy="affix" data-offset-top="200">
-		<div class="navbar navbar-default yamm" role="navigation" id="navbar">
-			<div class="container">
-				<div class="navbar-header">
-					<a class="navbar-brand home" href="/home">
-						<%= image_tag("shop/logo.png", class: "hidden-xs hidden-sm logo-header") %>
-						<%= image_tag("shop/logo.png", class: "visible-xs visible-sm logo-small-header") %><span class="sr-only">Wayuu - go to homepage</span>
-					</a>
-					<div class="navbar-buttons">
-						<button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse" data-target="#navigation">
-							<span class="sr-only">Toggle navigation</span>
-							<i class="fa fa-align-justify"></i>
-						</button>
-					</div>
+</div>
+<!-- *** TOP END *** -->
+<!-- *** NAVBAR *** -->
+<div class="navbar-affixed-top" data-spy="affix" data-offset-top="200">
+	<div class="navbar navbar-default yamm" role="navigation" id="navbar">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand home" href="/home">
+					<%= image_tag("shop/logo.png", class: "hidden-xs hidden-sm logo-header") %>
+					<%= image_tag("shop/logo.png", class: "visible-xs visible-sm logo-small-header") %><span class="sr-only">Wayuu - go to homepage</span>
+				</a>
+				<div class="navbar-buttons">
+					<button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse" data-target="#navigation">
+						<span class="sr-only">Toggle navigation</span>
+						<i class="fa fa-align-justify"></i>
+					</button>
 				</div>
-				<!--/.navbar-header -->
-				<div class="navbar-collapse collapse" id="navigation">
-					<ul class="nav navbar-nav navbar-right">
-						<li class="active">
-							<%= link_to("Home ", "/home")%>
-						</li>
-						<li class="dropdown">
-							<a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown">Shop Categories <b class="caret"></b></a>
-							<ul class="dropdown-menu">
-								<li><a href="#">Flash Sale</a></li>
-								<li><a href="#">Gift Cards</a></li>
-								<li><a href="#">Single Thread Mochilas</a></li>
-								<li><a href="#">Jeweled Mochilas</a></li>
-								<li><a href="#">Drawstring Mochilas</a></li>
-								<li><a href="#">Mini Single Thread Mochilas</a></li>
-								<li><a href="#">Mini Mochilas</a></li>
-								<li><a href="#">Solid Colors</a></li>
-								<li><a href="#">Pom Pom Mochilas</a></li>
-								<li><a href="#">Neon Pink</a></li>
-								<li><a href="#">Neon Colors</a></li>
-								<li><a href="#">Traditional Pink</a></li>
-								<li><a href="#">Traditional Colors</a></li>
-								<li><a href="#">Black, Grey, and White</a></li>
-								<li><a href="#">Earth/Brown</a></li>
-							</ul>
-						</li>
-						<li>
-							<a href="javascript: void(0)">Blog </a>
-						</li>
-						<li class="dropdown">
-							<a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown">About Us <b class="caret"></b></a>
-							<ul class="dropdown-menu">
-								<li><a href="#">Customer Survey</a></li>
-								<li><a href="#">Customer Reviews</a></li>
-								<li><a href="#">FAQ's</a></li>
-								<li><a href="#">Shipping</a></li>
-								<li><a href="#">Return Policy</a></li>
-								<li><a href="#">Privacy Policy</a></li>
-								<li><a href="#">Terms and Conditions</a></li>
-								<li><%= link_to("Developer Team", "team")%></li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-				<!--/.nav-collapse -->
-				<div class="collapse clearfix" id="search">
-					<form class="navbar-form" role="search">
-						<div class="input-group">
-							<input type="text" class="form-control" placeholder="Search">
-							<span class="input-group-btn">
-								<button type="submit" class="btn btn-template-main"><i class="fa fa-search"></i></button>
-							</span>
+			</div>
+			<!--/.navbar-header -->
+			<div class="navbar-collapse collapse" id="navigation">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="active">
+						<%= link_to("Home ", "/home")%>
+					</li>
+					<li class="dropdown">
+						<a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown">Shop Categories <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Flash Sale</a></li>
+							<li><a href="#">Gift Cards</a></li>
+							<li><a href="#">Single Thread Mochilas</a></li>
+							<li><a href="#">Jeweled Mochilas</a></li>
+							<li><a href="#">Drawstring Mochilas</a></li>
+							<li><a href="#">Mini Single Thread Mochilas</a></li>
+							<li><a href="#">Mini Mochilas</a></li>
+							<li><a href="#">Solid Colors</a></li>
+							<li><a href="#">Pom Pom Mochilas</a></li>
+							<li><a href="#">Neon Pink</a></li>
+							<li><a href="#">Neon Colors</a></li>
+							<li><a href="#">Traditional Pink</a></li>
+							<li><a href="#">Traditional Colors</a></li>
+							<li><a href="#">Black, Grey, and White</a></li>
+							<li><a href="#">Earth/Brown</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="javascript: void(0)">Blog </a>
+					</li>
+					<li class="dropdown">
+						<a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown">About Us <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Customer Survey</a></li>
+							<li><a href="#">Customer Reviews</a></li>
+							<li><a href="#">FAQ's</a></li>
+							<li><a href="#">Shipping</a></li>
+							<li><a href="#">Return Policy</a></li>
+							<li><a href="#">Privacy Policy</a></li>
+							<li><a href="#">Terms and Conditions</a></li>
+							<li><%= link_to("Developer Team", "team")%></li>
+						</ul>
+					</li>
+					<li>
+						<div class="social hidden-sm hidden-md hidden-lg">
+							<a href="https://www.facebook.com/WayuumBags" class="external facebook"><i class="fa fa-facebook"></i></a>
+							<a href="https://plus.google.com/+WayuumochilabagsStore" class="external gplus"><i class="fa fa-google-plus"></i></a>
+							<a href="https://www.instagram.com/wayuumbags" class="external instagram"><i class="fa fa-instagram"></i></a>
+							<a href="https://twitter.com/wayuumbags" class="external twitter"><i class="fa fa-twitter"></i></a>
 						</div>
-					</form>
-				</div>
-				<!--/.nav-collapse -->
+					</li>
+				</ul>
 			</div>
+			<!--/.nav-collapse -->
+			<div class="collapse clearfix" id="search">
+				<form class="navbar-form" role="search">
+					<div class="input-group">
+						<input type="text" class="form-control" placeholder="Search">
+						<span class="input-group-btn">
+							<button type="submit" class="btn btn-template-main"><i class="fa fa-search"></i></button>
+						</span>
+					</div>
+				</form>
+			</div>
+			<!--/.nav-collapse -->
 		</div>
-		<!-- /#navbar -->
 	</div>
-	<!-- *** NAVBAR END *** -->
+	<!-- /#navbar -->
+</div>
+<!-- *** NAVBAR END *** -->
 </header>
 <!-- *** LOGIN MODAL *** -->
 <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
