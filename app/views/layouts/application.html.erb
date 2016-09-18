@@ -12,9 +12,11 @@
 </head>
 <body>
 	<%= render partial: 'layouts/header' %>
+  <% render 'shared/facebook_sdk' %>
 	<%= yield %>
-	<% render 'shared/facebook_sdk' %>
 	<%= render partial: 'layouts/footer' %>
+
+
 
 </body>
 </html>

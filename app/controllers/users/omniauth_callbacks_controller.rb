@@ -1,7 +1,7 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # You should configure your model like this:
   # devise :omniauthable, omniauth_providers: [:twitter]
-
+#=begin
   include ApplicationHelper
   def facebook
     # Attempt to find the User
@@ -42,7 +42,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def self.from_omniauth(access_token)
     data = access_token.info
     user = User.where(:email => data["email"]).first
-
     # Uncomment the section below if you want users to be created if they don't exist
     # unless user
     #     user = User.create(name: data["name"],
@@ -50,9 +49,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     #        password: Devise.friendly_token[0,20]
     #     )
     # end
-    user
+    #user
   end
-
+#=end
 
   # You should also create an action method in this controller like this:
   # def twitter

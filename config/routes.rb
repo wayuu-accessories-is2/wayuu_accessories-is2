@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
+
   namespace :api, defaults:{ format: :json }do
     namespace :v1 do
       resources :products, :only => [:show,:index]
       resources :category_has_products, :only => [:show,:index]
     end
   end
+
+
   devise_for :users, controllers: {
     registrations: "users/registrations",
     sessions: "users/sessions",

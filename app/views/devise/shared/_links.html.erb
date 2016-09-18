@@ -15,6 +15,17 @@
 <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
   <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />
 <% end %>
+
+<%- if user_signed_in? %>
+  <%= link_to("Log out", destroy_user_session_path, :method => :delete) %>
+<% end %>
+
+<%- if user_signed_in? %>
+  <%= link_to("Edit registation", edit_user_registration_path) %>
+<% end %>
+
+
+
 </div>
 </br>
 <div align="center">
