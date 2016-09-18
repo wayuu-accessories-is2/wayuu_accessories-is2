@@ -3,5 +3,38 @@
 }
 
 #top .social a:hover.tumblr {
-  background-color: #36465D;
+	background-color: #36465D;
+}
+.logo-header{
+	max-height: 63px;
+}
+.logo-small-header{
+	max-height: 58px;
+}
+.navbar-brand {
+	padding: 2px 15px;
+}
+.margin-auto {
+	margin: auto;
+}
+.row {
+	margin-right: 0px;
+	margin-left: 0px;
+}
+#moreText {
+	display: block;
+}
+#lessText {
+	display: none;
+}
+#seeLessLink {
+	display: none;
+}
+@media (max-width: 768px) {
+	#moreText {
+		display: none;
+	}
+	#lessText {
+		display: block;
+	}
 }
