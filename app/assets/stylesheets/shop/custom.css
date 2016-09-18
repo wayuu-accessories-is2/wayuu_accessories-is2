@@ -1,0 +1,7 @@
+#top .social a {
+	line-height: 25px;
+}
+
+#top .social a:hover.tumblr {
+  background-color: #36465D;
+}
