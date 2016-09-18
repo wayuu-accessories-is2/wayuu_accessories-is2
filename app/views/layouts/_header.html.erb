@@ -13,10 +13,12 @@
 					<a href="https://plus.google.com/+WayuumochilabagsStore" class="external gplus"><i class="fa fa-google-plus"></i></a>
 					<a href="https://www.instagram.com/wayuumbags" class="external instagram"><i class="fa fa-instagram"></i></a>
 					<a href="https://twitter.com/wayuumbags" class="external twitter"><i class="fa fa-twitter"></i></a>
+					<a href="http://wayuumbags.tumblr.com/" class="external tumblr"><i class="fa fa-tumblr"></i></a>
+					<a href="https://www.youtube.com/channel/UCL30I8UIIDth2U-KHJm2Fpw" class="external youtube"><i class="fa fa-youtube"></i></a>
 				</div>
 				<div class="login">
 					<a href="#" data-toggle="modal" data-target="#login-modal"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase">Sign in</span></a>
-					<a href="customer-register.html"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">Sign up</span></a>
+					<a href="#"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">Sign up</span></a>
 				</div>
 			</div>
 		</div>
@@ -33,13 +35,15 @@
 					<%= image_tag("shop/logo.png", class: "visible-xs visible-sm logo-small-header") %><span class="sr-only">Wayuu - go to homepage</span>
 				</a>
 				<div class="navbar-buttons">
+					<!--button  type="button" class="navbar-toggle btn-template-main">
+						<i class="fa fa-shopping-cart"></i>
+					</button-->
 					<button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse" data-target="#navigation">
 						<span class="sr-only">Toggle navigation</span>
 						<i class="fa fa-align-justify"></i>
 					</button>
 				</div>
 			</div>
-			<!--/.navbar-header -->
 			<div class="navbar-collapse collapse" id="navigation">
 				<ul class="nav navbar-nav navbar-right">
 					<li class="active">
@@ -82,16 +86,20 @@
 						</ul>
 					</li>
 					<li>
+						<a id="navbar-cart" href="#"><i class="fa fa-shopping-cart"></i><span class="cart-count">0</span></a>
+					</li>
+					<li>
 						<div class="social hidden-sm hidden-md hidden-lg">
 							<a href="https://www.facebook.com/WayuumBags" class="external facebook"><i class="fa fa-facebook"></i></a>
 							<a href="https://plus.google.com/+WayuumochilabagsStore" class="external gplus"><i class="fa fa-google-plus"></i></a>
 							<a href="https://www.instagram.com/wayuumbags" class="external instagram"><i class="fa fa-instagram"></i></a>
 							<a href="https://twitter.com/wayuumbags" class="external twitter"><i class="fa fa-twitter"></i></a>
+							<a href="http://wayuumbags.tumblr.com/" class="external tumblr"><i class="fa fa-tumblr"></i></a>
+							<a href="https://www.youtube.com/channel/UCL30I8UIIDth2U-KHJm2Fpw" class="external youtube"><i class="fa fa-youtube"></i></a>
 						</div>
 					</li>
 				</ul>
 			</div>
-			<!--/.nav-collapse -->
 			<div class="collapse clearfix" id="search">
 				<form class="navbar-form" role="search">
 					<div class="input-group">
@@ -102,10 +110,8 @@
 					</div>
 				</form>
 			</div>
-			<!--/.nav-collapse -->
 		</div>
 	</div>
-	<!-- /#navbar -->
 </div>
 <!-- *** NAVBAR END *** -->
 </header>
@@ -118,7 +124,7 @@
 				<h4 class="modal-title" id="Login">Customer login</h4>
 			</div>
 			<div class="modal-body">
-				<form action="customer-orders.html" method="post">
+				<form action="#" method="post">
 					<div class="form-group">
 						<input type="text" class="form-control" id="email_modal" placeholder="email">
 					</div>
@@ -130,7 +136,7 @@
 					</p>
 				</form>
 				<p class="text-center text-muted">Not registered yet?</p>
-				<p class="text-center text-muted"><a href="customer-register.html"><strong>Register now</strong></a>! It is easy and done in 1&nbsp;minute and gives you access to special discounts and much more!</p>
+				<p class="text-center text-muted"><a href="#"><strong>Register now</strong></a>! It is easy and done in 1&nbsp;minute and gives you access to special discounts and much more!</p>
 			</div>
 		</div>
 	</div>
