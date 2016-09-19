@@ -1,22 +1,62 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 <head>
-	<title>Wayuu</title>
 	<%= csrf_meta_tags %>
-	<!--p class="notice"><% notice %></p-->
-	<!--p class="alert"><% alert %></p-->
-	<%= stylesheet_link_tag    'application', media: 'all' %>
-	<%= javascript_include_tag 'application' %>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<!--meta name="robots" content="all,follow"-->
+	<!--meta name="googlebot" content="index,follow,snippet,archive"-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Wayuu</title>
+	<!--meta name="keywords" content=""-->
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,700,800' rel='stylesheet' type='text/css'>
+	<!-- Bootstrap and Font Awesome css -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<%= stylesheet_link_tag    'application', media: 'all' %>
+	<!-- Css animations  -->
+	<!--link href="css/animate.css" rel="stylesheet"-->
+	<!-- Theme stylesheet, if possible do not edit this stylesheet -->
+	<!--link href="css/style.default.css" rel="stylesheet" id="theme-stylesheet"-->
+	<!-- Custom stylesheet - for your changes -->
+	<!--link href="css/custom.css" rel="stylesheet"-->
+	<!-- Responsivity for older IE -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Favicon and apple touch icons-->
+    <!--link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" /-->
+    <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touch-icon-precomposed-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-precomposed-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="apple-touch-icon-precomposed-144x144.png" />
+    <!-- owl carousel css -->
+    <!--link href="css/owl.carousel.css" rel="stylesheet"-->
+    <!--link href="css/owl.theme.css" rel="stylesheet"-->
+    <!-- #### JAVASCRIPT FILES ### -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script>
+    	window.jQuery || document.write('<script src="js/jquery-1.11.0.min.js"><\/script>')
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <%= javascript_include_tag 'application' %>
 </head>
 <body>
-	<%= render partial: 'layouts/header' %>
-  <% render 'shared/facebook_sdk' %>
-	<%= yield %>
-	<%= render partial: 'layouts/footer' %>
-
-
-
+	<div id="all">
+		<!-- *** TOP *** -->
+		<!-- *** NAVBAR *** -->
+		<!-- *** FULL WIDTH MEGAMENU *** -->
+		<!-- *** LOGIN MODAL *** -->
+		<%= render partial: 'layouts/header' %>		
+		<!-- *** HOMEPAGE CAROUSEL *** -->
+		<!-- *** TESTIMONIALS CAROUSEL *** -->
+		<!-- *** BLOG HOMEPAGE *** -->
+		<!-- *** GET IT *** -->
+		<%= yield %>
+		<!-- *** FOOTER *** -->
+		<!-- *** COPYRIGHT *** -->
+		<%= render partial: 'layouts/footer' %>
+		<% render 'shared/facebook_sdk' %>
+	</div>
 </body>
 </html>

@@ -1,40 +1,227 @@
-<div>
-	<section>
-		<input type="radio" name="slider-select-element" id="img1" checked="checked"/>
-		<input type="radio" name="slider-select-element" id="img2"/>
-		<input type="radio" name="slider-select-element" id="img3"/>
-		<input type="radio" name="slider-select-element" id="img4"/>
-		<div id="slider-container">
-			<div id="slider-box">
-				<div class="slider-element">
-					<%= image_tag("shop/b1.jpg", class: "img-responsive") %>
+<!-- *** HOMEPAGE CAROUSEL *** -->
+<section>
+	<div class="home-carousel">
+		<div class="dark-mask"></div>
+		<div class="container">
+			<div class="homepage owl-carousel">
+				<div class="item">
+					<div class="row">
+						<%= image_tag("shop/b1.jpg", class: "img-responsive margin-auto") %>
+					</div>
 				</div>
-				<div class="slider-element">
-					<%= image_tag("shop/b2.jpg", class: "img-responsive") %>
+				<div class="item">
+					<div class="row">
+						<%= image_tag("shop/b2.jpg", class: "img-responsive margin-auto") %>
+					</div>
 				</div>
-				<div class="slider-element">
-					<%= image_tag("shop/b3.jpg", class: "img-responsive") %>
+				<div class="item">
+					<div class="row">
+						<%= image_tag("shop/b3.jpg", class: "img-responsive margin-auto") %>
+					</div>
 				</div>
-				<div class="slider-element">
-					<%= image_tag("shop/b4.jpg", class: "img-responsive") %>
+				<div class="item">
+					<div class="row">
+						<%= image_tag("shop/b4.jpg", class: "img-responsive margin-auto") %>
+					</div>
 				</div>
 			</div>
 		</div>
-		<div id="slider-arrows">
-			<label for="img1">O</label>
-			<label for="img2">O</label>
-			<label for="img3">O</label>
-			<label for="img4">O</label>
+	</div>
+</section>
+<!-- *** HOMEPAGE CAROUSEL END *** -->
+<!-- *** HOME WAYUU TEXT *** -->
+<section class="bar background-white no-mb">
+	<div class="container">
+		<div class="col-md-12">
+			<div class="heading text-center">
+				<h2>WHY OUR WAYUU TEAM?</h2>
+			</div>
+			<p id="lessText" class="lead text-center">Wayuu Mochila Bags are for every day, every outfit, and every personality! These handmade pieces of art will surely be the most unique bags you’ll come across in the world. The indigenous people that make them treat each piece as a canvas bringing out their passion and heart into each piece they create.<a id="seeMoreLink" class="accent" href="" onclick="seeMore(); return false;"> ...See More</a>
+			</p>
+			<p id="moreText" class="lead text-center">Wayuu Mochila Bags are for every day, every outfit, and every personality! These handmade pieces of art will surely be the most unique bags you’ll come across in the world. The indigenous people that make them treat each piece as a canvas bringing out their passion and heart into each piece they create. Their skill and creativity will certainly impress men and women of all ages across many different cultures. Our goal is to share the beauty of the bags with the world as we bring awareness of the Wayuu people of Colombia. This will surely help to preserve their culture for many generations to come! In a short period of time, we have gone from an idea to actually putting something really fun and exciting together as we have been actively traveling and interacting with the Wayuu culture. It truly has been quite an exciting adventure our team has been on thus far. We have already employed people from different regions of Colombia and the United States. Striving for rapid growth while also creating an amazing company is something we work hard for each day. Bringing you the highest quality Wayuu Mochila Bags is something I know we can promise! We know with your support that our company will grow rapidly for many years to come. When you buy a bag you know you are helping many people along the way across multiple countries. A humanitarian way of producing a quality product for our customers is something our team has created. As of today, we are shipping worldwide and are reaching customers internationally. Be different, be unique, be Wayuu!<br><br><i>Brandon Miller, Founder of Wayuu-Mochila-Bags.com</i><span><a id="seeLessLink" class="accent" href="" onclick="seeLess(); return false;">See Less</a></span>
+			</p>
 		</div>
-	</section>
-</div>
-<div class="container">
-	<h1 class="home">WHY OUR WAYUU TEAM?</h1>
-	<p id="lessText" class="home">
-		Wayuu Mochila Bags are for every day, every outfit, and every personality! These handmade pieces of art will surely be the most unique bags you’ll come across in the world. The indigenous people that make them treat each piece as a canvas bringing out their passion and heart into each piece they create.<span><a id="seeMoreLink" class="text-link" href="" onclick="seeMore(); return false;"> ...See More</a></span>
-	</p>
-	<p id="moreText" class="home">
-		Wayuu Mochila Bags are for every day, every outfit, and every personality! These handmade pieces of art will surely be the most unique bags you’ll come across in the world. The indigenous people that make them treat each piece as a canvas bringing out their passion and heart into each piece they create. Their skill and creativity will certainly impress men and women of all ages across many different cultures. Our goal is to share the beauty of the bags with the world as we bring awareness of the Wayuu people of Colombia. This will surely help to preserve their culture for many generations to come! In a short period of time, we have gone from an idea to actually putting something really fun and exciting together as we have been actively traveling and interacting with the Wayuu culture. It truly has been quite an exciting adventure our team has been on thus far. We have already employed people from different regions of Colombia and the United States. Striving for rapid growth while also creating an amazing company is something we work hard for each day. Bringing you the highest quality Wayuu Mochila Bags is something I know we can promise! We know with your support that our company will grow rapidly for many years to come. When you buy a bag you know you are helping many people along the way across multiple countries. A humanitarian way of producing a quality product for our customers is something our team has created. As of today, we are shipping worldwide and are reaching customers internationally. Be different, be unique, be Wayuu!<br><br>
-		<i>Brandon Miller, Founder of Wayuu-Mochila-Bags.com</i><span><a id="seeLessLink" class="text-link" href="" onclick="seeLess(); return false;">See Less</a></span>
-	</p>		
-</div>
+	</div>
+</section>
+<!-- *** HOME WAYUU TEXT END *** -->
+<!-- *** SHOP NOW *** -->
+<section class="bar background-image-fixed-2 no-mb color-white text-center">
+	<div class="dark-mask"></div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h3 class="text-uppercase">#1 Supplier of Wayuu Products in the WORLD!</h3>
+				<p class="text-center">
+					<a href="#" class="btn btn-template-transparent-black btn-lg">SHOP NOW</a>
+				</p>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- *** SHOP NOW END *** -->
+<!-- *** BLOG *** -->
+<section class="bar background-white no-mb">
+	<div class="container">
+		<div class="col-md-12">
+			<div class="heading text-center">
+				<h2>WAYUU BLOG</h2>
+			</div>
+			<p class="lead text-center">Check out our latest Posts about the Wayuu People and Us! <span class="accent">Check our blog!</span>
+			</p>
+			<!-- *** BLOG HOMEPAGE *** -->
+			<div class="row">
+				<div class="col-md-3 col-sm-6">
+					<div class="box-image-text blog">
+						<div class="top">
+							<div class="image">
+								<img src="img/portfolio-4.jpg" alt="" class="img-responsive">
+							</div>
+							<div class="bg"></div>
+							<div class="text">
+								<p class="buttons">
+									<a href="blog-post.html" class="btn btn-template-transparent-primary"><i class="fa fa-link"></i> Read more</a>
+								</p>
+							</div>
+						</div>
+						<div class="content">
+							<h4><a href="blog-post.html">Fashion now</a></h4>
+							<p class="author-category">By <a href="#">John Snow</a> in <a href="blog.html">Webdesign</a>
+							</p>
+							<p class="intro">Fifth abundantly made Give sixth hath. Cattle creature i be don't them behold green moved fowl Moved life us beast good yielding. Have bring.</p>
+							<p class="read-more"><a href="blog-post.html" class="btn btn-template-main">Continue reading</a>
+							</p>
+						</div>
+					</div>
+					<!-- /.box-image-text -->
+				</div>
+				<div class="col-md-3 col-sm-6">
+					<div class="box-image-text blog">
+						<div class="top">
+							<div class="image">
+								<img src="img/portfolio-3.jpg" alt="" class="img-responsive">
+							</div>
+							<div class="bg"></div>
+							<div class="text">
+								<p class="buttons">
+									<a href="blog-post.html" class="btn btn-template-transparent-primary"><i class="fa fa-link"></i> Read more</a>
+								</p>
+							</div>
+						</div>
+						<div class="content">
+							<h4><a href="blog-post.html">Fashion now</a></h4>
+							<p class="author-category">By <a href="#">John Snow</a> in <a href="blog.html">Webdesign</a>
+							</p>
+							<p class="intro">Fifth abundantly made Give sixth hath. Cattle creature i be don't them behold green moved fowl Moved life us beast good yielding. Have bring.</p>
+							<p class="read-more"><a href="blog-post.html" class="btn btn-template-main">Continue reading</a>
+							</p>
+						</div>
+					</div>
+					<!-- /.box-image-text -->
+				</div>
+				<div class="col-md-3 col-sm-6">
+					<div class="box-image-text blog">
+						<div class="top">
+							<div class="image">
+								<img src="img/portfolio-5.jpg" alt="" class="img-responsive">
+							</div>
+							<div class="bg"></div>
+							<div class="text">
+								<p class="buttons">
+									<a href="blog-post.html" class="btn btn-template-transparent-primary"><i class="fa fa-link"></i> Read more</a>
+								</p>
+							</div>
+						</div>
+						<div class="content">
+							<h4><a href="blog-post.html">What to do</a></h4>
+							<p class="author-category">By <a href="#">John Snow</a> in <a href="blog.html">Webdesign</a>
+							</p>
+							<p class="intro">Fifth abundantly made Give sixth hath. Cattle creature i be don't them behold green moved fowl Moved life us beast good yielding. Have bring.</p>
+							<p class="read-more"><a href="blog-post.html" class="btn btn-template-main">Continue reading</a>
+							</p>
+						</div>
+					</div>
+					<!-- /.box-image-text -->
+				</div>
+				<div class="col-md-3 col-sm-6">
+					<div class="box-image-text blog">
+						<div class="top">
+							<div class="image">
+								<img src="img/portfolio-6.jpg" alt="" class="img-responsive">
+							</div>
+							<div class="bg"></div>
+							<div class="text">
+								<p class="buttons">
+									<a href="blog-post.html" class="btn btn-template-transparent-primary"><i class="fa fa-link"></i> Read more</a>
+								</p>
+							</div>
+						</div>
+						<div class="content">
+							<h4><a href="blog-post.html">5 ways to look awesome</a></h4>
+							<p class="author-category">By <a href="#">John Snow</a> in <a href="blog.html">Webdesign</a>
+							</p>
+							<p class="intro">Am terminated it excellence invitation projection as. She graceful shy believed distance use nay. Lively is people.</p>
+							<p class="read-more"><a href="blog-post.html" class="btn btn-template-main">Continue reading</a>
+							</p>
+						</div>
+					</div>
+					<!-- /.box-image-text -->
+				</div>
+			</div>
+			<!-- /.row -->
+			<!-- *** BLOG HOMEPAGE END *** -->
+		</div>
+	</div>
+	<!-- /.container -->
+</section>
+<!-- *** BLOG END *** -->
+<!-- *** MAIL *** -->
+<section class="bar background-pentagon no-mb">
+	<div class="container text-center">
+		<div class="row text-center">
+			<div class="col-md-12">
+				<h1>GET IN TOUCH</h1>
+				<p class="lead accent">We are here to help! just send us an e-Mail.</p>
+			</div>
+			<div class="col-md-8 col-md-offset-2">
+				<form>
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label for="firstname">Firstname</label>
+								<input type="text" class="form-control" id="firstname">
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label for="lastname">Lastname</label>
+								<input type="text" class="form-control" id="lastname">
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label for="email">Email</label>
+								<input type="text" class="form-control" id="email">
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label for="subject">Subject</label>
+								<input type="text" class="form-control" id="subject">
+							</div>
+						</div>
+						<div class="col-sm-12">
+							<div class="form-group">
+								<label for="message">Message</label>
+								<textarea id="message" class="form-control"></textarea>
+							</div>
+						</div>
+						<div class="col-sm-12 text-center">
+							<button type="submit" class="btn btn-template-main"><i class="fa fa-envelope-o"></i> Send message</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- *** MAIL END *** -->

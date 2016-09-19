@@ -2,43 +2,43 @@
 </br>
 </br>
 <div align="center">
-  <div class="card card-container1">
-      <h1 class="modal-title" align="center">Sign in</h1></br>
-      <img id="profile_img" class="profile-img-card" src="<%= asset_path("profileimg.jpg") %>">
-      <p id="profile_name" class="profile-name-card"></p>
-      <div class="form-signin">
-					<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-					<%= devise_error_messages! %>
+	<div class="card card-container1">
+		<h1 class="modal-title" align="center">Sign in</h1></br>
+		<img id="profile_img" class="profile-img-card" src="<%= asset_path("profileimg.jpg") %>">
+		<p id="profile_name" class="profile-name-card"></p>
+		<div class="form-signin">
+			<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+			<%= devise_error_messages! %>
 
-						<%= current_user%>
-
-
-						<% f.label :email %>
-						<%= f.email_field :email, :id=>"inputEmail", :class=>"form-control", :placeholder=>"Email", autofocus: true, autocomplete: "off" %>
-
-						<% f.label :password %>
-						<%= f.password_field :password, :id=>"inputPassword", :class=>"form-control", :placeholder=>"Password", :align=>"center", autofocus: true, autocomplete: "off" %>
-
-						<% if devise_mapping.rememberable? %>
-							<%= f.check_box :remember_me %>
-							<%= f.label :remember_me, :id=>"remember_me", autofocus: true, autocomplete: "off" %>
-						<% end %>
-					</br>
+			<%= current_user%>
 
 
+			<% f.label :email %>
+			<%= f.email_field :email, :id=>"inputEmail", :class=>"form-control", :placeholder=>"Email", autofocus: true, autocomplete: "off" %>
 
-			<div class="row">
-				<div align="center">
-					<div class="actions">
-							<button align="center" class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
-							<% f.submit "Log in" %>
-					</div>
+			<% f.label :password %>
+			<%= f.password_field :password, :id=>"inputPassword", :class=>"form-control", :placeholder=>"Password", :align=>"center", autofocus: true, autocomplete: "off" %>
+
+			<% if devise_mapping.rememberable? %>
+			<%= f.check_box :remember_me %>
+			<%= f.label :remember_me, :id=>"remember_me", autofocus: true, autocomplete: "off" %>
+			<% end %>
+		</br>
+
+
+
+		<div class="row">
+			<div align="center">
+				<div class="actions">
+					<button align="center" class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
+					<% f.submit "Log in" %>
 				</div>
 			</div>
-	   </div>
-
-			<div class="fontlinks">
-			<%= render "devise/shared/links" %>
-			</div>
-			<% end %>
 		</div>
+	</div>
+
+	<div class="fontlinks">
+		<%= render "devise/shared/links" %>
+	</div>
+	<% end %>
+</div>
