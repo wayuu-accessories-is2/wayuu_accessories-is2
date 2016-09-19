@@ -17,8 +17,9 @@
 					<a href="https://www.youtube.com/channel/UCL30I8UIIDth2U-KHJm2Fpw" class="external youtube"><i class="fa fa-youtube"></i></a>
 				</div>
 				<div class="login">
-					<a href="#" data-toggle="modal" data-target="#login-modal"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase">Sign in</span></a>
-					<a href="#"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">Sign up</span></a>
+					<a href="<%= new_user_session_path %>"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase">Sign in</span></a>
+					<!--a href="<%= new_user_session_path %>" data-toggle="modal" data-target="#login-modal"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase">Sign in</span></a-->
+					<a href="<%= new_user_registration_path %>"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">Sign up</span></a>
 				</div>
 			</div>
 		</div>
@@ -135,8 +136,8 @@
 						<button class="btn btn-template-main"><i class="fa fa-sign-in"></i> Log in</button>
 					</p>
 					<div id="login-social">
-						<button id="login-facebook"><i class="fa fa-facebook"></i></button>
-						<button id="login-google"><i class="fa fa-google"></i></button>
+						<a id="login-facebook"><i class="fa fa-facebook"></i></a>
+						<a id="login-google"><i class="fa fa-google"></i></a>
 					</div>
 				</form>
 				<p class="text-center text-muted">Not registered yet?</p>
