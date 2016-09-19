@@ -61,8 +61,16 @@ Rails.application.routes.draw do
   get 'home', to: 'home_page#home'
 
   get 'team', to: 'hometeam#index'
-
   get 'admin/index', to: 'admin#admin_index'
+
+  resources :admin do
+    collection do
+      get 'userlist', to: :user
+      get 'beadmin', to: :beadmin
+      get 'removeadmin', to: :removeadmin
+    end
+  end
+
 
   resources :product_images
 
