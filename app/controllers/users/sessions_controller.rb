@@ -10,10 +10,10 @@ class Users::SessionsController < Devise::SessionsController
     redirect_to root_path
   end
 
-  #def destroy
-  #  session[:user_id] = nil
-  #  redirect_to root_path
-  #end
+  def destroy
+    session[:user_id] = nil
+    redirect_to root_path
+  end
 
   # GET /resource/sign_in
   #def new
