@@ -3,7 +3,7 @@
 	margin-top: 4px;
 }
 #top .login {
-    margin-top: 2px;
+	margin-top: 2px;
 }
 #top .social a {
 	line-height: 24px;
@@ -33,20 +33,51 @@
 	padding-top: 19.5px;
 	padding-bottom: 19.5px;
 }
+#cart-container{
+	display: block;
+	float: right;
+	margin: 17.5px;
+}
 .cart-count {
 	display: inline-block;
 	background-color: #555555;
 	width: 20px;
-    height: 20px;
-    border-radius: 10px;
-    color: #fff;
-    font-weight: 300;
-    font-size: 12px;
-    text-align: center;
-    position: relative;
-    top: -2px;
-    left: -2px;
-    padding-left: 2px;
+	height: 20px;
+	border-radius: 10px;
+	color: #fff;
+	font-weight: 300;
+	font-size: 12px;
+	text-align: center;
+	position: relative;
+	top: -2px;
+	left: -2px;
+	line-height: 20px;
+}
+.navbar .navbar-buttons {
+	margin-right: 10px;
+}
+/*MODAL*/
+#login-social{
+	text-align: center;
+	color: #FFF;
+}
+#login-facebook {
+	width: 90px;
+	height: 30px;
+	background-color: #3B5998;
+	border: none;
+	border-radius: 2px;
+	margin: 0px 5px;
+	    font-size: 20px;
+}
+#login-google {
+	width: 90px;
+	height: 30px;
+	background-color: #EA4335;
+	border: none;
+	border-radius: 2px;
+	margin: 0px 5px;
+	    font-size: 20px;
 }
 /*CAROUSEL*/
 .margin-auto {
@@ -61,7 +92,7 @@
 	padding-bottom: 0px;
 }
 .owl-theme .owl-controls {
-    margin-top: -28px;
+	margin-top: -28px;
 }
 .home-carousel .dark-mask {
 	background: #202020;

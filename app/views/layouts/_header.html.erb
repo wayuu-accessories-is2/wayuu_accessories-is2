@@ -35,13 +35,13 @@
 					<%= image_tag("shop/logo.png", class: "visible-xs visible-sm logo-small-header") %><span class="sr-only">Wayuu - go to homepage</span>
 				</a>
 				<div class="navbar-buttons">
-					<!--button  type="button" class="navbar-toggle btn-template-main">
-						<i class="fa fa-shopping-cart"></i>
-					</button-->
 					<button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse" data-target="#navigation">
 						<span class="sr-only">Toggle navigation</span>
 						<i class="fa fa-align-justify"></i>
 					</button>
+				</div>
+				<div id="cart-container" class="hidden-sm hidden-md hidden-lg">
+					<a id="navbar-cart" href="#"><i class="fa fa-shopping-cart"></i><span class="cart-count">0</span></a>
 				</div>
 			</div>
 			<div class="navbar-collapse collapse" id="navigation">
@@ -85,7 +85,7 @@
 							<li><%= link_to("Developer Team", "team")%></li>
 						</ul>
 					</li>
-					<li>
+					<li class="hidden-xs">
 						<a id="navbar-cart" href="#"><i class="fa fa-shopping-cart"></i><span class="cart-count">0</span></a>
 					</li>
 					<li>
@@ -134,6 +134,10 @@
 					<p class="text-center">
 						<button class="btn btn-template-main"><i class="fa fa-sign-in"></i> Log in</button>
 					</p>
+					<div id="login-social">
+						<button id="login-facebook"><i class="fa fa-facebook"></i></button>
+						<button id="login-google"><i class="fa fa-google"></i></button>
+					</div>
 				</form>
 				<p class="text-center text-muted">Not registered yet?</p>
 				<p class="text-center text-muted"><a href="#"><strong>Register now</strong></a>! It is easy and done in 1&nbsp;minute and gives you access to special discounts and much more!</p>
