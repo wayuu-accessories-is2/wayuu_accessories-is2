@@ -61,25 +61,19 @@ class ProductController < ApplicationController
   end
 
   def show
-    #@list = Product.all.order("id ASC")
-    #@consult = CategoryHasProduct.all
-    #respond_to do |format|
-    #  format.js
-    #end
-    @product = Product.find( params[:id] )
-    @cate = Category.all.order('name ASC')
+    @list = Product.all.order("id ASC")
+    @consult = CategoryHasProduct.all
     respond_to do |format|
-      format.html
+      format.js
     end
-    render layout: "application"
-
-    puts @product
   end
 
   def edit
     @pro = Product.find( params[:id] )
     @cate = Category.all
     @sele = (CategoryHasProduct.find_by( product_id: @pro.id.to_s )).category_id
+    @image_show = ProductImage.where( :product_id => @pro.id.to_s).order("sort_order")
+    puts "Tu lo envias "
   end
 
   def change
@@ -101,7 +95,7 @@ class ProductController < ApplicationController
     t.save!
 
 
-    redirect_to list_product_index_path
+    #redirect_to list_product_index_path
   end
 
   def list
@@ -129,13 +123,10 @@ class ProductController < ApplicationController
   def showforcategory
 
   end
-
   def sortimages
     arreglo = params['info']
-    #puts arreglo.length
-    #puts arreglo
-    #puts "veaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-    redirect_to list_product_index_path
+    puts "Veaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    #redirect_to list_product_index_path
   end
 
 end
