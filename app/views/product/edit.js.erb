@@ -1,5 +1,5 @@
 $( "#indexcambio" ).html( "<%= escape_javascript( render( "editproduct" ) ) %>" );
-$( 'body' ).append(  "<script>$(function () {$('#sortable').sortable({ update: function (event, ui) { 	var order = $(this).sortable('serialize'); $(document).on('click', '#saveorder', function () { });}}).disableSelection();$('#saveorder').on('click', function () {	var r = $('#sortable').sortable('toArray'); 	var a = $('#sortable').sortable('serialize');	$.ajax({data: {info: r}, type: 'POST',url: '/admin/product/sortimages', success: function( result ){} }); console.log(r);});});</script>" );
+$( 'body' ).append(  "<script>$(function () {$('#sortable').sortable({ update: function (event, ui) { 	var order = $(this).sortable('serialize'); $(document).on('click', '#saveorder', function () { });}}).disableSelection();$('#saveorder').on('click', function () {	var r = $('#sortable').sortable('toArray'); 	var a = $('#sortable').sortable('serialize');	$.ajax({data: {info: r,proID: $('#id').val()}, type: 'POST',url: '/admin/product_images/updateorder', success: function( result ){} }); console.log(r);});});</script>" );
 $('#editproduct' ).click(function(){
     $('#general').addClass('hidden');
     $('#link').addClass('hidden');
@@ -16,6 +16,7 @@ $('#editproduct' ).click(function(){
          $('#saveorder').removeClass('hidden');
          $('#saveorder').click(function(){
             $('#addimages').removeClass('hidden');
+            $('#saveorder').addClass('hidden');
          });
          $('#idSort').removeClass('hidden');
          $('#idSort').addClass('active');
@@ -38,8 +39,8 @@ $('#addimages').click(function(){
     $('#tab-image').removeClass('hidden');
     $('#tab-image').addClass('active');
     $('#tab-sort').removeClass('active');
-    $('#editimages').removeClass('hidden');
-    $('#editimages').addClass('active');
+    $('#editimage').removeClass('hidden');
+    $('#editimage').addClass('active');
     $('#idImage').removeClass('hidden');
     $('#idSort').addClass('hidden');
     $('#idImage').addClass('active');

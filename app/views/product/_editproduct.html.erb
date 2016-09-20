@@ -1,4 +1,4 @@
-
+il
 <div id="page-wrapper" style="background-color: #FFFFFF; margin-top: 15px">
 
 <div class="container-fluid">
@@ -87,12 +87,12 @@
              </div>
            </div>
           <div class="tab-pane hidden" id="tab-sort" align="center">
-
               <div class="form-group required">
                 <ul id="sortable" style="list-style-type: none;">
-                  <% @image_show.each do |i|%>
-                  <%puts i.sort_order%>
-                  <li id= "<%i.sort_order.to_s%>" class="item-style"><%=image_tag i.image.small.url, size: "125x125", class: "css-style"%></li>
+                  <%@image_show.each do |i|%>
+                  <%=puts i.sort_order%>
+                  <%=puts i.id%>
+                  <li id= '<%=i.sort_order%>' class="item-style"><%=image_tag i.image.small.url, size: "125x125", class: "css-style"%></li>
                   <%end%>
                 </ul>
              </div>
