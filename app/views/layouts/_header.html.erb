@@ -17,14 +17,16 @@
 					<a href="https://www.youtube.com/channel/UCL30I8UIIDth2U-KHJm2Fpw" class="external youtube"><i class="fa fa-youtube"></i></a>
 				</div>
 				<div class="login">
-					<a href="<%= new_user_session_path %>"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase">Sign in</span></a>
-					<!--a href="<%= new_user_session_path %>" data-toggle="modal" data-target="#login-modal"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase">Sign in</span></a-->
-					<a href="<%= new_user_registration_path %>"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">Sign up</span></a>
-					<%- if session[:user_id]!=nil %>
+          <%- if session[:user_id]==nil or session[:uid] == nil %>
+					     <!--<a href="<%= new_user_session_path %>"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase">Sign in</span></a>-->
+					     <a href="#" data-toggle="modal" data-target="#myModal4"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase">Sign in</span></a-->
+					     <a href="<%= new_user_registration_path %>"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">Sign up</span></a>
+					<%- else %>
 						<%= link_to("Log out", destroy_user_session_path, :method => :delete) %>
+
 					<% end %>
 
-					<%- if session[:user_id]!=nil %>
+					<%- if session[:user_id]!=nil  or session[:uid] != nil  %>
 						<%= link_to("Edit registation", edit_user_registration_path) %>
 					<% end %>
 				</div>
@@ -124,33 +126,66 @@
 <!-- *** NAVBAR END *** -->
 </header>
 <!-- *** LOGIN MODAL *** -->
-<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
+<div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
 	<div class="modal-dialog modal-sm">
 		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title" id="Login">Customer login</h4>
-			</div>
-			<div class="modal-body">
-				<form action="#" method="post">
-					<div class="form-group">
-						<input type="text" class="form-control" id="email_modal" placeholder="email">
-					</div>
-					<div class="form-group">
-						<input type="password" class="form-control" id="password_modal" placeholder="password">
-					</div>
-					<p class="text-center">
+			<div align="center">
+			 <div class="card card-container1" align="center">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					 <div class="modal-title1" style="font-size:38px " align="center">
+						 Log in
+					 </div>
+				</div>
+				<div class="modal-body">
+ 				<!--<img id="profile_img2" class="profile-img2-card" src="<%= asset_path("profileimg.jpg") %>">-->
+ 				<div class="form-signin">
+ 					<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+ 						<% f.label :email %>
+ 						<%= f.email_field :email, :id=>"inputEmail", :class=>"form-control", :placeholder=>"Email", autofocus: true, autocomplete: "off" %>
+
+ 						<% f.label :password %>
+ 						<%= f.password_field :password, :id=>"inputPassword", :class=>"form-control", :placeholder=>"Password", :align=>"center", autofocus: true, autocomplete: "off" %>
+
+ 						<div class="fonts">
+ 						<% if devise_mapping.rememberable? %>
+ 							<%= f.check_box :remember_me %>
+ 							<%= f.label :remember_me, :id=>"remember_me", autofocus: true, autocomplete: "off" %>
+ 						<% end %>
+ 					</div>
+
+ 			<div class="row">
+ 				<div align="center">
+ 					<div class="form-group">
+						  <button class="btn btn-signin"></i> Log in</button>
+ 							<!--<button align="center" class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>-->
+ 							<% f.submit "Log in" %>
+ 					</div>
+ 				</div>
+ 			</div>
+ 	   </div>
+
+		 <p class="text-center text-muted">Not registered yet? <a href="<%= new_user_registration_path %>"><strong>Register now</strong></a>! It is easy and done in 1&nbsp;minute and gives you access to special discounts and much more!</p>
+
+ 			<div class="fontlinks">
+ 			<%= render "devise/shared/links" %>
+ 			</div>
+ 			<% end %>
+ 		</div>
+
+
+					<!--<p class="text-center">
 						<button class="btn btn-template-main"><i class="fa fa-sign-in"></i> Log in</button>
-					</p>
-					<div id="login-social">
+					</p>-->
+
+					<!--<div id="login-social">
 						<a id="login-facebook"><i class="fa fa-facebook"></i></a>
 						<a id="login-google"><i class="fa fa-google"></i></a>
-					</div>
-				</form>
-				<p class="text-center text-muted">Not registered yet?</p>
-				<p class="text-center text-muted"><a href="#"><strong>Register now</strong></a>! It is easy and done in 1&nbsp;minute and gives you access to special discounts and much more!</p>
-			</div>
-		</div>
+					</div>-->
+		 </div>
+	  </div>
+	 </div>
 	</div>
 </div>
 <!-- *** LOGIN MODAL END *** -->

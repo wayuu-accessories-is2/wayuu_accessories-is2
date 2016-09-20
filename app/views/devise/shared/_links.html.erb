@@ -1,6 +1,6 @@
 <script src="https://use.fontawesome.com/20e5321464.js"></script>
 <div class="fontlinks">
-  <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+  <%- if devise_mapping.registerable? && controller_name != 'registrations' && user_signed_in? %>
   <%= link_to "Sign up", new_registration_path(resource_name) %><br/>
 <% end %>
 
@@ -16,11 +16,11 @@
   <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />
 <% end %>
 
-<%- if user_signed_in? %>
+<% if user_signed_in? %>
   <%= link_to("Log out", destroy_user_session_path, :method => :delete) %>
 <% end %>
 
-<%- if user_signed_in? %>
+<% if user_signed_in? %>
   <%= link_to("Edit registation", edit_user_registration_path) %>
 <% end %>
 

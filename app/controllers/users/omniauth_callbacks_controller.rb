@@ -3,6 +3,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # devise :omniauthable, omniauth_providers: [:twitter]
 #=begin
   include ApplicationHelper
+
   def facebook
     # Attempt to find the User
     @user = User.find_for_facebook_oauth(
@@ -17,7 +18,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
         :success,
         :kind => "Facebook") if is_navigational_format?
     else
-      redirect_to new_user_registration_url
+      session[:uid] = request.env["omniauth.auth"]
+      redirect_to root_path
     end
 
   end

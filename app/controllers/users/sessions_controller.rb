@@ -8,6 +8,9 @@ class Users::SessionsController < Devise::SessionsController
     emai = params[:user][:email]
     session[:user_id] = User.find_by(email: emai).id
     redirect_to root_path
+    #rescue Exception => e
+  #    flash[:error] = e.message
+  #    render :new
   end
 
   def destroy
