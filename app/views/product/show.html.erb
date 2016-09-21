@@ -40,10 +40,12 @@ _________________________________________________________ -->
                             <img src="https://wayuu-mochila-bags.com/wp-content/uploads/2016/08/Authentic-WAYUU-Large-Mochila-Bag-100_-Colombian-Boho-Hobo-Finest-Handmade-412-1.jpg" class="img-responsive" height="450" width="450">
                         </div>
 
+                        <% if @product.discount != 0.0 %>
                         <div class="ribbon sale">
                           <div class="theribbon">SALE</div>
                           <div class="ribbon-background"></div>
                         </div>
+                        <% end %>
                                 <!-- /.ribbon -->
                         <% if @product.created_at > 3.days.ago %>
 
@@ -66,24 +68,22 @@ _________________________________________________________ -->
                               <h3>Not available</h3>
                             <% end %>
                           </div>
-
-                            <form>
-
-
-                                <p class="price">$<%= @product.price %></p>
-
-                                <p class="text-center">
-                                  <% if @product.quantity > 0 %>
-                                    <button type="submit" class="btn btn-template-main"><i class="fa fa-shopping-cart"></i> Add to cart </button>
-                                  <% else %>
-                                    <button type="submit" class="btn btn-template-main" disabled><i class="fa fa-shopping-cart"></i> Add to cart </button>
-                                  <% end %>
-
-                                    <button type="submit" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Add to wishlist"><i class="fa fa-heart-o"></i>
-                                    </button>
-                                </p>
-
-                            </form>
+                            <% if @product.discount != 0.0 %>
+                              <strike><p class="price" style="margin-bottom: 1px">$<%= @product.price %></p></strike>
+                              <p class="price" style="margin-top: 1px">$<%= @product.discount %></p>
+                              <p class="text-center">
+                            <% else %>
+                              <p class="price">$<%= @product.price %></p>
+                              <p class="text-center">
+                            <%end %>
+                            <% if @product.quantity > 0 %>
+                              <button type="submit" class="btn btn-template-main"><i class="fa fa-shopping-cart"></i> Add to cart </button>
+                            <% else %>
+                              <button type="submit" class="btn btn-template-main" disabled><i class="fa fa-shopping-cart"></i> Add to cart </button>
+                            <% end %>
+                            <button type="submit" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Add to wishlist"><i class="fa fa-heart-o"></i>
+                            </button>
+                            </p>
                         </div>
 
                         <div class="row" id="thumbs">
