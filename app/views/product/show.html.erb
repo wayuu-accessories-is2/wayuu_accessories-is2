@@ -88,7 +88,7 @@ _________________________________________________________ -->
 
                         <div class="row" id="thumbs">
 
-                                <% showImage = ProductImage.where("product_id=" @product.id.to_s ) %>
+                                <% showImage = ProductImage.where(product_id: @product.id.to_s ).order('sort_order DESC') %>
                                 <% unless showImage.nil?%>
                                   <% showImage.each do |x| %>
                                     <div class="col-xs-4">
