@@ -92,8 +92,8 @@ _________________________________________________________ -->
                                 <% unless showImage.nil?%>
                                   <% showImage.each do |x| %>
                                     <div class="col-xs-4">
-                                      <a href="<%=image_tag t.image.thumb.url%>" class="thumb">
-                                        <%=image_tag t.image.url%>
+                                      <a href="<%=x.image.thumb.url%>" class="thumb">
+                                        <%=image_tag x.image.url%>
                                       </a>
                                     </div>
                                   <%end%>
