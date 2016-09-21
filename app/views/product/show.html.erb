@@ -30,15 +30,14 @@ _________________________________________________________ -->
 
             <div class="col-md-9">
 
-                <p class="lead"><%= @product.description %>
-                </p>
+
                 <p class="goToDescription"><a href="#details" class="scroll-to text-uppercase">Scroll to product details, material & care and sizing</a>
                 </p>
 
                 <div class="row" id="productMain">
                     <div class="col-sm-6">
                         <div id="mainImage">
-                            <img src="https://wayuu-mochila-bags.com/wp-content/uploads/2016/08/Authentic-WAYUU-Large-Mochila-Bag-100_-Colombian-Boho-Hobo-Finest-Handmade-412-1.jpg" alt="" class="img-responsive">
+                            <img src="https://wayuu-mochila-bags.com/wp-content/uploads/2016/08/Authentic-WAYUU-Large-Mochila-Bag-100_-Colombian-Boho-Hobo-Finest-Handmade-412-1.jpg" class="img-responsive" height="450" width="450">
                         </div>
 
                         <div class="ribbon sale">
@@ -53,6 +52,9 @@ _________________________________________________________ -->
                           <div class="ribbon-background"></div>
                         </div>
                         <% end %>
+                        <br><br>
+                        <p class="lead"  align="justify"><%= @product.description %>
+                        </p>
                     </div>
                     <div class="col-sm-6">
                         <div class="box">
@@ -131,6 +133,103 @@ _________________________________________________________ -->
                           <%= image_tag("shop/description.jpg", class: "img-responsive margin-auto") %>
                         </div>
                 </div>
+
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h3 class="panel-title"><i class="fa fa-pencil"></i>Reviews</h3>
+                  </div>
+                  <div class="panel-body" style="margin-top: 20px">
+                    <form action="/product/new" method="post" enctype="multipart/form-data" id="form-product" class="form-horizontal">
+                      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                      <ul class="nav nav-tabs">
+                        <li class="active" id="general"><a href="#tab-data" data-toggle="tab">Reviews</a></li>
+                        <li id="create"><a href="#tab-create" data-toggle="tab">Write reviews</a></li>
+                      </ul>
+
+                      <div class="tab-content" style="margin-top: 15px">
+                        <div class="tab-pane active" id="tab-data">
+                          <div class="well">
+
+                              <div class="row">
+                                  <div class="col-md-12">
+                                      <span class="glyphicon glyphicon-star"></span>
+                                      <span class="glyphicon glyphicon-star"></span>
+                                      <span class="glyphicon glyphicon-star"></span>
+                                      <span class="glyphicon glyphicon-star"></span>
+                                      <span class="glyphicon glyphicon-star-empty"></span>
+                                      Anonymous
+                                      <span class="pull-right">10 days ago</span>
+                                      <p>This product was great in terms of quality. I would definitely buy another!</p>
+                                  </div>
+                              </div>
+
+                              <hr>
+
+                              <div class="row">
+                                  <div class="col-md-12">
+                                      <span class="glyphicon glyphicon-star"></span>
+                                      <span class="glyphicon glyphicon-star"></span>
+                                      <span class="glyphicon glyphicon-star"></span>
+                                      <span class="glyphicon glyphicon-star"></span>
+                                      <span class="glyphicon glyphicon-star-empty"></span>
+                                      Anonymous
+                                      <span class="pull-right">12 days ago</span>
+                                      <p>I've alredy ordered another one!</p>
+                                  </div>
+                              </div>
+
+                              <hr>
+
+                              <div class="row">
+                                  <div class="col-md-12">
+                                      <span class="glyphicon glyphicon-star"></span>
+                                      <span class="glyphicon glyphicon-star"></span>
+                                      <span class="glyphicon glyphicon-star"></span>
+                                      <span class="glyphicon glyphicon-star"></span>
+                                      <span class="glyphicon glyphicon-star-empty"></span>
+                                      Anonymous
+                                      <span class="pull-right">15 days ago</span>
+                                      <p>I've seen some better than this, but not at this price. I definitely recommend this item.</p>
+                                  </div>
+                              </div>
+
+                          </div>
+                        </div>
+                        <div class="tab-pane" id="tab-create">
+                          <div class="form-group">
+                            <div class="form-group required">
+                              <label class="col-sm-2 control-label" for="input-name">Name</label>
+                              <div class="col-sm-10">
+                                <input type="text" name="product_name" value="" placeholder="Product name" id="name" class="form-control" />
+                              </div>
+                              <br><br>
+                              <label class="col-sm-2 control-label" for="input-name">Email</label>
+                              <div class="col-sm-10">
+                                <input type="text" name="email" value="" placeholder="Email" id="email" class="form-control" />
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label class="col-sm-2 control-label" for="input-description1">Description</label>
+                              <div class="col-sm-10">
+                                <textarea name="product_description" placeholder="Description" style="min-width: 100%" id="description"></textarea>
+                              </div>
+                            </div>
+                            <span class="star-rating">
+                              <input type="radio" name="rating" value="1"><i></i>
+                              <input type="radio" name="rating" value="2"><i></i>
+                              <input type="radio" name="rating" value="3"><i></i>
+                              <input type="radio" name="rating" value="4"><i></i>
+                              <input type="radio" name="rating" value="5"><i></i>
+                            </span>
+                            <strong class="choice">Choose a rating</strong>
+                          </div>
+                        </div>
+                        </form>
+                      </div>
+                    </div>
+                </div>
+
+
 
 
                 <div class="box social" id="product-social">
