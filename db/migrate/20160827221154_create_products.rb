@@ -7,6 +7,7 @@ class CreateProducts < ActiveRecord::Migration[5.0]
       t.float :length
       t.float :width
       t.float :height
+      t.float :weight
       t.string :status, :default => 1
       t.string :description
       t.float :discount

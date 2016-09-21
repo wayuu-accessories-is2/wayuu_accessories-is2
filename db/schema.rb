@@ -155,6 +155,7 @@ ActiveRecord::Schema.define(version: 20160908000703) do
     t.float    "length"
     t.float    "width"
     t.float    "height"
+    t.float    "weight"
     t.string   "status",      default: "1"
     t.string   "description"
     t.float    "discount"

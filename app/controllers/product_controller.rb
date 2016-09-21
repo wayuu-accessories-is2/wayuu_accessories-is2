@@ -28,6 +28,7 @@ class ProductController < ApplicationController
     length = params['length']
     width = params['width']
     height = params['height']
+    weight = params['weight']
     discount = params['product_discount_price']
     status = params['status']
     category1 = params['category1']
@@ -48,6 +49,7 @@ class ProductController < ApplicationController
     temp.height = height
     temp.status = status
     temp.discount = discount
+    temp.weight = weight
 
     temp.save!
     session[:order] = 1
@@ -96,6 +98,7 @@ class ProductController < ApplicationController
     t.length = params['length']
     t.width = params['width']
     t.height = params['height']
+    t.weight = params['weight']
     category1 = params['category1']
     discount = params['product_discount_price']
     if discount == ""
