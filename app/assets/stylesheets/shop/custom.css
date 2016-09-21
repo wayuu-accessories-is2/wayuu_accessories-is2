@@ -147,3 +147,9 @@
 		margin-bottom: 50px;
 	}
 }
+
+.pagination_style{
+	margin: 20px 0;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  border-radius: 0;
+}
