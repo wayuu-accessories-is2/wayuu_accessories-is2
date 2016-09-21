@@ -68,6 +68,7 @@ class ProductController < ApplicationController
     #end
     @product = Product.find( params[:id] )
     @cate = Category.all.order('name ASC')
+    
     respond_to do |format|
       format.html
     end

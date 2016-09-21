@@ -34,19 +34,30 @@ _________________________________________________________ -->
                 </p>
                 <p class="goToDescription"><a href="#details" class="scroll-to text-uppercase">Scroll to product details, material & care and sizing</a>
                 </p>
-                <div> <hr> </div>
+
                 <div class="row" id="productMain">
                     <div class="col-sm-6">
                         <div id="mainImage">
                             <img src="https://wayuu-mochila-bags.com/wp-content/uploads/2016/08/Authentic-WAYUU-Large-Mochila-Bag-100_-Colombian-Boho-Hobo-Finest-Handmade-412-1.jpg" alt="" class="img-responsive">
                         </div>
 
+                        <div class="ribbon sale">
+                          <div class="theribbon">SALE</div>
+                          <div class="ribbon-background"></div>
+                        </div>
+                                <!-- /.ribbon -->
+                        <% if @product.created_at > 3.days.ago %>
 
+                        <div class="ribbon new">
+                          <div class="theribbon">NEW</div>
+                          <div class="ribbon-background"></div>
+                        </div>
+                        <% end %>
                     </div>
                     <div class="col-sm-6">
                         <div class="box">
 
-                          <div class="stock">
+                          <div class="stock" align="center">
                             <% if @product.quantity > 0 %>
                               <h3>Available</h3>
                             <% else %>
@@ -113,27 +124,14 @@ _________________________________________________________ -->
 
                 <div class="box" id="details" align="left">
                     <p>
-                        <h4>Product details</h4>
-                        <p>White lace top, woven, has a round neck, short sleeves, has knitted lining attached</p>
-                        <h4>Material & care</h4>
-                        <ul>
-                            <li>Polyester</li>
-                            <li>Machine wash</li>
-                        </ul>
-                        <h4>Size & Fit</h4>
-                        <ul>
-                            <li>Regular fit</li>
-                            <li>The model (height 5'8" and chest 33") is wearing a size S</li>
-                        </ul>
+                        <h4 align="center">Product details</h4>
+                        <p>WEIGHT: <% @product.width %> </p>
 
-                        <blockquote>
-                            <p><em>Define style this season with Armani's new range of trendy tops, crafted with intricate details. Create a chic statement look by teaming this lace number with skinny jeans and pumps.</em>
-                            </p>
-                        </blockquote>
+                        <div class="row">
+                          <%= image_tag("shop/description.jpg", class: "img-responsive margin-auto") %>
+                        </div>
                 </div>
 
-                <div> <hr> </div>
-                <div> <hr> </div>
 
                 <div class="box social" id="product-social">
                     <h4>Show it to your friends</h4>
@@ -148,7 +146,7 @@ _________________________________________________________ -->
                 <div class="row">
                     <div class="col-md-3 col-sm-6">
                         <div class="box text-uppercase">
-                            <h3>You may also like these products</h3>
+                            <h3>Related Products</h3>
                         </div>
                     </div>
 
