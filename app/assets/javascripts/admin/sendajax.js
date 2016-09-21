@@ -25,7 +25,7 @@ $(document).ready(function(){
 			type: 'POST',
 			data: {name: $("#name").val(), description: $("#description").val(), model: $("#model").val(),
 		 				price: $("#price").val(), tax_class_id: $("#tax_class_id").val(), quantity: $("#quantity").val(),
-						length: $("#length").val(), width: $("#width").val(), height: $("#height").val(),
+						length: $("#length").val(), width: $("#width").val(), height: $("#height").val(), weight: $("#weight").val(),
 						status: $("#status").val(), category1: $("#category1").val(), product_discount_price: $("#discount").val(),
 						product_discount_start: $("#product_discount_start").val(), product_discount_end: $("#product_discount_end").val()},
 			success: function( result ){}
@@ -48,7 +48,7 @@ $(document).ready(function(){
 			type: 'POST',
 			data: { id: $("#id").val(), name: $("#name").val(), description: $("#description").val(), model: $("#model").val(),
 		 				price: $("#price").val(), quantity: $("#quantity").val(),	length: $("#length").val(), width: $("#width").val(), height: $("#height").val(),
-						status: $("#status").val(), category1: $("#category1").val(), product_discount_price: $("#discount").val() },
+						weight: $("#weight").val(), status: $("#status").val(), category1: $("#category1").val(), product_discount_price: $("#discount").val() },
 			success: function( result ){}
 		});
 		$('#addproduct').addClass('hidden');
