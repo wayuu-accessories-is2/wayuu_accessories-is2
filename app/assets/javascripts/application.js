@@ -7,3 +7,4 @@
 //= require shop/see_more.js
 //= require shop/jquery.raty.js
 //= require shop/star.js
+//= require jquery-star-rating

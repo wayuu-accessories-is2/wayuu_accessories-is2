@@ -68,7 +68,8 @@ class ProductController < ApplicationController
     #end
     @product = Product.find( params[:id] )
     @cate = Category.all.order('name ASC')
-    
+    @comments = Review.where(product_id: params[:id]).order('created_at DESC')
+
     respond_to do |format|
       format.html
     end

@@ -157,6 +157,7 @@ ActiveRecord::Schema.define(version: 20160908000703) do
     t.float    "height"
     t.string   "status",      default: "1"
     t.string   "description"
+    t.float    "discount"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
@@ -175,6 +176,8 @@ ActiveRecord::Schema.define(version: 20160908000703) do
   end
 
   create_table "reviews", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
     t.string   "comment"
     t.integer  "rating"
     t.integer  "product_id"
