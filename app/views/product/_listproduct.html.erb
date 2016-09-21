@@ -23,6 +23,7 @@
                   <td class="text-left">Name</td>
                   <td class="text-left">Description</td>
                   <td class="text-left">Price</td>
+                  <td class="text-left">Discount</td>
                   <td class="text-left">Category</td>
                   <td class="text-left">Discount</td>
                   <td class="text-left">Status</td>
@@ -41,6 +42,7 @@
                   <td><%= t.name %></td>
                   <td><%= t.description %></td>
                   <td><%= t.price %></td>
+                  <td><%= t.discount %></td>
                   <td><%= Category.find( (((CategoryHasProduct.find_by( product_id: t.id.to_s  )).category_id).to_s) ).name %></td>
                   <td><%=ProductDiscount.where("product_id = " + t.id.to_s ).size %></td>
                   <% if t.status == "1" %>
