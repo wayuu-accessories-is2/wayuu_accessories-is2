@@ -54,6 +54,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :category do
+    collection do
+      get 'show', to: :show
+    end
+  end
+
   resources :category, only: [] do
     resources :product, only: [] do
       collection do

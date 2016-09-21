@@ -1,4 +1,5 @@
 class CategoryController < ApplicationController
+  respond_to :html, :js
   def add
     if request.xhr?
       respond_to do |format|
@@ -21,6 +22,13 @@ class CategoryController < ApplicationController
 
     redirect_to list_category_index_path
 
+  end
+  def show
+    @show_category = Category.all.order('name ASC')
+    respond_to do |format|
+      format.html
+    end
+    #render layout: "application"
   end
 
   def list
