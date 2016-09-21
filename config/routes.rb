@@ -48,6 +48,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :review, only: [] do
+    collection do
+      get 'create', to: :create
+    end
+  end
+
   resources :category, only: [] do
     resources :product, only: [] do
       collection do

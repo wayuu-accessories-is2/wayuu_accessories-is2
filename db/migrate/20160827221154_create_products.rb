@@ -9,6 +9,7 @@ class CreateProducts < ActiveRecord::Migration[5.0]
       t.float :height
       t.string :status, :default => 1
       t.string :description
+      t.float :discount
       t.timestamps
     end
   end

@@ -5,3 +5,6 @@
 //= require shop_template/front.js
 //= require shop_template/owl.carousel.min.js
 //= require shop/see_more.js
+//= require shop/jquery.raty.js
+//= require shop/star.js
+//= require jquery-star-rating

@@ -28,13 +28,15 @@ class ProductController < ApplicationController
     length = params['length']
     width = params['width']
     height = params['height']
+    discount = params['product_discount_price']
     status = params['status']
     category1 = params['category1']
     @cat = Category.find_by name: category1.to_s
-    product_discount_price = params['product_discount_price']
     product_discount_start = params['product_discount_start']
     product_discount_end = params['product_discount_end']
-
+    if discount == ""
+      discount = 0
+    end
 
     temp = Product.new
     temp.name = name
@@ -45,6 +47,7 @@ class ProductController < ApplicationController
     temp.width = width
     temp.height = height
     temp.status = status
+    temp.discount = discount
 
     temp.save!
     session[:order] = 1
@@ -68,6 +71,8 @@ class ProductController < ApplicationController
     #end
     @product = Product.find( params[:id] )
     @cate = Category.all.order('name ASC')
+    @comments = Review.where(product_id: params[:id]).order('created_at DESC')
+
     respond_to do |format|
       format.html
     end
@@ -92,6 +97,11 @@ class ProductController < ApplicationController
     t.width = params['width']
     t.height = params['height']
     category1 = params['category1']
+    discount = params['product_discount_price']
+    if discount == ""
+      discount = 0
+    end
+    t.discount = discount
     val = CategoryHasProduct.find_by( product_id: t.id )
     cat = Category.find_by( name: category1.to_s )
 

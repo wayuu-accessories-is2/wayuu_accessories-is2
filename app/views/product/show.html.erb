@@ -30,47 +30,60 @@ _________________________________________________________ -->
 
             <div class="col-md-9">
 
-                <p class="lead"><%= @product.description %>
-                </p>
+
                 <p class="goToDescription"><a href="#details" class="scroll-to text-uppercase">Scroll to product details, material & care and sizing</a>
                 </p>
-                <div> <hr> </div>
+
                 <div class="row" id="productMain">
                     <div class="col-sm-6">
                         <div id="mainImage">
-                            <img src="https://wayuu-mochila-bags.com/wp-content/uploads/2016/08/Authentic-WAYUU-Large-Mochila-Bag-100_-Colombian-Boho-Hobo-Finest-Handmade-412-1.jpg" alt="" class="img-responsive">
+                            <img src="https://wayuu-mochila-bags.com/wp-content/uploads/2016/08/Authentic-WAYUU-Large-Mochila-Bag-100_-Colombian-Boho-Hobo-Finest-Handmade-412-1.jpg" class="img-responsive" height="450" width="450">
                         </div>
 
+                        <% if @product.discount != 0.0 %>
+                        <div class="ribbon sale">
+                          <div class="theribbon">SALE</div>
+                          <div class="ribbon-background"></div>
+                        </div>
+                        <% end %>
+                                <!-- /.ribbon -->
+                        <% if @product.created_at > 3.days.ago %>
 
+                        <div class="ribbon new">
+                          <div class="theribbon">NEW</div>
+                          <div class="ribbon-background"></div>
+                        </div>
+                        <% end %>
+                        <br><br>
+                        <p class="lead"  align="justify"><%= @product.description %>
+                        </p>
                     </div>
                     <div class="col-sm-6">
                         <div class="box">
 
-                          <div class="stock">
+                          <div class="stock" align="center">
                             <% if @product.quantity > 0 %>
                               <h3>Available</h3>
                             <% else %>
                               <h3>Not available</h3>
                             <% end %>
                           </div>
-
-                            <form>
-
-
-                                <p class="price">$<%= @product.price %></p>
-
-                                <p class="text-center">
-                                  <% if @product.quantity > 0 %>
-                                    <button type="submit" class="btn btn-template-main"><i class="fa fa-shopping-cart"></i> Add to cart </button>
-                                  <% else %>
-                                    <button type="submit" class="btn btn-template-main" disabled><i class="fa fa-shopping-cart"></i> Add to cart </button>
-                                  <% end %>
-
-                                    <button type="submit" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Add to wishlist"><i class="fa fa-heart-o"></i>
-                                    </button>
-                                </p>
-
-                            </form>
+                            <% if @product.discount != 0.0 %>
+                              <strike><p class="price" style="margin-bottom: 1px">$<%= @product.price %></p></strike>
+                              <p class="price" style="margin-top: 1px">$<%= @product.discount %></p>
+                              <p class="text-center">
+                            <% else %>
+                              <p class="price">$<%= @product.price %></p>
+                              <p class="text-center">
+                            <%end %>
+                            <% if @product.quantity > 0 %>
+                              <button type="submit" class="btn btn-template-main"><i class="fa fa-shopping-cart"></i> Add to cart </button>
+                            <% else %>
+                              <button type="submit" class="btn btn-template-main" disabled><i class="fa fa-shopping-cart"></i> Add to cart </button>
+                            <% end %>
+                            <button type="submit" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Add to wishlist"><i class="fa fa-heart-o"></i>
+                            </button>
+                            </p>
                         </div>
 
                         <div class="row" id="thumbs">
@@ -113,27 +126,98 @@ _________________________________________________________ -->
 
                 <div class="box" id="details" align="left">
                     <p>
-                        <h4>Product details</h4>
-                        <p>White lace top, woven, has a round neck, short sleeves, has knitted lining attached</p>
-                        <h4>Material & care</h4>
-                        <ul>
-                            <li>Polyester</li>
-                            <li>Machine wash</li>
-                        </ul>
-                        <h4>Size & Fit</h4>
-                        <ul>
-                            <li>Regular fit</li>
-                            <li>The model (height 5'8" and chest 33") is wearing a size S</li>
-                        </ul>
+                        <h4 align="center">Product details</h4>
+                        <p>WEIGHT: <% @product.width %> </p>
 
-                        <blockquote>
-                            <p><em>Define style this season with Armani's new range of trendy tops, crafted with intricate details. Create a chic statement look by teaming this lace number with skinny jeans and pumps.</em>
-                            </p>
-                        </blockquote>
+                        <div class="row">
+                          <%= image_tag("shop/description.jpg", class: "img-responsive margin-auto") %>
+                        </div>
                 </div>
 
-                <div> <hr> </div>
-                <div> <hr> </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h3 class="panel-title"><i class="fa fa-pencil"></i>Reviews</h3>
+                  </div>
+                  <div class="panel-body" style="margin-top: 20px">
+                    <form action="<%= review_index_path %>" method="get" id="form-review" class="form-horizontal">
+                      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                      <%= hidden_field_tag :product, @product.id %>
+                      <ul class="nav nav-tabs">
+                        <li class="active" id="general"><a href="#tab-data" data-toggle="tab">Reviews</a></li>
+                        <li id="create"><a href="#tab-create" data-toggle="tab">Write reviews</a></li>
+                      </ul>
+
+                      <div class="tab-content" style="margin-top: 15px">
+                        <div class="tab-pane active" id="tab-data">
+                          <div class="well">
+                            <% @comments.each do |t| %>
+                              <div class="row">
+                                  <div class="col-md-12">
+                                    <% for i in (0..(t.rating.to_i-1)) %>
+                                      <span class="glyphicon glyphicon-star"></span>
+                                    <% end %>
+                                    <% for i in (1..(5-t.rating.to_i)) %>
+                                      <span class="glyphicon glyphicon-star-empty"></span>
+                                    <% end %>
+                                      <%= t.email %>
+                                      <span class="pull-right"><%= time_ago_in_words( t.created_at ) + " ago" %></span>
+                                      <p><%= t.comment %></p>
+                                  </div>
+                              </div>
+
+                              <hr>
+                          <% end %>
+
+
+
+
+                          </div>
+                        </div>
+                        <div class="tab-pane" id="tab-create">
+                          <div class="form-group">
+                            <div class="form-group">
+                              <label class="col-sm-2 control-label" for="input-name">Name</label>
+                              <div class="col-sm-10">
+                                <input type="text" name="name" value="" placeholder="Name" id="name" class="form-control" />
+                              </div>
+                              <br><br>
+                              <label class="col-sm-2 control-label" for="input-name">Email</label>
+                              <div class="col-sm-10">
+                                <input type="text" name="email" value="" placeholder="Email" id="email" class="form-control" />
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label class="col-sm-2 control-label" for="input-description1">Description</label>
+                              <div class="col-sm-10">
+                                <textarea name="comment" placeholder="Description" style="min-width: 100%" id="description"></textarea>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label class="col-sm-2 control-label" for="input-description1">Rating</label>
+                              <div class="col-sm-10">
+                                <div class="col-sm-5">
+                                <input name="star2" type="radio" value="1" class="star"/>
+                                <input name="star2" type="radio" value="2" class="star"/>
+                                <input name="star2" type="radio" value="3" class="star" checked="checked"/>
+                                <input name="star2" type="radio" value="4" class="star"/>
+                                <input name="star2" type="radio" value="5" class="star"/>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="col-sm-12" align="right">
+                              <button data-toggle="tooltip" title="Save" form="form-review" id="addComment" class="btn btn-primary" style="width: 150px; height: 50px;">Enviar</button>
+                            </div>
+
+                          </div>
+                        </div>
+                        </form>
+                      </div>
+                    </div>
+                </div>
+
+
+
 
                 <div class="box social" id="product-social">
                     <h4>Show it to your friends</h4>
@@ -148,7 +232,7 @@ _________________________________________________________ -->
                 <div class="row">
                     <div class="col-md-3 col-sm-6">
                         <div class="box text-uppercase">
-                            <h3>You may also like these products</h3>
+                            <h3>Related Products</h3>
                         </div>
                     </div>
 
