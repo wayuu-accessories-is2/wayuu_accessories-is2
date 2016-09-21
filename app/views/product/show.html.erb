@@ -37,7 +37,7 @@ _________________________________________________________ -->
                 <div class="row" id="productMain">
                     <div class="col-sm-6">
                         <div id="mainImage">
-                            <img src="https://wayuu-mochila-bags.com/wp-content/uploads/2016/08/Authentic-WAYUU-Large-Mochila-Bag-100_-Colombian-Boho-Hobo-Finest-Handmade-412-1.jpg" class="img-responsive" height="450" width="450">
+                            <img src="https://hawkiesza.files.wordpress.com/2010/07/videonotavailable.jpg" class="img-responsive" height="450" width="450">
                         </div>
 
                         <% if @product.discount != 0.0 %>
@@ -87,36 +87,23 @@ _________________________________________________________ -->
                         </div>
 
                         <div class="row" id="thumbs">
-                            <div class="col-xs-4">
-                                <a href="https://wayuu-mochila-bags.com/wp-content/uploads/2016/08/Authentic-WAYUU-Large-Mochila-Bag-100_-Colombian-Boho-Hobo-Finest-Handmade-412-2.jpg" class="thumb">
-                                    <img src="https://wayuu-mochila-bags.com/wp-content/uploads/2016/08/Authentic-WAYUU-Large-Mochila-Bag-100_-Colombian-Boho-Hobo-Finest-Handmade-412-2.jpg" alt="" class="img-responsive">
-                                </a>
-                            </div>
-                            <div class="col-xs-4">
-                                <a href="https://wayuu-mochila-bags.com/wp-content/uploads/2016/08/Authentic-WAYUU-Large-Mochila-Bag-100_-Colombian-Boho-Hobo-Finest-Handmade-412-2.jpg" class="thumb">
-                                    <img src="https://wayuu-mochila-bags.com/wp-content/uploads/2016/08/Authentic-WAYUU-Large-Mochila-Bag-100_-Colombian-Boho-Hobo-Finest-Handmade-412-2.jpg" alt="" class="img-responsive">
-                                </a>
-                            </div>
-                            <div class="col-xs-4">
-                                <a href="https://wayuu-mochila-bags.com/wp-content/uploads/2016/08/Authentic-WAYUU-Large-Mochila-Bag-100_-Colombian-Boho-Hobo-Finest-Handmade-412-2.jpg" class="thumb">
-                                    <img src="https://wayuu-mochila-bags.com/wp-content/uploads/2016/08/Authentic-WAYUU-Large-Mochila-Bag-100_-Colombian-Boho-Hobo-Finest-Handmade-412-2.jpg" alt="" class="img-responsive">
-                                </a>
-                            </div>
-                            <div class="col-xs-4">
-                                <a href="https://wayuu-mochila-bags.com/wp-content/uploads/2016/08/Authentic-WAYUU-Large-Mochila-Bag-100_-Colombian-Boho-Hobo-Finest-Handmade-412-2.jpg" class="thumb">
-                                    <img src="https://wayuu-mochila-bags.com/wp-content/uploads/2016/08/Authentic-WAYUU-Large-Mochila-Bag-100_-Colombian-Boho-Hobo-Finest-Handmade-412-2.jpg" alt="" class="img-responsive">
-                                </a>
-                            </div>
-                            <div class="col-xs-4">
-                                <a href="https://wayuu-mochila-bags.com/wp-content/uploads/2016/08/Authentic-WAYUU-Large-Mochila-Bag-100_-Colombian-Boho-Hobo-Finest-Handmade-412-2.jpg" class="thumb">
-                                    <img src="https://wayuu-mochila-bags.com/wp-content/uploads/2016/08/Authentic-WAYUU-Large-Mochila-Bag-100_-Colombian-Boho-Hobo-Finest-Handmade-412-2.jpg" alt="" class="img-responsive">
-                                </a>
-                            </div>
-                            <div class="col-xs-4">
-                                <a href="https://wayuu-mochila-bags.com/wp-content/uploads/2016/08/Authentic-WAYUU-Large-Mochila-Bag-100_-Colombian-Boho-Hobo-Finest-Handmade-412-2.jpg" class="thumb">
-                                    <img src="https://wayuu-mochila-bags.com/wp-content/uploads/2016/08/Authentic-WAYUU-Large-Mochila-Bag-100_-Colombian-Boho-Hobo-Finest-Handmade-412-2.jpg" alt="" class="img-responsive">
-                                </a>
-                            </div>
+
+                                <% showImage = ProductImage.find_by(product_id: @product.id.to_s ) %>
+                                <% unless showImage.nil?%>
+                                  <% showImage.each do |x| %>
+                                    <div class="col-xs-4">
+                                      <a href="<%=image_tag t.image.thumb.url%>" class="thumb">
+                                        <%=image_tag t.image.url%>
+                                      </a>
+                                    </div>
+                                  <%end%>
+                                <%else%>
+                                  <div class="col-xs-4">
+                                    <a href="https://hawkiesza.files.wordpress.com/2010/07/videonotavailable.jpg" class="thumb">
+                                        <img src="https://hawkiesza.files.wordpress.com/2010/07/videonotavailable.jpg" alt="" class="img-responsive">
+                                    </a>
+                                  </div>
+                                <%end%>
                         </div>
                     </div>
 
