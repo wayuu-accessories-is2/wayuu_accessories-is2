@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   resources :product do
     member do
         get 'show', to: :show
+        get 'showall', to: :showall
     end
   end
 
