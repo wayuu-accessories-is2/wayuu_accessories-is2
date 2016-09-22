@@ -26,9 +26,11 @@ class CategoryController < ApplicationController
   def show
     @count_products = CategoryHasProduct.all
     @show_category = Category.all.order('name ASC').paginate(:page => params[:page],:per_page => 8)
-    respond_to do |format|
-      format.html
-    end
+    if request.xhr?
+      respond_to do |format|
+        format.js
+      end
+    end  
     #render layout: "application"
   end
 
