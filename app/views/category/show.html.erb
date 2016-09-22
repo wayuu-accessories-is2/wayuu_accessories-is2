@@ -31,12 +31,36 @@
                     <!-- /.image -->
                     <div class="text">
                         <h3><%=c.name%></h3>
+                        <p class="price">In stock:  <%=  @count_products.where("category_id = " + c.id.to_s ).size  %></p>
                         <p class="buttons">
                             <a href="shop-detail.html" class="btn btn-default">View detail</a>
                             <a href="shop-basket.html" class="btn btn-template-main"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                         </p>
                     </div>
                     <!-- /.text -->
+                    <%cate_dis = @count_products.where("category_id = " + c.id.to_s ) %>
+                    <%p = 0%>
+                    <%cate_dis.each do |d|%>
+                      <%if Product.find(d.product_id.to_s).discount != 0.0%>
+                        <%p+=1%>
+                      <%end%>
+                    <%end%>
+
+                    <%if p != 0%>
+                    <div class="ribbon sale">
+                      <div class="theribbon">SALE</div>
+                      <div class="ribbon-background"></div>
+                    </div>
+                    <%end%>
+                    <!-- /.ribbon -->
+
+                    <% if c.created_at > 10.days.ago %>
+                    <div class="ribbon new">
+                      <div class="theribbon">NEW</div>
+                      <div class="ribbon-background"></div>
+                    </div>
+                    <% end %>
+                    <!-- /.ribbon -->
                 </div>
                 <!-- /.product -->
             </div>
