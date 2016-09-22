@@ -56,7 +56,7 @@ Rails.application.routes.draw do
   end
 
   resources :category do
-    collection do
+    member do
       get 'show', to: :show
     end
   end

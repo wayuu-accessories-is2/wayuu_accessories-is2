@@ -62,11 +62,13 @@ end
 
 def showall
   @count_products = CategoryHasProduct.where(:category_id => params[:id])
-  products = []
-  @count_products do |p|
-    products.push(Product.find(p.product_id.to_s))
+  @from_category = Category.find(params[:id])
+  @show_products =[]
+  @count_products.each do |p|
+    @show_products.push(Product.find(p.product_id.to_s))
   end
-  @show_products = products.paginate(:page => params[:page],:per_page => 8)
+  @show_products = @show_products.paginate(:page => params[:page],:per_page => 6)
+  puts @show_products
   respond_to do |format|
     format.html
   end
