@@ -14,6 +14,31 @@ Rails.application.routes.draw do
     passwords: "users/passwords",
     omniauth_callbacks: "users/omniauth_callbacks"}
 
+  resources :category, except:[:delete] do
+    collection do
+      get 'show', to: :show
+    end
+    resources :product, only:[]  do
+      collection do
+        get 'showall', to: :showall
+      end
+    end
+  end
+
+  resources :product, only:[]  do
+    member do
+      get 'show', to: :show
+    end
+  end
+
+  resources :review, only: [] do
+    collection do
+      get 'create', to: :create
+    end
+  end
+
+
+
   scope 'admin' do
     resources :product do
       collection do
@@ -29,13 +54,6 @@ Rails.application.routes.draw do
     end
   end
   #assert_generates '../category/status', controller: 'category', action: 'status'
-  resources :product do
-    member do
-        get 'show', to: :show
-        get 'showall', to: :showall
-    end
-  end
-
   scope 'admin' do
     resources :category do
       collection do
@@ -49,25 +67,15 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :review, only: [] do
-    collection do
-      get 'create', to: :create
-    end
-  end
 
-  resources :category do
-    member do
-      get 'show', to: :show
-    end
-  end
 
-  resources :category, only: [] do
-    resources :product, only: [] do
-      collection do
-        get 'showforcategory', to: :showforcategory
-      end
-    end
-  end
+  # resources :category, only: [] do
+  #   resources :product, only: [] do
+  #     collection do
+  #       get 'showall', to: :showall
+  #     end
+  #   end
+  # end
 
   root to: 'home_page#home'
 

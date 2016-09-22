@@ -1,6 +1,7 @@
 <div class="row products">
-  <% @show_category.each do |c|%>
-    <div class="col-md-3 col-sm-4">
+    <p class="text-muted lead" ></p>
+  <% @show_products.each do |c|%>
+    <div class="col-md-4 col-sm-4">
         <div class="product">
             <div class="image">
                 <a href="shop-detail.html">
@@ -10,30 +11,25 @@
             <!-- /.image -->
             <div class="text">
                 <h3><%=c.name%></h3>
-                <p class="price">In stock:  <%=  @count_products.where("category_id = " + c.id.to_s ).size  %></p>
+                <% if c.discount != 0.0%>
+                  <p class="price"><del>$<%= c.price%></del> $<%= c.discount%></p>
+                <%else%>
+                  <p class="price">$<%=c.price%></p>
+                <%end%>
                 <p class="buttons">
                     <a href="shop-detail.html" class="btn btn-default">View detail</a>
                     <a href="shop-basket.html" class="btn btn-template-main"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                 </p>
             </div>
             <!-- /.text -->
-            <%cate_dis = @count_products.where("category_id = " + c.id.to_s ) %>
-            <%p = 0%>
-            <%cate_dis.each do |d|%>
-              <%if Product.find(d.product_id.to_s).discount != 0.0%>
-                <%p+=1%>
-              <%end%>
-            <%end%>
-
-            <%if p != 0%>
+            <% if c.discount != 0.0%>
               <div class="ribbon sale">
                 <div class="theribbon">SALE</div>
                 <div class="ribbon-background"></div>
               </div>
             <%end%>
             <!-- /.ribbon -->
-
-            <% if c.created_at < 10.days.ago %>
+            <% if c.created_at > 1.days.ago %>
             <div class="ribbon new">
               <div class="theribbon">NEW</div>
               <div class="ribbon-background"></div>
@@ -44,10 +40,9 @@
         <!-- /.product -->
     </div>
   <%end%>
-  <div class="col-sm-12">
-    <div class="center">
-    <%= will_paginate @show_category, renderer: BootstrapPagination::Rails, inner_window: 1, outer_window: 1%>
-    </div>
+</div>
+<div class="col-sm-12">
+  <div class="center">
+  <%= will_paginate @show_products, renderer: BootstrapPagination::Rails, inner_window: 1, outer_window: 1%>
   </div>
-</div>  
-<!-- /.col-sm-12 -->
+</div>
