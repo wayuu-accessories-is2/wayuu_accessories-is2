@@ -54,6 +54,16 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :checkout, only: [] do
+    collection do
+      get 'index', to: :index
+      get 'first', to: :first
+      post 'first_data', to: :first
+      get 'second', to: :second
+      post 'second_data', to: :second_data
+    end
+  end
+
   resources :category, only: [] do
     resources :product, only: [] do
       collection do

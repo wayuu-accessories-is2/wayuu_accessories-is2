@@ -8,3 +8,4 @@
 //= require shop/jquery.raty.js
 //= require shop/star.js
 //= require jquery-star-rating
+//= require shop/checkout.js
