@@ -8,13 +8,17 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Choose what kind of storage to use for this uploader:
   #---- Allows to store images in the server
    #storage :file
+   #
    storage :fog
-   process resize_to_fit: [600, 600]
+   process resize_to_fit: [500, 500]
+  #  version :show do
+  #     process resize_to_fit: [600, 600]
+  #  end
    version :thumb do
-      process :resize_to_fit => [50, 50]
+      process :resize_to_fit => [50, 100]
    end
    version :small do
-      process :resize_to_fit => [150, 150]
+      process :resize_to_fit => [150, 200]
    end
 
    # Add a white list of extensions which are allowed to be uploaded.
@@ -47,6 +51,11 @@ class ImageUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
+  def scale(width, height)
+    manipulate! do |img|
+       img = img.scale(500,500)
+    end
+  end
 
   def filename
     "#{secure_token}.#{file.extension}" if original_filename.present?

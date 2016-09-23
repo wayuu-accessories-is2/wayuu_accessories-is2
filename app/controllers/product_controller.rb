@@ -126,7 +126,7 @@ def change
   t.save!
 
 
-  redirect_to list_product_index_path
+  #redirect_to list_product_index_path
 end
 
 def list

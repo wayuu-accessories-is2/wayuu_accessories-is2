@@ -6,7 +6,7 @@
             </div>
             <div class="col-md-5">
                 <ul class="breadcrumb">
-                    <li><li><%= link_to "HOME", root_path%></li></a>
+                    <li><%= link_to "HOME", root_path%></li>
                     </li>
                     <li><a><%= Category.find( (((CategoryHasProduct.find_by( product_id: @product.id.to_s  )).category_id).to_s) ).name %></a>
                     </li>

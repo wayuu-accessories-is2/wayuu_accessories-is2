@@ -2,40 +2,51 @@
     <p class="text-muted lead" ></p>
   <% @show_products.each do |c|%>
     <div class="col-md-4 col-sm-4">
-        <div class="product">
-            <div class="image">
-                <a href="shop-detail.html">
-                    <img src="https://wayuu-mochila-bags.com/wp-content/uploads/2016/08/Authentic-WAYUU-Large-Mochila-Bag-100_-Colombian-Boho-Hobo-Finest-Handmade-432-1-300x300.jpg" alt="" class="img-responsive image1">
-                </a>
-            </div>
-            <!-- /.image -->
-            <div class="text">
-                <h3><%=c.name%></h3>
-                <% if c.discount != 0.0%>
-                  <p class="price"><del>$<%= c.price%></del> $<%= c.discount%></p>
-                <%else%>
-                  <p class="price">$<%=c.price%></p>
-                <%end%>
-                <p class="buttons">
-                    <a href="shop-detail.html" class="btn btn-default">View detail</a>
-                    <a href="shop-basket.html" class="btn btn-template-main"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                </p>
-            </div>
-            <!-- /.text -->
-            <% if c.discount != 0.0%>
-              <div class="ribbon sale">
-                <div class="theribbon">SALE</div>
+          <div class="product">
+            <div class="box-image">
+              <div class="image" id= "pimage">
+                  <a href="<%=product_path( c.id ) %>">
+                    <%product_image = ProductImage.find_by(product_id: c.id.to_s )%>
+                    <%if product_image.nil?%>
+                      <img src="http://c9a023018b7727eeeae9-5cb13b2b77b05284d2f5230b4c21c288.r0.cf1.rackcdn.com/uploads/nopreview.png" alt="" class="img-responsive image1">
+                    <%else%>
+                        <img src="<%=product_image.image.url%>" class="img-responsive">
+                    <%end%>
+                  </a>
+              </div>
+              <!-- /.image -->
+              <div class="text">
+                <a href="shop-basket.html" class="btn btn-template-main"><i class="fa fa-heart"></i>Add to wish list</a>
+              </div>
+              <!-- /.text -->
+              <% if c.discount != 0.0%>
+                <div class="ribbon sale">
+                  <div class="theribbon">SALE</div>
+                  <div class="ribbon-background"></div>
+                </div>
+              <%end%>
+              <!-- /.ribbon -->
+              <% if c.created_at > 1.days.ago %>
+              <div class="ribbon new">
+                <div class="theribbon">NEW</div>
                 <div class="ribbon-background"></div>
               </div>
-            <%end%>
+              <% end %>
             <!-- /.ribbon -->
-            <% if c.created_at > 1.days.ago %>
-            <div class="ribbon new">
-              <div class="theribbon">NEW</div>
-              <div class="ribbon-background"></div>
-            </div>
-            <% end %>
-            <!-- /.ribbon -->
+          </div>
+            <!--/box image  -->
+          <div class="text">
+              <h3><%=c.name%></h3>
+              <% if c.discount != 0.0%>
+                <p class="price">$<%= c.discount%>           <del>$<%= c.price%></del></p>
+              <%else%>
+                <p class="price">$<%=c.price%></p>
+              <%end%>
+              <!-- <p style="margin-top:15px;">
+                <a href="shop-basket.html" class="btn btn-template-main"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+              </p> -->
+          </div>
+          <!--/.text -->
         </div>
         <!-- /.product -->
     </div>
