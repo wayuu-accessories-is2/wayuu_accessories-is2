@@ -1,6 +1,6 @@
 <script src="https://use.fontawesome.com/20e5321464.js"></script>
 <div class="fontlinks">
-  <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+  <%- if devise_mapping.registerable? && controller_name != 'registrations' && user_signed_in? %>
   <%= link_to "Sign up", new_registration_path(resource_name) %><br/>
 <% end %>
 
@@ -16,11 +16,11 @@
   <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />
 <% end %>
 
-<%- if user_signed_in? %>
-  <%= link_to("Log out", destroy_user_session_path, :method => :delete) %>
+<% if user_signed_in? %>
+  <%= link_to("Log out", destroy_user_session_path, :method => :delete) %><br />
 <% end %>
 
-<%- if user_signed_in? %>
+<% if user_signed_in? %>
   <%= link_to("Edit registation", edit_user_registration_path) %>
 <% end %>
 
@@ -28,17 +28,18 @@
 
 </div>
 </br>
+
+<% if controller_name != 'confirmations' or controller_name != 'passwords' or controller_name != 'unlocks' %>
 <div align="center">
 <div class="row" align="center">
     <div class="cuadro1">
       <i class="fa fa-facebook" style="color:white"></i>
       <%= link_to "Facebook", omniauth_authorize_path(resource_name, :facebook), :class=>"button"%>
     </div>
-
-
     <div class="cuadro2">
       <i class="fa fa-google-plus" style="color:white" ></i>
       <%= link_to "Google", omniauth_authorize_path(resource_name, :google_oauth2), :class=>"button" %>
     </div>
   </div>
 </div>
+<% end %>
