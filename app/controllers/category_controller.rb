@@ -30,7 +30,7 @@ class CategoryController < ApplicationController
       respond_to do |format|
         format.js
       end
-    end  
+    end
     #render layout: "application"
   end
 
@@ -77,6 +77,31 @@ class CategoryController < ApplicationController
     end
     @cate.save!
     redirect_to list_category_index_path
+  end
+
+  helper_method :find_image
+  def find_image(cat_id)
+    cate_dis = @count_products.where("category_id = " + cat_id.to_s )
+      cat_image = nil
+      cate_dis.each do |d|
+        if ProductImage.find_by( product_id: d.product_id.to_s) != nil
+          cat_image = ProductImage.find_by( product_id: d.product_id.to_s)
+          break
+        end
+      end
+    return cat_image
+  end
+  helper_method :find_discount
+  def find_discount(cat_id)
+    disc = false
+    cate_dis = @count_products.where("category_id = " + cat_id.to_s )
+    cate_dis.each do |d|
+      if Product.find(d.product_id.to_s).discount != 0.0
+        disc=true
+        break
+      end
+    end
+    return disc
   end
 
 end
