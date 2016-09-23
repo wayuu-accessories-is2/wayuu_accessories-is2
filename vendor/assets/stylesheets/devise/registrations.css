@@ -25,10 +25,20 @@ head{
 
 .card-container1.card {
     max-width: 280px;
-    max-height: 70%;
+    max-height: 100%;
     margin-top: 5px;
     margin-bottom: 5px;
 }
+
+.card-container2.card{
+
+  max-width: 450px;
+  max-height: 100%;
+  margin-top: 5px;
+  margin-bottom: 10px;
+
+}
+
 
 .btn0 {
     align-self: center;
@@ -100,16 +110,6 @@ head{
 
 
 .profile-img-card {
-    width: 40%;
-    height: 40%;
-    margin: 0 auto 10px;
-    display: block;
-    -moz-border-radius: 50%;
-    -webkit-border-radius: 50%;
-    border-radius: 50%;
-}
-
-.profile-img2-card {
     width: 35%;
     height: 35%;
     margin: 0 auto 10px;
@@ -118,6 +118,7 @@ head{
     -webkit-border-radius: 50%;
     border-radius: 50%;
 }
+
 
 /*
  * Form styles
@@ -152,7 +153,7 @@ head{
 .inputEmail,
 .inputPassword{
   height: 40%;
-  width: 100%;
+  width: 70%;
   margin-bottom: 5px;
   font-size: 20px;
   font-family: "Times New Roman";
@@ -165,7 +166,7 @@ head{
 .form-signin #inputPassword,
 .form-signin #inputPasswordConfirmation{
     height: 40%;
-    width: 100%;
+    width: 70%;
     margin-bottom: 5px;
     font-size: 23px;
     font-family: "Times New Roman";
@@ -208,7 +209,35 @@ head{
     font-family: "Times New Roman";
 }
 
+.btn.btn-login {
+    align-self: center;
+    width: 45%;
+    /*background-color: #4d90fe; */
+    border-color: #42B2D7;
+    color: #42B2D7;
+    background-color: #42B2D7;
 
+    /* background-color: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));*/
+    padding: 0px;
+    font-family: "Times New Roman";
+    font-size: 18px;
+    height: 36px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    border: none;
+    -o-transition: all 0.218s;
+    -moz-transition: all 0.218s;
+    -webkit-transition: all 0.218s;
+    transition: all 0.218s;
+}
+
+
+.alerts{
+  margin-top: 5px;
+  font-size: 18px;
+  font-family: "Times New Roman";
+}
 
 
 
@@ -256,6 +285,10 @@ head{
     transition: all 0.218s;
 }
 
+.btn.btn-login:hover,
+.btn.btn-login:active,
+.btn.btn-login.active,
+.btn.btn-login:focus,
 .btn.btn-signin:hover,
 .btn.btn-signin:active,
 .btn.btn-signin.active,
@@ -292,19 +325,20 @@ head{
   align: center;
   border-radius: 10px;
   width: 48%;
-  padding: 2px 4px 2px ;
+  margin-left: 5px;
   background-color: #4E66EE;
-  font-size: 23px;
+  font-size: 21px;
 }
+
 .cuadro2{
   float: right;
   border-color: #ffffff;
   align: center;
   border-radius: 10px;
   width: 48%;
-  padding: 2px 2px 2px 4px;
+  margin-right: 5px;
   background-color: #EB4343;
-  font-size: 23px;
+  font-size: 21px;
 }
 
 .button{

@@ -52,11 +52,18 @@
 		<!-- *** TESTIMONIALS CAROUSEL *** -->
 		<!-- *** BLOG HOMEPAGE *** -->
 		<!-- *** GET IT *** -->
-		<%= render 'shared/facebook_sdk' %>
+		<!--<div align="center" class="alerts">
+	  	<p class="alert"><%= alert %></p>
+	  </div>-->
+		<h5 style="font-family:Times New Roman" align="center" class="notice"><%= notice %></h5>
 		<%= yield %>
+
+		<!--<h5 style="font-family:Times New Roman" align="center" class="alert"><%= alert %></h5>-->
+
 		<!-- *** FOOTER *** -->
 		<!-- *** COPYRIGHT *** -->
 		<%= render partial: 'layouts/footer' %>
+		<%= render 'shared/facebook_sdk' %>
 
 	</div>
 </body>

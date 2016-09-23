@@ -3,20 +3,23 @@ class Users::SessionsController < Devise::SessionsController
 
   #before_action :configure_sign_in_params, only: [:create]
 
-  def create
+  #def create
   #  user = User.from_omniauth(env["omniauth.auth"])
-    emai = params[:user][:email]
-    session[:user_id] = User.find_by(email: emai).id
-    redirect_to root_path
+    #if user_signed_up
+     #@user = User.new
+    # emai = params[:user][:email]
+    # session[:user_id] = User.find_by(email: emai).id
+    # redirect_to root_path
+    #end
     #rescue Exception => e
   #    flash[:error] = e.message
   #    render :new
-  end
+  #end
 
-  def destroy
-    session[:user_id] = nil
-    redirect_to root_path
-  end
+  #def destroy
+#    session[:user_id] = nil
+#    redirect_to root_path
+#  end
 
   # GET /resource/sign_in
   #def new

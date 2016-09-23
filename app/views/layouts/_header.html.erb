@@ -16,20 +16,23 @@
 					<a href="http://wayuumbags.tumblr.com/" class="external tumblr"><i class="fa fa-tumblr"></i></a>
 					<a href="https://www.youtube.com/channel/UCL30I8UIIDth2U-KHJm2Fpw" class="external youtube"><i class="fa fa-youtube"></i></a>
 				</div>
+			<div class="col-xs-10 col-sm-9">
 				<div class="login">
-          <%- if session[:user_id]==nil or session[:uid] == nil %>
-					     <!--<a href="<%= new_user_session_path %>"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase">Sign in</span></a>-->
-					     <a href="#" data-toggle="modal" data-target="#myModal4"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase">Sign in</span></a-->
-					     <a href="<%= new_user_registration_path %>"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">Sign up</span></a>
-					<%- else %>
-						<%= link_to("Log out", destroy_user_session_path, :method => :delete) %>
 
-					<% end %>
 
-					<%- if session[:user_id]!=nil  or session[:uid] != nil  %>
-						<%= link_to("Edit registation", edit_user_registration_path) %>
-					<% end %>
+						<a href="#" data-toggle="modal" data-target="#myModal4"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase">Log in</span></a-->
+							<!--</button>-->
+						<!--<button type="button" class="btn btn-login">-->
+						<a href="<%= new_user_registration_path %>"><i class="fa fa-user"></i><span class="hidden-xs text-uppercase">Sign up</span></a>
+						<!--<a href="<%= destroy_user_session_path%>"><i class="fa fa-sign-out"></i><span class="hidden-xs text-uppercase">Sign out</span></a>-->
+						<!--<a href="<%= destroy_user_session_path%>"><i class="fa fa-sign-out"></i><span class="hidden-xs text-uppercase">Sign out</span></a>-->
+						<!--<a href="<%= new_user_session_path %>"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase">Sign in</span></a>-->
+						<!--<button type="button" class="btn btn-login">-->
+						<%= link_to "Sign out", destroy_user_session_path, :method => 'delete' %>
+
+
 				</div>
+			</div>
 			</div>
 		</div>
 	</div>
