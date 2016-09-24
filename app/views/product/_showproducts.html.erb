@@ -26,7 +26,7 @@
                 </div>
               <%end%>
               <!-- /.ribbon -->
-              <% if c.created_at > 1.days.ago %>
+              <% if c.created_at > 10.days.ago %>
               <div class="ribbon new">
                 <div class="theribbon">NEW</div>
                 <div class="ribbon-background"></div>
@@ -54,6 +54,6 @@
 </div>
 <div class="col-sm-12">
   <div class="center">
-  <%= will_paginate @show_products, renderer: BootstrapPagination::Rails, inner_window: 1, outer_window: 1%>
+  <%= will_paginate @show_products, renderer: BootstrapPagination::Rails, inner_window: 1, outer_window: 1,previous_label: "«" , next_label: "»"%>
   </div>
 </div>

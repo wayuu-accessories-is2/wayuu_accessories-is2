@@ -91,6 +91,7 @@ class CategoryController < ApplicationController
       end
     return cat_image
   end
+  
   helper_method :find_discount
   def find_discount(cat_id)
     disc = false
