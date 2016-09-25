@@ -1,0 +1,16 @@
+es:
+  layouts:
+    header:
+      shop: "Tienda"
+      log_in: "Entrar"
+      sign_up: "Registrarse"
+      sign_out: "Cerrar sesión"
+      about_us: "Sobre nosotros"
+      survey: "Encuesta"
+      reviews: "Reviews"
+      shipping: "Envios"
+      return: "Política de Retorno"
+      privacy: "Política de privacidad"
+      terms: "Terminos y condiciones"
+      team: "Equipo desarrollador"
+      

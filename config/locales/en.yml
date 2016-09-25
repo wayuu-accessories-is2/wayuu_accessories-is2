@@ -20,4 +20,25 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  layouts:
+    header:
+      shop: "Shop Categories"
+      log_in: "Log in"
+      sign_up: "Sign up"
+      sign_out: "Sign out"
+      about_us: "About us"
+      survey: "Customer Survey"
+      reviews: "Customer reviews"
+      shipping: "Shipping"
+      return: "Return Policy"
+      privacy: "Privacy Policy"
+      terms: "Terms and Conditions"
+      team: "Developer Team"
+
+
+
+
+
+
+
   hello: "Hello world"
