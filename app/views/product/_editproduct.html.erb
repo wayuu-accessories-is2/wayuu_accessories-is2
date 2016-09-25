@@ -1,4 +1,3 @@
-
 <div id="page-wrapper" style="background-color: #FFFFFF; margin-top: 15px">
 
 <div class="container-fluid">
@@ -88,11 +87,13 @@
            </div>
            <% $id = :id %>
            </form>
-          <% showImage = ProductImage.where( :product_id => @pro.id.to_s).order("sort_order") %>
+          <% @showImage = ProductImage.where( :product_id => @pro.id.to_s).order("sort_order") %>
           <div class="tab-pane hidden" id="tab-sort" align="center">
               <div class="form-group required">
                 <ul id="sortable" style="list-style-type: none;">
-                  <%showImage.each do |i|%>
+                  <%@showImage.each do |i|%>
+                  <%=puts i.sort_order%>
+                  <%=puts i.id%>
                   <li id= '<%=i.sort_order%>' class="item-style"><%=image_tag i.image.small.url, size: "125x125", class: "css-style"%></li>
                   <%end%>
                 </ul>
@@ -100,7 +101,7 @@
             </div>
            <div class="tab-pane hidden" id="tab-image">
              <div class="modal-body">
-               <form method="post" action="/product_images" id="image" class="dropzone" enctype="multipart/form-data">
+               <form method="post" action="/admin/product_images" id="image" class="dropzone" enctype="multipart/form-data">
                  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
                  <div class="fallback">
                    <input name="media" type="file"/>

@@ -47,11 +47,16 @@ $(document).on("ready",function(){
       mediaDropzone.options.autoProcessQueue = true;
     // queue processing
       mediaDropzone.processQueue();
+
     });
 
 // disable queue auto processing on upload complete
     mediaDropzone.on("queuecomplete", function() {
       mediaDropzone.options.autoProcessQueue = false;
+      $.ajax({
+  			url: '/admin/index',
+  			type: 'GET',		
+  		});
 
     });
     var newQueue = [];

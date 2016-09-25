@@ -39,6 +39,13 @@ Rails.application.routes.draw do
         post 'change', to: :change
       end
     end
+    resources :product_images do
+       collection do
+         post 'create', to: :create
+         post 'updateorder', to: :updateorder
+       end
+
+    end
   end
 
   resources :category, only: [] do
@@ -57,6 +64,6 @@ Rails.application.routes.draw do
 
   get 'admin/index', to: 'admin#admin_index'
 
-  resources :product_images
+
 
 end

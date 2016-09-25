@@ -45,16 +45,18 @@ class ProductImagesController < ApplicationController
    # PATCH/PUT /images/1.json
    def updateorder
      arreglo = params['info']
-     @update_images = ProductImage.where(:product_id => params['proID'] ).order("sort_order")
+     puts arreglo.size.to_s
+     @update_images = ProductImage.where(:product_id => params['proID'] )
      @update_images.each do |u|
        for i in (0..arreglo.size-1)
-         if u.sort_order.to_s == (i+1).to_s
-           t_order = arreglo[i].to_i
+         if u.sort_order.to_s == arreglo[i].to_s
+           t_order = (i+1).to_s
            u.sort_order = t_order
            u.save!
           break
          end
       end
+      @update_images = ProductImage.where(:product_id => params['proID'] ).order("sort_order")
     end
     #  respond_to do |format|
     #    if @image.update(image_params)
