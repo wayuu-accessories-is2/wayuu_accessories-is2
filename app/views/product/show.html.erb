@@ -35,8 +35,13 @@ _________________________________________________________ -->
 
                 <div class="row" id="productMain">
                     <div class="col-sm-6">
+                        <% showImage = ProductImage.where(product_id: @product.id.to_s ).order('sort_order DESC') %>
                         <div id="mainImage">
-                            <img src="https://hawkiesza.files.wordpress.com/2010/07/videonotavailable.jpg" class="img-responsive" height="450" width="450">
+                            <% unless showImage.nil?%>
+                              <img src="<%=showImage[0].image.url%>" class="img-responsive" height="450" width="450">
+                            <%else%>
+                              <img src="http://c9a023018b7727eeeae9-5cb13b2b77b05284d2f5230b4c21c288.r0.cf1.rackcdn.com/uploads/nopreview.png" class="img-responsive" height="450" width="450">
+                            <%end %>
                         </div>
 
                         <% if @product.discount != 0.0 %>
@@ -87,19 +92,19 @@ _________________________________________________________ -->
 
                         <div class="row" id="thumbs">
 
-                                <% showImage = ProductImage.where(product_id: @product.id.to_s ).order('sort_order DESC') %>
+
                                 <% unless showImage.nil?%>
                                   <% showImage.each do |x| %>
                                     <div class="col-xs-4">
-                                      <a href="<%=x.image.url%>" class="thumb">
-                                        <%=image_tag x.image.thumb.url%>
+                                      <a href="<%=x.image.url%>" class="img-responsive image1">
+                                        <%=image_tag x.image.small.url%>
                                       </a>
                                     </div>
                                   <%end%>
                                 <%else%>
                                   <div class="col-xs-4">
-                                    <a href="https://hawkiesza.files.wordpress.com/2010/07/videonotavailable.jpg" class="thumb">
-                                        <img src="https://hawkiesza.files.wordpress.com/2010/07/videonotavailable.jpg" alt="" class="img-responsive">
+                                    <a href="http://c9a023018b7727eeeae9-5cb13b2b77b05284d2f5230b4c21c288.r0.cf1.rackcdn.com/uploads/nopreview.png" class="thumb">
+                                        <img src="http://c9a023018b7727eeeae9-5cb13b2b77b05284d2f5230b4c21c288.r0.cf1.rackcdn.com/uploads/nopreview.png" alt="" class="img-responsive">
                                     </a>
                                   </div>
                                 <%end%>
@@ -113,7 +118,7 @@ _________________________________________________________ -->
                 <div class="box" id="details" align="left">
                     <p>
                         <h4 align="center">Product details</h4>
-                        <p>WEIGHT: <% @product.weight %> </p>
+                        <!-- <p>WEIGHT: <%# @product.weight %> </p> -->
 
                         <div class="row">
                           <%= image_tag("shop/description.jpg", class: "img-responsive margin-auto") %>

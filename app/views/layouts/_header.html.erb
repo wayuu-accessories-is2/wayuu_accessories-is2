@@ -65,21 +65,12 @@
 					<li class="dropdown">
 						<a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown">Shop Categories <b class="caret"></b></a>
 						<ul class="dropdown-menu">
-							<li><a href="#">Flash Sale</a></li>
+							<%allCategories = Category.all.order("name ASC")%>
 							<li><a href="#">Gift Cards</a></li>
-							<li><a href="#">Single Thread Mochilas</a></li>
-							<li><a href="#">Jeweled Mochilas</a></li>
-							<li><a href="#">Drawstring Mochilas</a></li>
-							<li><a href="#">Mini Single Thread Mochilas</a></li>
-							<li><a href="#">Mini Mochilas</a></li>
-							<li><a href="#">Solid Colors</a></li>
-							<li><a href="#">Pom Pom Mochilas</a></li>
-							<li><a href="#">Neon Pink</a></li>
-							<li><a href="#">Neon Colors</a></li>
-							<li><a href="#">Traditional Pink</a></li>
-							<li><a href="#">Traditional Colors</a></li>
-							<li><a href="#">Black, Grey, and White</a></li>
-							<li><a href="#">Earth/Brown</a></li>
+							<li><a href="#">Flash Sale</a></li>
+							<%allCategories.each do |c|%>
+							<li><a href="<%= showall_category_product_index_path(c.id.to_s) %>"><%=c.name%></a></li>
+							<%end%>
 						</ul>
 					</li>
 					<li>
