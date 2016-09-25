@@ -24,6 +24,18 @@ $(document).ready(function(){
 		});
 	});
 
+	$(document).on("click","#addcart",function(){
+		alert("si carga1");
+		$.ajax({
+			url: '/addtocart',
+			type: 'POST',
+			data: {id: $("#addcart").val(), authenticity_token: $("#authenticity_token").val()
+			},
+			success: function( result ){}
+		});
+	});
+
+
 });
 //$( function() {
 	//$( '#sortable' ).sortable();

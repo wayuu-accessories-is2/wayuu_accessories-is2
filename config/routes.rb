@@ -70,7 +70,7 @@ Rails.application.routes.draw do
     end
   end
 
-
+  post 'addtocart', to: 'application#addtocart'
 
   resources :checkout, only: [] do
     collection do
