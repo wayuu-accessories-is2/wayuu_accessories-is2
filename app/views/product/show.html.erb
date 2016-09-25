@@ -37,8 +37,8 @@ _________________________________________________________ -->
                     <div class="col-sm-6">
                         <% showImage = ProductImage.where(product_id: @product.id.to_s ).order('sort_order DESC') %>
                         <div id="mainImage">
-                            <% unless showImage.nil?%>
-                              <!-- <img src="<%#showImage[0].image.url%>" class="img-responsive" height="450" width="450"> -->
+                            <% unless showImage[0].nil?%>
+                              <img src="<%=showImage[0].image.url%>" class="img-responsive" height="450" width="450">
                             <%else%>
                               <img src="http://c9a023018b7727eeeae9-5cb13b2b77b05284d2f5230b4c21c288.r0.cf1.rackcdn.com/uploads/nopreview.png" class="img-responsive" height="450" width="450">
                             <%end %>
@@ -90,7 +90,7 @@ _________________________________________________________ -->
                             </button>
                             </p>
                         </div>
-                        
+
                         <div class="row" id="thumbs">
                                 <% unless showImage.nil?%>
                                   <% showImage.each do |x| %>
