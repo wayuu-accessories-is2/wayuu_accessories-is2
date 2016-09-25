@@ -45,10 +45,14 @@ $(document).on("ready",function(){
         type: 'GET',
       });
     });
-
-    mediaDropzone.on("sending", function (file, xhr, formData) {
+    $(document).on('click', '#editimage', function () {
+    // enable auto process queue after uploading started
+      mediaDropzone.on("sending", function (file, xhr, formData) {
            formData.append("product_id", $("#id").val());
+      });
     });
+
+
     $(document).on('click', '#saveimage, #editimage', function () {
     // enable auto process queue after uploading started
       mediaDropzone.options.autoProcessQueue = true;

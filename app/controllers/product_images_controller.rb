@@ -27,7 +27,7 @@ class ProductImagesController < ApplicationController
     @image = ProductImage.new(image: params[:file])
     @image.sort_order = session[:order]
     session[:order] += 1
-    @image.product_id = params[:product_id]
+    @image.product_id = session[:productid]
     @image.save
     #respond_to do |format|
       #if @image.save
@@ -40,7 +40,15 @@ class ProductImagesController < ApplicationController
       #end
     #end
    end
-
+   def createExisting
+     order = ProductImage.where(:product_id => params[:product_id] ).order("sort_order DESC")
+     new_order = (order[0].sort_order.to_i)+1
+     @image = ProductImage.new(image: params[:file])
+     @image.sort_order = (new_order.to_s)
+    #  session[:order] += 1
+     @image.product_id = params[:product_id]
+     @image.save
+   end
    # PATCH/PUT /images/1
    # PATCH/PUT /images/1.json
    def updateorder

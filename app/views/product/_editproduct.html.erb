@@ -102,7 +102,7 @@
             </div>
            <div class="tab-pane hidden" id="tab-image">
              <div class="modal-body">
-               <form method="post" action="/admin/product_images" id="image" class="dropzone" enctype="multipart/form-data">
+               <form method="post" action="/admin/product_images/createExisting" id="image" class="dropzone" enctype="multipart/form-data">
                  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
                  <div class="fallback">
                    <input name="media" type="file"/>

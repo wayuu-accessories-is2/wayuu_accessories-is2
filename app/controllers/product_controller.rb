@@ -47,6 +47,7 @@ class ProductController < ApplicationController
     temp.status = status
 
     temp.save!
+    session[:productid] =  temp.id
     session[:order] = 1
     #puts @stock.errors.any?
     #puts temp.errors.full_messages
@@ -55,10 +56,9 @@ class ProductController < ApplicationController
     @catego.product_id = temp.id
     @catego.category_id = @cat.id
     @catego.save!
-    saved = temp.id
+
     #redirect_to list_product_index_path
     #@imagen = params['images']
-    session[:productid] = $saved
   end
   def show
     @list = Product.all.order("id ASC")
@@ -112,10 +112,7 @@ class ProductController < ApplicationController
     redirect_to list_product_index_path
 
   end
-  # helper_method :id_created
-  # def id_created( )
-  #   return $saved
-  # end
+
   # def orderimages
   #   respond_to do |format|
   #     format.js
