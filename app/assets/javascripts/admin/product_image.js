@@ -7,7 +7,7 @@ $(document).on("ready",function(){
     mediaDropzone.options.parallelUploads = 1;
 
     mediaDropzone.on("addedfile", function(file) {
-      
+
       var removeButton = Dropzone.createElement('<button class="btn btn-link" >Remove file</button>');
       removeButton.style.cssText = 'position:absolute;left:5px';
       file.previewElement.appendChild(removeButton);
@@ -35,21 +35,25 @@ $(document).on("ready",function(){
         mediaDropzone.addFile(file);
     });
 
+    mediaDropzone.on("queuecomplete", function() {
+      // disable queue auto processing on upload complete
+      mediaDropzone.options.autoProcessQueue = false;
+      // Redirect page to index
+      window.location.reload(true);
+      $.ajax({
+        url: '/admin/index',
+        type: 'GET',
+      });
+    });
+
+    mediaDropzone.on("sending", function (file, xhr, formData) {
+           formData.append("product_id", $("#id").val());
+    });
     $(document).on('click', '#saveimage, #editimage', function () {
     // enable auto process queue after uploading started
       mediaDropzone.options.autoProcessQueue = true;
     // queue processing
       mediaDropzone.processQueue();
-      mediaDropzone.on("queuecomplete", function() {
-        // disable queue auto processing on upload complete
-        mediaDropzone.options.autoProcessQueue = false;
-        // Redirect page to index
-        //window.location.reload();
-        $.ajax({
-          url: '/admin/index',
-          type: 'GET',
-        });
-      });
     });
 
 

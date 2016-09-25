@@ -27,7 +27,7 @@ class ProductImagesController < ApplicationController
     @image = ProductImage.new(image: params[:file])
     @image.sort_order = session[:order]
     session[:order] += 1
-    @image.product_id = session[:productid]
+    @image.product_id = params[:product_id]
     @image.save
     #respond_to do |format|
       #if @image.save

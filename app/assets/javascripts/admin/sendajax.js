@@ -52,7 +52,8 @@ $(document).ready(function(){
 			success: function( result ){}
 		});
 	});
-	
+
+
 	// $(document).on("click","#saveimage",function(){
 	// 	$( "#indexcambio" ).html( "<%= escape_javascript( render( "addproduct" ) ) %>" );
 	// 	$('#tab-image').removeClass('active');

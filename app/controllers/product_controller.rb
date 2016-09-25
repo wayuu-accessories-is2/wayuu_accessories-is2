@@ -55,11 +55,11 @@ class ProductController < ApplicationController
     @catego.product_id = temp.id
     @catego.category_id = @cat.id
     @catego.save!
-    session[:productid] = temp.id
+    saved = temp.id
     #redirect_to list_product_index_path
     #@imagen = params['images']
+    session[:productid] = $saved
   end
-
   def show
     @list = Product.all.order("id ASC")
     @consult = CategoryHasProduct.all
@@ -112,20 +112,23 @@ class ProductController < ApplicationController
     redirect_to list_product_index_path
 
   end
-
-  def orderimages
-    respond_to do |format|
-      format.js
-    end
-  end
-
-  def showforcategory
-
-  end
-  def sortimages
-    arreglo = params['info']
-    puts "Veaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-    #redirect_to list_product_index_path
-  end
+  # helper_method :id_created
+  # def id_created( )
+  #   return $saved
+  # end
+  # def orderimages
+  #   respond_to do |format|
+  #     format.js
+  #   end
+  # end
+  #
+  # def showforcategory
+  #
+  # end
+  # # def sortimages
+  #   arreglo = params['info']
+  #   puts "Veaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  #   #redirect_to list_product_index_path
+  # end
 
 end
