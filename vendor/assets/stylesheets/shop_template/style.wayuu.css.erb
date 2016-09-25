@@ -1,3 +1,7 @@
+.center {
+  width: 300px;
+  margin: auto auto;
+}
 .clearfix:before,
 .clearfix:after,
 .navbar:before,
@@ -175,11 +179,13 @@ div.section {
 ul.list-style-none {
   list-style: none;
 }
+
 #text-page h1,
 #text-page h2,
 #text-page h3 {
   font-weight: 700;
 }
+
 #error-page {
   text-align: center;
   margin-top: 40px;
@@ -2267,11 +2273,17 @@ fieldset[disabled] .btn-template-primary.active {
   -moz-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
 }
-@media (max-width: 767px) {
+@media only screen and (max-devise-width: 768px ) {
   .product .image img.img-responsive {
-    min-width: 100%;
+    min-width:100%;
+    min-height: auto;
   }
 }
+#pimage img.img-responsive {
+  height: 250px;
+  width: 100%;
+}
+
 .product .text {
   padding: 10px;
 }
@@ -3301,7 +3313,7 @@ label {
   background-color: #ffffff;
   border-color: #ddd;
 }
-/* pagination */
+/* pagination*/
 .pagination {
   margin: 20px 0;
   font-family: "Roboto", Helvetica, Arial, sans-serif;

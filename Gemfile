@@ -51,6 +51,10 @@ gem 'tinymce-rails'
 gem 'jquery-star-rating-rails'
 #Gem for api
 gem 'active_model_serializers'
+# Gem for pagination
+gem 'will_paginate-bootstrap'
+
+
 # Gem for dropzonejs
 gem 'dropzonejs-rails'
 group :development, :test do

@@ -7,5 +7,6 @@
 //= require shop/see_more.js
 //= require shop/jquery.raty.js
 //= require shop/star.js
+//= require shop/ajax_show.js
 //= require jquery-star-rating
 //= require shop/checkout.js
