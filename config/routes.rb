@@ -19,7 +19,7 @@ Rails.application.routes.draw do
    get '/users/sign_out' => 'devise/sessions#destroy'
   end
 
-  scope "(:locale)" do
+  scope "(:locale)",locale:/#{I18n.available_locales.join("|")}/ do
     scope 'admin' do
       resources :product do
         collection do
