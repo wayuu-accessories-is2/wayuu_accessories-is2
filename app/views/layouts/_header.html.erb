@@ -4,9 +4,10 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-6 col-sm-4 contact">
-					<p><i class="fa fa-phone"></i> 1(855) 929-8855</p>
-				</p>
-			</div>
+					<p><%=link_to_unless_current "English ",locale: "en"%>
+					 <%=link_to_unless_current "Español ",locale: "es"%>
+					<i class="fa fa-phone"></i> 1(855) 929-8855</p>
+				</div>
 			<div class="col-xs-6 col-sm-8">
 				<div class="social hidden-xs">
 					<a href="https://www.facebook.com/WayuumBags" class="external facebook"><i class="fa fa-facebook"></i></a>
@@ -20,15 +21,15 @@
 				<div class="login">
 
 
-						<a href="#" data-toggle="modal" data-target="#myModal4"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase">Log in</span></a-->
+						<a href="#" data-toggle="modal" data-target="#myModal4"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase"><%=t('.log_in')%></span></a-->
 							<!--</button>-->
 						<!--<button type="button" class="btn btn-login">-->
-						<a href="<%= new_user_registration_path %>"><i class="fa fa-user"></i><span class="hidden-xs text-uppercase">Sign up</span></a>
+						<a href="<%= new_user_registration_path %>"><i class="fa fa-user"></i><span class="hidden-xs text-uppercase"><%=t('.sign_up')%></span></a>
 						<!--<a href="<%= destroy_user_session_path%>"><i class="fa fa-sign-out"></i><span class="hidden-xs text-uppercase">Sign out</span></a>-->
 						<!--<a href="<%= destroy_user_session_path%>"><i class="fa fa-sign-out"></i><span class="hidden-xs text-uppercase">Sign out</span></a>-->
 						<!--<a href="<%= new_user_session_path %>"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase">Sign in</span></a>-->
 						<!--<button type="button" class="btn btn-login">-->
-						<%= link_to "Sign out", destroy_user_session_path, :method => 'delete' %>
+						<%= link_to t(".sign_out"), destroy_user_session_path, :method => 'delete' %>
 
 
 				</div>
@@ -62,8 +63,9 @@
 					<li class="active">
 						<%= link_to("Home ", "/home")%>
 					</li>
+					<li> </li>
 					<li class="dropdown">
-						<a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown">Shop Categories <b class="caret"></b></a>
+						<a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown"><%=t(".shop")%><b class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<%allCategories = Category.all.order("name ASC")%>
 							<li><a href="#">Gift Cards</a></li>
@@ -77,16 +79,16 @@
 						<a href="javascript: void(0)">Blog </a>
 					</li>
 					<li class="dropdown">
-						<a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown">About Us <b class="caret"></b></a>
+						<a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown"><%=t('.about_us')%><b class="caret"></b></a>
 						<ul class="dropdown-menu">
-							<li><a href="#">Customer Survey</a></li>
-							<li><a href="#">Customer Reviews</a></li>
+							<li><a href="#"><%=t('.survey')%></a></li>
+							<li><a href="#"><%=t('.reviews')%></a></li>
 							<li><a href="#">FAQ's</a></li>
-							<li><a href="#">Shipping</a></li>
-							<li><a href="#">Return Policy</a></li>
-							<li><a href="#">Privacy Policy</a></li>
-							<li><a href="#">Terms and Conditions</a></li>
-							<li><%= link_to("Developer Team", "team")%></li>
+							<li><a href="#"><%=t('.shipping')%></a></li>
+							<li><a href="#"><%=t('.return')%></a></li>
+							<li><a href="#"><%=t('.privacy')%></a></li>
+							<li><a href="#"><%=t('.terms')%></a></li>
+							<li><%= link_to(t('.team'), "team")%></li>
 						</ul>
 					</li>
 					<li class="hidden-xs">
