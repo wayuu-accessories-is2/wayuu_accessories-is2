@@ -37,7 +37,7 @@ _________________________________________________________ -->
                     <div class="col-sm-6">
                         <% showImage = ProductImage.where(product_id: @product.id.to_s ).order('sort_order DESC') %>
                         <div id="mainImage">
-                            <% unless showImage.nil?%>
+                            <% unless showImage[0].nil?%>
                               <img src="<%=showImage[0].image.url%>" class="img-responsive" height="450" width="450">
                             <%else%>
                               <img src="http://c9a023018b7727eeeae9-5cb13b2b77b05284d2f5230b4c21c288.r0.cf1.rackcdn.com/uploads/nopreview.png" class="img-responsive" height="450" width="450">
@@ -81,7 +81,8 @@ _________________________________________________________ -->
                               <p class="text-center">
                             <%end %>
                             <% if @product.quantity > 0 %>
-                              <button type="submit" class="btn btn-template-main"><i class="fa fa-shopping-cart"></i> Add to cart </button>
+                              <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                              <button id="addcart" value="<%= @product.id %>" class="btn btn-template-main"><i class="fa fa-shopping-cart"></i> Add to cart </button>
                             <% else %>
                               <button type="submit" class="btn btn-template-main" disabled><i class="fa fa-shopping-cart"></i> Add to cart </button>
                             <% end %>
@@ -91,8 +92,6 @@ _________________________________________________________ -->
                         </div>
 
                         <div class="row" id="thumbs">
-
-
                                 <% unless showImage.nil?%>
                                   <% showImage.each do |x| %>
                                     <div class="col-xs-4">
