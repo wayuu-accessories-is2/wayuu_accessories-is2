@@ -4,6 +4,29 @@ class CheckoutController < ApplicationController
 
   def index
 
+    current_cart
+    @productcart = []
+    session[:cart].each do |key, array|
+      e = Product.find( key.to_s )
+      e.quantity = array
+      @productcart << e
+    end
+    respond_to do |format|
+      format.html
+    end
+
+  end
+
+  def cart
+
+    current_cart
+    @productcart = []
+    session[:cart].each do |key, array|
+      e = Product.find( key.to_s )
+      e.quantity = array
+      @productcart << e
+    end
+
     respond_to do |format|
       format.html
     end

@@ -91,26 +91,17 @@
 					</li>
 					<li class="hidden-xs">
 						<a id="navbar-cart" class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-shopping-cart"></i><span class="cart-count">0</span></a>
-							<ul class="dropdown-menu">
+							<ul class="dropdown-menu" id="refresh">
 
-								<li class="pull-right"><i class="fa fa-refresh fa-lg"></i>Update</li>
+								<li class="pull-right"><button id="refresh" class="btn btn-template-main"><i class="fa fa-refresh fa-lg"></i>Update</button></button></li>
 								<br><br>
-	                <li>
-	                    <a href="#">
-	                        <div>
-	                            <strong>John Smith</strong>
-
-	                        </div>
-	                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-	                    </a>
-	                </li>
-	                <li class="divider"></li>
 
 	                <li>
-	                    <a class="text-center" href="#">
-	                        <button type="submit" class="btn btn-template-main" disabled><i class="fa fa-shopping-cart"></i>Go to checkout</button>
+	                    <a class="text-center" href="<%= cart_checkout_index_path %>">
+	                        <button href="<%= cart_checkout_index_path %>" class="btn btn-template-main" disabled><i class="fa fa-shopping-cart"></i>Go to cart</button>
 	                    </a>
 	                </li>
+
 	            </ul>
 					</li>
 					<li>

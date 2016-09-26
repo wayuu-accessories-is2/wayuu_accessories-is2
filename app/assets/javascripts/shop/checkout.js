@@ -35,6 +35,35 @@ $(document).ready(function(){
 		});
 	});
 
+	$(document).on("click","#refresh",function(){
+		$.ajax({
+			url: '/refreshcart',
+			type: 'GET',
+			data: { id: $("#addcart").val()
+			},
+			success: function( result ){}
+		});
+	});
+
+	$(document).on("click","#delete",function(){
+		$.ajax({
+			url: '/refreshcart',
+			type: 'POST',
+			data: {
+			},
+			success: function( result ){}
+		});
+	});
+
+	$(document).on("click","#navbar-cart",function(){
+		$.ajax({
+			url: '/refreshcart',
+			type: 'GET',
+			data: {
+			},
+			success: function( result ){}
+		});
+	});
 
 });
 //$( function() {
