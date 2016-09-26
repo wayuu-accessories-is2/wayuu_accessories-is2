@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: 'home_page#home'
   namespace :api, defaults:{ format: :json }do
     namespace :v1 do
       resources :products, :only => [:show,:index]
@@ -49,15 +50,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :category, only: [] do
-    resources :product, only: [] do
-      collection do
-        get 'showforcategory', to: :showforcategory
-      end
-    end
-  end
 
-  root to: 'home_page#home'
+
+
 
   get 'home', to: 'home_page#home'
 
