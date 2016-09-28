@@ -9,6 +9,5 @@
 //= require shop/star.js
 //= require shop/ajax_show.js
 //= require jquery-star-rating
-//= require jquery_ujs
 //= require shop/checkout.js
 //= require jquery_ujs
