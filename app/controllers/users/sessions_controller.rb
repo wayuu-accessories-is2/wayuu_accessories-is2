@@ -1,22 +1,27 @@
 class Users::SessionsController < Devise::SessionsController
-# before_action :configure_sign_in_params, only: [:create]
+ #before_action :configure_sign_in_params, only: [:create]
 
   #before_action :configure_sign_in_params, only: [:create]
+#  before_filter :authenticate_user!
+#  skip_before_filter :verify_authenticity_token
 
-  #def create
+  def create
+    super
+  end
+
+#  def create
   #  user = User.from_omniauth(env["omniauth.auth"])
     #if user_signed_up
-     #@user = User.new
-    # emai = params[:user][:email]
-    # session[:user_id] = User.find_by(email: emai).id
-    # redirect_to root_path
-    #end
+#     emai = params[:user][:email]
+#     session[:user_id] = User.find_by(email: emai).id
+#     redirect_to root_path
+#  end
     #rescue Exception => e
   #    flash[:error] = e.message
   #    render :new
   #end
 
-  #def destroy
+#  def destroy
 #    session[:user_id] = nil
 #    redirect_to root_path
 #  end
@@ -27,9 +32,9 @@ class Users::SessionsController < Devise::SessionsController
   #end
 
   # POST /resource/sign_in
-   #def create
+  # def create
   #   super
-  # end
+   #end
 
   # DELETE /resource/sign_out
   # def destroy

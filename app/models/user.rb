@@ -1,9 +1,9 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-
+  #before_action :authenticate_user!
 #  before_create :generate_authentication_token!
-
+  #before_filter :authenticate_user!
   has_many :review
   belongs_to :customer, optional: true
 
@@ -38,12 +38,12 @@ class User < ApplicationRecord
 
 
 
-  private
-    def generate_authentication_token!
-      begin
-        self.auth_token = Devise.friendly_token
-      end while self.class.exists?(auth_token: auth_token)
-    end
+#  private
+#    def generate_authentication_token!
+#      begin
+#        self.auth_token = Devise.friendly_token
+#      end while self.class.exists?(auth_token: auth_token)
+#    end
 
     def admin?
       self.role == 53

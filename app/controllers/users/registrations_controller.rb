@@ -2,6 +2,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
 # before_action :configure_sign_up_params, only: [:create]
 # before_action :configure_account_update_params, only: [:update]
+#before_filter :authenticate_user!
+
 
 #  def finish_signup
 #    if request.patch? && params[:user] # Revisa si el request es de tipo patch, es decir, llenaron el formulario y lo ingresaron
