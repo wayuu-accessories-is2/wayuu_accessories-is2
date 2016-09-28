@@ -73,7 +73,6 @@ class CheckoutController < ApplicationController
     respond_to do |format|
         format.js
     end
-    #cart_checkout_index_path
   end
 
   helper_method :total
@@ -90,7 +89,7 @@ class CheckoutController < ApplicationController
       else
         sum+= (p.price.to_i)*p.quantity.to_i
       end
-    end  
+    end
     return sum
   end
 

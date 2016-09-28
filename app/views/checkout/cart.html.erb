@@ -59,11 +59,11 @@
                                  <tbody>
                                      <tr>
                                          <td>Order subtotal</td>
-                                         <th>$446.00</th>
+                                         <th><th>$<%= total%></th></th>
                                      </tr>
                                      <tr>
                                          <td>Shipping and handling</td>
-                                         <th>$10.00</th>
+                                         <th>$0.00</th>
                                      </tr>
                                      <tr>
                                          <td>Tax</td>
@@ -71,8 +71,7 @@
                                      </tr>
                                      <tr class="total">
                                          <td>Total</td>
-                                         <%total1 = total()%>
-                                         <th>$<%= total1%></th>
+                                         <th>$<%= total%></th>
                                      </tr>
                                  </tbody>
                              </table>
