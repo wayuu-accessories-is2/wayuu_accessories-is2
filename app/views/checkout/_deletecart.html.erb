@@ -25,7 +25,7 @@
                 </td>
                 <td><a href="<%= product_path(i.id) %>"><%= i.name %></a>
                 </td>
-                <td> <select value="<%= i.quantity %>">
+                <td> <select value="<%= i.quantity %>" id="squantity">
                   <% for a in (1..Product.find( i.id ).quantity) %>
                       <option value="<%=a%>"><%=a%></option>
                   <% end %>

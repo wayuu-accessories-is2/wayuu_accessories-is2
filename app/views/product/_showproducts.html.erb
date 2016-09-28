@@ -38,9 +38,9 @@
           <div class="text">
               <h3><%=c.name%></h3>
               <% if c.discount != 0.0%>
-                <p class="price">$<%= c.discount%>           <del>$<%= c.price%></del></p>
+                <p class="price">$<%= (c.price - c.discount)%><br><del>$<%= c.price%></del></p>
               <%else%>
-                <p class="price">$<%=c.price%></p>
+                <p class="price">$<%=c.price%><br><br></p>
               <%end%>
               <!-- <p style="margin-top:15px;">
                 <a href="shop-basket.html" class="btn btn-template-main"><i class="fa fa-shopping-cart"></i>Add to cart</a>
