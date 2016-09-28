@@ -2,8 +2,9 @@ class ApplicationController < ActionController::Base
 
   #protect_from_forgery with: :exception
   protect_from_forgery with: :null_session, prepend: true
-  before_action :set_locale
+  before_action :set_locale, :current_cart
   helper_method :current_user
+  helper_method :current_cart
   helper_method :addtocart
 
   def addtocart
@@ -13,7 +14,15 @@ class ApplicationController < ActionController::Base
 
     puts session[:cart]
   end
-  
+  def addtocartget
+    id = params[:id]
+    current_cart
+    session[:cart][id] = 1
+
+    puts session[:cart]
+  end
+
+
   private
     def set_locale
       I18n.locale = params[:locale] || I18n.default_locale
