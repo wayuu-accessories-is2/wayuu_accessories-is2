@@ -66,8 +66,11 @@
                                                  <td><%= i.quantity %></td>
                                                  <td><%= i.price %></td>
                                                  <td><%= i.discount %></td>
-
-                                                 <td>$<%= i.price * i.quantity %></td>
+                                                 <%if i.discount !=0.0%>
+                                                   <td>$<%= (i.price - i.discount) * i.quantity %></td>
+                                                 <%else%>
+                                                   <td>$<%= i.price * i.quantity %></td>
+                                                 <%end%>
                                                  <td> <button data-toggle="tooltip" title="Save" id="addproduct" class="btn"><i class="fa fa-trash"></i></button> </td>
                                              </tr>
                                           <% end %>
@@ -75,7 +78,8 @@
                                          <tfoot>
                                              <tr>
                                                  <th colspan="6">Total</th>
-                                                 <th>$446.00</th>
+                                                 <%total = total()%>
+                                                 <th>$<%= total%></th>
                                              </tr>
                                          </tfoot>
                                      </table>
@@ -115,7 +119,7 @@
                                  <tbody>
                                      <tr>
                                          <td>Order subtotal</td>
-                                         <th>$446.00</th>
+                                         <th><%= total%></th>
                                      </tr>
                                      <tr>
                                          <td>Shipping and handling</td>
@@ -127,7 +131,7 @@
                                      </tr>
                                      <tr class="total">
                                          <td>Total</td>
-                                         <th>$456.00</th>
+                                         <th>$<%= total%></th>
                                      </tr>
                                  </tbody>
                              </table>

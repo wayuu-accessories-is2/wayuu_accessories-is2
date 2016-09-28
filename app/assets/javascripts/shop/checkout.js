@@ -64,7 +64,6 @@ $(document).ready(function(){
 			success: function( result ){}
 		});
 	});
-
 });
 //$( function() {
 	//$( '#sortable' ).sortable();
