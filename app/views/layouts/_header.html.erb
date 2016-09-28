@@ -29,7 +29,9 @@
 						<!--<a href="<%= new_user_session_path %>"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase">Sign in</span></a>-->
 						<!--<button type="button" class="btn btn-login">-->
 						<%= link_to "Sign out", destroy_user_session_path, :method => 'delete' %>
-
+						<% if current_user %>
+							<%= link_to "Sign out", destroy_user_session_path, :method => 'delete' %>
+						<% end %>
 
 				</div>
 			</div>
