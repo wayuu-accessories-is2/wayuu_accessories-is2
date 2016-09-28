@@ -74,7 +74,7 @@ _________________________________________________________ -->
                           </div>
                             <% if @product.discount != 0.0 %>
                               <strike><p class="price" style="margin-bottom: 1px">$<%= @product.price %></p></strike>
-                              <p class="price" style="margin-top: 1px">$<%= @product.discount %></p>
+                              <p class="price" style="margin-top: 1px">$<%= @product.price - @product.discount %></p>
                               <p class="text-center">
                             <% else %>
                               <p class="price">$<%= @product.price %></p>

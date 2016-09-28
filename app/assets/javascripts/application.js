@@ -10,3 +10,4 @@
 //= require shop/ajax_show.js
 //= require jquery-star-rating
 //= require shop/checkout.js
+//= require jquery_ujs

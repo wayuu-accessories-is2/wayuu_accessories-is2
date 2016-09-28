@@ -1,4 +1,3 @@
-alert("si carga-1");
 $(document).ready(function(){
 	//alert("si carga0");
 	$(document).on("click","#index",function(){
@@ -64,7 +63,6 @@ $(document).ready(function(){
 			success: function( result ){}
 		});
 	});
-
 });
 //$( function() {
 	//$( '#sortable' ).sortable();
