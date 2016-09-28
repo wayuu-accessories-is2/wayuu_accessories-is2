@@ -1,0 +1,7 @@
+$( "#addedsuccess" ).append( "<div class='alert alert-success'><strong>Success!</strong> Added to cart.</div>" );
+
+$( "#added" ).html( "<i class='fa fa-shopping-car'></i>Add to cart" );
+$( "#number" ).html( "<%= session[:cart].count %>" );
+setTimeout(function() {
+    $( "#addedsuccess" ).html( "" );
+}, 5000);

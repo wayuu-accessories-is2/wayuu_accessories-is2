@@ -73,6 +73,7 @@ Rails.application.routes.draw do
     end
 
     post 'addtocart', to: 'application#addtocart'
+    get 'addtocartget', to: 'application#addtocartget'
     get 'refreshcart', to: 'shop#refreshcart'
     get 'deletecart', to: 'shop#deletecart'
 

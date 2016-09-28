@@ -10,8 +10,9 @@ class ShopController < ApplicationController
       e.quantity = array
       @productcart << e
     end
+    print session[:cart]
     @productcart.each do |q|
-      print q.name
+      puts q.name
     end
   end
 
