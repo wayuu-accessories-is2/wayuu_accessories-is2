@@ -2,8 +2,9 @@ class ApplicationController < ActionController::Base
 
   #protect_from_forgery with: :exception
   protect_from_forgery with: :null_session, prepend: true
-  before_action :set_locale
+  before_action :set_locale, :current_cart
   helper_method :current_user
+  helper_method :current_cart
   helper_method :addtocart
 
   def addtocart
