@@ -40,14 +40,12 @@
                                      <table class="table">
                                          <thead>
                                              <tr>
-                                                  <th>Product</th>
-                                                  <th>Image</th>
-                                                 <th>Name</th>
-                                                 <th>Quantity</th>
-                                                 <th>Unit price</th>
-                                                 <th>Discount</th>
-                                                 <th>Total</th>
-                                                 <th>Action</th>
+                                               <th colspan="2">Product</th>
+                                               <th> </th>
+                                               <th>Quantity</th>
+                                               <th>Unit price</th>
+                                               <th>Discount</th>
+                                               <th colspan="2">Total</th>
                                              </tr>
                                          </thead>
                                          <tbody>
@@ -66,16 +64,19 @@
                                                  <td><%= i.quantity %></td>
                                                  <td><%= i.price %></td>
                                                  <td><%= i.discount %></td>
-
-                                                 <td>$<%= i.price * i.quantity %></td>
-                                                 <td> <button data-toggle="tooltip" title="Save" id="addproduct" class="btn"><i class="fa fa-trash"></i></button> </td>
+                                                 <%if i.discount !=0.0%>
+                                                   <td>$<%= (i.price - i.discount) * i.quantity %></td>
+                                                 <%else%>
+                                                   <td>$<%= i.price * i.quantity %></td>
+                                                 <%end%>
                                              </tr>
                                           <% end %>
                                          </tbody>
                                          <tfoot>
                                              <tr>
                                                  <th colspan="6">Total</th>
-                                                 <th>$446.00</th>
+                                                 <%total = total()%>
+                                                 <th>$<%= total%></th>
                                              </tr>
                                          </tfoot>
                                      </table>
@@ -115,11 +116,11 @@
                                  <tbody>
                                      <tr>
                                          <td>Order subtotal</td>
-                                         <th>$446.00</th>
+                                         <th><%= total%></th>
                                      </tr>
                                      <tr>
                                          <td>Shipping and handling</td>
-                                         <th>$10.00</th>
+                                         <th>$0.00</th>
                                      </tr>
                                      <tr>
                                          <td>Tax</td>
@@ -127,7 +128,7 @@
                                      </tr>
                                      <tr class="total">
                                          <td>Total</td>
-                                         <th>$456.00</th>
+                                         <th>$<%= total%></th>
                                      </tr>
                                  </tbody>
                              </table>

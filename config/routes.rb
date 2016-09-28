@@ -75,7 +75,7 @@ Rails.application.routes.draw do
     post 'addtocart', to: 'application#addtocart'
     get 'addtocartget', to: 'application#addtocartget'
     get 'refreshcart', to: 'shop#refreshcart'
-    get 'deletecart', to: 'shop#deletecart'
+  
 
     resources :checkout, only: [] do
       collection do
@@ -85,6 +85,7 @@ Rails.application.routes.draw do
         get 'second', to: :second
         post 'second_data', to: :second_data
         get 'cart', to: :cart
+        get 'deletecart', to: :deletecart
       end
     end
 
