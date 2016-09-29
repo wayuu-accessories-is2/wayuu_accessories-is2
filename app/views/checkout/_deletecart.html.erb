@@ -18,7 +18,7 @@
                 <td>
                   <% showImage = ProductImage.find_by(product_id: i.id.to_s ) %>
                   <% unless showImage.nil?%>
-                    <td><%=image_tag showImage.image.thumb.url%></td>
+                    <td><%#=image_tag showImage.image.thumb.url%></td>
                   <%else%>
                     <td>No image</td>
                   <%end%>
@@ -44,10 +44,9 @@
         <tfoot>
             <tr>
                 <th colspan="6">Total</th>
-                <%total = total()%>
-                <th>$<%= total%></th>
+                <%@sum = total()%>
+                <th>$<%= @sum%></th>
             </tr>
         </tfoot>
     </table>
-
 </div>
