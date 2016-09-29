@@ -77,7 +77,7 @@ class CheckoutController < ApplicationController
 
   helper_method :total
   def total()
-    sum = 0.0
+    @sum = 0.0
     session[:cart].each do |key, array|
       e = Product.find( key.to_s )
       e.quantity = array
@@ -85,12 +85,12 @@ class CheckoutController < ApplicationController
     end
     @productcart.each do |p|
       if p.discount !=0.0
-        sum+=(p.price.to_i - p.discount.to_i)* p.quantity.to_i
+        @sum+=(p.price.to_i - p.discount.to_i)* p.quantity.to_i
       else
-        sum+= (p.price.to_i)*p.quantity.to_i
+        @sum+= (p.price.to_i)*p.quantity.to_i
       end
     end
-    return sum
+    return @sum/2
   end
 
 end
