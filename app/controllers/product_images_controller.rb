@@ -41,8 +41,13 @@ class ProductImagesController < ApplicationController
     #end
    end
    def createExisting
+     new_order = 0
      order = ProductImage.where(:product_id => params[:product_id] ).order("sort_order DESC")
-     new_order = (order[0].sort_order.to_i)+1
+     unless order.nil?
+       new_order = (order[0].sort_order.to_i)+1
+     else
+       new_order = 1
+     end
      @image = ProductImage.new(image: params[:file])
      @image.sort_order = (new_order.to_s)
     #  session[:order] += 1
