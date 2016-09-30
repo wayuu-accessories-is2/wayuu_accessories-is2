@@ -26,25 +26,27 @@
                 <div class="panel panel-default sidebar-menu" role="navigation">
 
                     <div class="panel-heading">
-                        <h3 class="panel-title">Filters</h3>
+                        <h3 class ="panel-title"><i  class = "fa fa-star"></i>  Categories</h3>
                     </div>
 
                     <div class="panel-body">
                         <ul class="nav nav-pills nav-stacked category-menu">
                             <li>
-                                <a href="shop-category.html"><i class="fa fa-star"></i>Category<span class="badge">42</span></a>
+                                <!--<a href="shop-category.html"><i class="fa fa-star"></i>Categories<span class="badge">42</span></a>-->
                                 <ul>
-                                    <li><a href="shop-category.html">T-shirts</a>
-                                    </li>
-                                    <li><a href="shop-category.html">Shirts</a>
-                                    </li>
-                                    <li><a href="shop-category.html">Pants</a>
-                                    </li>
-                                    <li><a href="shop-category.html">Accessories</a>
-                                    </li>
+                                  <div class="dropdown">
+                                      <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Select a category
+                                        <span class="caret"></span></button>
+                                          <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                            <%allCategories = Category.all.order("name ASC")%>
+                                            <%allCategories.each do |c|%>
+                              							<li><a href="<%= showall_category_product_index_path(c.id.to_s) %>"><%=c.name%></a></li>
+                              							<%end%>
+                                          </ul>
+                                  </div>
                                 </ul>
                             </li>
-                            <li class="active">
+                            <!--<li class="active">
                                 <a href="shop-category.html"><i class="fa fa-star"></i>Ladies  <span class="badge pull-right">123</span></a>
                                 <ul>
                                     <li><a href="shop-category.html">T-shirts</a>
@@ -56,8 +58,8 @@
                                     <li><a href="shop-category.html">Accessories</a>
                                     </li>
                                 </ul>
-                            </li>
-                            <li>
+                            </li>-->
+                            <!--<li>
                                 <a href="shop-category.html">Kids  <span class="badge pull-right">11</span></a>
                                 <ul>
                                     <li><a href="shop-category.html">T-shirts</a>
@@ -69,22 +71,33 @@
                                     <li><a href="shop-category.html">Accessories</a>
                                     </li>
                                 </ul>
-                            </li>
+                            </li>-->
 
                         </ul>
-
                     </div>
                 </div>
 
                 <div class="panel panel-default sidebar-menu">
-
                     <div class="panel-heading">
-                        <h3 class="panel-title">Brands</h3>
-                        <a class="btn btn-xs btn-danger pull-right" href="#"><i class="fa fa-times-circle"></i> <span class="hidden-sm">Clear</span></a>
+                        <h3 class="panel-title"><i  class = "fa fa-star"></i>  Filters</h3>
+                      </br>
+                        <h5> Price </h5>
+                      </br>
+                      </br>
+
+                      <form action="/home" method="get" id="form1">
+                        <input type="range" min="100" max="500" step="10" name="vea" />
+                      </form>
+
+                      <button type="submit" form="form1" value="Submit">Submit</button>
+
+
+                        <!--<a class="btn btn-xs btn-danger pull-right" href="#"><i class="fa fa-times-circle"></i> <span class="hidden-sm">Clear</span></a>-->
+                      </br>
                     </div>
 
-                    <div class="panel-body">
 
+                    <div class="panel-body">
                         <form>
                             <div class="form-group">
                                 <div class="checkbox">
