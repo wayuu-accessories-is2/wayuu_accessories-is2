@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'blog', to: 'blog#index'
+
   root to: 'home_page#home'
   namespace :api, defaults:{ format: :json }do
       namespace :v1 do
@@ -75,7 +77,7 @@ Rails.application.routes.draw do
     post 'addtocart', to: 'application#addtocart'
     get 'addtocartget', to: 'application#addtocartget'
     get 'refreshcart', to: 'shop#refreshcart'
-  
+
 
     resources :checkout, only: [] do
       collection do
