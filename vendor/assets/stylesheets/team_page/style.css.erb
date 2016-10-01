@@ -840,7 +840,10 @@ a.catch-me:hover{
 }
 /*--- team ----*/
 .team{
-	padding:3em 0;
+	padding:2.5em 0;
+}
+.sreen-gallery-cursual{
+  margin: 4em 0 0 0;
 }
 /*---- map ---*/
 .map{
@@ -851,97 +854,18 @@ a.catch-me:hover{
 	border:none;
 	min-height:200px;
 }
-.contact-info{
-	background: #FF6138;
-	padding: 0em 2em;
-	position: absolute;
-	top: 0;
-	left: 39%;
-	min-height: 330px;
+
+/*---- Contact Us------*/
+.pichuria{
+  content: center;
+  text-align:center;
+  background-color: #000;
+  width: 100%;
+  height: auto;
+  padding: 2em 0 2em 0;
+  color: #FFF;
 }
-.contact-info p{
-	color: #FFF;
-	font-weight: 300;
-	font-size: 1.5em;
-	line-height: 1.6em;
-}
-.contact-info p span{
-	width: 23px;
-	height: 25px;
-	display: inline-block;
-	background: url(<%= asset_path 'team_page/map-icons.png' %>) no-repeat 0px 0px;
-	vertical-align: middle;
-	margin-right: 0.3em;
-}
-.contact-info h4{
-	color: #FFF;
-	font-weight: 300;
-	font-size: 1.8em;
-	margin: 1.5em 0 3.2em;
-}
-.contact-info h4 span{
-	font-weight:900;
-	margin-right:0.3em;
-}
-.contact-info p span.map-icon1{
-	background-position:0px 0px;
-}
-.contact-info p span.map-icon2{
-	background-position: -23px -2px;
-}
-.contact-info p span.map-icon3{
-	background-position: -47px 0px;
-}
-/*----- footer ----*/
-.footer{
-	background:#393939;
-	padding:4em 0;
-}
-.footer-inner ul{
-	margin:0;
-	padding:0;
-}
-.footer-inner ul li{
-	display:inline-block;
-}
-a.contact-me{
-	color: #fff;
-	border: 2px solid #FFF;
-	text-transform: uppercase;
-	padding: 0.6em 1.5em;
-	font-size: 1em;
-	margin-left: 7em;
-	text-decoration: none;
-	margin-top: 1em;
-	display: inline-block;
-}
-a.contact-me:hover{
-	color:#FF6138;
-	border-color:#FF6138;
-}
-#toTop {
-	display: none;
-	text-decoration: none;
-	position: fixed;
-	bottom: 5%;
-	right: 3%;
-	overflow: hidden;
-	width:32px;
-	height:19px;
-	border: none;
-	text-indent: 100%;
-	background: url(<%= asset_path 'team_page/top-arrow.png' %>) no-repeat 0px 0px;
-}
-#toTopHover {
-	width:32px;
-	height:19px;
-	display: block;
-	overflow: hidden;
-	float: right;
-	opacity: 0;
-	-moz-opacity: 0;
-	filter: alpha(opacity=0);
-}
+
 /*---- responsive-design ----*/
 @media(max-width:1366px){
 	.about-grid-info {
@@ -1042,9 +966,6 @@ a.contact-me:hover{
 		height: 89px;
 		overflow: hidden;
 	}
-	.contact-info {
-		left: 26%;
-	}
 }
 @media(max-width:640px){
 	.about-grid-info {
@@ -1115,9 +1036,6 @@ a.contact-me:hover{
 	.caption p {
 		height: 50px;
 		overflow: hidden;
-	}
-	.contact-info {
-		left: 21%;
 	}
 	nav a#pull {
 		top: 15px;
@@ -1210,11 +1128,6 @@ a.contact-me:hover{
 	.caption p {
 		display:none;
 	}
-	.contact-info {
-		left: 19%;
-		padding: 0em 1.3em;
-		min-height: 255px;
-	}
 	nav a#pull {
 		top: 15px;
 		right: 9px;
@@ -1236,13 +1149,6 @@ a.contact-me:hover{
 	a.catch-me {
 		font-size: 1em;
 		padding: 0.5em 1em;
-	}
-	.contact-info h4 {
-		font-size: 1.5em;
-		margin: 1.5em 0 1.2em;
-	}
-	.contact-info p {
-		font-size: 1.2em;
 	}
 	.map-location iframe {
 		min-height: 250px;
@@ -1340,13 +1246,6 @@ a.contact-me:hover{
 	.caption p {
 		display:none;
 	}
-	.contact-info {
-		left: 0%;
-		padding: 0em 1.3em;
-		min-height: 255px;
-		right: 0;
-		background:rgba(255, 97, 56, 0.77);
-	}
 	nav a#pull {
 		top: 15px;
 		right: 9px;
@@ -1369,13 +1268,6 @@ a.contact-me:hover{
 	a.catch-me {
 		font-size: 1em;
 		padding: 0.5em 1em;
-	}
-	.contact-info h4 {
-		font-size: 1.5em;
-		margin: 1.5em 0 1.2em;
-	}
-	.contact-info p {
-		font-size: 1.2em;
 	}
 	.map-location iframe {
 		min-height: 250px;
@@ -1450,4 +1342,7 @@ a.contact-me:hover{
 	.team {
 		padding: 0.8em 0;
 	}
+  .sreen-gallery-cursual{
+    margin: 2em 0 0 0;
+  }
 }
