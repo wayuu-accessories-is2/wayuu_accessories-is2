@@ -45,30 +45,19 @@
 </head>
 <body>
 	<div id="all">
-		<!-- *** TOP *** -->
-		<!-- *** NAVBAR *** -->
-		<!-- *** FULL WIDTH MEGAMENU *** -->
-		<p class="notice"><%= notice %></p>
-	<p class="alert"><%= alert %></p>
 		<%= render partial: 'layouts/header' %>
-		<!-- *** HOMEPAGE CAROUSEL *** -->
-		<!-- *** TESTIMONIALS CAROUSEL *** -->
-		<!-- *** BLOG HOMEPAGE *** -->
-		<!-- *** GET IT *** -->
-		<!--<div align="center" class="alerts">
-	  	<p class="alert"><%= alert %></p>
-	  </div>-->
-
-		<h5 style="font-family:Times New Roman" align="center" class="notice"><%= notice %></h5>
-		<%= current_user %>
 		<%= yield %>
-
-		<!--<h5 style="font-family:Times New Roman" align="center" class="alert"><%= alert %></h5>-->
-
-		<!-- *** FOOTER *** -->
-		<!-- *** COPYRIGHT *** -->
 		<%= render partial: 'layouts/footer' %>
+
 		<%= render 'shared/facebook_sdk' %>
+	  <!--	<div align="center" class="alerts">
+	  	<p class="alert"><%= alert %></p>
+	  </div>	-->
+	  <p class="notice"><%= notice %></p>
+	  <p class="alert"><%= alert %></p>
+	  <h5 style="font-family:Times New Roman" align="center" class="notice"><%= notice %></h5>
+	  <!--<h5 style="font-family:Times New Roman" align="center" class="alert"><%= alert %></h5>-->
+	  <%= current_user %>
 
 	</div>
 </body>

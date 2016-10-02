@@ -1,3 +1,7 @@
+.center {
+  width: 300px;
+  margin: auto auto;
+}
 .clearfix:before,
 .clearfix:after,
 .navbar:before,
@@ -77,6 +81,23 @@ button i.fa {
     text-align: center;
   }
 }
+
+.locationimage{
+  width: 10%;
+  height: 10%;
+}
+
+.emailimage{
+  width: 10%;
+  height: 10%;
+}
+
+.phoneimage{
+  width: 10%;
+  height: 10%;
+}
+
+
 p.lead {
   margin-bottom: 40px;
 }
@@ -158,11 +179,13 @@ div.section {
 ul.list-style-none {
   list-style: none;
 }
+
 #text-page h1,
 #text-page h2,
 #text-page h3 {
   font-weight: 700;
 }
+
 #error-page {
   text-align: center;
   margin-top: 40px;
@@ -793,7 +816,7 @@ fieldset[disabled] .btn-template-primary.active {
   padding: 30px;
   margin-bottom: 0;
   position: relative;
-  background: url('../img/photogrid.jpg') center center repeat;
+  background: url(<%= asset_path 'shop/photogrid.png' %>) center center repeat;
   background-size: cover;
   -webkit-transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;
@@ -1143,7 +1166,7 @@ fieldset[disabled] .btn-template-primary.active {
 }
 .home-carousel {
   position: relative;
-  background: url('../img/photogrid.jpg') center center repeat;
+  background: url(<%= asset_path 'shop/photogrid.png' %>) center center repeat;
   background-size: cover;
   -webkit-transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;
@@ -1726,7 +1749,7 @@ fieldset[disabled] .btn-template-primary.active {
   border: none;
 }
 #heading-breadcrumbs {
-  background: url('../img/texture-bw.png') center center repeat;
+  background: url(<%= asset_path 'shop_template/texture-bw.png' %>) center center repeat;
   padding: 20px 0;
   margin-bottom: 40px;
 }
@@ -1755,7 +1778,7 @@ fieldset[disabled] .btn-template-primary.active {
   padding: 60px 0;
 }
 .bar.background-pentagon {
-  background: url('../img/texture-bw.png') center center repeat;
+  background: url(<%= asset_path 'shop_template/texture-bw.png' %>) center center repeat;
   border-top: solid 1px #999999;
   border-bottom: solid 1px #999999;
 }
@@ -1774,7 +1797,7 @@ fieldset[disabled] .btn-template-primary.active {
   background-size: cover;
 }
 .bar.background-image-fixed-2 {
-  background: url('../img/fixed-background-2.jpg') center top no-repeat;
+  background: url(<%= asset_path 'shop/fixed-background-2.jpg' %>) center top no-repeat;
   background-attachment: fixed;
   background-size: cover;
 }
@@ -2250,11 +2273,17 @@ fieldset[disabled] .btn-template-primary.active {
   -moz-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
 }
-@media (max-width: 767px) {
+@media only screen and (max-devise-width: 768px ) {
   .product .image img.img-responsive {
-    min-width: 100%;
+    min-width:100%;
+    min-height: auto;
   }
 }
+#pimage img.img-responsive {
+  height: 250px;
+  width: 100%;
+}
+
 .product .text {
   padding: 10px;
 }
@@ -3284,7 +3313,7 @@ label {
   background-color: #ffffff;
   border-color: #ddd;
 }
-/* pagination */
+/* pagination*/
 .pagination {
   margin: 20px 0;
   font-family: "Roboto", Helvetica, Arial, sans-serif;
@@ -3529,7 +3558,7 @@ a.list-group-item.active > .badge,
 /*!
  * Yamm!3 - Yet another megamenu for Bootstrap 3
  * http://geedmo.github.com/yamm3
- * 
+ *
  * @geedmo - Licensed under the MIT license
  */
 .yamm .nav,

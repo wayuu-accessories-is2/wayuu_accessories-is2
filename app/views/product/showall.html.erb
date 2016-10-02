@@ -1,192 +1,83 @@
 <div id="heading-breadcrumbs">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-7">
-                <h1>Products from <%= @from_category.name%> </h1>
-            </div>
-            <div class="col-md-5">
-                <ul class="breadcrumb">
-                  <li><%= link_to "HOME", root_path%></li>
-                  <li><%= @from_category.name%></li>
-                  <li>Products</li>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-7">
+				<!--h1>Products from <%= @from_category.name%> </h1-->
+				<h1>Category with left sidebar</h1>
+			</div>
+			<div class="col-md-5">
+				<ul class="breadcrumb">
+					<li><%= link_to "HOME", root_path%></li>
+					<li><%= @from_category.name%></li>
+					<li>Products</li>
 
-                </ul>
+				</ul>
 
-            </div>
-        </div>
-    </div>
+			</div>
+		</div>
+	</div>
 </div>
 
 <div id="content">
-  <div class="container">
-        <div class="row">
-            <!-- *** LEFT COLUMN *** -->
-            <div class="col-sm-2">
-                <!-- *** MENUS AND FILTERS ***-->
-                <div class="panel panel-default sidebar-menu" role="navigation">
+	<div class="container">
+		<div class="row">
+			<!-- *** LEFT COLUMN *** -->
+			<div class="col-sm-3">
+				<!-- *** MENUS AND FILTERS ***-->
+				<div class="panel panel-default sidebar-menu">
+					<div class="panel-heading">
+						<h3 class="panel-title">Categories</h3>
+					</div>
+					<div class="panel-body">
+						<div class="dropdown">
+							<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+								Select a category <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<%allCategories = Category.all.order("name ASC")%>
+								<%allCategories.each do |c|%>
+								<li><a href="<%= showall_category_product_index_path(c.id.to_s) %>"><%=c.name%></a></li>
+								<%end%>
+							</ul>
+						</div>						
+					</div>
+				</div>
+				<div class="panel panel-default sidebar-menu">
+					<div class="panel-heading">
+						<h3 class="panel-title">Price</h3>
+						<a class="btn btn-xs btn-danger pull-right" href="#"><i class="fa fa-times-circle"></i> <span class="hidden-sm">Clear</span></a>
+					</div>
+					<div class="panel-body">
+						<form>
+							<button class="btn btn-default btn-sm btn-template-main"><i class="fa fa-pencil"></i> Apply</button>
+						</form>
+					</div>
+				</div>
+				<!-- *** MENUS AND FILTERS END *** -->
+			</div>
+			<!-- *** LEFT COLUMN END *** -->
+			<!-- *** RIGHT COLUMN *** -->
+			<div class="col-sm-9" id="product-containter">
+				<p class="text-muted lead">In our Ladies department we offer wide selection of the best products we have found and carefully selected worldwide. Pellentesque habitant morbi tristique senectus et netuss.</p>
 
-                    <div class="panel-heading">
-                        <h3 class ="panel-title"><i  class = "fa fa-star"></i>  Categories</h3>
-                    </div>
-
-                    <div class="panel-body">
-                        <ul class="nav nav-pills nav-stacked category-menu">
-                            <li>
-                                <!--<a href="shop-category.html"><i class="fa fa-star"></i>Categories<span class="badge">42</span></a>-->
-                                <ul>
-                                  <div class="dropdown">
-                                      <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Select a category
-                                        <span class="caret"></span></button>
-                                          <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                            <%allCategories = Category.all.order("name ASC")%>
-                                            <%allCategories.each do |c|%>
-                              							<li><a href="<%= showall_category_product_index_path(c.id.to_s) %>"><%=c.name%></a></li>
-                              							<%end%>
-                                          </ul>
-                                  </div>
-                                </ul>
-                            </li>
-                            <!--<li class="active">
-                                <a href="shop-category.html"><i class="fa fa-star"></i>Ladies  <span class="badge pull-right">123</span></a>
-                                <ul>
-                                    <li><a href="shop-category.html">T-shirts</a>
-                                    </li>
-                                    <li><a href="shop-category.html">Skirts</a>
-                                    </li>
-                                    <li><a href="shop-category.html">Pants</a>
-                                    </li>
-                                    <li><a href="shop-category.html">Accessories</a>
-                                    </li>
-                                </ul>
-                            </li>-->
-                            <!--<li>
-                                <a href="shop-category.html">Kids  <span class="badge pull-right">11</span></a>
-                                <ul>
-                                    <li><a href="shop-category.html">T-shirts</a>
-                                    </li>
-                                    <li><a href="shop-category.html">Skirts</a>
-                                    </li>
-                                    <li><a href="shop-category.html">Pants</a>
-                                    </li>
-                                    <li><a href="shop-category.html">Accessories</a>
-                                    </li>
-                                </ul>
-                            </li>-->
-
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="panel panel-default sidebar-menu">
-                    <div class="panel-heading">
-                        <h3 class="panel-title"><i  class = "fa fa-star"></i>  Filters</h3>
-                      </br>
-                        <h5> Price </h5>
-                      </br>
-                      </br>
-
-                      <form action="/home" method="get" id="form1">
-                        <input type="range" min="100" max="500" step="10" name="vea" />
-                      </form>
-
-                      <button type="submit" form="form1" value="Submit">Submit</button>
+				<!--div id="sort-by" class="dropdown">
+					<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+						Sort by <span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu dropdown-menu-right">
+						<li><a href="#">Sort by popularity</a></li>
+						<li><a href="#">Sort by average rating</a></li>
+						<li><a href="#">Sort by newness</a></li>
+						<li><a href="#">Sort by price: low to high</a></li>
+						<li><a href="#">Sort by price: high to low</a></li>
+					</ul>
+				</div-->
 
 
-                        <!--<a class="btn btn-xs btn-danger pull-right" href="#"><i class="fa fa-times-circle"></i> <span class="hidden-sm">Clear</span></a>-->
-                      </br>
-                    </div>
 
-
-                    <div class="panel-body">
-                        <form>
-                            <div class="form-group">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox">Armani (10)
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox">Versace (12)
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox">Carlo Bruni (15)
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox">Jack Honey (14)
-                                    </label>
-                                </div>
-                            </div>
-
-                            <button class="btn btn-default btn-sm btn-template-main"><i class="fa fa-pencil"></i> Apply</button>
-
-                        </form>
-
-                    </div>
-                </div>
-
-                <div class="panel panel-default sidebar-menu">
-
-                    <div class="panel-heading">
-                        <h3 class="panel-title clearfix">Colours</h3>
-                        <a class="btn btn-xs btn-danger pull-right" href="#"><i class="fa fa-times-circle"></i> <span class="hidden-sm">Clear</span></a>
-                    </div>
-
-                    <div class="panel-body">
-
-                        <form>
-                            <div class="form-group">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox"> <span class="colour white"></span> White (14)
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox"> <span class="colour blue"></span> Blue (10)
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox"> <span class="colour green"></span> Green (20)
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox"> <span class="colour yellow"></span> Yellow (13)
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox"> <span class="colour red"></span> Red (10)
-                                    </label>
-                                </div>
-                            </div>
-
-                            <button class="btn btn-default btn-sm btn-template-main"><i class="fa fa-pencil"></i> Apply</button>
-
-                        </form>
-
-                    </div>
-                </div>
-                <!-- *** MENUS AND FILTERS END *** -->
-            </div>
-            <!-- /.col-md-3 -->
-            <!-- *** LEFT COLUMN END *** -->
-
-            <!-- *** RIGHT COLUMN ***
-_________________________________________________________ -->
-          <div class="col-sm-9 col-md-offset-1"  id="product-containter">
-              <%= render 'product/showproducts' %>
-          </div>
-            <!-- /.col-md-9 -->
-      </div>
-            <!-- *** RIGHT COLUMN END *** -->
-  </div>
-    <!-- /.container -->
+				<%= render 'product/showproducts' %>
+			</div>
+		</div>
+		<!-- *** RIGHT COLUMN END *** -->
+	</div>
 </div>
-<!-- /#content -->

@@ -81,7 +81,7 @@
 						<a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown"><%=t(".shop")%><b class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<%allCategories = Category.all.order("name ASC")%>
-							<li><a href="category/show">All Categories</a></li>
+							<li><a href="/category/show">All Categories</a></li>
 							<li><a href="#">Flash Sale</a></li>
 							<li><a href="#">Gift Cards</a></li>
 							<%allCategories.each do |c|%>
