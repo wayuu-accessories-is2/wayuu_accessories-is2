@@ -30,6 +30,11 @@ Rails.application.routes.draw do
           get 'showall', to: :showall
         end
       end
+      resources :user do
+        collection do
+          get '/users/sign_out' => 'devise/sessions#destroy'
+        end
+      end
     end
 
     resources :product, only:[]  do
@@ -75,7 +80,7 @@ Rails.application.routes.draw do
     post 'addtocart', to: 'application#addtocart'
     get 'addtocartget', to: 'application#addtocartget'
     get 'refreshcart', to: 'shop#refreshcart'
-  
+
 
     resources :checkout, only: [] do
       collection do

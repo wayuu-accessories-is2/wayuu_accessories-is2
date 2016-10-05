@@ -29,22 +29,7 @@
 						<!--<a href="<%= destroy_user_session_path%>"><i class="fa fa-sign-out"></i><span class="hidden-xs text-uppercase">Sign out</span></a>-->
 						<!--<a href="<%= new_user_session_path %>"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase">Sign in</span></a>-->
 						<!--<button type="button" class="btn btn-login">-->
-
-						<!--<%= link_to "Sign out", destroy_user_session_path, :method => 'delete' %>-->
-						<% if current_user %>
-							<%= link_to "Sign out1", destroy_user_session_path, :method => 'delete' %>
-						<% end %>
-
-						<% if current_user == nil%>
-							<%= link_to "Sign out2", destroy_user_session_path, :method => 'delete' %>
-						<% end %>
-
-						<% if user_signed_in? %>
-							<%= link_to "Sign out3", destroy_user_session_path, :method => 'delete' %>
-						<% end %>
-
-						<%= link_to t(".sign_out"), destroy_user_session_path, :method => 'delete' %>
-
+						<%= link_to "Sign out1", destroy_user_session_path, :method => 'delete' %>
 				</div>
 			</div>
 			</div>
