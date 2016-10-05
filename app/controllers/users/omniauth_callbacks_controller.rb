@@ -1,7 +1,8 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # You should configure your model like this:
   # devise :omniauthable, omniauth_providers: [:twitter]
-#=begin
+  #=begin
+  #before_filter :authenticate_user!
   include ApplicationHelper
 
   def facebook

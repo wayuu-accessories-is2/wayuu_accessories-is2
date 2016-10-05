@@ -42,6 +42,8 @@ gem "omniauth-google-oauth2", "~> 0.2.1"
 # Use Dotevn-rails to create enviroment variables throughout the app
 group :development, :test do
   gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
+
+  gem 'letter_opener'
 end
 # Gems requiried for images uploads
 gem 'carrierwave'

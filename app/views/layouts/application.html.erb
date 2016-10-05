@@ -12,6 +12,7 @@
 	<!-- Bootstrap and Font Awesome css -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
 	<%= stylesheet_link_tag    'application', media: 'all' %>
 	<!-- Css animations  -->
 	<!--link href="css/animate.css" rel="stylesheet"-->
@@ -47,6 +48,8 @@
 		<!-- *** TOP *** -->
 		<!-- *** NAVBAR *** -->
 		<!-- *** FULL WIDTH MEGAMENU *** -->
+	 	<!--<p class="notice"><%= notice %></p>
+	  <p class="alert"><%= alert %></p>-->
 		<%= render partial: 'layouts/header' %>
 		<!-- *** HOMEPAGE CAROUSEL *** -->
 		<!-- *** TESTIMONIALS CAROUSEL *** -->
@@ -55,7 +58,9 @@
 		<!--<div align="center" class="alerts">
 	  	<p class="alert"><%= alert %></p>
 	  </div>-->
+
 		<h5 style="font-family:Times New Roman" align="center" class="notice"><%= notice %></h5>
+		<%= current_user %>
 		<%= yield %>
 
 		<!--<h5 style="font-family:Times New Roman" align="center" class="alert"><%= alert %></h5>-->

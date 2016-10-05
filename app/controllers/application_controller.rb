@@ -1,6 +1,13 @@
 class ApplicationController < ActionController::Base
 
   #protect_from_forgery with: :exception
+
+  #skip_before_filter :verify_authenticity_token
+  #before_filter :authenticate_user!
+  #protect_from_forgery with: :null_session, prepend: true
+  #before_action :authenticate_user!
+  #helper_method :current_user
+
   protect_from_forgery with: :null_session, prepend: true
   before_action :set_locale, :current_cart
   helper_method :current_user
