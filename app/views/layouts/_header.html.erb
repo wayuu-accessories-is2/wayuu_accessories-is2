@@ -26,8 +26,6 @@
 				<div class="col-xs-4 col-sm-5 col-md-5">
 					<div class="login">
 						<a href="#" data-toggle="modal" data-target="#myModal4"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase"><%=t('.log_in')%></span></a>
-						<!--</button>-->
-						<!--<button type="button" class="btn btn-login">-->
 						<a href="<%= new_user_registration_path %>"><i class="fa fa-user"></i><span class="hidden-xs text-uppercase"><%=t('.sign_up')%></span></a>
 						<!--<a href="<%= destroy_user_session_path%>"><i class="fa fa-sign-out"></i><span class="hidden-xs text-uppercase">Sign out</span></a>-->
 						<!--<a href="<%= destroy_user_session_path%>"><i class="fa fa-sign-out"></i><span class="hidden-xs text-uppercase">Sign out</span></a>-->
@@ -46,9 +44,9 @@
 									<% end %>
 									<%= link_to t(".sign_out"), destroy_user_session_path, :method => 'delete' %>
 								-->
+								<!--%= link_to "Sign out1", destroy_user_session_path, :method => 'delete' %-->
 							</div>
 						</div>
-
 					</div>
 				</div>
 			</div>
