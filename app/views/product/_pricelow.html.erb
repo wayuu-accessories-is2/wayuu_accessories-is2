@@ -1,6 +1,6 @@
 <div id="addedsuccess"></div>
 <div class="row products">
-	<% @show_products.each do |c| %>
+	<% @pricelow.each do |c| %>
 	<div class="col-md-4 col-sm-6">
 		<div class="product">
 			<div>
@@ -50,6 +50,6 @@
 </div>
 <div class="col-sm-12">
 	<div class="center">
-		<%= will_paginate @show_products, renderer: BootstrapPagination::Rails, inner_window: 1, outer_window: 1,previous_label: "«" , next_label: "»"%>
+		<%= will_paginate @pricelow, renderer: BootstrapPagination::Rails, inner_window: 1, outer_window: 1,previous_label: "«" , next_label: "»"%>
 	</div>
 </div>
