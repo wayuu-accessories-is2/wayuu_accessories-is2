@@ -28,6 +28,9 @@ Rails.application.routes.draw do
       resources :product, only:[]  do
         collection do
           get 'showall', to: :showall
+          get 'newest', to: :newest
+          get 'pricelow', to: :pricelow
+          get 'pricehigh', to: :pricehigh
         end
       end
     end
@@ -96,8 +99,8 @@ Rails.application.routes.draw do
         end
       end
     end
-    get 'home', to: 'home_page#home'
 
+    get 'home', to: 'home_page#home'
     get 'team', to: 'hometeam#index'
     get 'admin/index', to: 'admin#admin_index'
 
