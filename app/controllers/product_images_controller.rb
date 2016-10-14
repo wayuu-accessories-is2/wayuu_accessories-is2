@@ -47,7 +47,6 @@ class ProductImagesController < ApplicationController
       new_order = (order[0].sort_order.to_i)+1
      else
       new_order = 1
-      puts "Entre con nulo"
      end
      @image_new = ProductImage.new(image: params[:file])
      @image_new.sort_order = (new_order.to_s)

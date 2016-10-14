@@ -10,16 +10,20 @@ $('#editproduct' ).click(function(){
     $('#tab-image').removeClass('hidden');
     $('#tab-image').addClass('active');
     $('#editproduct').addClass('hidden');
+    $('#finishedit').removeClass('hidden');
 
-    <% showImage = ProductImage.find_by(product_id: @pro.id  ) %>
-      <% unless showImage.nil?%>
+    <% showImage1 = ProductImage.count( "case product_id when "+@pro.id.to_s+"then 1 else null end") %>
+      <% unless showImage1.nil? %>
+          <% if showImage1 ==1%>
+          $('#addimages').removeClass('hidden');
+          $('#saveorder').addClass('hidden');
+          <%else%>
          $('#saveorder').removeClass('hidden');
          $('#saveorder').click(function(){
             $('#addimages').removeClass('hidden');
             $('#saveorder').addClass('hidden');
-            $('#finishedit').removeClass('hidden');
-
          });
+         <%end%>
          $('#idSort').removeClass('hidden');
          $('#idSort').addClass('active');
          $('#tab-image').removeClass('active');
