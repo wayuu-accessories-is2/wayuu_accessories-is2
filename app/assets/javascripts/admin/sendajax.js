@@ -51,18 +51,9 @@ $(document).ready(function(){
 						weight: $("#weight").val(), status: $("#status").val(), category1: $("#category1").val(), product_discount_price: $("#discount").val() },
 			success: function( result ){}
 		});
-		$('#addproduct').addClass('hidden');
-		$('#saveimage').removeClass('hidden');
-		$('#idImage').removeClass('hidden');
-		$('#idImage').addClass('active');
-		$('#general').removeClass('active');
-		$('#general').addClass('hidden');
-		$('#link').addClass('hidden');
-		$('#tab-data').removeClass('active');
-		$('#tab-links').removeClass('active');
-		$('#tab-image').addClass('active');
-
 	});
+
+
 	// $(document).on("click","#saveimage",function(){
 	// 	$( "#indexcambio" ).html( "<%= escape_javascript( render( "addproduct" ) ) %>" );
 	// 	$('#tab-image').removeClass('active');

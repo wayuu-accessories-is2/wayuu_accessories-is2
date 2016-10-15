@@ -78,6 +78,13 @@ Rails.application.routes.draw do
           post 'change', to: :change
         end
       end
+      resources :product_images do
+         collection do
+           post 'create', to: :create
+           post 'createExisting', to: :createExisting
+           post 'updateorder', to: :updateorder
+         end
+      end
     end
 
     post 'addtocart', to: 'application#addtocart'

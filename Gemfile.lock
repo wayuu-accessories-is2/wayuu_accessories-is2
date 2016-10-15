@@ -374,6 +374,7 @@ DEPENDENCIES
   jquery-rails
   jquery-star-rating-rails
   jquery-ui-rails
+  json
   letter_opener
   mini_magick (~> 4.5, >= 4.5.1)
   omniauth
