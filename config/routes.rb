@@ -9,18 +9,19 @@ Rails.application.routes.draw do
     end
 
   #  match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], as: :finish_signup
-  devise_for :users, controllers: {
-    registrations: "users/registrations",
-    sessions: "users/sessions",
-    passwords: "users/passwords",
-    omniauth_callbacks: "users/omniauth_callbacks"}
-
-
-  devise_scope :user do
-   get '/users/sign_out' => 'devise/sessions#destroy'
-  end
+  devise_for :users, skip: [:session, :password, :registration, :confirmation], controllers: { omniauth_callbacks: 'omniauth_callbacks' }
 
   scope "(:locale)",locale:/#{I18n.available_locales.join("|")}/ do
+
+    devise_for :users,skip: :omniauth_callbacks, controllers: {
+        registrations: "users/registrations",
+        sessions: "users/sessions",
+        passwords: "users/passwords",
+      }
+    devise_scope :user do
+        delete '/users/sign_out' => 'devise/sessions#destroy'
+    end
+
     resources :category, except:[:delete] do
       collection do
         get 'show', to: :show
