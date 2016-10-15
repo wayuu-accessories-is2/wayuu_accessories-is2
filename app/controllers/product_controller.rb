@@ -58,7 +58,7 @@ def new
 	product_discount_start = params['product_discount_start']
 	product_discount_end = params['product_discount_end']
 	if discount == ""
-		discount = 0
+		discount = 0.0
 	end
 
 	temp = Product.new
