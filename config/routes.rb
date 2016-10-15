@@ -1,5 +1,21 @@
 Rails.application.routes.draw do
 
+  devise_for :users, controllers: {
+    omniauth_callbacks: "users/omniauth_callbacks"
+  }
+
+#  authenticate(:user) do
+#   resources :users
+
+#  end
+
+
+    devise_scope :user do
+     get '/users/sign_out' => 'devise/sessions#destroy'
+    end
+
+
+
   root to: 'home_page#home'
   namespace :api, defaults:{ format: :json }do
       namespace :v1 do
@@ -9,18 +25,15 @@ Rails.application.routes.draw do
     end
 
   #  match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], as: :finish_signup
-  devise_for :users, skip: [:session, :password, :registration, :confirmation], controllers: { omniauth_callbacks: 'omniauth_callbacks' }
+
+  #devise_for :users, skip: [:session, :password, :registration, :confirmation], controllers: { omniauth_callbacks: 'omniauth_callbacks' }
 
   scope "(:locale)",locale:/#{I18n.available_locales.join("|")}/ do
 
-    devise_for :users,skip: :omniauth_callbacks, controllers: {
-        registrations: "users/registrations",
-        sessions: "users/sessions",
-        passwords: "users/passwords",
-      }
-    devise_scope :user do
-        delete '/users/sign_out' => 'devise/sessions#destroy'
-    end
+  #  devise_scope :user do
+  #      delete '/users/sign_out' => 'devise/sessions#destroy'
+  #  end
+
 
     resources :category, except:[:delete] do
       collection do
@@ -34,11 +47,11 @@ Rails.application.routes.draw do
           get 'pricehigh', to: :pricehigh
         end
       end
-      resources :user do
-        collection do
-          get '/users/sign_out' => 'devise/sessions#destroy'
-        end
-      end
+      #resources :user do
+      #  collection do
+      #    get '/users/sign_out' => 'devise/sessions#destroy'
+      #  end
+      #end
     end
 
     resources :product, only:[]  do

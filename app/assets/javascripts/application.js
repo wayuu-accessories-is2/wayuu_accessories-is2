@@ -15,3 +15,4 @@
 //= require shop_template/bootstrap-slider.min.js
 //= require shop/price-filter.js
 //= require jquery-ui.js
+//= require devise/mensajes.js

@@ -6,18 +6,21 @@ default: &default
 development:
   <<: *default
 
-
-  # host: localhost
-  # database: wayuu1
-  # username: ingesoft
-  # #username: postgres
-  # password: 12345
-
+ #Cristian.
   host: localhost
   database: wayuu1
-  #username: ingesoft
-  username: ingesoft
+  username: postgres
   password: 12345
+
+  # ---
+  #host: localhost
+  #database: wayuu1
+  #database: wayuu2
+  #database: wayuu3
+  #database: wayuu4
+  #database: wayuu5
+  #username: ingesoft
+  #password: 12345
 
 
   #url: <%= ENV['POSTGRE_URL'] %>
