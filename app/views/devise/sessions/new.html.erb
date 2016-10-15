@@ -32,8 +32,26 @@
 		</div>
 	</div>
 
+
 	<div class="fontlinks">
 		<%= render "devise/shared/links" %>
 	</div>
+  </br>
+		<% if controller_name != 'confirmations' or controller_name != 'passwords' or controller_name != 'unlocks' %>
+		<div align="center">
+		<div class="row" align="center">
+				<div class="cuadro3" align="center">
+					<!--<i class="fa fa-facebook-official" aria-hidden="true" align="center" style="color:white"></i>-->
+					<%= link_to "Facebook", omniauth_authorize_path(resource_name, :facebook), :class=>"button"%>
+				</div>
+				<div class="cuadro4"  align="center">
+					<i class="fa fa-google-plus" style="color:white" ></i>
+					<div style="color:white">
+						Google
+					</div>
+				</div>
+			</div>
+		</div>
+		<% end %>
 	<% end %>
 </div>

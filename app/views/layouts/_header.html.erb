@@ -11,7 +11,7 @@
 						<li><%=link_to "English ",locale: "en"%></li>
 						<li><%=link_to "Español ",locale: "es"%></li>
 					</ul>
-				</div>	
+				</div>
 				<p class="col-xs-6 col-sm-3 col-md-2 top-left">
 					<i class="fa fa-phone"></i> 1(855) 929-8855
 				</p>
@@ -25,9 +25,13 @@
 				</div>
 				<div class="col-xs-4 col-sm-5 col-md-5">
 					<div class="login">
-						<a href="#" data-toggle="modal" data-target="#myModal4"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase"><%=t('.log_in')%></span></a>
-						<a href="<%= new_user_registration_path %>"><i class="fa fa-user"></i><span class="hidden-xs text-uppercase"><%=t('.sign_up')%></span></a>
-						<%= link_to "Sign Out", destroy_user_session_path, class: "hidden-xs", :method => 'delete' %>
+						<% if not current_user %>
+							<a href="#" data-toggle="modal" data-target="#myModal4"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase"><%=t('.log_in')%></span></a>
+							<a href="<%= new_user_registration_path %>"><i class="fa fa-user-plus"></i><span class="hidden-xs text-uppercase"><%=t('.sign_up')%></span></a>
+						<% else %>
+						    <%= link_to "Sign Out", destroy_user_session_path, class: "fa fa-sign-out", id: "hidden-xs", :method => 'delete' %>
+								<!--<i class="fa fa-sign-out"></i><span class="hidden-xs text-uppercase"><%=t('.sign_out')%></span></a>-->
+						<% end %>
 					</div>
 				</div>
 			</div>
@@ -141,6 +145,21 @@
 							Log in
 						</div>
 					</div>
+				</br>
+					<% if controller_name != 'confirmations' or controller_name != 'passwords' or controller_name != 'unlocks' %>
+					<div align="center">
+					<div class="row" align="center">
+					    <div class="cuadro3" align="center">
+					      <!--<i class="fa fa-facebook-official" aria-hidden="true" align="center" style="color:white"></i>-->
+					      <%= link_to "Facebook", omniauth_authorize_path(resource_name, :facebook), :class=>"button"%>
+					    </div>
+					    <div class="cuadro4"  align="center">
+					      <i class="fa fa-google-plus" style="color:white" ></i>
+					      Google
+					    </div>
+					  </div>
+					</div>
+					<% end %>
 					<div class="modal-body">
 						<!--<img id="profile_img2" class="profile-img2-card" src="<%= asset_path("profileimg.jpg") %>">-->
 						<div class="form-signin">
@@ -176,8 +195,8 @@
 					</div>
 					<!--<p class="text-center">
 						<button class="btn btn-template-main"><i class="fa fa-sign-in"></i> Log in</button>
-					</p>-->
-					<!--<div id="login-social">
+					</p>
+					<div id="login-social">
 						<a id="login-facebook"><i class="fa fa-facebook"></i></a>
 						<a id="login-google"><i class="fa fa-google"></i></a>
 					</div>-->
@@ -186,4 +205,5 @@
 		</div>
 	</div>
 </div>
+
 <!-- *** LOGIN MODAL END *** -->

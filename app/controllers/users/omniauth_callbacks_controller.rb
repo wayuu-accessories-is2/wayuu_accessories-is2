@@ -1,16 +1,13 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # You should configure your model like this:
   # devise :omniauthable, omniauth_providers: [:twitter]
-  #=begin
+#=begin
   #before_filter :authenticate_user!
   include ApplicationHelper
 
   def facebook
     # Attempt to find the User
-    @user = User.find_for_facebook_oauth(
-      request.env["omniauth.auth"],
-      current_user
-    )
+    @user = User.find_for_facebook_oauth(env["omniauth.auth"] )
 
     if @user.persisted?
       sign_in_and_redirect @user,
@@ -20,7 +17,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
         :kind => "Facebook") if is_navigational_format?
     else
       session[:user_id] = request.env["omniauth.auth"]
-      redirect_to root_path
+      redirect_to new_user_registration_url
     end
 
   end
@@ -42,18 +39,17 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       end
   end
 
-  def self.from_omniauth(access_token)
-    data = access_token.info
-    user = User.where(:email => data["email"]).first
+#  def self.from_omniauth(access_token)
+#    data = access_token.info
+#    user = User.where(:email => data["email"]).first
     # Uncomment the section below if you want users to be created if they don't exist
-    # unless user
-    #     user = User.create(name: data["name"],
-    #        email: data["email"],
-    #        password: Devise.friendly_token[0,20]
-    #     )
-    # end
-    #user
-  end
+#    unless user
+#            user = User.create(name: data["name"],
+#            email: data["email"],
+#            password: Devise.friendly_token[0,20])
+#    end
+#    user
+#  end
 #=end
 
   # You should also create an action method in this controller like this:
