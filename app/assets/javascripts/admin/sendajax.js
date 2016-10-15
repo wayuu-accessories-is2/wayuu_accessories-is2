@@ -32,6 +32,7 @@ $(document).ready(function(){
 		});
 		$('#addproduct').addClass('hidden');
 		$('#saveimage').removeClass('hidden');
+		$('#finishadd').removeClass('hidden');
 		$('#idImage').removeClass('hidden');
 		$('#idImage').addClass('active');
 		$('#general').removeClass('active');
