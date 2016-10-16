@@ -1,20 +1,13 @@
 Rails.application.routes.draw do
 
+  devise_scope :user do
+    #get  '/users' => 'home_page#home'
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
+
   devise_for :users, controllers: {
     omniauth_callbacks: "users/omniauth_callbacks"
   }
-
-#  authenticate(:user) do
-#   resources :users
-
-#  end
-
-
-    devise_scope :user do
-     get  '/users' => 'home_page#home'
-     post  '/users' => 'devise/registrations#create'
-     get '/users/sign_out' => 'devise/sessions#destroy'
-    end
 
 
 
