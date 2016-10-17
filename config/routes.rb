@@ -1,17 +1,22 @@
 Rails.application.routes.draw do
 
-  devise_scope :user do
-    #get  '/users' => 'home_page#home'
-    get '/users/sign_out' => 'devise/sessions#destroy'
-  end
+  root to: 'home_page#home'
 
   devise_for :users, controllers: {
     omniauth_callbacks: "users/omniauth_callbacks"
   }
 
+  devise_scope :user do
+    get '/users' => 'home_page#home'
+    get '/users/sign_out' => 'home_page#home'
+    delete '/users/sign_out' => 'devise/sessions#destroy'
+  end
 
 
-  root to: 'home_page#home'
+
+
+
+
   namespace :api, defaults:{ format: :json }do
       namespace :v1 do
         resources :products, :only => [:show,:index]
