@@ -1,16 +1,23 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  has_many :review
+  belongs_to :customer, optional: true
+
+  validates :email, :name, :uniqueness => true
+  validates :email, :name,  :presence => true
+
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
+
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   #before_action :authenticate_user!
 #  before_create :generate_authentication_token!
   #before_filter :authenticate_user!
-  has_many :review
-  belongs_to :customer, optional: true
+
 
 
 
