@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -45,7 +45,6 @@ gem "omniauth-google-oauth2", "~> 0.2.1"
 group :development, :test do
   gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
 
-  gem 'letter_opener'
 end
 # Gems requiried for images uploads
 gem 'carrierwave'
@@ -57,6 +56,8 @@ gem 'jquery-star-rating-rails'
 gem 'active_model_serializers'
 # Gem for pagination
 gem 'will_paginate-bootstrap'
+gem 'rails_12factor', group: :production
+
 
 
 # Gem for dropzonejs

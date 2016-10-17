@@ -1,5 +1,5 @@
 GEM
-  remote: https://rubygems.org/
+  remote: http://rubygems.org/
   specs:
     CFPropertyList (2.3.2)
     actioncable (5.0.0.1)
@@ -47,6 +47,7 @@ GEM
     arel (7.1.1)
     autoprefixer-rails (6.4.0.3)
       execjs
+    bcrypt (3.1.11)
     bcrypt (3.1.11-x86-mingw32)
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
@@ -231,10 +232,6 @@ GEM
       railties (>= 3.2.16)
     json (2.0.2)
     jwt (1.5.4)
-    launchy (2.4.3)
-      addressable (~> 2.3)
-    letter_opener (1.4.1)
-      launchy (~> 2.2)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.4)
@@ -301,6 +298,11 @@ GEM
       nokogiri (~> 1.6.0)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
+    rails_12factor (0.0.3)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.5)
+    rails_stdout_logging (0.0.5)
     railties (5.0.0.1)
       actionpack (= 5.0.0.1)
       activesupport (= 5.0.0.1)
@@ -374,7 +376,6 @@ DEPENDENCIES
   jquery-star-rating-rails
   jquery-ui-rails
   json
-  letter_opener
   mini_magick (~> 4.5, >= 4.5.1)
   omniauth
   omniauth-facebook
@@ -382,6 +383,7 @@ DEPENDENCIES
   pg (~> 0.18)
   puma (~> 3.0)
   rails (~> 5.0.0, >= 5.0.0.1)
+  rails_12factor
   sass-rails (~> 5.0)
   tinymce-rails
   tzinfo-data

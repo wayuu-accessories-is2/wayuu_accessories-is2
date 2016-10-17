@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   }
 
   devise_scope :user do
-    get '/users' => 'home_page#home'
-    get '/users/sign_out' => 'home_page#home'
+    #get '/users' => 'home_page#home'
+    #get '/users/sign_out' => 'home_page#home'
     delete '/users/sign_out' => 'devise/sessions#destroy'
   end
 

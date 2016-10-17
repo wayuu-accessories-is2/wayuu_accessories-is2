@@ -23,7 +23,7 @@ Rails.application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+  config.assets.compile = true
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
@@ -57,17 +57,22 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "wayuu_#{Rails.env}"
   config.action_mailer.perform_caching = false
 
-  config.action_mailer.default_url_options = {:host => 'wayuumochilabags.herokuapp.com'}
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    address:              'smtp.gmail.com',
-    port:                 587,
-    domain:               'gmail.com',
-    user_name:            'wayuuteam@gmail.com',
-    password:             ENV["GMAIL_PASSWORD"],
-    authentication:       'plain',
-    enable_starttls_auto: true
+  config.action_mailer.default_url_options = {host: 'pruebawayuuteam.herokuapp.com',}
+  ActionMailer::Base.smtp_settings = {
+    :address    => 'smtp.sendgrid.net',
+    :port       => '587',
+    :authentication => :plain,
+    :user_name      => ENV['SENDGRID_USERNAME'],
+    :password       => ENV['SENDGRID_PASSWORD'],
+    :domain         => 'heroku.com',
+    :enable_starttls_auto => true
   }
+  # Code is not reloaded between requests.
+  config.cache_classes = true
+  config.to_prepare do
+    Devise::Mailer.layout "mailer" # email.haml or email.erb
+  end
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
