@@ -1,5 +1,6 @@
 require 'carrierwave/orm/activerecord'
 
+if Rails.env.production?
    CarrierWave.configure do |config|
     config.fog_credentials = {
       :provider             => 'Rackspace',
@@ -8,4 +9,5 @@ require 'carrierwave/orm/activerecord'
       :rackspace_region    => :dfw
     }
     config.fog_directory = 'wayuumochilas'
+end
 end
