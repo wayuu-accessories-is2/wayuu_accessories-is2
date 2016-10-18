@@ -1,0 +1,46 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+
+ #Cristian.
+  # host: localhost
+  # database: wayuu1
+  # username: ingesoft
+  # password: 12345
+
+  # ---
+  #host: localhost
+  #database: wayuu1
+  #database: wayuu2
+  #database: wayuu3
+  #database: wayuu4
+  #database: wayuu5
+  #username: ingesoft
+  #password: 12345
+
+
+  url: <%= ENV['POSTGRE_URL'] %>
+  host: <%= ENV['POSTGRE_HOST'] %>
+  database: <%= ENV['POSTGRE_DB'] %>
+  username: <%= ENV['POSTGRE_USERNAME'] %>
+  password: <%= ENV['POSTGRE_PASSWORD'] %>
+
+test:
+  <<: *default
+  url: <%= ENV['DB_URL'] %>
+  host: <%= ENV['POSTGRE_HOST'] %>
+  database: <%= ENV['DB_USER'] %>
+  username: <%= ENV['DB_USER'] %>
+  password: <%= ENV['DB_PASS'] %>
+
+production:
+  <<: *default
+  url: <%= ENV['DB_URL'] %>
+  host: <%= ENV['POSTGRE_HOST'] %>
+  database: <%= ENV['DB_USER'] %>
+  username: <%= ENV['DB_USER'] %>
+  password: <%= ENV['DB_PASS'] %>
