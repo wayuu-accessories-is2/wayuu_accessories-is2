@@ -39,6 +39,7 @@ _________________________________________________________ -->
                         <div id="mainImage">
                             <% unless showImage[0].nil?%>
                               <img src="<%=showImage[0].image.url%>" class="img-responsive" height="450" width="450">
+                              <!-- <img src="http://c9a023018b7727eeeae9-5cb13b2b77b05284d2f5230b4c21c288.r0.cf1.rackcdn.com/uploads/nopreview.png" class="img-responsive" height="450" width="450"> -->
                             <%else%>
                               <img src="http://c9a023018b7727eeeae9-5cb13b2b77b05284d2f5230b4c21c288.r0.cf1.rackcdn.com/uploads/nopreview.png" class="img-responsive" height="450" width="450">
                             <%end %>
@@ -97,6 +98,7 @@ _________________________________________________________ -->
                                     <div class="col-xs-4">
                                       <a href="<%=x.image.url%>" class="img-responsive image1">
                                         <%=image_tag x.image.small.url%>
+                                        <!-- <img src="http://c9a023018b7727eeeae9-5cb13b2b77b05284d2f5230b4c21c288.r0.cf1.rackcdn.com/uploads/nopreview.png" class="img-responsive" height="450" width="450"> -->
                                       </a>
                                     </div>
                                   <%end%>
@@ -299,7 +301,7 @@ _________________________________________________________ -->
                       <% @cate.each do |t| %>
                         <ul class="nav nav-pills nav-stacked category-menu">
                           <div>
-                            <li > <a href="<%= product_path( t.id ) %>"><%= t.name %></a>
+                            <li > <a href="<%= showall_category_product_index_path( t.id ) %>"><%= t.name %></a>
                             </li>
                           </div>
 
