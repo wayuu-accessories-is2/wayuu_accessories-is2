@@ -9,7 +9,7 @@ development:
  #Cristian.
   host: localhost
   database: wayuu1
-  username: ingesoft
+  username: postgres
   password: 12345
 
   # ---

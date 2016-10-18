@@ -18,10 +18,7 @@ class User < ApplicationRecord
 #  before_create :generate_authentication_token!
   #before_filter :authenticate_user!
 
-
-
-
-  def self.find_for_facebook_oauth(auth)
+def self.find_for_facebook_oauth(auth)
     user = User.where(provider: auth.provider, uid: auth.uid).first
     # The User was found in our database
     return user if user

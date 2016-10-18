@@ -38,7 +38,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.string :name
       t.string :oauth_token
       t.datetime :oauth_expires_at
-      t.integer :role
+      t.integer :role, default: 7, null: false
 
 
       t.string :auth_token
