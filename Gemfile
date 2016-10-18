@@ -54,7 +54,6 @@ gem 'jquery-star-rating-rails'
 gem 'active_model_serializers'
 # Gem for pagination
 gem 'will_paginate-bootstrap'
-gem 'rails_12factor', group: :production
 # Gem for dropzonejs
 gem 'dropzonejs-rails'
 group :development, :test do

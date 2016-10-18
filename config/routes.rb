@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  root to: 'home_page#home'
+  
   devise_for :users, controllers: {
     omniauth_callbacks: "users/omniauth_callbacks"
   }
@@ -12,7 +15,7 @@ Rails.application.routes.draw do
 
 
 
-  root to: 'home_page#home'
+
   namespace :api, defaults:{ format: :json }do
       namespace :v1 do
         resources :products, :only => [:show,:index]
