@@ -7,6 +7,9 @@ class User < ApplicationRecord
   validates :email, :name, :uniqueness => true
   validates :email, :name,  :presence => true
 
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, format: { :with => VALID_EMAIL_REGEX , message: "El formato del correo es invalido" },
+
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
