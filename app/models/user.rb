@@ -4,8 +4,8 @@ class User < ApplicationRecord
   has_many :review
   belongs_to :customer, optional: true
 
-  validates :email, :name, :uniqueness => true
-  validates :email, :name,  :presence => true
+  #validates :email, :name, :uniqueness => true
+  #validates :email, :name,  :presence => true
 
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable,
