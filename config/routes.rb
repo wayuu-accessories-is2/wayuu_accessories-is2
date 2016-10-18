@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   root to: 'home_page#home'
-  
+
   devise_for :users, controllers: {
     omniauth_callbacks: "users/omniauth_callbacks"
   }
@@ -44,6 +44,7 @@ Rails.application.routes.draw do
           get 'newest', to: :newest
           get 'pricelow', to: :pricelow
           get 'pricehigh', to: :pricehigh
+          post 'pricerange', to: :pricerange
         end
       end
       #resources :user do

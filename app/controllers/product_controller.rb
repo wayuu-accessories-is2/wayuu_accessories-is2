@@ -40,6 +40,15 @@ def pricehigh
 	@pricehigh = @pricehigh.paginate(:page => params[:page],:per_page => 6)
 end
 
+def pricerange
+	str= params['price']
+	str1 = str.scan(/\d+|\D+/).to_a
+	min = str1[1].to_s
+	max = str1[3].to_s
+	@pricerange = Product.joins("INNER JOIN category_has_products ON category_has_products.product_id = products.id").where("category_id = ? AND price >= ? AND price <=? ", params[:category_id], min,max)
+	@pricerange = @pricerange.paginate(:page => params[:page],:per_page => 6)
+end
+
 def new
 	name = params['name']
 	description = params['description']
