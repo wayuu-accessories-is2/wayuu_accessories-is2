@@ -6,7 +6,7 @@ class Address < ApplicationRecord
   #     Validations    #
   ######################
 
-  Validations :address, presence: true
-  Validations :city, presence: true
+  validates :address, presence: true
+  validates :city, presence: true
 
 end
