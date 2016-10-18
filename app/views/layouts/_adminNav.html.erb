@@ -81,7 +81,7 @@
                 <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                 </li>
                 <li class="divider"></li>
-                <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                <li><%= link_to "Log out", destroy_user_session_path, :method => 'delete' %><i class="fa fa-sign-out fa-fw"></i>
                 </li>
             </ul>
             <!-- /.dropdown-user -->
@@ -100,10 +100,10 @@
                     <a href="#"><i class="fa fa-usd fa-fw"></i>Sales<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="flot.html">Latest sales</a>
+                            <a href="#">Latest sales</a>
                         </li>
                         <li>
-                            <a href="morris.html">Show all</a>
+                            <a href="#">Show all</a>
                         </li>
                     </ul>
                     <!-- /.nav-second-level -->
@@ -145,7 +145,7 @@
                             <%= link_to 'Show all', userlist_admin_index_path, remote: true %>
                         </li>
                         <li>
-                            <a href="morris.html">Morris.js Charts</a>
+                            <a href="#">Morris.js Charts</a>
                         </li>
                     </ul>
                 </li>
