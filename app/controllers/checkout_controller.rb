@@ -77,9 +77,6 @@ class CheckoutController < ApplicationController
 
   end
 
-  def second_data
-  end
-
   def deletecart
     id = params[:id]
     current_cart

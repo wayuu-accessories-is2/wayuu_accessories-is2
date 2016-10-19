@@ -113,8 +113,7 @@ Rails.application.routes.draw do
         post 'first_data', to: :first
         get 'billing', to: :billing
         post 'billingComplete', to: :billingComplete
-        post 'second', to: :second
-        post 'second_data', to: :second_data
+        get 'second', to: :second
         get 'cart', to: :cart
         get 'deletecart', to: :deletecart
       end
