@@ -8,7 +8,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body data-no-turbolink>
-  <!--parce no se -->
+
   <header class="main">
     <div class="container wide">
       <div class="content slim">
@@ -25,9 +25,11 @@
     </div>
 
     <%= render partial: "layouts/notifications" %>
+
+
   </header>
 
   <%= yield %>
-
+  
 </body>
 </html>
