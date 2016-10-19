@@ -65,8 +65,12 @@
           </div>
           <div class="col-sm-6 col-md-3">
               <div class="form-group">
-                  <label for="country">Country</label>
-                  <select class="form-control" id="country"></select>
+                <label for="phone">Country</label>
+                <select class="form-control" data-live-search="true" id="country" name="country" style="font-size: 15px">
+                  <%= @country.each do |t| %>
+                    <option style="font-size: 15px"><%= t.code %></option>
+                  <% end %>
+                </select>
               </div>
           </div>
 

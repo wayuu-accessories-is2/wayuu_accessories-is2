@@ -62,13 +62,17 @@ class CheckoutController < ApplicationController
       customer.user_id = current_user.id
     end
 
+    customer.save
+    customer = Customer.order("created_at").last
     address = Address.new
     address.address = params["street"]
     address.city = params["city"]
     address.customer = customer
-    address.country_id = Country.find_by(code: params["country"])
+    address.country_id = Country.find_by(code: params["country"]).id
 
-    customer.save
+    address.save!
+    address = Address.order("created_at").last
+    session[:address] = address.id
 
 
     #session[:address] = customer
@@ -82,7 +86,15 @@ class CheckoutController < ApplicationController
   end
 
   def billing
-
+    @country = Country.all
+    session[:addr] = []
+    if current_user != nil
+      customers = Customer.find_by(user_id: current_user.id)
+      for customers.each do |t|
+        session[:addr] << Address.find_by(customer_id: t.id )
+    else
+      session[:addr] = [session[:address]]
+    end
   end
 
   def billingComplete

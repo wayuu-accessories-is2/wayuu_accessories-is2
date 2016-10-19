@@ -10,6 +10,23 @@
       </li>
 
   </ul>
+<% if session[:addr] != nil %>
+<form>
+  <div class="col-sm-6 col-md-3">
+      <div class="form-group">
+        <label for="phone">Address</label>
+        <select class="form-control" data-live-search="true" name="address" style="font-size: 15px">
+          <%= session[:addr].each do |t| %>
+            <option style="font-size: 15px"><%= t.street %></option>
+          <% end %>
+        </select>
+      </div>
+  </div>
+</form>
+<div class="pull-right">
+    <button type="submit" class="btn btn-template-main">Payment Method<i class="fa fa-chevron-right"></i></button>
+</div>
+<% end %>
 <form action="<%= billingComplete_checkout_index_path %>" method="POST">
   <div class="content">
       <div class="row">
@@ -65,8 +82,12 @@
           </div>
           <div class="col-sm-6 col-md-3">
               <div class="form-group">
-                  <label for="country">Country</label>
-                  <select class="form-control" name="country"></select>
+                  <label for="phone">Country</label>
+                  <select class="form-control" data-live-search="true" id="country" name="country" style="font-size: 15px">
+                    <%= @country.each do |t| %>
+                      <option style="font-size: 15px"><%= t.code %></option>
+                    <% end %>
+                  </select>
               </div>
           </div>
 
