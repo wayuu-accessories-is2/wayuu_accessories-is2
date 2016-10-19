@@ -111,7 +111,9 @@ Rails.application.routes.draw do
         get 'index', to: :index
         get 'first', to: :first
         post 'first_data', to: :first
-        get 'second', to: :second
+        get 'billing', to: :billing
+        post 'billingComplete', to: :billingComplete
+        post 'second', to: :second
         post 'second_data', to: :second_data
         get 'cart', to: :cart
         get 'deletecart', to: :deletecart

@@ -51,9 +51,23 @@ class CheckoutController < ApplicationController
   end
 
   def first_data
+    puts params["firstname"]
+    respond_to do |format|
+      format.js
+    end
+
+    redirect_to billing_checkout_index_path
+
+  end
+
+  def billing
+
+  end
+
+  def billingComplete
+
 
     redirect_to second_checkout_index_path
-
   end
 
   def second
