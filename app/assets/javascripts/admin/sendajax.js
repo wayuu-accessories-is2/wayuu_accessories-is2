@@ -7,7 +7,7 @@ $(document).ready(function(){
 		$.ajax({
 			url: '/admin/category/new',
 			type: 'POST',
-			data: {name: $("#name").val(), description: $("#description").val() },
+			data: {name: $("#name").val()},
 			success: function( result ){}
 		});
 	});
@@ -15,7 +15,7 @@ $(document).ready(function(){
 		$.ajax({
 			url: '/admin/category/change',
 			type: 'POST',
-			data: {name: $("#name").val(), description: $("#description").val(), id: $("#id").val() },
+			data: {name: $("#name").val(), id: $("#id").val() },
 			success: function( result ){}
 		});
 	});
