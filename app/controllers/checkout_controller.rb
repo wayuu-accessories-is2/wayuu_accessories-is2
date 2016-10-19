@@ -43,7 +43,7 @@ class CheckoutController < ApplicationController
 
   end
   def first
-
+    @country = Country.all
     respond_to do |format|
       format.js
     end
@@ -51,7 +51,28 @@ class CheckoutController < ApplicationController
   end
 
   def first_data
-    puts params["firstname"]
+    customer = Customer.new
+    customer.firstname = params["firstname"]
+    customer.lastname = params["lastname"]
+    customer.email = params["email"]
+    customer.telephone = params["phone"]
+    customer.status = 1
+
+    if current_user != nil
+      customer.user_id = current_user.id
+    end
+
+    address = Address.new
+    address.address = params["street"]
+    address.city = params["city"]
+    address.customer = customer
+    address.country_id = Country.find_by(code: params["country"])
+
+    customer.save
+
+
+    #session[:address] = customer
+
     respond_to do |format|
       format.js
     end
