@@ -28,10 +28,9 @@ ActiveRecord::Schema.define(version: 20161019211207) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
-    t.string   "description"
-    t.integer  "status",      default: 1
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.integer  "status",     default: 1
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "category_has_products", force: :cascade do |t|
