@@ -12,16 +12,16 @@ $(document).ready(function(){
 	});
 
 
-	$(document).on("click","#first",function(){
-		alert("si carga1");
-		$.ajax({
-			url: '/checkout/first_data',
-			type: 'POST',
-			data: {//name: $("#first").val(), description: $("#description").val()
-			},
-			success: function( result ){}
-		});
-	});
+	//$(document).on("click","#first",function(){
+		//alert("si carga1");
+		//$.ajax({
+			//url: '/checkout/first_data',
+			//type: 'POST',
+			//data: {//name: $("#first").val(), description: $("#description").val()
+			//},
+			//success: function( result ){}
+		//});
+	//});
 
 	$(document).on("click","#addcart",function(){
 		alert("si carga1");
