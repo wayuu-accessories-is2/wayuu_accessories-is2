@@ -52,6 +52,8 @@ GEM
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
+    braintree (2.68.1)
+      builder (>= 2.0.0)
     builder (3.2.2)
     carrierwave (0.11.2)
       activemodel (>= 3.2.0)
@@ -359,6 +361,7 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers
   bootstrap-sass (~> 3.3.6)
+  braintree (~> 2.47)
   byebug
   carrierwave
   coffee-rails (~> 4.2)
@@ -372,6 +375,7 @@ DEPENDENCIES
   jquery-ui-rails
   json
   mini_magick (~> 4.5, >= 4.5.1)
+  nokogiri (>= 1.6.7.rc)
   omniauth
   omniauth-facebook
   omniauth-google-oauth2 (~> 0.2.1)
