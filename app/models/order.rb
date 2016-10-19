@@ -6,5 +6,5 @@ class Order < ApplicationRecord
   has_many :line_product
   belongs_to :confirmation_order
   has_one :return
-  has_one :coupon_use, optional: true
+  belongs_to :coupon_use, optional: true
 end
