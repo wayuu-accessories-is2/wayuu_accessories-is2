@@ -7,6 +7,7 @@ class CreateCustomers < ActiveRecord::Migration[5.0]
       t.string :telephone
       t.string :ip
       t.integer :status
+      t.references :customer, foreign_key: true
       t.timestamps
     end
   end

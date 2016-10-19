@@ -1,7 +1,7 @@
 class Address < ApplicationRecord
   belongs_to :customer
   belongs_to :country
-
+  has_many :order
   ######################
   #     Validations    #
   ######################
