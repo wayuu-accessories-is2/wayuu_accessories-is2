@@ -73,11 +73,11 @@ class CheckoutsController < ApplicationController
 
           if a.save
             b.quantity -= a.quantity
-            b.save
-            session[:cart] = {}
+            b.save            
           end
 
         end
+        session[:cart] = {}
       else
         puts "si mejor aca"
       end
