@@ -25,6 +25,15 @@ $(document).ready(function(){
 		});
 	});
 
+	$(document).on("click","#yesdelivery",function(){
+		$.ajax({
+			url: '/checkout/yesdeliveryaddress',
+			type: 'POST',
+			data: {address: $("#field").val()},
+			success: function( result ){}
+		});
+	});
+
 	$(document).on("click","#addcart",function(){
 		alert("si carga1");
 		$.ajax({

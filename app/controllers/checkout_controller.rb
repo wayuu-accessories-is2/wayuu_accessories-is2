@@ -97,11 +97,25 @@ class CheckoutController < ApplicationController
   end
 
   def yesdeliveryaddress
-
+    valor = params["address"]
+    @country = Country.all
+    @addr = []
+    if current_user != nil
+      customers = Customer.where(:user_id => current_user.id)
+      if customers != nil
+        customers.each do |x|
+          @addr << Address.find_by(customer_id: x.id )
+        end
+      end
+    else
+      @addr = [Address.find(session[:address])]
+      puts @addr
+    end
+    session[:address] = valor
   end
 
   def yesbillingaddress
-
+    redirect_to second_checkout_index_path
   end
 
   def billing
