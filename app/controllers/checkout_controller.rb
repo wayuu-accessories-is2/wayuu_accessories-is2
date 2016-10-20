@@ -180,7 +180,7 @@ class CheckoutController < ApplicationController
 
     @valor = 99.9
     @client_token = Braintree::ClientToken.generate
-    render layout: "payment"
+    render layout: "transaction"
 
   end
 
