@@ -36,7 +36,7 @@ class CategoryController < ApplicationController
   end
 
   def list
-    @list =Category.all.order("id ASC")
+    @list =Category.all.order("id ASC").paginate(:page => params[:page],:per_page => 8)
     if request.xhr?
       respond_to do |format|
         format.js
