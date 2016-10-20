@@ -12,11 +12,11 @@ class CategoryController < ApplicationController
 
   def new
     name = params['name']
-    description = params['description']
+
 
     temp = Category.new
     temp.name = name
-    temp.description = description
+
 
     temp.save!
 
@@ -91,7 +91,7 @@ class CategoryController < ApplicationController
       end
     return cat_image
   end
-  
+
   helper_method :find_discount
   def find_discount(cat_id)
     disc = false

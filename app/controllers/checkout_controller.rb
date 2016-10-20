@@ -43,6 +43,17 @@ class CheckoutController < ApplicationController
 
   end
   def first
+    @country = Country.all
+    puts @country.first
+    @addr2 = []
+    if current_user != nil
+      customers = Customer.where(:user_id => current_user.id)
+      if customers != nil
+        customers.each do |x|
+          @addr2 << Address.find_by(customer_id: x.id )
+        end
+      end
+    end
 
     respond_to do |format|
       format.js
@@ -51,19 +62,126 @@ class CheckoutController < ApplicationController
   end
 
   def first_data
+    customer = Customer.new
+    customer.firstname = params["firstname"]
+    customer.lastname = params["lastname"]
+    customer.email = params["email"]
+    customer.telephone = params["phone"]
+    customer.status = 1
 
-    redirect_to second_checkout_index_path
+    if current_user != nil
+      customer.user_id = current_user.id
+    end
+
+    customer.save
+    customer = Customer.order("created_at").last
+    address = Address.new
+    address.address = params["street"]
+    address.city = params["city"]
+    address.state = params["state"]
+    address.zip = params["zip"]
+    address.customer = customer
+    address.country_id = Country.find_by(name: params["country"]).id
+
+    address.save!
+    address = Address.order("created_at").last
+    session[:address] = address.id
+
+
+    #session[:address] = customer
+
+    respond_to do |format|
+      format.js
+    end
+
+    redirect_to billing_checkout_index_path
 
   end
 
+  def yesdeliveryaddress
+    valor = params["address2"]
+    @country = Country.all
+    @addr = []
+    if current_user != nil
+      customers = Customer.where(:user_id => current_user.id)
+      if customers != nil
+        customers.each do |x|
+          @addr << Address.find_by(customer_id: x.id )
+        end
+      end
+    else
+      @addr = [Address.find(session[:address])]
+      puts @addr
+    end
+    session[:address] = valor
+    puts session[:address]
+  end
+
+  def yesbillingaddress
+    session[:billingaddress] = params["address"]
+    session[:billingCustomer] = Address.find(params["address"]).customer_id
+    redirect_to second_checkout_index_path
+  end
+
+  def billing
+    @country = Country.all
+    @addr = []
+    if current_user != nil
+      customers = Customer.where(:user_id => current_user.id)
+      if customers != nil
+        customers.each do |x|
+          @addr << Address.find_by(customer_id: x.id )
+        end
+      end
+    else
+      @addr = [Address.find(session[:address])]
+      puts @addr
+    end
+
+  end
+
+  def billingComplete
+
+
+    customer = Customer.new
+    customer.firstname = params["firstname"]
+    customer.lastname = params["lastname"]
+    customer.email = params["email"]
+    customer.telephone = params["phone"]
+    customer.status = 1
+
+    if current_user != nil
+      customer.user_id = current_user.id
+    end
+
+    customer.save
+    customer = Customer.order("created_at").last
+    address = Address.new
+    address.address = params["street"]
+    address.city = params["city"]
+    address.state = params["state"]
+    address.zip = params["zip"]
+    address.customer = customer
+    address.country_id = Country.find_by(name: params["country"]).id
+
+    address.save!
+    address = Address.order("created_at").last
+
+    session[:billingCustomer] = customer.id
+    session[:billingaddress] = address.id
+    redirect_to second_checkout_index_path
+  end
+
   def second
+    puts session[:address]
+    puts session[:billingaddress]
+    puts session[:billingCustomer]
+
+
     @valor = 99.9
     @client_token = Braintree::ClientToken.generate
     render layout: "payment"
 
-  end
-
-  def second_data
   end
 
   def deletecart

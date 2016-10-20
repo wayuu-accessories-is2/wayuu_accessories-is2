@@ -38,7 +38,7 @@
                             <i class="fa fa-shopping-cart fa-5x"></i>
                         </div>
                         <div class="col-xs-9 text-right">
-                            <div class="huge"><%= Order.all.size %></div>
+                            <div class="huge"><%= @orderstransaction.size %></div>
                             <div>New Orders!</div>
                         </div>
                     </div>
@@ -60,7 +60,7 @@
                              <i class="fa fa-barcode fa-5x"></i>
                          </div>
                          <div class="col-xs-9 text-right">
-                             <div class="huge"><%= Product.all.size %></div>
+                             <div class="huge"><%= Product.where("quantity > ?", 0).size %></div>
                              <div>Stock available!</div>
                          </div>
                      </div>
@@ -151,20 +151,20 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Order</th>
-                                            <th>Time</th>
+                                            <th>Created at</th>
+                                            <th>Braintree ID</th>
                                             <th>Amount</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-
+                                        <% @orderstransaction.each do |t| %>
                                         <tr>
-                                            <td>3326</td>
-                                            <td>10/21/2013</td>
-                                            <td>3:29 PM</td>
-                                            <td>$321.33</td>
+                                            <td><%= t.order_id %></td>
+                                            <td><%= time_ago_in_words( t.created_at ) + " ago" %></td>
+                                            <td><%= t.braintreeid %></td>
+                                            <td><%= t.amount %></td>
                                         </tr>
-                                      
+                                        <% end %>
                                     </tbody>
                                 </table>
                             </div>

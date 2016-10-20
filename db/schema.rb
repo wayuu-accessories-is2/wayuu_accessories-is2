@@ -10,15 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160908000703) do
+ActiveRecord::Schema.define(version: 20161019211207) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "pg_stat_statements"
 
   create_table "addresses", force: :cascade do |t|
     t.string   "address"
     t.string   "city"
+    t.string   "state"
+    t.string   "zip"
     t.integer  "customer_id"
     t.integer  "country_id"
     t.datetime "created_at",  null: false
@@ -27,19 +28,11 @@ ActiveRecord::Schema.define(version: 20160908000703) do
     t.index ["customer_id"], name: "index_addresses_on_customer_id", using: :btree
   end
 
-  create_table "carts", force: :cascade do |t|
-    t.integer  "customer_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["customer_id"], name: "index_carts_on_customer_id", using: :btree
-  end
-
   create_table "categories", force: :cascade do |t|
     t.string   "name"
-    t.string   "description"
-    t.integer  "status",      default: 1
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.integer  "status",     default: 1
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "category_has_products", force: :cascade do |t|
@@ -52,26 +45,31 @@ ActiveRecord::Schema.define(version: 20160908000703) do
   end
 
   create_table "confirmation_orders", force: :cascade do |t|
-    t.string   "description"
+    t.integer  "order_id"
     t.string   "code"
     t.float    "amount"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "address_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["address_id"], name: "index_confirmation_orders_on_address_id", using: :btree
+    t.index ["order_id"], name: "index_confirmation_orders_on_order_id", using: :btree
   end
 
   create_table "countries", force: :cascade do |t|
     t.string   "code"
-    t.float    "discount"
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "coupon_uses", force: :cascade do |t|
     t.float    "amount"
+    t.integer  "order_id"
     t.integer  "customer_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["customer_id"], name: "index_coupon_uses_on_customer_id", using: :btree
+    t.index ["order_id"], name: "index_coupon_uses_on_order_id", using: :btree
   end
 
   create_table "coupons", force: :cascade do |t|
@@ -84,10 +82,15 @@ ActiveRecord::Schema.define(version: 20160908000703) do
   create_table "customer_transactions", force: :cascade do |t|
     t.string   "description"
     t.float    "amount"
+    t.string   "braintreeid"
+    t.string   "braintreetype"
+    t.string   "braintreestatus"
     t.integer  "order_id"
     t.integer  "customer_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "address_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["address_id"], name: "index_customer_transactions_on_address_id", using: :btree
     t.index ["customer_id"], name: "index_customer_transactions_on_customer_id", using: :btree
     t.index ["order_id"], name: "index_customer_transactions_on_order_id", using: :btree
   end
@@ -99,18 +102,27 @@ ActiveRecord::Schema.define(version: 20160908000703) do
     t.string   "telephone"
     t.string   "ip"
     t.integer  "status"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_customers_on_user_id", using: :btree
   end
 
-  create_table "line_products", force: :cascade do |t|
+  create_table "order_products", force: :cascade do |t|
+    t.integer  "order_id"
+    t.string   "name"
     t.integer  "quantity"
-    t.integer  "cart_id"
-    t.integer  "product_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["cart_id"], name: "index_line_products_on_cart_id", using: :btree
-    t.index ["product_id"], name: "index_line_products_on_product_id", using: :btree
+    t.float    "price"
+    t.float    "length"
+    t.float    "width"
+    t.float    "height"
+    t.float    "weight"
+    t.string   "status",      default: "1"
+    t.string   "description"
+    t.float    "discount"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.index ["order_id"], name: "index_order_products_on_order_id", using: :btree
   end
 
   create_table "order_statuses", force: :cascade do |t|
@@ -122,10 +134,10 @@ ActiveRecord::Schema.define(version: 20160908000703) do
   create_table "orders", force: :cascade do |t|
     t.integer  "customer_id"
     t.integer  "order_status_id"
-    t.integer  "cart_id"
+    t.integer  "address_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.index ["cart_id"], name: "index_orders_on_cart_id", using: :btree
+    t.index ["address_id"], name: "index_orders_on_address_id", using: :btree
     t.index ["customer_id"], name: "index_orders_on_customer_id", using: :btree
     t.index ["order_status_id"], name: "index_orders_on_order_status_id", using: :btree
   end
@@ -189,7 +201,6 @@ ActiveRecord::Schema.define(version: 20160908000703) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.integer  "customer_id"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -212,28 +223,30 @@ ActiveRecord::Schema.define(version: 20160908000703) do
     t.string   "name"
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
-    t.integer  "role",                    default: 7, null: false
+    t.integer  "role",                   default: 7,  null: false
     t.string   "auth_token"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.index ["auth_token"], name: "index_users_on_auth_token", unique: true, using: :btree
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
-    t.index ["customer_id"], name: "index_users_on_customer_id", using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
   add_foreign_key "addresses", "countries"
   add_foreign_key "addresses", "customers"
-  add_foreign_key "carts", "customers"
   add_foreign_key "category_has_products", "categories"
   add_foreign_key "category_has_products", "products"
+  add_foreign_key "confirmation_orders", "addresses"
+  add_foreign_key "confirmation_orders", "orders"
   add_foreign_key "coupon_uses", "customers"
+  add_foreign_key "coupon_uses", "orders"
+  add_foreign_key "customer_transactions", "addresses"
   add_foreign_key "customer_transactions", "customers"
   add_foreign_key "customer_transactions", "orders"
-  add_foreign_key "line_products", "carts"
-  add_foreign_key "line_products", "products"
-  add_foreign_key "orders", "carts"
+  add_foreign_key "customers", "users"
+  add_foreign_key "order_products", "orders"
+  add_foreign_key "orders", "addresses"
   add_foreign_key "orders", "customers"
   add_foreign_key "orders", "order_statuses"
   add_foreign_key "product_discounts", "products"
@@ -241,5 +254,4 @@ ActiveRecord::Schema.define(version: 20160908000703) do
   add_foreign_key "returns", "orders"
   add_foreign_key "returns", "products"
   add_foreign_key "reviews", "products"
-  add_foreign_key "users", "customers"
 end

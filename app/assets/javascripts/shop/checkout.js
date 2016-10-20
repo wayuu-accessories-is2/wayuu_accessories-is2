@@ -12,16 +12,30 @@ $(document).ready(function(){
 	});
 
 
-	//$(document).on("click","#first",function(){
-		//alert("si carga1");
-		//$.ajax({
-			//url: '/checkout/first_data',
-			//type: 'POST',
-			//data: {//name: $("#first").val(), description: $("#description").val()
-			//},
-			//success: function( result ){}
-		//});
-	//});
+	$(document).on("click","#first-data",function(){
+		alert("agg");
+		document.getElementById('cent').style.display = 'block';
+		document.getElementById('load').style.display = 'block';
+
+		$.ajax({
+			url: '/checkout/first_data',
+			type: 'POST',
+			data: {firstname: $("#firstname").val(), lastname: $("#lastname").val(), company: $("#company").val(),
+			street: $("#street").val(), city: $("#city").val(), zip: $("#zip").val(), state: $("#state").val(),
+			country: $("#country").val(), phone: $("#phone").val(), email: $("#email").val()
+			},
+			 complete: function( result ){document.getElementById('load').style.display = 'none';}
+		});
+	});
+
+	$(document).on("click","#yesdelivery",function(){
+		$.ajax({
+			url: '/checkout/yesdeliveryaddress',
+			type: 'POST',
+			data: {address2: $("#field").val()},
+			success: function( result ){}
+		});
+	});
 
 	$(document).on("click","#addcart",function(){
 		alert("si carga1");

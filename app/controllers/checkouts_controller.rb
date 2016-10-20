@@ -31,8 +31,62 @@ class CheckoutsController < ApplicationController
     )
 
     if result.success? || result.transaction
+      if result.success?
+
+        @transaction = Braintree::Transaction.find(result.transaction.id)
+
+
+        ord = Order.new
+        ord.customer_id = session[:billingCustomer]
+        ord.order_status_id = 2
+        ord.address_id = session[:address]
+        ord.save
+        ord = Order.order("created_at").last
+
+        cus = CustomerTransaction.new
+        cus.braintreeid = @transaction.id
+        cus.braintreetype = @transaction.type
+        cus.amount = @transaction.amount
+        cus.braintreestatus = @transaction.status
+        cus.customer_id = session[:billingCustomer]
+        cus.order_id = ord.id
+        cus.address_id = session[:billingaddress]
+
+        cus.save
+
+        session[:cart].each do |t|
+          puts "aca"
+          puts t[0]
+          w = t[0]
+          b = Product.find(w)
+          a = OrderProduct.new
+          a.name = b.name
+          a.quantity = session[:cart][w].to_i
+          a.price = b.price
+          a.length = b.length
+          a.width = b.width
+          a.height = b.height
+          a.weight = b.weight
+          a.description = b.description
+          a.discount = b.discount
+          a.order_id = ord.id
+
+          if a.save
+            b.quantity -= a.quantity
+            b.save
+            session[:cart] = {}
+          end
+
+        end
+      else
+        puts "si mejor aca"
+      end
+
       redirect_to checkout_path(result.transaction.id)
+
     else
+
+
       error_messages = result.errors.map { |error| "Error: #{error.code}: #{error.message}" }
       flash[:error] = error_messages
       redirect_to new_checkout_path
@@ -48,6 +102,7 @@ class CheckoutsController < ApplicationController
         :icon => "success",
         :message => "Your transaction has been successfully processed."
       }
+
     else
       result_hash = {
         :header => "Transaction Failed",
@@ -55,5 +110,7 @@ class CheckoutsController < ApplicationController
         :message => "Your test transaction has a status of #{status}."
       }
     end
+
+
   end
 end

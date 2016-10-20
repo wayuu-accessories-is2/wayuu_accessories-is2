@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_many :review
-  belongs_to :customer, optional: true
+
 
   #validates :email, :name, :uniqueness => true
   #validates :email, :name,  :presence => true
