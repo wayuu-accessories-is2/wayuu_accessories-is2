@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   end
 
 
-  resources :checkouts,  only: [:new, :create, :show]
+  resources :payment,  only: [:new, :create, :show]
 
 
 
