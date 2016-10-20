@@ -7,10 +7,10 @@ development:
   <<: *default
 
  #Cristian.
-  # host: localhost
-  # database: wayuu1
-  # username: ingesoft
-  # password: 12345
+  host: localhost
+  database: wayuu1
+  username: ingesoft
+  password: 12345
 
   # ---
   #host: localhost
@@ -23,11 +23,11 @@ development:
   #password: 12345
 
 
-  url: <%= ENV['POSTGRE_URL'] %>
-  host: <%= ENV['POSTGRE_HOST'] %>
-  database: <%= ENV['POSTGRE_DB'] %>
-  username: <%= ENV['POSTGRE_USERNAME'] %>
-  password: <%= ENV['POSTGRE_PASSWORD'] %>
+  # url: <%= ENV['POSTGRE_URL'] %>
+  # host: <%= ENV['POSTGRE_HOST'] %>
+  # database: <%= ENV['POSTGRE_DB'] %>
+  # username: <%= ENV['POSTGRE_USERNAME'] %>
+  # password: <%= ENV['POSTGRE_PASSWORD'] %>
 
 test:
   <<: *default
