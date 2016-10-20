@@ -34,7 +34,7 @@ class CheckoutsController < ApplicationController
       if result.success?
 
         @transaction = Braintree::Transaction.find(result.transaction.id)
-        
+
 
         ord = Order.new
         ord.customer_id = session[:billingCustomer]
@@ -44,7 +44,10 @@ class CheckoutsController < ApplicationController
         ord = Order.order("created_at").last
 
         session[:cart].each do |t|
-          b = Product.find(t)
+          puts "aca"
+          puts t[0]
+          w = t[0]
+          b = Product.find(w)
           a = OrderProduct.new
           a.name = b.name
           a.quantity = b.quantity
