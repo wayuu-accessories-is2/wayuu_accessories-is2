@@ -87,14 +87,19 @@ class CheckoutController < ApplicationController
 
   def billing
     @country = Country.all
-    session[:addr] = []
+    @addr = []
     if current_user != nil
       customers = Customer.find_by(user_id: current_user.id)
-      for customers.each do |t|
-        session[:addr] << Address.find_by(customer_id: t.id )
+      if customers != nil
+        customers.each do |t|
+          @addr << Address.find_by(customer_id: t.id )
+        end
+      end
     else
-      session[:addr] = [session[:address]]
+      @addr = [Address.find(session[:address])]
+      puts @addr
     end
+
   end
 
   def billingComplete
