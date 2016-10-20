@@ -44,6 +44,17 @@ class CheckoutController < ApplicationController
   end
   def first
     @country = Country.all
+
+    @addr2 = []
+    if current_user != nil
+      customers = Customer.where(:user_id => current_user.id)
+      if customers != nil
+        customers.each do |x|
+          @addr2 << Address.find_by(customer_id: x.id )
+        end
+      end
+    end
+
     respond_to do |format|
       format.js
     end
@@ -85,14 +96,22 @@ class CheckoutController < ApplicationController
 
   end
 
+  def yesdeliveryaddress
+
+  end
+
+  def yesbillingaddress
+
+  end
+
   def billing
     @country = Country.all
     @addr = []
     if current_user != nil
-      customers = Customer.find_by(user_id: current_user.id)
+      customers = Customer.where(:user_id => current_user.id)
       if customers != nil
-        customers.each do |t|
-          @addr << Address.find_by(customer_id: t.id )
+        customers.each do |x|
+          @addr << Address.find_by(customer_id: x.id )
         end
       end
     else

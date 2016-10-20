@@ -116,6 +116,8 @@ Rails.application.routes.draw do
         get 'second', to: :second
         get 'cart', to: :cart
         get 'deletecart', to: :deletecart
+        post 'yesbillingaddress', to: :yesbillingaddress
+        post 'yesdeliveryaddress', to: :yesdeliveryaddress
       end
     end
 
