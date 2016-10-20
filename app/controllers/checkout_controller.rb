@@ -115,6 +115,8 @@ class CheckoutController < ApplicationController
   end
 
   def yesbillingaddress
+    session[:billingaddress] = params["address"]
+    session[:billingCustomer] = Address.find(params["address"]).customer_id
     redirect_to second_checkout_index_path
   end
 
@@ -138,10 +140,41 @@ class CheckoutController < ApplicationController
   def billingComplete
 
 
+    customer = Customer.new
+    customer.firstname = params["firstname"]
+    customer.lastname = params["lastname"]
+    customer.email = params["email"]
+    customer.telephone = params["phone"]
+    customer.status = 1
+
+    if current_user != nil
+      customer.user_id = current_user.id
+    end
+
+    customer.save
+    customer = Customer.order("created_at").last
+    address = Address.new
+    address.address = params["street"]
+    address.city = params["city"]
+    address.customer = customer
+    address.country_id = Country.find_by(code: params["country"]).id
+
+    address.save!
+    address = Address.order("created_at").last
+    session[:address] = address.id
+
+
+    session[:billingCustomer] = customer.id
+    session[:billingaddress] = address.id
     redirect_to second_checkout_index_path
   end
 
   def second
+    puts session[:address]
+    puts session[:billingaddress]
+    puts session[:billingCustomer]
+
+
     @valor = 99.9
     @client_token = Braintree::ClientToken.generate
     render layout: "payment"
