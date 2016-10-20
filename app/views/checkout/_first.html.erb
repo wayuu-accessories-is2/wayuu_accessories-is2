@@ -94,7 +94,7 @@
                 <label for="phone">Country</label>
                 <select class="form-control" data-live-search="true" id="country" name="country" style="font-size: 15px">
                   <%= @country.each do |t| %>
-                    <option style="font-size: 15px"><%= t.code %></option>
+                    <option style="font-size: 15px"><%= t.name %></option>
                   <% end %>
                 </select>
               </div>

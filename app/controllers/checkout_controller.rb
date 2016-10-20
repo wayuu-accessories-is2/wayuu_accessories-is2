@@ -44,7 +44,7 @@ class CheckoutController < ApplicationController
   end
   def first
     @country = Country.all
-
+    puts @country.first
     @addr2 = []
     if current_user != nil
       customers = Customer.where(:user_id => current_user.id)
@@ -81,7 +81,7 @@ class CheckoutController < ApplicationController
     address.state = params["state"]
     address.zip = params["zip"]
     address.customer = customer
-    address.country_id = Country.find_by(code: params["country"]).id
+    address.country_id = Country.find_by(name: params["country"]).id
 
     address.save!
     address = Address.order("created_at").last
@@ -162,7 +162,7 @@ class CheckoutController < ApplicationController
     address.state = params["state"]
     address.zip = params["zip"]
     address.customer = customer
-    address.country_id = Country.find_by(code: params["country"]).id
+    address.country_id = Country.find_by(name: params["country"]).id
 
     address.save!
     address = Address.order("created_at").last
