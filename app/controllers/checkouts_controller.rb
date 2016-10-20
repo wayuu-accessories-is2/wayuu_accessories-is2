@@ -61,7 +61,7 @@ class CheckoutsController < ApplicationController
           b = Product.find(w)
           a = OrderProduct.new
           a.name = b.name
-          a.quantity = session[:cart][t].to_i
+          a.quantity = session[:cart][w].to_i
           a.price = b.price
           a.length = b.length
           a.width = b.width
@@ -74,6 +74,7 @@ class CheckoutsController < ApplicationController
           if a.save
             b.quantity -= a.quantity
             b.save
+            session[:cart] = {}
           end
 
         end
