@@ -1,4 +1,4 @@
-class SaleController < ApplicationController
+class ProductController < ApplicationController
 
 	respond_to :html, :js
 
