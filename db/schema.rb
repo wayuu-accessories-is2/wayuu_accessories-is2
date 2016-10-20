@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(version: 20161019211207) do
   create_table "customer_transactions", force: :cascade do |t|
     t.string   "description"
     t.float    "amount"
-    t.integer  "braintreeid"
+    t.string   "braintreeid"
     t.string   "braintreetype"
     t.string   "braintreestatus"
     t.integer  "order_id"

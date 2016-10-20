@@ -43,6 +43,17 @@ class CheckoutsController < ApplicationController
         ord.save
         ord = Order.order("created_at").last
 
+        cus = CustomerTransaction.new
+        cus.braintreeid = @transaction.id
+        cus.braintreetype = @transaction.type
+        cus.amount = @transaction.amount
+        cus.braintreestatus = @transaction.status
+        cus.customer_id = session[:billingCustomer]
+        cus.order_id = ord.id
+        cus.address_id = session[:billingaddress]
+
+        cus.save
+
         session[:cart].each do |t|
           puts "aca"
           puts t[0]
@@ -50,7 +61,7 @@ class CheckoutsController < ApplicationController
           b = Product.find(w)
           a = OrderProduct.new
           a.name = b.name
-          a.quantity = b.quantity
+          a.quantity = session[:cart][t].to_i
           a.price = b.price
           a.length = b.length
           a.width = b.width
