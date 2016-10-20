@@ -18,11 +18,7 @@ end
 def showall
 	@count_products = CategoryHasProduct.where(:category_id => params[:category_id])
 	@from_category = Category.find(params[:category_id])
-	@show_products =[]
-	@count_products.each do |p|
-		# @show_products.push(Product.find(p.product_id.to_s))
-		@show_products= Product.where("id = ? and status = '1'",p.product_id.to_s)
-	end
+	@show_products = Product.joins("INNER JOIN category_has_products ON category_has_products.product_id = products.id WHERE  status = '1' and category_id ="+ params[:category_id].to_s)
 	@show_products = @show_products.paginate(:page => params[:page],:per_page => 6)
 end
 
@@ -157,7 +153,7 @@ def change
 end
 
 def list
-	@products = Product.all
+	@products = Product.where("status = '1'")
 end
 
 def status

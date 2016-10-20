@@ -66,7 +66,7 @@
 						<li class="dropdown">
 							<a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown"><%=t(".shop")%><b class="caret"></b></a>
 							<ul class="dropdown-menu">
-								<%allCategories = Category.joins("INNER JOIN category_has_products ON category_has_products.category_id = categories.id  LEFT JOIN products on category_has_products.product_id = products.id WHERE products.status = '1'")%>
+								<%allCategories = Category.select("DISTINCT categories.id as id,categories.name as name").joins("INNER JOIN category_has_products ON category_has_products.category_id = categories.id  LEFT JOIN products on category_has_products.product_id = products.id WHERE products.status = '1'")%>
 								<li><a href="/category/show">All Categories</a></li>
 								<li><a href="#">Flash Sale</a></li>
 								<li><a href="#">Gift Cards</a></li>
