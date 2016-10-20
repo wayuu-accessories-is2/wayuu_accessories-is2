@@ -78,6 +78,8 @@ class CheckoutController < ApplicationController
     address = Address.new
     address.address = params["street"]
     address.city = params["city"]
+    address.state = params["state"]
+    address.zip = params["zip"]
     address.customer = customer
     address.country_id = Country.find_by(code: params["country"]).id
 
@@ -97,7 +99,7 @@ class CheckoutController < ApplicationController
   end
 
   def yesdeliveryaddress
-    valor = params["address"]
+    valor = params["address2"]
     @country = Country.all
     @addr = []
     if current_user != nil
@@ -112,6 +114,7 @@ class CheckoutController < ApplicationController
       puts @addr
     end
     session[:address] = valor
+    puts session[:address]
   end
 
   def yesbillingaddress
@@ -156,13 +159,13 @@ class CheckoutController < ApplicationController
     address = Address.new
     address.address = params["street"]
     address.city = params["city"]
+    address.state = params["state"]
+    address.zip = params["zip"]
     address.customer = customer
     address.country_id = Country.find_by(code: params["country"]).id
 
     address.save!
     address = Address.order("created_at").last
-    session[:address] = address.id
-
 
     session[:billingCustomer] = customer.id
     session[:billingaddress] = address.id

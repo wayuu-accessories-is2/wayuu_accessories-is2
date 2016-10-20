@@ -14,6 +14,9 @@ $(document).ready(function(){
 
 	$(document).on("click","#first-data",function(){
 		alert("agg");
+		document.getElementById('cent').style.display = 'block';
+		document.getElementById('load').style.display = 'block';
+
 		$.ajax({
 			url: '/checkout/first_data',
 			type: 'POST',
@@ -21,7 +24,7 @@ $(document).ready(function(){
 			street: $("#street").val(), city: $("#city").val(), zip: $("#zip").val(), state: $("#state").val(),
 			country: $("#country").val(), phone: $("#phone").val(), email: $("#email").val()
 			},
-			success: function( result ){}
+			 complete: function( result ){document.getElementById('load').style.display = 'none';}
 		});
 	});
 
@@ -29,7 +32,7 @@ $(document).ready(function(){
 		$.ajax({
 			url: '/checkout/yesdeliveryaddress',
 			type: 'POST',
-			data: {address: $("#field").val()},
+			data: {address2: $("#field").val()},
 			success: function( result ){}
 		});
 	});

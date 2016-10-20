@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 20161019211207) do
   create_table "addresses", force: :cascade do |t|
     t.string   "address"
     t.string   "city"
+    t.string   "state"
+    t.string   "zip"
     t.integer  "customer_id"
     t.integer  "country_id"
     t.datetime "created_at",  null: false
@@ -55,7 +57,7 @@ ActiveRecord::Schema.define(version: 20161019211207) do
 
   create_table "countries", force: :cascade do |t|
     t.string   "code"
-    t.float    "discount"
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
