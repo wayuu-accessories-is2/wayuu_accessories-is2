@@ -31,8 +31,47 @@ class CheckoutsController < ApplicationController
     )
 
     if result.success? || result.transaction
+      if result.success?
+
+        @transaction = Braintree::Transaction.find(result.transaction.id)
+        
+
+        ord = Order.new
+        ord.customer_id = session[:billingCustomer]
+        ord.order_status_id = 2
+        ord.address_id = session[:address]
+        ord.save
+        ord = Order.order("created_at").last
+
+        session[:cart].each do |t|
+          b = Product.find(t)
+          a = OrderProduct.new
+          a.name = b.name
+          a.quantity = b.quantity
+          a.price = b.price
+          a.length = b.length
+          a.width = b.width
+          a.height = b.height
+          a.weight = b.weight
+          a.description = b.description
+          a.discount = b.discount
+          a.order_id = ord.id
+
+          if a.save
+            b.quantity -= a.quantity
+            b.save
+          end
+
+        end
+      else
+        puts "si mejor aca"
+      end
+
       redirect_to checkout_path(result.transaction.id)
+
     else
+
+
       error_messages = result.errors.map { |error| "Error: #{error.code}: #{error.message}" }
       flash[:error] = error_messages
       redirect_to new_checkout_path
@@ -48,6 +87,7 @@ class CheckoutsController < ApplicationController
         :icon => "success",
         :message => "Your transaction has been successfully processed."
       }
+
     else
       result_hash = {
         :header => "Transaction Failed",
@@ -55,5 +95,7 @@ class CheckoutsController < ApplicationController
         :message => "Your test transaction has a status of #{status}."
       }
     end
+
+
   end
 end

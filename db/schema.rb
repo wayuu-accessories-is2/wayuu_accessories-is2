@@ -82,10 +82,15 @@ ActiveRecord::Schema.define(version: 20161019211207) do
   create_table "customer_transactions", force: :cascade do |t|
     t.string   "description"
     t.float    "amount"
+    t.integer  "braintreeid"
+    t.string   "braintreetype"
+    t.string   "braintreestatus"
     t.integer  "order_id"
     t.integer  "customer_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "address_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["address_id"], name: "index_customer_transactions_on_address_id", using: :btree
     t.index ["customer_id"], name: "index_customer_transactions_on_customer_id", using: :btree
     t.index ["order_id"], name: "index_customer_transactions_on_order_id", using: :btree
   end
@@ -236,6 +241,7 @@ ActiveRecord::Schema.define(version: 20161019211207) do
   add_foreign_key "confirmation_orders", "orders"
   add_foreign_key "coupon_uses", "customers"
   add_foreign_key "coupon_uses", "orders"
+  add_foreign_key "customer_transactions", "addresses"
   add_foreign_key "customer_transactions", "customers"
   add_foreign_key "customer_transactions", "orders"
   add_foreign_key "customers", "users"
