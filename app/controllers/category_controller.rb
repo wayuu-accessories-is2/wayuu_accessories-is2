@@ -36,8 +36,7 @@ class CategoryController < ApplicationController
   end
 
   def list
-    @list =Category.select("DISTINCT category_id as id,categories.name as name,categories.status as status,categories.description as description" ).joins("INNER JOIN category_has_products ON category_has_products.category_id = categories.id  LEFT JOIN products on category_has_products.product_id = products.id WHERE products.status = '1'")
-    @consult = CategoryHasProduct.all
+    @list =Category.all.order("id ASC")
     if request.xhr?
       respond_to do |format|
         format.js
@@ -78,6 +77,17 @@ class CategoryController < ApplicationController
     end
     @cate.save!
     redirect_to list_category_index_path
+  end
+
+  helper_method :category_stock
+  def category_stock(cat_id)
+    total = 0
+    quant =Category.select("DISTINCT products.id as id, products.quantity as quantity" ).joins("INNER JOIN category_has_products ON category_has_products.category_id = categories.id  LEFT JOIN products on category_has_products.product_id = products.id WHERE products.status = '1' and category_id = "+cat_id.to_s)
+    quant.each do |p|
+      total+= p.quantity.to_i
+    end
+
+    return total
   end
 
   helper_method :find_image

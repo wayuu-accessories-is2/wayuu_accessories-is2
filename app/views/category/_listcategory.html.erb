@@ -31,7 +31,7 @@
                 <tr>
                   <td><%= t.name %></td>
                   <td><%= t.description %></td>
-                  <td><%= @consult.where("category_id = " + t.id.to_s ).size %></td>
+                  <td><%= category_stock(t.id) %></td>
                   <% if t.status == 1 %>
                     <td>Active</td>
                   <% else %>

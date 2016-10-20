@@ -16,7 +16,7 @@
             <!-- /.image -->
             <div class="text">
                 <h3><%=c.name%></h3>
-                <p class="price">In stock:  <%=  @count_products.where("category_id = " + c.id.to_s ).size  %></p>
+                <p class="price">In stock:  <%=  category_stock(c.id.to_s)  %></p>
             </div>
             <!-- /.text -->
             <%p = find_discount(c.id.to_s)%>
