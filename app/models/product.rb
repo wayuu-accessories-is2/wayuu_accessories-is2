@@ -8,9 +8,9 @@ class Product < ApplicationRecord
   #     Validations    #
   ######################
 
-  Validations :name, presence: true
-  Validations :quantity, presence: true
-  Validations :price, presence: true
-  Validations :description, presence: true
+  ##Validations :name, presence: true
+  #Validations :quantity, presence: true
+  #Validations :price, presence: true
+  #Validations :description, presence: true
 
 end

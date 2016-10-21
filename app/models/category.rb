@@ -5,7 +5,7 @@ class Category < ApplicationRecord
   #     Validations    #
   ######################
 
-  Validations :name, presence: true
-  Validations :description, presence: true
+#  Validations :name, presence: true
+#  Validations :description, presence: true
 
 end
