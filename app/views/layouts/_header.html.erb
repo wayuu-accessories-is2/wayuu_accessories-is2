@@ -63,16 +63,19 @@
 							<%= link_to("Home ", "/home")%>
 						</li>
 						<li> </li>
-						<li class="dropdown">
+						<li class="dropdown use-yamm yamm-fw">
 							<a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown"><%=t(".shop")%><b class="caret"></b></a>
-							<ul class="dropdown-menu">
-								<%allCategories = Category.select("DISTINCT categories.id as id,categories.name as name").joins("INNER JOIN category_has_products ON category_has_products.category_id = categories.id  LEFT JOIN products on category_has_products.product_id = products.id WHERE products.status = '1'")%>
-								<li><a href="/category/show">All Categories</a></li>
-								<li><a href="#">Flash Sale</a></li>
-								<li><a href="#">Gift Cards</a></li>
-								<%allCategories.each do |c|%>
-								<li><a href="<%= showall_category_product_index_path(c.id.to_s) %>"><%=c.name%></a></li>
-								<%end%>
+							<ul class="dropdown-menu" id="dropCategory">
+								<div class="yamm-content">
+									<!-- <%#allCategories = Category.all.order(name: :asc)%> -->
+									<h5><a href="/category/show">All Categories</a></h5>
+									<%allCategories = Category.select("DISTINCT categories.id as id,categories.name as name").joins("INNER JOIN category_has_products ON category_has_products.category_id = categories.id  LEFT JOIN products on category_has_products.product_id = products.id WHERE products.status = '1'")%>
+									<li><a href="#">Flash Sale</a></li>
+									<li><a href="#">Gift Cards</a></li>
+									<%allCategories.each do |c|%>
+									<li><a href="<%= showall_category_product_index_path(c.id.to_s) %>"><%=c.name%></a></li>
+									<%end%>
+							</div>
 							</ul>
 						</li>
 						<li>

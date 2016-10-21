@@ -20,7 +20,6 @@
               <thead>
                 <tr>
                   <td class="text-left">Name</td>
-                  <td class="text-left">Description</td>
                   <td class="text-left">Number of products</td>
                   <td class="text-left">Status</td>
                   <td class="text-left">Action</td>
@@ -30,7 +29,6 @@
                 <% @list.each do |t| %>
                 <tr>
                   <td><%= t.name %></td>
-                  <td><%= t.description %></td>
                   <td><%= category_stock(t.id.to_s) %></td>
                   <% if t.status == 1 %>
                     <td>Active</td>

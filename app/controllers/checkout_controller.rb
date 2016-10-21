@@ -178,7 +178,7 @@ class CheckoutController < ApplicationController
     puts session[:billingCustomer]
 
 
-    @valor = 99.9
+    @valor = session[:sum]
     @client_token = Braintree::ClientToken.generate
     render layout: "transaction"
 
