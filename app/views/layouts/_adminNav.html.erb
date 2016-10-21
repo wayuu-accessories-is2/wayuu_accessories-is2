@@ -27,23 +27,20 @@
             <ul class="dropdown-menu dropdown-messages">
               <% @comment.each do |t| %>
                 <li>
-                    <a href="#">
+                    <a data-remote="true" href="<%= see_review_index_path( :id => t.id ) %>">
                         <div>
                             <strong><%= t.name %></strong>
                             <span class="pull-right text-muted">
                                 <em><%= time_ago_in_words( t.created_at ) + " ago" %></em>
                             </span>
                         </div>
-                        <div><%= t.comment %></div>
+                        <div><%= truncate(t.comment, :length => 70) %></div>
                     </a>
                 </li>
                 <li class="divider"></li>
               <% end %>
-                <li>
-                    <a class="text-center" href="#">
-                        <strong>Read All Messages</strong>
-                        <i class="fa fa-angle-right"></i>
-                    </a>
+                <li align="center">
+                    <%= link_to 'Read All Messages', list_review_index_path, :class=>"fa fa-angle-right", remote: true %>
                 </li>
             </ul>
             <!-- /.dropdown-messages -->
@@ -144,7 +141,7 @@
                     <a href="#"><i class="fa fa-comments fa-fw"></i>Reviews<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <%= link_to 'Latest reviews', list_review_index_path, remote: true %>
+                            <%= link_to 'Latest reviews', latest_review_index_path( :format=>'js' ), remote: true %>
                         </li>
 
                         <li>

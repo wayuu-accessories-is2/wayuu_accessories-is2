@@ -86,6 +86,7 @@ Rails.application.routes.draw do
         collection do
           get 'list', to: :list
           get 'see', to: :see
+          get 'latest', to: :see
           get 'delete', to: :delete
         end
       end

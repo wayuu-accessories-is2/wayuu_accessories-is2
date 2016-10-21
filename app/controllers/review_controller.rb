@@ -26,6 +26,12 @@ class ReviewController < ApplicationController
 
   end
 
+  def latest
+
+    @latest = Review.where("created_at > ?", 1.day.ago)
+
+  end
+
   def see
     id = params["id"]
     @commen = Review.find( id )
@@ -33,8 +39,8 @@ class ReviewController < ApplicationController
 
   def delete
     id = params["id"]
-    @commen = Review.find( id )
-
+    c = Review.find( id )
+    c.delete
     redirect_to list_review_index_path
   end
 

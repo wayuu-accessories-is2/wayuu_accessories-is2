@@ -6,7 +6,7 @@
 
     <div class="pull-right">
       <a href="/admin/index" data-toggle="tooltip" title="Cancel" class="btn btn-default"><i class="fa fa-reply"></i></a></div>
-      <h1>Reviews</h1>
+      <h1>Latest reviews</h1>
     </div>
 
     <div class="panel panel-default">
@@ -28,7 +28,7 @@
                 </tr>
               </thead>
               <tbody>
-                <% @comme.each do |t| %>
+                <% @latest.each do |t| %>
                 <tr>
                   <td><%= Product.find(t.product_id).name %></td>
                   <td><%= truncate(t.comment, :length => 70) %></td>
