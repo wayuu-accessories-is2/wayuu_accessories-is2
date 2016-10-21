@@ -35,6 +35,23 @@ def self.find_for_facebook_oauth(auth)
     user
    end
 
+   def self.from_omniauth(access_token)
+      data = access_token.info
+      user = User.where(:email => data["email"]).first
+      # Uncomment the section below if you want users to be created if they don't exist
+      #return user if user
+      #user = User.where(email: auth.info.email).first
+      return user if user
+      user = User.new(
+           name: data["name"],
+           uid: data["uid"],
+           email: data["email"],
+           password: Devise.friendly_token[0,20])
+      user.skip_confirmation!
+      user.save
+      user
+    end
+
 #=end
 #  def self.create_with_omniauth(auth)
   #  create! do |user|
@@ -51,6 +68,7 @@ def self.find_for_facebook_oauth(auth)
   #      self.auth_token = Devise.friendly_token
     #  end while self.class.exists?(auth_token: auth_token)
   #  end
+
 
 
     def admin?
