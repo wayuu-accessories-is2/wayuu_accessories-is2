@@ -80,6 +80,16 @@ Rails.application.routes.draw do
         end
       end
     end
+
+    scope 'admin' do
+      resources :sale do
+        collection do
+          get 'listsales', to: :listsales
+          get 'details', to: :details
+        end
+      end
+    end
+
     #assert_generates '../category/status', controller: 'category', action: 'status'
     scope 'admin' do
       resources :category do
