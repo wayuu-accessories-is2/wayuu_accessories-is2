@@ -153,7 +153,7 @@ def change
 end
 
 def list
-	@products = Product.where("status = '1'")
+	@products = Product.all.paginate(:page => params[:page],:per_page => 6)
 end
 
 def status

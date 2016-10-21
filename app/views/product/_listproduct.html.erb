@@ -43,6 +43,7 @@
                   <td><%= t.description %></td>
                   <td><%= t.price %></td>
                   <td><%= t.discount %></td>
+                  <!-- <td><%#= Category.select("DISTINCT categories.name as name").joins("INNER JOIN category_has_products ON category_has_products.category_id = categories.id  LEFT JOIN products on category_has_products.product_id = products.id WHERE products.id ="+t.id.to_s ) %></td> -->
                   <td><%= Category.find( (((CategoryHasProduct.find_by( product_id: t.id.to_s  )).category_id).to_s) ).name %></td>
                   <td><%=ProductDiscount.where("product_id = " + t.id.to_s ).size %></td>
                   <% if t.status == "1" %>
@@ -60,6 +61,9 @@
                 <% end %>
               </tbody>
             </table>
+          </div>
+          <div id= "pagProducts" >
+           <%= will_paginate @products, renderer: BootstrapPagination::Rails, inner_window: 1, outer_window: 1,previous_label: "«" , next_label: "»" %>
           </div>
         </div>
       </div>
