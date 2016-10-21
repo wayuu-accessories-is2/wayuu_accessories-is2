@@ -1,11 +1,8 @@
 class Category < ApplicationRecord
   has_many :product, through: :categoryHasProduct
 
-  ######################
-  #     Validations    #
-  ######################
+  validates :name, presence: true
 
-  Validations :name, presence: true
-  Validations :description, presence: true
+
 
 end

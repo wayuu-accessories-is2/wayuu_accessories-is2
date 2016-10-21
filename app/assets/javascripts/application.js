@@ -16,3 +16,4 @@
 //= require shop/price-filter.js
 //= require jquery-ui.js
 //= require devise/mensajes.js
+//= require payment/demo

@@ -13,6 +13,7 @@
 							<%= image_tag("shop/no-preview.jpg", class: "img-responsive image1") %>
 							<%else%>
 							<img src="<%=product_image.image.url%>" class="img-responsive">
+								<!--img src="http://c9a023018b7727eeeae9-5cb13b2b77b05284d2f5230b4c21c288.r0.cf1.rackcdn.com/uploads/nopreview.png" alt="" class="img-responsive image1"-->
 							<%end%>
 						</a>
 					</div>
@@ -36,7 +37,7 @@
 			<div class="text">
 				<h3><%=c.name%></h3>
 				<% if c.discount != 0.0%>
-				<p class="price"><del>$<%= c.price %></del> $<%= (c.price - c.discount) %></p>
+				<p class="price"><del>$<%= c.price %></del> $<%= (c.price.to_d - c.discount.to_i) %></p>
 				<%else%>
 				<p class="price">$<%=c.price%></p>
 				<%end%>

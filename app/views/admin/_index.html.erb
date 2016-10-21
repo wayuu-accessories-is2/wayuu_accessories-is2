@@ -16,7 +16,7 @@
                             <i class="fa fa-comments fa-5x"></i>
                         </div>
                         <div class="col-xs-9 text-right">
-                            <div class="huge"><%= Review.all.size %></div>
+                            <div class="huge"><%= Review.where("created_at > ?", 1.day.ago).size %></div>
                             <div>New Comments!</div>
                         </div>
                     </div>
@@ -38,7 +38,7 @@
                             <i class="fa fa-shopping-cart fa-5x"></i>
                         </div>
                         <div class="col-xs-9 text-right">
-                            <div class="huge"><%= Order.all.size %></div>
+                            <div class="huge"><%= @orderstransaction.size %></div>
                             <div>New Orders!</div>
                         </div>
                     </div>
@@ -60,7 +60,7 @@
                              <i class="fa fa-barcode fa-5x"></i>
                          </div>
                          <div class="col-xs-9 text-right">
-                             <div class="huge"><%= Product.all.size %></div>
+                             <div class="huge"><%= Product.where("quantity > ?", 0).size %></div>
                              <div>Stock available!</div>
                          </div>
                      </div>
@@ -103,29 +103,12 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <i class="fa fa-bar-chart-o fa-fw"></i> Sales chart
-                    <div class="pull-right">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                Actions
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu pull-right" role="menu">
-                                <li><a href="#">Action</a>
-                                </li>
-                                <li><a href="#">Another action</a>
-                                </li>
-                                <li><a href="#">Something else here</a>
-                                </li>
-                                <li class="divider"></li>
-                                <li><a href="#">Separated link</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
-                    <div id="morris-area-chart"></div>
+                    <div>
+                      <%= area_chart Order.group_by_hour(:created_at, range: 8.hours.ago..Time.now).count %>
+                    </div>
                 </div>
                 <!-- /.panel-body -->
             </div>
@@ -135,10 +118,7 @@
                     <i class="fa fa-usd fa-fw"></i> Latest sales
                     <div class="pull-right">
                         <div class="btn-group">
-                            <button type="button" class="btn btn-default btn-xs dropdown-toggle" href="../admin/sales">
-                                Check
-                            </button>
-
+                            <%= link_to 'Latest sales', listsales_sale_index_path, remote: true %>
                         </div>
                     </div>
                 </div>
@@ -151,20 +131,20 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Order</th>
-                                            <th>Time</th>
+                                            <th>Created at</th>
+                                            <th>Braintree ID</th>
                                             <th>Amount</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-
+                                        <% @orderstransaction.each do |t| %>
                                         <tr>
-                                            <td>3326</td>
-                                            <td>10/21/2013</td>
-                                            <td>3:29 PM</td>
-                                            <td>$321.33</td>
+                                            <td><%= t.order_id %></td>
+                                            <td><%= time_ago_in_words( t.created_at ) + " ago" %></td>
+                                            <td><%= t.braintreeid %></td>
+                                            <td><%= t.amount %></td>
                                         </tr>
-                                      
+                                        <% end %>
                                     </tbody>
                                 </table>
                             </div>

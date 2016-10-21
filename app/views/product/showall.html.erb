@@ -21,7 +21,7 @@
 	<div class="container">
 		<div class="row">
 			<!-- *** LEFT COLUMN *** -->
-			<div class="col-sm-3">
+			<div class="col-sm-2">
 				<!-- *** MENUS AND FILTERS ***-->
 				<div class="panel panel-default sidebar-menu">
 					<div class="panel-heading">
@@ -38,7 +38,7 @@
 								<li><a href="<%= showall_category_product_index_path(c.id.to_s) %>"><%=c.name%></a></li>
 								<%end%>
 							</ul>
-						</div>						
+						</div>
 					</div>
 				</div>
 				<div class="panel panel-default sidebar-menu">
@@ -47,21 +47,23 @@
 						<a class="pull-right" href="#"><i class="fa fa-times-circle fa-lg"></i></a>
 					</div>
 					<div class="panel-body">
-						<form method="get">
+						<!-- <form method="post" action="<%#=pricerange_category_product_index_path%>"  enctype="multipart/form-data"> -->
+							<%= hidden_field_tag :id, @from_category.id %>
+							<%= hidden_field_tag :path, pricerange_category_product_index_path %>
 							<div id="price-filter-container">
 								<input id="price-filter" name="price" type="text" class="span2" value="" data-slider-min="7" data-slider-max="224" data-slider-step="5" data-slider-value="[7,224]"/>
 								<br>
 								<span id="CurrentSliderValLabel">Price: <span id="SliderVal">$7 - $224</span></span>
 							</div>
-							<button type="submit" class="btn btn-default btn-sm btn-template-main"><i class="fa fa-pencil"></i> Apply</button>
-						</form>
+							<button id="prange" class="btn btn-default btn-sm btn-template-main"><i class="fa fa-pencil"></i> Apply</button>
+						<!-- </form> -->
 					</div>
 				</div>
 				<!-- *** MENUS AND FILTERS END *** -->
 			</div>
 			<!-- *** LEFT COLUMN END *** -->
 			<!-- *** RIGHT COLUMN *** -->
-			<div class="col-sm-9">
+			<div class="col-sm-10">
 				<!--p class="text-muted lead">In our Ladies department we offer wide selection of the best products we have found and carefully selected worldwide. Pellentesque habitant morbi tristique senectus et netuss.</p-->
 				<div id="sort-by" class="dropdown">
 					<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
