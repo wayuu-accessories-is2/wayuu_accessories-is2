@@ -211,10 +211,10 @@ class CheckoutController < ApplicationController
       @productcart << e
     end
     @productcart.each do |p|
-      if p.discount !=0.0
-        @sum+=(p.price.to_i - p.discount.to_i)* p.quantity.to_i
+      if p.discount != 0.0
+        @sum+=(p.price.to_d - p.discount.to_d)* p.quantity.to_d
       else
-        @sum+= (p.price.to_i)*p.quantity.to_i
+        @sum+= (p.price.to_d)*p.quantity.to_d
       end
     end
     return @sum/2

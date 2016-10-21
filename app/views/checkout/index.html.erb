@@ -76,8 +76,8 @@
                                  <tfoot>
                                      <tr>
                                          <th colspan="6">Total</th>
-                                         <%@sum = total()%>
-                                         <th>$<%= @sum %></th>
+                                         <%session[:sum] = total()%>
+                                         <th>$<%= session[:sum] %></th>
                                      </tr>
                                  </tfoot>
                              </table>
@@ -115,7 +115,7 @@
                          <tbody>
                              <tr>
                                  <td>Order subtotal</td>
-                                 <th><%= @sum%></th>
+                                 <th><%= session[:sum]%></th>
                              </tr>
                              <tr>
                                  <td>Shipping and handling</td>
@@ -127,7 +127,7 @@
                              </tr>
                              <tr class="total">
                                  <td>Total</td>
-                                 <th>$<%= @sum%></th>
+                                 <th>$<%= session[:sum]%></th>
                              </tr>
                          </tbody>
                      </table>
