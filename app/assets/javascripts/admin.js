@@ -9,3 +9,5 @@
 //= require admin/sendajax
 //= require admin/drag
 //= require admin/paginate_admin
+//= require highcharts
+//= require chartkick

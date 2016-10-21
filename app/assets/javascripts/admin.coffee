@@ -10,3 +10,5 @@
 #= require admin/sortable
 #= require dropzone
 #= require admin/product_image
+#= require highcharts
+#= require chartkick

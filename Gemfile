@@ -37,6 +37,9 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 #Use omniauth google.
 gem "omniauth-google-oauth2", "~> 0.2.1"
+gem 'chartkick'
+gem 'groupdate'
+gem "highcharts-rails", "~> 3.0.0"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 #Payment Method
