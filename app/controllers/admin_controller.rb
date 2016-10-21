@@ -9,6 +9,7 @@ class AdminController < ApplicationController
     @orders.each do |t|
       @orderstransaction << CustomerTransaction.find_by(order_id: t.id)
     end
+    @comment = Review.last(3)
   end
 
   def userlist
