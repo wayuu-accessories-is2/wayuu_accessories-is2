@@ -12,4 +12,4 @@ status = OrderStatus.create([{name: "Completed"},{name: "Processing"},{name: "Ca
 country = Country.create([{name: "United States"},{name: "Colombia"},{name: "Canada"},{name: "Australia"}])
 category = Category.create([{name: "Black, Grey, and White"},{name:"Drawstring Mochilas"},{name:"Earth/Brown"},{name:"Jeweled Mochilas"},{name:"Mini Mochilas"},{name:"Mini Single Thread Mochilas"},{name:"Neon Colors"},{name:"Neon Pink"},{name:"Pom Pom Mochilas"},{name:"Single Thread Mochilas"},{name:"Solid Colors"}])
 category2 = Category.create([{name: "Black with Colors"},{name:"Matisse Style"},{name:"Mini Double Thread Mochila"},{name:"Mini Single Thread Mochila"},{name:"Mini XL Single Thread Mochila"},{name:"Neon"},{name:"Premium"},{name:"Single Thread Large Mochila"},{name:"Solid Black"},{name:"Solid White"},{name:"Wayuu Accesory Bags"}])
-category3 = Category.create([{name:"Traditional Colors", description: "A description"},{name:"Traditional Pink",description: "A description"},{name:"Wayuu Clutch",description: "A description"}])
+category3 = Category.create([{name:"Traditional Colors"},{name:"Traditional Pink"},{name:"Wayuu Clutch"}])
