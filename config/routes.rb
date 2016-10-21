@@ -87,6 +87,9 @@ Rails.application.routes.draw do
           get 'listsales', to: :listsales
           get 'details', to: :details
           get 'listallsales', to: :listsales
+          get 'listprocessingsales', to: :listprocessingsales
+          get 'listcompletedsales', to: :listcompletedsales
+          get 'listcanceledsales', to: :listcanceledsales
         end
       end
     end

@@ -10,6 +10,36 @@ class SaleController < ApplicationController
 
 	end
 
+	def listprocessingsales
+
+		@orders = Order.where(order_status_id: 2).order("created_at DESC")
+		@orderstransaction = []
+		@orders.each do |t|
+			@orderstransaction << CustomerTransaction.find_by(order_id: t.id)
+		end
+
+	end
+
+	def listcompletedsales
+
+		@orders = Order.where(order_status_id: 1).order("created_at DESC")
+		@orderstransaction = []
+		@orders.each do |t|
+			@orderstransaction << CustomerTransaction.find_by(order_id: t.id)
+		end
+
+	end
+
+	def listcanceledsales
+
+		@orders = Order.where(order_status_id: 3).order("created_at DESC")
+		@orderstransaction = []
+		@orders.each do |t|
+			@orderstransaction << CustomerTransaction.find_by(order_id: t.id)
+		end
+
+	end
+
 	def listsales
 		@orders = Order.where(order_status_id: 4).order("created_at DESC")
     @orderstransaction = []
