@@ -90,6 +90,9 @@ Rails.application.routes.draw do
           get 'listprocessingsales', to: :listprocessingsales
           get 'listcompletedsales', to: :listcompletedsales
           get 'listcanceledsales', to: :listcanceledsales
+          get 'changeprocessing', to: :changeprocessing
+          get 'changecompleted', to: :changecompleted
+          get 'changecanceled', to: :changecanceled
         end
       end
     end

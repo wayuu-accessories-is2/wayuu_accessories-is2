@@ -57,13 +57,13 @@
                 </div>
               </div>
               <div class="col-sm-4" align="center">
-                <button data-toggle="tooltip" title="Processing" id="addproduct" class="btn btn-primary"><i class="fa fa-check"></i> Processing</button>
+                <%= link_to ' Processing', changeprocessing_sale_index_path( :id => @detailorder.id ), :class=>"btn btn-primary fa fa-check", remote: true %>
               </div>
               <div class="col-sm-4" align="center">
-                <button data-toggle="tooltip" title="Complete" id="addproduct" class="btn btn-success" ><i class="fa fa-check-square"></i> Complete</button>
+                <%= link_to ' Complete', changecompleted_sale_index_path( :id => @detailorder.id ), :class=>"btn btn-success fa fa-check-square", remote: true %>
               </div>
               <div class="col-sm-4" align="center">
-                <button data-toggle="tooltip" title="Cancel" id="addproduct" class="btn btn-danger"><i class="fa fa-times"></i> Cancel</button>
+                <%= link_to ' Cancel', changecanceled_sale_index_path( :id => @detailorder.id ), :class=>"btn btn-danger fa fa-times", remote: true %>
               </div>
             </div>
             <div class="tab-pane" id="tab-delivery">

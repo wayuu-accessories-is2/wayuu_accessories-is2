@@ -65,5 +65,33 @@ class SaleController < ApplicationController
 
 	end
 
+	def changecompleted
+		id = params["id"]
+		order = Order.find( id )
+		order.order_status_id = 1
+		order.save
+
+		redirect_to listcompletedsales_sale_index_path
+	end
+
+	def changeprocessing
+		id = params["id"]
+		order = Order.find( id )
+		order.order_status_id = 2
+		order.save
+
+		redirect_to listprocessingsales_sale_index_path
+	end
+
+	def changecanceled
+		id = params["id"]
+		order = Order.find( id )
+		order.order_status_id = 3
+		order.save
+
+		redirect_to listcanceledsales_sale_index_path
+	end
+
+
 
 end
