@@ -126,7 +126,7 @@
                 <!-- /.panel-heading -->
                 <div class="panel-body">
                     <div id="morris-area-chart">
-                      <%= line_chart Order.group_by_hour(:created_at, range: 2.weeks.ago.midnight..Time.now).count %>
+                      <%= area_chart Order.group_by_hour(:created_at, range: 8.hours.ago..Time.now).count %>
                     </div>
                 </div>
                 <!-- /.panel-body -->
