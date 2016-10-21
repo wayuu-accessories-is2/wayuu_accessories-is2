@@ -82,6 +82,15 @@ Rails.application.routes.draw do
     end
 
     scope 'admin' do
+      resources :review do
+        collection do
+          get 'list', to: :list
+          get 'show', to: :show
+        end
+      end
+    end
+
+    scope 'admin' do
       resources :sale do
         collection do
           get 'listsales', to: :listsales

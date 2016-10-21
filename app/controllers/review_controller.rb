@@ -18,7 +18,17 @@ class ReviewController < ApplicationController
 
     redirect_to "/product/" + @pro +"/show"
 
+  end
 
+  def list
+
+    @comme = Review.all
+
+  end
+
+  def show
+    id = params["id"]
+    @commen = Review.find( id )
   end
 
 
