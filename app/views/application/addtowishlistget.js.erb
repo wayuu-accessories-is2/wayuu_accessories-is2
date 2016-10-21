@@ -1,0 +1,6 @@
+$( "#addedsuccess" ).append( "<div class='alert alert-success'><strong>Success!</strong> Added to cart.</div>" );
+$('#addedsuccess').animate({scrollTop: $('#addedsuccess').prop("scrollHeight")}, 500);
+$( "#number" ).html( "<%= session[:wishlist].count %>" );
+setTimeout(function() {
+    $( "#addedsuccess" ).html( "" );
+}, 5000);

@@ -95,7 +95,7 @@
 							</ul>
 						</li>
 						<li class="hidden-xs">
-							<a id="navbar-cart" class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-shopping-cart"></i><span class="cart-count"><div id="number"><%= session[:cart].count %></div></span></a>
+							<a "javascript: void(0)" id="navbar-cart" class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-shopping-cart"></i><span class="cart-count"><div id="number"><%= session[:cart].count %></div></span></a>
 							<ul class="dropdown-menu" id="refresh">
 
 								<li class="pull-right"><button id="refresh" class="btn btn-template-main"><i class="fa fa-refresh fa-lg"></i>Update</button></button></li>
@@ -108,6 +108,9 @@
 								</li>
 
 							</ul>
+						</li>
+						<li class="dropdown">
+								<a href="javascript: void(0)" id="navbar-wishlist" class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-heart" aria-hidden="true"></i><span class="cart-count"><div id="number"><%= session[:wishlist].count %></div></span></a>
 						</li>
 						<li>
 							<div class="social hidden-sm hidden-md hidden-lg">

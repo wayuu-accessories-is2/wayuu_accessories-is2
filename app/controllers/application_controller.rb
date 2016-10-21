@@ -36,7 +36,14 @@ class ApplicationController < ActionController::Base
     current_wishlist
     session[:wishlist][id] = 1
 
-    puts session[:cart]
+    puts session[:wishlist]
+  end
+  def addtowishlistget
+    id = params[:id]
+    current_wishlist
+    session[:wishlist][id] = 1
+
+    puts session[:wishlist]
   end
 
   private
@@ -56,7 +63,7 @@ class ApplicationController < ActionController::Base
       session[:cart]= {} if session[:cart] == nil
     end
     def current_wishlist
-      session[:wishlist]= {} if session[:cart] == nil
+      session[:wishlist]= {} if session[:wishlist] == nil
     end
 
     def require_user
