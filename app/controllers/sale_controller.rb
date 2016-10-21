@@ -5,7 +5,7 @@ class SaleController < ApplicationController
 
 
 	def listsales
-		@orders = Order.where(order_status_id: 2)
+		@orders = Order.where(order_status_id: 2).order("created_at DESC")
     @orderstransaction = []
     @orders.each do |t|
       @orderstransaction << CustomerTransaction.find_by(order_id: t.id)
@@ -13,7 +13,10 @@ class SaleController < ApplicationController
 	end
 
 	def details
-		@details = params[:id]
+		details = params[:id]
+		@detailorder = Order.find( details )
+		@productsorder = OrderProduct.where("order_id = ?", @detailorder.id )
+
 	end
 
 
