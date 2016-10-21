@@ -18,26 +18,56 @@ end
 def showall
 	@count_products = CategoryHasProduct.where(:category_id => params[:category_id])
 	@from_category = Category.find(params[:category_id])
-	@show_products =[]
-	@count_products.each do |p|
-		@show_products.push(Product.find(p.product_id.to_s))
-	end
+	@show_products = Product.joins("INNER JOIN category_has_products ON category_has_products.product_id = products.id WHERE  status = '1' and category_id ="+ params[:category_id].to_s)
 	@show_products = @show_products.paginate(:page => params[:page],:per_page => 6)
 end
 
 def newest
-	@newest = Product.joins("INNER JOIN category_has_products ON category_has_products.product_id = products.id WHERE category_id ="+ params[:category_id].to_s).order(created_at: :desc)
-	@newest = @newest.paginate(:page => params[:page],:per_page => 6)
+	@show_products = Product.joins("INNER JOIN category_has_products ON category_has_products.product_id = products.id WHERE  status = '1' and category_id ="+ params[:category_id].to_s).order(created_at: :desc)
+	@show_products = @show_products.paginate(:page => params[:page],:per_page => 6)
 end
 
 def pricelow
-	@pricelow = Product.joins("INNER JOIN category_has_products ON category_has_products.product_id = products.id WHERE category_id ="+ params[:category_id].to_s).order(price: :asc)
-	@pricelow = @pricelow.paginate(:page => params[:page],:per_page => 6)
+	price = Product.joins("INNER JOIN category_has_products ON category_has_products.product_id = products.id WHERE status = '1' and category_id ="+ params[:category_id].to_s)
+	price.each do |p|
+		if p.discount.to_d != 0.0
+			temp = p.price
+			p.price = (p.price.to_d - p.discount.to_d)
+			p.discount = temp.to_d
+		end
+	end
+	@pricesort = price.sort_by &:price
+	@pricesort = @pricesort.paginate(:page => params[:page],:per_page => 6)
 end
 
 def pricehigh
-	@pricehigh = Product.joins("INNER JOIN category_has_products ON category_has_products.product_id = products.id WHERE category_id ="+ params[:category_id].to_s).order(price: :desc)
-	@pricehigh = @pricehigh.paginate(:page => params[:page],:per_page => 6)
+	price = Product.joins("INNER JOIN category_has_products ON category_has_products.product_id = products.id WHERE status = '1' and category_id ="+ params[:category_id].to_s)
+	price.each do |p|
+		if p.discount.to_d != 0.0
+			temp = p.price
+			p.price = (p.price.to_d - p.discount.to_d)
+			p.discount = temp.to_d
+		end
+	end
+	@pricesort = (price.sort_by &:price).reverse
+	@pricesort = @pricesort.paginate(:page => params[:page],:per_page => 6)
+end
+
+def pricerange
+	str= params['price']
+	str1 = str.scan(/\d+|\D+/).to_a
+	min = str1[1].to_s
+	max = str1[3].to_s
+	price = Product.joins("INNER JOIN category_has_products ON category_has_products.product_id = products.id").where("category_id = ? AND  (price - discount) >= ? AND (price -discount) <=? AND status = '1' ", params[:category_id], min,max)
+	price.each do |p|
+		if p.discount.to_d != 0.0
+			temp = p.price
+			p.price = (p.price.to_d - p.discount.to_d)
+			p.discount = temp.to_d
+		end
+	end
+	@pricesort = price.sort_by &:price
+	@pricesort = @pricesort.paginate(:page => params[:page],:per_page => 6)
 end
 
 def new
@@ -147,15 +177,17 @@ def change
 end
 
 def list
-	@products = Product.all
+	@products = Product.all.paginate(:page => params[:page],:per_page => 6)
 end
 
 def status
 	@pro = Product.find( params[:id] )
 	if @pro.status == "1"
 		@pro.status = "0"
+		@pro.quantity = 0
 	else
 		@pro.status = "1"
+		@pro.quantity = 1
 	end
 	@pro.save!
 	redirect_to list_product_index_path

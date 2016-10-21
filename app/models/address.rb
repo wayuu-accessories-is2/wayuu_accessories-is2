@@ -1,12 +1,15 @@
 class Address < ApplicationRecord
   belongs_to :customer
   belongs_to :country
-
+  has_many :order
+  has_many :customer_transaction
   ######################
   #     Validations    #
   ######################
 
-#  Validations :address, presence: true
-#  Validations :city, presence: true
+
+  validates :address, presence: true
+  validates :city, presence: true
+
 
 end

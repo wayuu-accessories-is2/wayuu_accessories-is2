@@ -18,7 +18,30 @@ class ReviewController < ApplicationController
 
     redirect_to "/product/" + @pro +"/show"
 
+  end
 
+  def list
+
+    @comme = Review.all
+
+  end
+
+  def latest
+
+    @latest = Review.where("created_at > ?", 1.day.ago)
+
+  end
+
+  def see
+    id = params["id"]
+    @commen = Review.find( id )
+  end
+
+  def delete
+    id = params["id"]
+    c = Review.find( id )
+    c.delete
+    redirect_to list_review_index_path
   end
 
 

@@ -37,8 +37,14 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 #Use omniauth google.
 gem "omniauth-google-oauth2", "~> 0.2.1"
+gem 'chartkick'
+gem 'groupdate'
+gem "highcharts-rails", "~> 3.0.0"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+#Payment Method
+gem 'braintree', '~> 2.47'
+gem "nokogiri", ">= 1.6.7.rc"
 # Use Dotevn-rails to create enviroment variables throughout the app
 group :development, :test do
   gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
