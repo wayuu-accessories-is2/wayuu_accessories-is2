@@ -16,7 +16,7 @@
                             <i class="fa fa-comments fa-5x"></i>
                         </div>
                         <div class="col-xs-9 text-right">
-                            <div class="huge"><%= Review.all.size %></div>
+                            <div class="huge"><%= Review.where("created_at > ?", 1.day.ago).size %></div>
                             <div>New Comments!</div>
                         </div>
                     </div>

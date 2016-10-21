@@ -1,4 +1,4 @@
-class CheckoutsController < ApplicationController
+class PaymentController < ApplicationController
   TRANSACTION_SUCCESS_STATUSES = [
     Braintree::Transaction::Status::Authorizing,
     Braintree::Transaction::Status::Authorized,
@@ -38,7 +38,7 @@ class CheckoutsController < ApplicationController
 
         ord = Order.new
         ord.customer_id = session[:billingCustomer]
-        ord.order_status_id = 2
+        ord.order_status_id = 4
         ord.address_id = session[:address]
         ord.save
         ord = Order.order("created_at").last
@@ -73,16 +73,14 @@ class CheckoutsController < ApplicationController
 
           if a.save
             b.quantity -= a.quantity
-            b.save            
+            b.save
           end
 
         end
         session[:cart] = {}
-      else
-        puts "si mejor aca"
       end
 
-      redirect_to checkout_path(result.transaction.id)
+      redirect_to payment_path(result.transaction.id)
 
     else
 

@@ -15,52 +15,32 @@
     <!-- /.navbar-header -->
 
     <ul class="nav navbar-top-links navbar-right">
+        <li>
+          <a href="<%= root_path %>">
+            <span class=" glyphicon glyphicon-home" style="font-size: 24px;color: white">
+          </a>
+        </li>
         <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                <span class=" glyphicon glyphicon-home" style="font-size: 24px;color: white">
+                <span class=" glyphicon glyphicon-comment" style="font-size: 24px;color: white">
             </a>
             <ul class="dropdown-menu dropdown-messages">
+              <% @comment.each do |t| %>
                 <li>
-                    <a href="#">
+                    <a data-remote="true" href="<%= see_review_index_path( :id => t.id ) %>">
                         <div>
-                            <strong>John Smith</strong>
+                            <strong><%= t.name %></strong>
                             <span class="pull-right text-muted">
-                                <em>Yesterday</em>
+                                <em><%= time_ago_in_words( t.created_at ) + " ago" %></em>
                             </span>
                         </div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                        <div><%= truncate(t.comment, :length => 70) %></div>
                     </a>
                 </li>
                 <li class="divider"></li>
-                <li>
-                    <a href="#">
-                        <div>
-                            <strong>John Smith</strong>
-                            <span class="pull-right text-muted">
-                                <em>Yesterday</em>
-                            </span>
-                        </div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                    </a>
-                </li>
-                <li class="divider"></li>
-                <li>
-                    <a href="#">
-                        <div>
-                            <strong>John Smith</strong>
-                            <span class="pull-right text-muted">
-                                <em>Yesterday</em>
-                            </span>
-                        </div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                    </a>
-                </li>
-                <li class="divider"></li>
-                <li>
-                    <a class="text-center" href="#">
-                        <strong>Read All Messages</strong>
-                        <i class="fa fa-angle-right"></i>
-                    </a>
+              <% end %>
+                <li align="center">
+                    <%= link_to 'Read All Messages', list_review_index_path, :class=>"fa fa-angle-right", remote: true %>
                 </li>
             </ul>
             <!-- /.dropdown-messages -->
@@ -99,10 +79,19 @@
                     <a href="#"><i class="fa fa-usd fa-fw"></i>Sales<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="#">Latest sales</a>
+                            <%= link_to 'Latest sales', listsales_sale_index_path, remote: true %>
                         </li>
                         <li>
-                            <a href="#">Show all</a>
+                            <%= link_to 'Processing sales', listprocessingsales_sale_index_path, remote: true %>
+                        </li>
+                        <li>
+                            <%= link_to 'Completed sales', listcompletedsales_sale_index_path, remote: true %>
+                        </li>
+                        <li>
+                            <%= link_to 'Canceled sales', listcanceledsales_sale_index_path, remote: true %>
+                        </li>
+                        <li>
+                            <%= link_to 'Show all', listallsales_sale_index_path, remote: true %>
                         </li>
                     </ul>
                     <!-- /.nav-second-level -->
@@ -148,6 +137,23 @@
                         </li>
                     </ul>
                 </li>
+                <li>
+                    <a href="#"><i class="fa fa-comments fa-fw"></i>Reviews<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <%= link_to 'Latest reviews', latest_review_index_path( :format=>'js' ), remote: true %>
+                        </li>
+
+                        <li>
+                            <!-- <a href="/admin/product/add">Add product</a> -->
+                          <%= link_to 'Show all', list_review_index_path( :format=>'js' ), remote: true %>
+                        </li>
+                        <li>
+
+                        </li>
+                    </ul>
+                </li>
+
             </ul>
         </div>
         <!-- /.sidebar-collapse -->

@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   end
 
 
-  resources :checkouts,  only: [:new, :create, :show]
+  resources :payment,  only: [:new, :create, :show]
 
 
 
@@ -80,6 +80,34 @@ Rails.application.routes.draw do
         end
       end
     end
+
+    scope 'admin' do
+      resources :review do
+        collection do
+          get 'list', to: :list
+          get 'see', to: :see
+          get 'latest', to: :see
+          get 'delete', to: :delete
+        end
+      end
+    end
+
+    scope 'admin' do
+      resources :sale do
+        collection do
+          get 'listsales', to: :listsales
+          get 'details', to: :details
+          get 'listallsales', to: :listsales
+          get 'listprocessingsales', to: :listprocessingsales
+          get 'listcompletedsales', to: :listcompletedsales
+          get 'listcanceledsales', to: :listcanceledsales
+          get 'changeprocessing', to: :changeprocessing
+          get 'changecompleted', to: :changecompleted
+          get 'changecanceled', to: :changecanceled
+        end
+      end
+    end
+
     #assert_generates '../category/status', controller: 'category', action: 'status'
     scope 'admin' do
       resources :category do

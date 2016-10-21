@@ -151,7 +151,7 @@ _________________________________________________________ -->
                                     <% for i in (1..(5-t.rating.to_i)) %>
                                       <span class="glyphicon glyphicon-star-empty"></span>
                                     <% end %>
-                                      <%= t.email %>
+                                      <%= t.name %>
                                       <span class="pull-right"><%= time_ago_in_words( t.created_at ) + " ago" %></span>
                                       <p><%= t.comment %></p>
                                   </div>
