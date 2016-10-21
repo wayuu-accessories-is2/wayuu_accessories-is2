@@ -4,8 +4,14 @@ class SaleController < ApplicationController
 
 
 
+	def listallsales
+
+		@orderstransaction = CustomerTransaction.all.order("created_at DESC")
+
+	end
+
 	def listsales
-		@orders = Order.where(order_status_id: 2).order("created_at DESC")
+		@orders = Order.where(order_status_id: 4).order("created_at DESC")
     @orderstransaction = []
     @orders.each do |t|
       @orderstransaction << CustomerTransaction.find_by(order_id: t.id)

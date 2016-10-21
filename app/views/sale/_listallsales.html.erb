@@ -6,7 +6,7 @@
 
     <div class="pull-right">
       <a href="/admin/index" data-toggle="tooltip" title="Cancel" class="btn btn-default"><i class="fa fa-reply"></i></a></div>
-      <h1>Latest sales</h1>
+      <h1>Sales</h1>
     </div>
 
     <div class="panel panel-default">
@@ -34,7 +34,7 @@
                 <tr>
 
                       <td><%= t.order_id %></td>
-                      <td><%= time_ago_in_words( t.created_at ) + " ago" %></td>
+                      <td><%= t.created_at %></td>
                       <td><%= t.braintreeid %></td>
                       <td><%= t.amount %></td>
                       <td><%= OrderStatus.find( Order.find( t.order_id ).order_status_id ).name %></td>

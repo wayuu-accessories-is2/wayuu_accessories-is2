@@ -14,6 +14,7 @@ $(document).ready(function(){
 
 	$(document).on("click","#first-data",function(){
 		alert("agg");
+		document.getElementById('ocultar').style.display = 'none';
 		document.getElementById('cent').style.display = 'block';
 		document.getElementById('load').style.display = 'block';
 
@@ -24,7 +25,7 @@ $(document).ready(function(){
 			street: $("#street").val(), city: $("#city").val(), zip: $("#zip").val(), state: $("#state").val(),
 			country: $("#country").val(), phone: $("#phone").val(), email: $("#email").val()
 			},
-			 complete: function( result ){document.getElementById('load').style.display = 'none';}
+			 complete: function( result ){document.getElementById('load').style.display = 'none';document.getElementById('cent').style.display = 'none';document.getElementById('ocultar').style.display = 'block';}
 		});
 	});
 

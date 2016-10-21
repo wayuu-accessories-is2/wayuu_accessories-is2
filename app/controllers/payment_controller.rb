@@ -38,7 +38,7 @@ class PaymentController < ApplicationController
 
         ord = Order.new
         ord.customer_id = session[:billingCustomer]
-        ord.order_status_id = 2
+        ord.order_status_id = 4
         ord.address_id = session[:address]
         ord.save
         ord = Order.order("created_at").last

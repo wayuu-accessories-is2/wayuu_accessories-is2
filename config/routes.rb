@@ -86,6 +86,7 @@ Rails.application.routes.draw do
         collection do
           get 'listsales', to: :listsales
           get 'details', to: :details
+          get 'listallsales', to: :listsales
         end
       end
     end
