@@ -25,11 +25,8 @@ class CategoryController < ApplicationController
   end
   def show
     @count_products = CategoryHasProduct.all
-<<<<<<< HEAD
     @show_category = Category.select("DISTINCT category_id as id,categories.name as name,categories.status as status, categories.created_at as created_at" ).joins("INNER JOIN category_has_products ON category_has_products.category_id = categories.id  LEFT JOIN products on category_has_products.product_id = products.id WHERE products.status = '1'").order("categories.name ASC")
-=======
     @show_category = Category.select("DISTINCT category_id as id,categories.name as name,categories.status as status,categories.created_at as created_at" ).joins("INNER JOIN category_has_products ON category_has_products.category_id = categories.id  LEFT JOIN products on category_has_products.product_id = products.id WHERE products.status = '1'").order("categories.name ASC")
->>>>>>> feature/StoreFixes2
     @show_category = @show_category.paginate(:page => params[:page],:per_page => 8)
     if request.xhr?
       respond_to do |format|
