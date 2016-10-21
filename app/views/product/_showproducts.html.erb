@@ -37,7 +37,7 @@
 			<div class="text">
 				<h3><%=c.name%></h3>
 				<% if c.discount != 0.0%>
-				<p class="price"><del>$<%= c.price %></del> $<%= (c.price - c.discount) %></p>
+				<p class="price"><del>$<%= c.price %></del> $<%= (c.price.to_d - c.discount.to_i) %></p>
 				<%else%>
 				<p class="price">$<%=c.price%></p>
 				<%end%>
