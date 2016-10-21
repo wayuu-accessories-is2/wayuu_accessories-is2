@@ -85,7 +85,8 @@ Rails.application.routes.draw do
       resources :review do
         collection do
           get 'list', to: :list
-          get 'show', to: :show
+          get 'see', to: :see
+          get 'delete', to: :delete
         end
       end
     end

@@ -26,9 +26,16 @@ class ReviewController < ApplicationController
 
   end
 
-  def show
+  def see
     id = params["id"]
     @commen = Review.find( id )
+  end
+
+  def delete
+    id = params["id"]
+    @commen = Review.find( id )
+
+    redirect_to list_review_index_path
   end
 
 
