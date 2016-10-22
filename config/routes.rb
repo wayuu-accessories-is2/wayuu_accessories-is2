@@ -118,6 +118,16 @@ Rails.application.routes.draw do
           post 'change', to: :change
         end
       end
+
+      scope 'admin' do
+        resources :blog do
+          collection do
+            get 'add', to: :add
+            post 'new', to: :new
+          end
+        end
+      end
+
       resources :product_images do
          collection do
            post 'create', to: :create

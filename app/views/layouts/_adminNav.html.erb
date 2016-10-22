@@ -148,11 +148,25 @@
                             <!-- <a href="/admin/product/add">Add product</a> -->
                           <%= link_to 'Show all', list_review_index_path( :format=>'js' ), remote: true %>
                         </li>
-                        <li>
+                    </ul>
+                </li>
 
+                <!-- Blog -->
+                <li>
+                    <a href="#"><i class="fa fa-file-text fa-fw"></i>Blog<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <%= link_to "Add a new post", add_blog_index_path, remote: true %>
+                        </li>
+
+                        <li>
+                            <!-- <a href="/admin/product/add">Add product</a> -->
+                          <%= link_to 'Show all', list_review_index_path( :format=>'js' ), remote: true %>
                         </li>
                     </ul>
                 </li>
+
+
 
             </ul>
         </div>
