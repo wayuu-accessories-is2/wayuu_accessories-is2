@@ -57,46 +57,10 @@
 						<a id="navbar-cart" href="<%= cart_checkout_index_path %>"><i class="fa fa-shopping-cart"></i><span class="cart-count">0</span></a>
 					</div>
 				</div>
-			</div>
-			<div class="navbar-collapse collapse" id="navigation">
-				<ul class="nav navbar-nav navbar-right">
-					<li class="active">
-						<%= link_to("Home ", root_path)%>
-					</li>
-					<li> </li>
-					<li class="dropdown">
-						<a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown"><%=t(".shop")%><b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<%allCategories = Category.all.order("name ASC")%>
-							<li><a href="#">Gift Cards</a></li>
-							<li><a href="#">Flash Sale</a></li>
-							<%allCategories.each do |c|%>
-							<li><a href="<%= showall_category_product_index_path(c.id.to_s) %>"><%=c.name%></a></li>
-							<%end%>
-						</ul>
-					</li>
-					<li>
-						<%= link_to t('.blog'), blog_index_path, style:"text-decoration:none;" %>
-					</li>
-					<li class="dropdown">
-						<a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown"><%=t('.about_us')%><b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="#"><%=t('.survey')%></a></li>
-							<li><a href="#"><%=t('.reviews')%></a></li>
-							<li><a href="#">FAQ's</a></li>
-							<li><a href="#"><%=t('.shipping')%></a></li>
-							<li><a href="#"><%=t('.return')%></a></li>
-							<li><a href="#"><%=t('.privacy')%></a></li>
-							<li><a href="#"><%=t('.terms')%></a></li>
-							<li><%= link_to(t('.team'), "team")%></li>
-						</ul>
-					</li>
-					<li class="hidden-xs">
-						<a id="navbar-cart" class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-shopping-cart"></i><span class="cart-count"><div id="number"><%= session[:cart].count %></div></span></a>
 				<div class="navbar-collapse collapse" id="navigation">
 					<ul class="nav navbar-nav navbar-right">
 						<li class="active">
-							<%= link_to("Home ", "/home")%>
+							<%= link_to("Home ", root_path)%>
 						</li>
 						<li> </li>
 						<li class="dropdown use-yamm yamm-fw">
@@ -115,7 +79,7 @@
 							</ul>
 						</li>
 						<li>
-							<a href="javascript: void(0)">Blog </a>
+							<%= link_to t('.blog'), blog_index_path, style:"text-decoration:none;" %>
 						</li>
 						<li class="dropdown">
 							<a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown"><%=t('.about_us')%><b class="caret"></b></a>
