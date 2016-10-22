@@ -26,11 +26,11 @@
 				<div class="col-xs-4 col-sm-5 col-md-5">
 					<div class="login">
 						<% if not current_user %>
-							<a href="#" data-toggle="modal" data-target="#myModal4"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase"><%=t('.log_in')%></span></a>
-							<a href="<%= new_user_registration_path %>"><i class="fa fa-user-plus"></i><span class="hidden-xs text-uppercase"><%=t('.sign_up')%></span></a>
+						<a href="#" data-toggle="modal" data-target="#myModal4"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase"><%=t('.log_in')%></span></a>
+						<a href="<%= new_user_registration_path %>"><i class="fa fa-user-plus"></i><span class="hidden-xs text-uppercase"><%=t('.sign_up')%></span></a>
 						<% else %>
-						    <%= link_to "Sign Out", destroy_user_session_path, class: "fa fa-sign-out", id: "hidden-xs", :method => 'delete' %>
-								<!--<i class="fa fa-sign-out"></i><span class="hidden-xs text-uppercase"><%=t('.sign_out')%></span></a>-->
+						<%= link_to "Sign Out", destroy_user_session_path, class: "fa fa-sign-out", id: "hidden-xs", :method => 'delete' %>
+						<!--<i class="fa fa-sign-out"></i><span class="hidden-xs text-uppercase"><%=t('.sign_out')%></span></a>-->
 						<% end %>
 					</div>
 				</div>
@@ -54,7 +54,7 @@
 						</button>
 					</div>
 					<div id="cart-container" class="hidden-sm hidden-md hidden-lg">
-						<a id="navbar-cart" href="<%= cart_checkout_index_path %>"><i class="fa fa-shopping-cart"></i><span class="cart-count">0</span></a>
+						<a id="navbar-cart" href="<%= cart_checkout_index_path %>"><i class="fa fa-shopping-cart"></i><span class="num-count">0</span></a>
 					</div>
 				</div>
 				<div class="navbar-collapse collapse" id="navigation">
@@ -62,20 +62,24 @@
 						<li class="active">
 							<%= link_to("Home ", "/home")%>
 						</li>
-						<li> </li>
 						<li class="dropdown use-yamm yamm-fw">
 							<a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown"><%=t(".shop")%><b class="caret"></b></a>
-							<ul class="dropdown-menu" id="dropCategory">
-								<div class="yamm-content">
-									<!-- <%#allCategories = Category.all.order(name: :asc)%> -->
-									<li><a href="/category/show">All Categories</a></li>
-									<%allCategories = Category.select("DISTINCT categories.id as id,categories.name as name").joins("INNER JOIN category_has_products ON category_has_products.category_id = categories.id  LEFT JOIN products on category_has_products.product_id = products.id WHERE products.status = '1'").order(name: :asc)%>
-									<li><a href="#">Flash Sale</a></li>
-									<li><a href="#">Gift Cards</a></li>
-									<%allCategories.each do |c|%>
-									<li><a href="<%= showall_category_product_index_path(c.id.to_s) %>"><%=c.name%></a></li>
-									<%end%>
-							</div>
+							<ul class="dropdown-menu">
+								<li>
+									<div class="yamm-content">
+										<div class="row">
+											<ul>
+												<% allCategories = Category.select("DISTINCT categories.id as id,categories.name as name").joins("INNER JOIN category_has_products ON category_has_products.category_id = categories.id  LEFT JOIN products on category_has_products.product_id = products.id WHERE products.status = '1'").order(name: :asc) %>
+												<li class="col-sm-4"><a href="/category/show">All Categories</a></li>
+												<li class="col-sm-4"><a href="#">Flash Sale</a></li>
+												<li class="col-sm-4"><a href="#">Gift Cards</a></li>
+												<%allCategories.each do |c|%>
+												<li><a href="<%= showall_category_product_index_path(c.id.to_s) %>"><%=c.name%></a></li>
+												<%end%>
+											</ul>
+										</div>
+									</div>
+								</li>
 							</ul>
 						</li>
 						<li>
@@ -95,23 +99,26 @@
 							</ul>
 						</li>
 						<li class="hidden-xs">
-							<a "javascript: void(0)" id="navbar-cart" class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-shopping-cart"></i><span class="cart-count"><div id="number"><%= session[:cart].count %></div></span></a>
-							<ul class="dropdown-menu" id="refresh">
-
-								<li class="pull-right"><button id="refresh" class="btn btn-template-main"><i class="fa fa-refresh fa-lg"></i>Update</button></button></li>
-								<br><br>
-
-								<li>
-									<a class="text-center" href="<%= cart_checkout_index_path %>">
-										<button href="<%= cart_checkout_index_path %>" class="btn btn-template-main" disabled><i class="fa fa-shopping-cart"></i>Go to cart</button>
-									</a>
-								</li>
-
+							<a href="#" id="navbar-cart" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-shopping-cart"></i><span class="num-count"><div id="number"><%= session[:cart].count %></div></span></a>
+							<ul class="dropdown-menu dropdown-cart" id="refresh">
+								<li class="text-center"><button id="refresh" class="btn btn-template-main"><i class="fa fa-refresh fa-lg"></i>Update</button></li>
+								<br>
+								<div>
+									<table id="discount" class="table table-striped table-bordered table-hover">
+										<thead>
+											<tr>
+												<td class="text-left">Name</td>
+												<td class="text-left">Price</td>
+											</tr>
+										</thead>
+									</table>
+								</div>
+								<li class="text-center"><button href="<%= cart_checkout_index_path %>" class="btn btn-template-main"><i class="fa fa-shopping-cart"></i>Go to cart</button></li>
 							</ul>
 						</li>
 						<li class="dropdown">
-								<%session[:wishlist]= {} if session[:wishlist] == nil%>
-								<a id="navbar-wishlist" href="<%= wishlist_path	 %>" ><i class="fa fa-heart" aria-hidden="true"></i><span class="cart-count"><div id="numberW"><%= session[:wishlist].count %></div></span></a>
+							<%session[:wishlist]= {} if session[:wishlist] == nil%>
+							<a href="<%= wishlist_path	 %>" id="navbar-wishlist" ><i class="fa fa-heart"></i><span class="num-count"><div id="numberW"><%= session[:wishlist].count %></div></span></a>
 						</li>
 						<li>
 							<div class="social hidden-sm hidden-md hidden-lg">
@@ -153,53 +160,53 @@
 						</div>
 					</div>
 				</br>
-					<% if controller_name != 'confirmations' or controller_name != 'passwords' or controller_name != 'unlocks' %>
-					<div align="center">
+				<% if controller_name != 'confirmations' or controller_name != 'passwords' or controller_name != 'unlocks' %>
+				<div align="center">
 					<div class="row" align="center">
-					    <div class="cuadro3" align="center">
-					      <!--<i class="fa fa-facebook-official" aria-hidden="true" align="center" style="color:white"></i>-->
-					      <%= link_to "Facebook", omniauth_authorize_path(resource_name, :facebook), :class=>"button"%>
-					    </div>
-					    <div class="cuadro4"  align="center">
-					      <!--<i class="fa fa-google-plus" style="color:white" ></i>-->
-					      <%= link_to "Google", omniauth_authorize_path(resource_name, :google_oauth2), :class=>"button" %>
-					    </div>
-					  </div>
+						<div class="cuadro3" align="center">
+							<!--<i class="fa fa-facebook-official" aria-hidden="true" align="center" style="color:white"></i>-->
+							<%= link_to "Facebook", omniauth_authorize_path(resource_name, :facebook), :class=>"button"%>
+						</div>
+						<div class="cuadro4"  align="center">
+							<!--<i class="fa fa-google-plus" style="color:white" ></i>-->
+							<%= link_to "Google", omniauth_authorize_path(resource_name, :google_oauth2), :class=>"button" %>
+						</div>
 					</div>
-					<% end %>
-					<div class="modal-body">
-						<!--<img id="profile_img2" class="profile-img2-card" src="<%= asset_path("profileimg.jpg") %>">-->
-						<div class="form-signin">
-							<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+				</div>
+				<% end %>
+				<div class="modal-body">
+					<!--<img id="profile_img2" class="profile-img2-card" src="<%= asset_path("profileimg.jpg") %>">-->
+					<div class="form-signin">
+						<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-							<% f.label :email %>
-							<%= f.email_field :email, :id=>"inputEmail", :class=>"form-control", :placeholder=>"Email", autofocus: true, autocomplete: "off" %>
+						<% f.label :email %>
+						<%= f.email_field :email, :id=>"inputEmail", :class=>"form-control", :placeholder=>"Email", autofocus: true, autocomplete: "off" %>
 
-							<% f.label :password %>
-							<%= f.password_field :password, :id=>"inputPassword", :class=>"form-control", :placeholder=>"Password", :align=>"center", autofocus: true, autocomplete: "off" %>
+						<% f.label :password %>
+						<%= f.password_field :password, :id=>"inputPassword", :class=>"form-control", :placeholder=>"Password", :align=>"center", autofocus: true, autocomplete: "off" %>
 
-							<div class="fonts">
-								<% if devise_mapping.rememberable? %>
-								<%= f.check_box :remember_me %>
-								<%= f.label :remember_me, :id=>"remember_me", autofocus: true, autocomplete: "off" %>
-								<% end %>
-							</div>
-							<div class="row">
-								<div align="center">
-									<div class="form-group">
-										<button class="btn btn-signin"></i> Log in</button>
-										<!--<button align="center" class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>-->
-										<% f.submit "Log in" %>
-									</div>
+						<div class="fonts">
+							<% if devise_mapping.rememberable? %>
+							<%= f.check_box :remember_me %>
+							<%= f.label :remember_me, :id=>"remember_me", autofocus: true, autocomplete: "off" %>
+							<% end %>
+						</div>
+						<div class="row">
+							<div align="center">
+								<div class="form-group">
+									<button class="btn btn-signin"></i> Log in</button>
+									<!--<button align="center" class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>-->
+									<% f.submit "Log in" %>
 								</div>
 							</div>
 						</div>
-						<p class="text-center text-muted">Not registered yet? <a href="<%= new_user_registration_path %>"><strong>Register now</strong></a>! It is easy and done in 1&nbsp;minute and gives you access to special discounts and much more!</p>
-						<div class="fontlinks">
-							<%= render "devise/shared/links" %>
-						</div>
-						<% end %>
 					</div>
+					<p class="text-center text-muted">Not registered yet? <a href="<%= new_user_registration_path %>"><strong>Register now</strong></a>! It is easy and done in 1&nbsp;minute and gives you access to special discounts and much more!</p>
+					<div class="fontlinks">
+						<%= render "devise/shared/links" %>
+					</div>
+					<% end %>
+				</div>
 					<!--<p class="text-center">
 						<button class="btn btn-template-main"><i class="fa fa-sign-in"></i> Log in</button>
 					</p>
@@ -212,5 +219,4 @@
 		</div>
 	</div>
 </div>
-
 <!-- *** LOGIN MODAL END *** -->
