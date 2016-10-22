@@ -22,7 +22,7 @@ class ShopController < ApplicationController
     session[:wishlist].each do |key, array|
       @wlshow << Product.find(key.to_s)
     end
-    @wlshow = @wlshow.paginate(:page => params[:page],:per_page => 8)
+    @wlshow = @wlshow.paginate(:page => params[:page],:per_page => 6)
   end
   def deletewishlist
     id = params[:id]
@@ -32,7 +32,7 @@ class ShopController < ApplicationController
     session[:wishlist].each do |key, array|
       @wlshow << Product.find( key.to_s )
     end
-    @wlshow = @wlshow.paginate(:page => params[:page],:per_page => 8)
+    @wlshow = @wlshow.paginate(:page => params[:page],:per_page => 6)
     respond_to do |format|
         format.js
     end

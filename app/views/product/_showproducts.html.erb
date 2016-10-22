@@ -19,7 +19,7 @@
 					</div>
 					<div class="text custom-text-add-to-cart">
 						<a href="<%= addtocartget_path( :id => c.id ) %>" data-remote="true" class="btn btn-template-main" id="addedtocartbutton"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-						<a href="<%= addtowishlistget_path( :id => c.id ) %>" data-remote="true" class="btn btn-template-main" id="addedtowishlist"><i class="fa fa-heart-o"></i></a>
+						<a href="<%= addtowishlist_path( :id => c.id ) %>" data-remote="true" class="btn btn-template-main" id="addedtowishlist"><i class="fa fa-heart-o"></i></a>
 					</div>
 				</div>
 				<% if c.discount != 0.0%>

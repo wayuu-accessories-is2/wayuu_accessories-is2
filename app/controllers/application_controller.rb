@@ -38,14 +38,6 @@ class ApplicationController < ActionController::Base
 
     puts session[:wishlist]
   end
-  def addtowishlistget
-    id = params[:id]
-    current_wishlist
-    session[:wishlist][id] = 1
-
-    puts session[:wishlist]
-  end
-
   private
     def set_locale
       I18n.locale = params[:locale] || I18n.default_locale
