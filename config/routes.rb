@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :blog, only: [:index, :show]
+  resources :blog, only: [:show,:index]
 
   root to: 'home_page#home'
   namespace :api, defaults:{ format: :json }do

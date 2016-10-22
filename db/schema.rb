@@ -130,10 +130,7 @@ ActiveRecord::Schema.define(version: 20161001221926) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.string   "comment"
-    t.integer  "rating"
     t.integer  "customer_id"
-    t.integer  "product_id"
     t.integer  "order_status_id"
     t.integer  "cart_id"
     t.datetime "created_at",      null: false
@@ -141,7 +138,6 @@ ActiveRecord::Schema.define(version: 20161001221926) do
     t.index ["cart_id"], name: "index_orders_on_cart_id", using: :btree
     t.index ["customer_id"], name: "index_orders_on_customer_id", using: :btree
     t.index ["order_status_id"], name: "index_orders_on_order_status_id", using: :btree
-    t.index ["product_id"], name: "index_orders_on_product_id", using: :btree
   end
 
   create_table "product_discounts", force: :cascade do |t|
@@ -155,7 +151,7 @@ ActiveRecord::Schema.define(version: 20161001221926) do
   end
 
   create_table "product_images", force: :cascade do |t|
-    t.string   "link"
+    t.string   "image"
     t.integer  "sort_order"
     t.integer  "product_id"
     t.datetime "created_at", null: false
@@ -170,12 +166,12 @@ ActiveRecord::Schema.define(version: 20161001221926) do
     t.float    "length"
     t.float    "width"
     t.float    "height"
-    t.string   "status",          default: "1"
+    t.float    "weight"
+    t.string   "status",      default: "1"
     t.string   "description"
-    t.integer  "stock_status_id"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
-    t.index ["stock_status_id"], name: "index_products_on_stock_status_id", using: :btree
+    t.float    "discount"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "returns", force: :cascade do |t|
@@ -192,18 +188,14 @@ ActiveRecord::Schema.define(version: 20161001221926) do
   end
 
   create_table "reviews", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
     t.string   "comment"
     t.integer  "rating"
     t.integer  "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_reviews_on_product_id", using: :btree
-  end
-
-  create_table "stock_statuses", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -230,8 +222,11 @@ ActiveRecord::Schema.define(version: 20161001221926) do
     t.string   "name"
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
+    t.integer  "role"
+    t.string   "auth_token"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.index ["auth_token"], name: "index_users_on_auth_token", unique: true, using: :btree
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
     t.index ["customer_id"], name: "index_users_on_customer_id", using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
@@ -251,10 +246,8 @@ ActiveRecord::Schema.define(version: 20161001221926) do
   add_foreign_key "orders", "carts"
   add_foreign_key "orders", "customers"
   add_foreign_key "orders", "order_statuses"
-  add_foreign_key "orders", "products"
   add_foreign_key "product_discounts", "products"
   add_foreign_key "product_images", "products"
-  add_foreign_key "products", "stock_statuses"
   add_foreign_key "returns", "orders"
   add_foreign_key "returns", "products"
   add_foreign_key "reviews", "products"

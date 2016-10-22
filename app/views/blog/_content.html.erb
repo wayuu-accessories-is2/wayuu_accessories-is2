@@ -6,13 +6,11 @@
                       <div class="row">
                         <div class="col-md-4">
                           <div class="image" style="height: 197px;">
-                            <a href="#">
-                              <%=image_tag( "Blog/#{article.img_reference}", class:"img-responsive", alt:"Example blog post alt" )%>
-                            </a>
+                              <%= link_to( image_tag( "#{article.img_reference}", class:"img-responsive", alt:"Example blog post alt" ), blog_path(article.id) )%>
                           </div>
                         </div>
                         <div class="col-md-8">
-                          <h2><a href="#"><%= article.title %></a></h2>
+                          <h2><%= link_to article.title, blog_path(article.id) %></h2>
                           <div class="clearfix">
                             <p class="author-category">By <a href="#">John Snow</a> in <a href="#">Wayuu Mochila Bags' Company Info Leave a comment</a>
                             </p>
@@ -22,7 +20,7 @@
                             </p>
                           </div>
                           <p class="intro"><%= article.description %></p>
-                          <p class="read-more"><%= link_to "Continue reading", "blog/#{article.id}",class:"btn btn-template-main" %></p>
+                          <p class="read-more"><%= link_to "Continue reading", blog_path(article.id),class:"btn btn-template-main" %></p>
                         </div>
                       </div>
                     </section>
