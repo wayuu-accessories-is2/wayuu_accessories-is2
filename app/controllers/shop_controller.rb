@@ -16,6 +16,15 @@ class ShopController < ApplicationController
     end
   end
 
+  def wishlistshow
+    current_wishlist
+    @wlshow = []
+    session[:wishlist].each do |key, array|
+      @wlshow << Product.find(key.to_s)
+    end
+    @wlshow = @wlshow.paginate(:page => params[:page],:per_page => 8)
+  end
+
   # def deletecart
   #   id = params[:id]
   #   current_cart
