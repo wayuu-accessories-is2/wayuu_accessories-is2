@@ -1,9 +1,15 @@
 class AdminController < ApplicationController
 
-  #before_action :require_admin, only: [:admin_index]
+  before_action :authenticate_user!
+  before_action :require_admin
 
   def admin_index
-
+    @orders = Order.where(order_status_id: 4).order("created_at DESC")
+    @orderstransaction = []
+    @orders.each do |t|
+      @orderstransaction << CustomerTransaction.find_by(order_id: t.id)
+    end
+    @comment = Review.last(3)
   end
 
   def userlist

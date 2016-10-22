@@ -1,6 +1,4 @@
-source 'https://rubygems.org'
-
-
+source 'http://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # Use Puma as the app server
@@ -23,6 +21,8 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 #gem 'turbolinks', '~> 5'
+#Gem  JSON to parse
+gem 'json'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
@@ -30,18 +30,25 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 #Use devise gem for user authentication and encripted password
-gem 'devise', '~> 4.2'
+gem 'devise','~> 4.2'
 #Use omniauth
 gem 'omniauth'
 #Use omniauth facebook.
 gem 'omniauth-facebook'
 #Use omniauth google.
 gem "omniauth-google-oauth2", "~> 0.2.1"
+gem 'chartkick'
+gem 'groupdate'
+gem "highcharts-rails", "~> 3.0.0"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+#Payment Method
+gem 'braintree', '~> 2.47'
+gem "nokogiri", ">= 1.6.7.rc"
 # Use Dotevn-rails to create enviroment variables throughout the app
 group :development, :test do
   gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
+
 end
 # Gems requiried for images uploads
 gem 'carrierwave'
@@ -53,8 +60,6 @@ gem 'jquery-star-rating-rails'
 gem 'active_model_serializers'
 # Gem for pagination
 gem 'will_paginate-bootstrap'
-
-
 # Gem for dropzonejs
 gem 'dropzonejs-rails'
 group :development, :test do

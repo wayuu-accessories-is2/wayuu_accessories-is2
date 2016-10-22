@@ -5,22 +5,22 @@
 		<div class="container">
 			<div class="homepage owl-carousel">
 				<div class="item">
-					<div class="row">
+					<div class="row custom-row-carousel">
 						<%= image_tag("shop/b1.jpg", class: "img-responsive margin-auto") %>
 					</div>
 				</div>
 				<div class="item">
-					<div class="row">
+					<div class="row custom-row-carousel">
 						<%= image_tag("shop/b2.jpg", class: "img-responsive margin-auto") %>
 					</div>
 				</div>
 				<div class="item">
-					<div class="row">
+					<div class="row custom-row-carousel">
 						<%= image_tag("shop/b3.jpg", class: "img-responsive margin-auto") %>
 					</div>
 				</div>
 				<div class="item">
-					<div class="row">
+					<div class="row custom-row-carousel">
 						<%= image_tag("shop/b4.jpg", class: "img-responsive margin-auto") %>
 					</div>
 				</div>
@@ -225,4 +225,18 @@
 		</div>
 	</div>
 </section>
+<div>
+		<div class="shop-button">
+			<a href="<%= category_index_path %>"><i class="fa fa-briefcase fa-2x" aria-hidden="true"></i></a>
+		</div>
+		<div class="shop-button2">
+			<a href="<%= admin_index_path %>"><i class="fa fa-cogs fa-1x" aria-hidden="true"></i></a>
+		</div>
+		<div class="shop-button1">
+			<a href="<%= new_user_session_path %>"><i class="fa fa-user fa-1x" aria-hidden="true"></i></a>
+		</div>
+
+
+</div>
+
 <!-- *** MAIL END *** -->

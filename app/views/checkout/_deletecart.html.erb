@@ -37,9 +37,9 @@
                                  <td><%= i.price %></td>
                                  <td><%= i.discount %></td>
                                  <%if i.discount !=0.0%>
-                                   <td>$<%= (i.price - i.discount) * i.quantity %></td>
+                                   <td>$<%= (i.price.to_d - i.discount.to_d) * i.quantity %></td>
                                  <%else%>
-                                   <td>$<%= i.price * i.quantity %></td>
+                                   <td>$<%= i.price.to_d * i.quantity %></td>
                                  <%end%>
                                  <td><%= link_to '', deletecart_checkout_index_path( :id => i.id ),:title =>"Delete item" ,:id=> "deleteItem", :class=>"btn fa fa-trash-o", remote: true %></td>
                              </tr>
@@ -48,8 +48,8 @@
                          <tfoot>
                              <tr>
                                  <th colspan="6">Total</th>
-                                 <%@sum = total()%>
-                                 <th>$<%= @sum%></th>
+                                 <%session[:sum] = total()%>
+                                 <th>$<%= session[:sum]%></th>
                              </tr>
                          </tfoot>
                      </table>
@@ -78,7 +78,7 @@
                        <tbody>
                            <tr>
                                <td>Order subtotal</td>
-                               <th><th>$<%= @sum%></th></th>
+                               <th>$<%= session[:sum]%></th>
                            </tr>
                            <tr>
                                <td>Shipping and handling</td>
@@ -90,7 +90,7 @@
                            </tr>
                            <tr class="total">
                                <td>Total</td>
-                               <th>$<%= @sum%></th>
+                               <th>$<%= session[:sum]%></th>
                            </tr>
                        </tbody>
                    </table>

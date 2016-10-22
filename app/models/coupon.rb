@@ -1,3 +1,3 @@
 class Coupon < ApplicationRecord
-  belongs_to :couponUse
+  has_one :couponUse
 end

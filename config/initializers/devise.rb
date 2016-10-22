@@ -6,13 +6,13 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '9ee23a0f99e7f6aa2d75d5da411f20391f1516a8aa0b806ad26c165173369eb0cc9896e52d3e5a6f6774c69a7f6e6f49ba4ba8e7fc7ac6d662115c7bc5f6737e'
+  # config.secret_key = '047fb2b57924100c4a743b83477ffb8e6c2bd718c5f32610c2d1664e04b30574ac258eef83e1ce3118219c3b5a72e444dccd3382efd1b384ab9459729496f300'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = ENV['GMAIL_USERNAME']
+  config.mailer_sender = 'wayuuaccessories1@gmail.com'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -75,7 +75,7 @@ Devise.setup do |config|
   # It will change confirmation, password recovery and other workflows
   # to behave the same regardless if the e-mail provided was right or wrong.
   # Does not affect registerable.
-  #config.paranoid = true
+  # config.paranoid = true
 
   # By default Devise will store the user in session. You can skip storage for
   # particular strategies by setting this option.
@@ -108,11 +108,11 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 11
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = 'a870dc7b1504cd0035869191c2d3dab71fde0c7abccb7ac2a128f6faa8f783f410e0577ba6b78f5fd7075ff6c2646112173e2be35ffbe916181327b46165a6e7'
+  # config.pepper = '12673c9fc3b36298f1d1574f564e4c54a517b1941e410910d9d0bb188477bed47b4f12e09fb90555ba85f0c6c43bc4fe2643271f799fde9b0f5af235db26560f'
 
   # Send a notification email when the user's password is changed
-  config.send_password_change_notification = true
-  #config.min_password_score = 1
+  #config.send_password_change_notification = false
+
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
   # confirming their account. For instance, if set to 2.days, the user will be
@@ -133,7 +133,6 @@ Devise.setup do |config|
   # initial account confirmation) to be applied. Requires additional unconfirmed_email
   # db field (see migrations). Until confirmed, new email is stored in
   # unconfirmed_email column, and copied to email column on successful confirmation.
-  #---------------- uncomment this if action mailer doesn't work
   #config.reconfirmable = true
 
   # Defines which key will be used when confirming an account
@@ -221,7 +220,7 @@ Devise.setup do |config|
   # Turn scoped views on. Before rendering "sessions/new", it will first check for
   # "users/sessions/new". It's turned off by default because it's slower if you
   # are using only default views.
-  config.scoped_views = false
+  #config.scoped_views = false
 
   # Configure the default scope given to Warden. By default it's the first
   # devise role declared in your routes (usually :user).
@@ -243,21 +242,22 @@ Devise.setup do |config|
   # config.navigational_formats = ['*/*', :html]
 
   # The default HTTP method used to sign out a resource. Default is :delete.
-  config.sign_out_via = :get
-  
+  #config.sign_out_via = :delete
+  #config.sign_out_via = Rails.env.test? ? :get : :delete
+
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  # 7config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
+  # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 
   config.omniauth :facebook, ENV['FB_APP_ID'], ENV['FB_SECRET_KEY']
   config.omniauth :google_oauth2, ENV['GOOGLE_CLIENT_ID'], ENV['GOOGLE_CLIENT_SECRET']
-
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
   #
+
   # config.warden do |manager|
   #   manager.intercept_401 = false
   #   manager.default_strategies(scope: :user).unshift :some_external_strategy

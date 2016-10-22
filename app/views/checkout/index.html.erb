@@ -28,7 +28,9 @@
                      <ul class="nav nav-pills nav-justified">
                          <li class="active"><a href="#"><i class="fa fa-eye"></i><br>Order Review</a>
                          </li>
-                         <li class="disabled"><a><i class="fa fa-map-marker"></i><br>Address</a>
+                         <li class="disabled"><a><i class="fa fa-map-marker"></i><br>Delivery address</a>
+                         </li>
+                         <li class="disabled"><a href="#"><i class="fa fa-money"></i><br>Billing address</a>
                          </li>
                          <li class="disabled"><a><i class="fa fa-money"></i><br>Payment Method</a>
                          </li>
@@ -74,8 +76,8 @@
                                  <tfoot>
                                      <tr>
                                          <th colspan="6">Total</th>
-                                         <%@sum = total()%>
-                                         <th>$<%= @sum %></th>
+                                         <%session[:sum] = total()%>
+                                         <th>$<%= session[:sum] %></th>
                                      </tr>
                                  </tfoot>
                              </table>
@@ -97,8 +99,6 @@
 
              </div>
              <!-- /.box -->
-
-
          </div>
          <!-- /.col-md-9 -->
 
@@ -115,7 +115,7 @@
                          <tbody>
                              <tr>
                                  <td>Order subtotal</td>
-                                 <th><%= @sum%></th>
+                                 <th><%= session[:sum]%></th>
                              </tr>
                              <tr>
                                  <td>Shipping and handling</td>
@@ -127,7 +127,7 @@
                              </tr>
                              <tr class="total">
                                  <td>Total</td>
-                                 <th>$<%= @sum%></th>
+                                 <th>$<%= session[:sum]%></th>
                              </tr>
                          </tbody>
                      </table>

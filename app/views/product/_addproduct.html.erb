@@ -6,7 +6,7 @@
     <div class="pull-right">
       <button data-toggle="tooltip" title="Save" id="addproduct" class="btn btn-primary"><i class="fa fa-save"></i></button>
       <button title="Saveimage" id="saveimage" class="btn btn-primary hidden"><i class="fa fa-save"></i></button>
-      <button title="Order" id="saveorder" class="btn btn-primary hidden"><i class="fa fa-sort"></i></button>
+      <a href="/admin/index" id="finishadd" title="Finish" class="btn btn-primary hidden"><i class="fa fa-check"></i></a>
       <a href="/admin/index" data-toggle="tooltip" title="Cancel" class="btn btn-default"><i class="fa fa-reply"></i></a></div>
       <h1>Product</h1>
     </div>
@@ -20,9 +20,8 @@
           <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
           <ul class="nav nav-tabs">
             <li class="active" id="general"><a href="#tab-data" data-toggle="tab">General</a></li>
-            <li id="link"><a href="#tab-links" data-toggle="tab">Links</a></li>
-            <li id="idImage" class="hidden"><a href="#tab-image" data-toggle="tab">Image</a></li>
-            <li id="idSort" class="hidden"><a href="#tab-sort" data-toggle="tab">Sort images</a></li>
+            <li id="link"><a href="#tab-links" data-toggle="tab">Categories</a></li>
+            <li id="idImage" class="hidden"><a href="#tab-image" data-toggle="tab">Images</a></li>
           </ul>
 
           <div class="tab-content" style="margin-top: 15px">
@@ -114,25 +113,12 @@
             </form>
             <div class="tab-pane" id="tab-image">
               <div class="modal-body">
-                <form method="post" action="/product_images" id="image" class="dropzone" enctype="multipart/form-data">
+                <form method="post" action="/admin/product_images/create" id="image" class="dropzone" enctype="multipart/form-data">
                   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
                   <div class="fallback">
                     <input name="media" type="file"/>
                   </div>
                 </form>
-              </div>
-            </div>
-            <div class="tab-pane disabled" id="tab-sort" align="center">
-              <div class="form-group required">
-                <ul id="sortable">
-                  <li id="1"  class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 1</li>
-                  <li id="2" class="ui-state-default"><span  class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
-                  <li id="3" class="ui-state-default"><span  class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</li>
-                  <li id="4" class="ui-state-default"><span  class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 4</li>
-                  <li id="5" class="ui-state-default"><span  class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 5</li>
-                  <li id="6" class="ui-state-default"><span  class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 6</li>
-                  <li id="7" class="ui-state-default"><span  class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 7</li>
-                </ul>
               </div>
             </div>
           </div>

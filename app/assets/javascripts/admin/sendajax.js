@@ -1,4 +1,3 @@
-alert("si carga-1");
 $(document).ready(function(){
 	//alert("si carga0");
 
@@ -7,7 +6,7 @@ $(document).ready(function(){
 		$.ajax({
 			url: '/admin/category/new',
 			type: 'POST',
-			data: {name: $("#name").val(), description: $("#description").val() },
+			data: {name: $("#name").val()},
 			success: function( result ){}
 		});
 	});
@@ -15,7 +14,7 @@ $(document).ready(function(){
 		$.ajax({
 			url: '/admin/category/change',
 			type: 'POST',
-			data: {name: $("#name").val(), description: $("#description").val(), id: $("#id").val() },
+			data: {name: $("#name").val(), id: $("#id").val() },
 			success: function( result ){}
 		});
 	});
@@ -32,6 +31,7 @@ $(document).ready(function(){
 		});
 		$('#addproduct').addClass('hidden');
 		$('#saveimage').removeClass('hidden');
+		$('#finishadd').removeClass('hidden');
 		$('#idImage').removeClass('hidden');
 		$('#idImage').addClass('active');
 		$('#general').removeClass('active');
@@ -51,18 +51,8 @@ $(document).ready(function(){
 						weight: $("#weight").val(), status: $("#status").val(), category1: $("#category1").val(), product_discount_price: $("#discount").val() },
 			success: function( result ){}
 		});
-		$('#addproduct').addClass('hidden');
-		$('#saveimage').removeClass('hidden');
-		$('#idImage').removeClass('hidden');
-		$('#idImage').addClass('active');
-		$('#general').removeClass('active');
-		$('#general').addClass('hidden');
-		$('#link').addClass('hidden');
-		$('#tab-data').removeClass('active');
-		$('#tab-links').removeClass('active');
-		$('#tab-image').addClass('active');
-
 	});
+
 	// $(document).on("click","#saveimage",function(){
 	// 	$( "#indexcambio" ).html( "<%= escape_javascript( render( "addproduct" ) ) %>" );
 	// 	$('#tab-image').removeClass('active');
