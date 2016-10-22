@@ -35,7 +35,6 @@ class ApplicationController < ActionController::Base
     id = params[:id]
     current_wishlist
     session[:wishlist][id] = 1
-
     puts session[:wishlist]
   end
   private
