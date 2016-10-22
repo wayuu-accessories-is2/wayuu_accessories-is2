@@ -32,8 +32,8 @@ ActiveRecord::Schema.define(version: 20161019211207) do
   create_table "articles", force: :cascade do |t|
     t.integer  "by"
     t.text     "title"
-    t.text     "description",   default: [],              array: true
-    t.text     "content"
+    t.text     "description"
+    t.text     "content",       default: [],              array: true
     t.text     "img_reference"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
