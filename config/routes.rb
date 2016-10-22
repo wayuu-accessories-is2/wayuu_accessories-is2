@@ -135,6 +135,7 @@ Rails.application.routes.draw do
     get 'addtowishlistget', to: 'application#addtowishlistget'
     get 'refreshcart', to: 'shop#refreshcart'
     get 'wishlist', to: 'shop#wishlistshow'
+    get 'deletewishlist', to: 'shop#deletewishlist'
 
 
     resources :checkout, only: [] do

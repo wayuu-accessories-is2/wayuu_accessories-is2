@@ -110,7 +110,7 @@
 							</ul>
 						</li>
 						<li class="dropdown">
-								<a href="" id="navbar-wishlist" class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-heart" aria-hidden="true"></i><span class="cart-count"><div id="numberW"><%= session[:wishlist].count %></div></span></a>
+								<a id="navbar-wishlist" href="<%= wishlist_path	 %>" ><i class="fa fa-heart" aria-hidden="true"></i><span class="cart-count"><div id="numberW"><%= session[:wishlist].count %></div></span></a>
 						</li>
 						<li>
 							<div class="social hidden-sm hidden-md hidden-lg">
