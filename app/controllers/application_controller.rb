@@ -35,10 +35,8 @@ class ApplicationController < ActionController::Base
     id = params[:id]
     current_wishlist
     session[:wishlist][id] = 1
-
-    puts session[:cart]
+    puts session[:wishlist]
   end
-
   private
     def set_locale
       I18n.locale = params[:locale] || I18n.default_locale
@@ -56,7 +54,7 @@ class ApplicationController < ActionController::Base
       session[:cart]= {} if session[:cart] == nil
     end
     def current_wishlist
-      session[:wishlist]= {} if session[:cart] == nil
+      session[:wishlist]= {} if session[:wishlist] == nil
     end
 
     def require_user
