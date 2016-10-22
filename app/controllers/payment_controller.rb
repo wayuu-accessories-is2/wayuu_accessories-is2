@@ -73,6 +73,9 @@ class PaymentController < ApplicationController
 
           if a.save
             b.quantity -= a.quantity
+            if b.quantity == 0
+              b.status = "0"
+            end   
             b.save
           end
 

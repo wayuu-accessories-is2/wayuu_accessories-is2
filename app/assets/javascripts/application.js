@@ -11,6 +11,7 @@
 //= require shop/ajax_show.js
 //= require jquery-star-rating
 //= require shop/checkout.js
+//= require shop/resize.js
 //= require jquery_ujs
 //= require shop_template/bootstrap-slider.min.js
 //= require shop/price-filter.js

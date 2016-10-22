@@ -129,7 +129,10 @@ Rails.application.routes.draw do
 
     post 'addtocart', to: 'application#addtocart'
     get 'addtocartget', to: 'application#addtocartget'
+    get 'addtowishlist', to: 'application#addtowishlist'
     get 'refreshcart', to: 'shop#refreshcart'
+    get 'wishlist', to: 'shop#wishlistshow'
+    get 'deletewishlist', to: 'shop#deletewishlist'
 
 
     resources :checkout, only: [] do

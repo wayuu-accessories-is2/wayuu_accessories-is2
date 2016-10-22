@@ -68,8 +68,8 @@
 							<ul class="dropdown-menu" id="dropCategory">
 								<div class="yamm-content">
 									<!-- <%#allCategories = Category.all.order(name: :asc)%> -->
-									<h5><a href="/category/show">All Categories</a></h5>
-									<%allCategories = Category.select("DISTINCT categories.id as id,categories.name as name").joins("INNER JOIN category_has_products ON category_has_products.category_id = categories.id  LEFT JOIN products on category_has_products.product_id = products.id WHERE products.status = '1'")%>
+									<li><a href="/category/show">All Categories</a></li>
+									<%allCategories = Category.select("DISTINCT categories.id as id,categories.name as name").joins("INNER JOIN category_has_products ON category_has_products.category_id = categories.id  LEFT JOIN products on category_has_products.product_id = products.id WHERE products.status = '1'").order(name: :asc)%>
 									<li><a href="#">Flash Sale</a></li>
 									<li><a href="#">Gift Cards</a></li>
 									<%allCategories.each do |c|%>
@@ -95,7 +95,7 @@
 							</ul>
 						</li>
 						<li class="hidden-xs">
-							<a id="navbar-cart" class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-shopping-cart"></i><span class="cart-count"><div id="number"><%= session[:cart].count %></div></span></a>
+							<a "javascript: void(0)" id="navbar-cart" class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-shopping-cart"></i><span class="cart-count"><div id="number"><%= session[:cart].count %></div></span></a>
 							<ul class="dropdown-menu" id="refresh">
 
 								<li class="pull-right"><button id="refresh" class="btn btn-template-main"><i class="fa fa-refresh fa-lg"></i>Update</button></button></li>
@@ -108,6 +108,9 @@
 								</li>
 
 							</ul>
+						</li>
+						<li class="dropdown">
+								<a id="navbar-wishlist" href="<%= wishlist_path	 %>" ><i class="fa fa-heart" aria-hidden="true"></i><span class="cart-count"><div id="numberW"><%= session[:wishlist].count %></div></span></a>
 						</li>
 						<li>
 							<div class="social hidden-sm hidden-md hidden-lg">
