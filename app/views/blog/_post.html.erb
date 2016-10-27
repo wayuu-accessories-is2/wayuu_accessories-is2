@@ -12,15 +12,21 @@
 
       <div id="post-content">
         <% count = 0 %>
+        <% img = 0 %>
         <% length = @article.content.length %>
         <% while count < length do%>
           <% if @article.content[count].length <= 25 %>
-            <%= image_tag "Blog/#{@article.content[count]}" %>
+            <div style="height: auto; weight: 100%; text-align: center;">
+              <%= image_tag "Blog/#{@article.content[count]}"%>
+              <% img = 1 %>
+            </div>
           <% else %>
-            <br>
-            <br>
-            <br>
+            <% if img == 1 %>
+              <% img = 0 %>
+              <br>
+            <% end %>
             <p align="justify"><%= @article.content[count] %></p>
+            <br>
           <% end %>
           <% count = count + 1 %>
         <% end %>
