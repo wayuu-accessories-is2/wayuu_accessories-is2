@@ -48,12 +48,6 @@
                   <% @comments.each do |t| %>
                     <div class="row">
                       <div class="col-md-12">
-                        <% for i in (0..(t.rating.to_i-1)) %>
-                          <span class="glyphicon glyphicon-star"></span>
-                        <% end %>
-                        <% for i in (1..(5-t.rating.to_i)) %>
-                          <span class="glyphicon glyphicon-star-empty"></span>
-                        <% end %>
                         <%= t.name %>
                         <span class="pull-right"><%= time_ago_in_words( t.created_at ) + " ago" %></span>
                         <p><%= t.comment %></p>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161028023832) do
+ActiveRecord::Schema.define(version: 20161028174342) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,16 @@ ActiveRecord::Schema.define(version: 20161028023832) do
     t.text     "img_reference"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+  end
+
+  create_table "blog_comment_replies", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.text     "reply"
+    t.integer  "blog_comment_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["blog_comment_id"], name: "index_blog_comment_replies_on_blog_comment_id", using: :btree
   end
 
   create_table "blog_comments", force: :cascade do |t|
@@ -256,6 +266,7 @@ ActiveRecord::Schema.define(version: 20161028023832) do
 
   add_foreign_key "addresses", "countries"
   add_foreign_key "addresses", "customers"
+  add_foreign_key "blog_comment_replies", "blog_comments"
   add_foreign_key "blog_comments", "articles"
   add_foreign_key "category_has_products", "categories"
   add_foreign_key "category_has_products", "products"
