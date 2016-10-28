@@ -14,7 +14,7 @@
         <% count = 0 %>
         <% length = @article.content.length %>
         <% while count < length do%>
-          <% if @article.content[count].length <= 25 %>
+          <% if @article.content[count].length <= 40 %>
             <br>
             <div style="height: auto; weight: 100%; text-align: center;">
               <%= image_tag "Blog/#{@article.content[count]}"%>

@@ -1,17 +1,12 @@
 class BlogCommentController < ApplicationController
 
   def new
-    @name = params[:name]
-    @email = params[:email]
-    @comment = params[:comment]
-    @article = params[:article]
-    @blogComment = params[:comment]
 
     a = BlogComment.new
-    a.name = @name
-    a.email = @email
-    a.comment = @comment
-    a.article_id = @article
+    a.name = params[:name]
+    a.email = params[:email]
+    a.comment = params[:comment]
+    a.article_id = params[:article]
 
     a.save!
 
