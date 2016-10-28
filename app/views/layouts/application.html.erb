@@ -37,23 +37,24 @@
 <body>
 	<div id="all">
 		<%= render partial: 'layouts/header' %>
-		<div align="center">
+
+		<!--div align="center">
 			<h5 style="font-family:Times New Roman" align="center" class="notice" id="notice1"><%= notice %></h5>
-		</div>
-			<%= yield %>
-      <!--<h5 class="alert"><%= alert %></h5>-->
+		</div-->
+
+		<%= yield %>
+		
+		<!--<h5 class="alert"><%= alert %></h5>-->
 
 		<%= render partial: 'layouts/footer' %>
 
-
 		<%= render 'shared/facebook_sdk' %>
-	  <!--	<div align="center" class="alerts">
+	  	<!--	<div align="center" class="alerts">
 	  	<p class="alert"><%= alert %></p>
-	  </div>	-->
-	  <!--<p class="notice"><%= notice %></p>
-	  <p class="alert"><%= alert %></p>-->
-
-	  <!--<h5 style="font-family:Times New Roman" align="center" class="alert"><%= alert %></h5>-->
+	 	 </div>	-->
+	  	<!--<p class="notice"><%= notice %></p>
+	 	 <p class="alert"><%= alert %></p>-->
+	  	<!--<h5 style="font-family:Times New Roman" align="center" class="alert"><%= alert %></h5>-->
 
 	</div>
 	<!-- #### JAVASCRIPT FILES ### -->
