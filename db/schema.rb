@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 20161019211207) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "pg_stat_statements"
 
   create_table "addresses", force: :cascade do |t|
     t.string   "address"
@@ -26,6 +27,16 @@ ActiveRecord::Schema.define(version: 20161019211207) do
     t.datetime "updated_at",  null: false
     t.index ["country_id"], name: "index_addresses_on_country_id", using: :btree
     t.index ["customer_id"], name: "index_addresses_on_customer_id", using: :btree
+  end
+
+  create_table "articles", force: :cascade do |t|
+    t.integer  "by"
+    t.text     "title"
+    t.text     "description"
+    t.text     "content",       default: [],              array: true
+    t.text     "img_reference"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "categories", force: :cascade do |t|

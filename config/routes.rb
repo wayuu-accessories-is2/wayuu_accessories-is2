@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :blog, only: [:show,:index]
+
   root to: 'home_page#home'
   get 'ling/index', to: 'ling#ling_index'
 
@@ -118,6 +120,16 @@ Rails.application.routes.draw do
           post 'change', to: :change
         end
       end
+
+      scope 'admin' do
+        resources :blog do
+          collection do
+            get 'add', to: :add
+            post 'new', to: :new
+          end
+        end
+      end
+
       resources :product_images do
          collection do
            post 'create', to: :create
@@ -131,6 +143,7 @@ Rails.application.routes.draw do
     get 'addtocartget', to: 'application#addtocartget'
     get 'addtowishlist', to: 'application#addtowishlist'
     get 'refreshcart', to: 'shop#refreshcart'
+
     get 'wishlist', to: 'shop#wishlistshow'
     get 'deletewishlist', to: 'shop#deletewishlist'
 
