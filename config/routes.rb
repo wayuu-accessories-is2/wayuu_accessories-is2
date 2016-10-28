@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  resources :blog_comment, only: [] do
+    collection do
+      get 'new', to: :new
+    end
+  end
+
   resources :blog, only: [:show,:index]
 
   root to: 'home_page#home'

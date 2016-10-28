@@ -1,2 +1,0 @@
-webpackJsonp([3],[function(e,t,n){"use strict";var s=document.getElementById("pikto-embed-js"),d=s.getAttribute("src").split("/assets/embedding/embed")[0];n.p=d+"/dist/",n.e(0,function(e){var t=[e(152)];(function(e){e.loadController("embed")}).apply(null,t)})}]);
-//# sourceMappingURL=embed-bundle.js.map
