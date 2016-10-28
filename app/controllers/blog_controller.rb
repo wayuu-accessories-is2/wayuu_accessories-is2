@@ -7,5 +7,6 @@ class BlogController < ApplicationController
   def show
     @article = Article.find_by( id: params[:id] )
     @name_blog = @article.title
+    @comments = Review.where(product_id: params[:id]).order('created_at DESC')
   end
 end
