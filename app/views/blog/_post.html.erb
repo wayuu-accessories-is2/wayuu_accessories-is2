@@ -12,21 +12,17 @@
 
       <div id="post-content">
         <% count = 0 %>
-        <% img = 0 %>
         <% length = @article.content.length %>
         <% while count < length do%>
           <% if @article.content[count].length <= 25 %>
+            <br>
             <div style="height: auto; weight: 100%; text-align: center;">
               <%= image_tag "Blog/#{@article.content[count]}"%>
               <% img = 1 %>
             </div>
-          <% else %>
-            <% if img == 1 %>
-              <% img = 0 %>
-              <br>
-            <% end %>
-            <p align="justify"><%= @article.content[count] %></p>
             <br>
+          <% else %>
+            <p align="justify"><%= @article.content[count] %></p>
           <% end %>
           <% count = count + 1 %>
         <% end %>
@@ -38,9 +34,9 @@
           <h3 class="panel-title"><i class="fa fa-pencil"></i>Reviews</h3>
         </div>
         <div class="panel-body" style="margin-top: 20px">
-          <form action="<%= review_index_path %>" method="get" id="form-review" class="form-horizontal">
+          <form action="<%= blog_comment_index_path %>" method="get" id="form-comment" class="form-horizontal">
             <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-
+            <%= hidden_field_tag :article, @article.id %>
             <ul class="nav nav-tabs">
               <li class="active" id="general"><a href="#tab-data" data-toggle="tab">Reviews</a></li>
               <li id="create"><a href="#tab-create" data-toggle="tab">Write reviews</a></li>
@@ -51,27 +47,23 @@
                 <div class="well">
                   <% @comments.each do |t| %>
                     <div class="row">
-                        <div class="col-md-12">
-                          <% for i in (0..(t.rating.to_i-1)) %>
-                            <span class="glyphicon glyphicon-star"></span>
-                          <% end %>
-                          <% for i in (1..(5-t.rating.to_i)) %>
-                            <span class="glyphicon glyphicon-star-empty"></span>
-                          <% end %>
-                            <%= t.name %>
-                            <span class="pull-right"><%= time_ago_in_words( t.created_at ) + " ago" %></span>
-                            <p><%= t.comment %></p>
-                        </div>
+                      <div class="col-md-12">
+                        <% for i in (0..(t.rating.to_i-1)) %>
+                          <span class="glyphicon glyphicon-star"></span>
+                        <% end %>
+                        <% for i in (1..(5-t.rating.to_i)) %>
+                          <span class="glyphicon glyphicon-star-empty"></span>
+                        <% end %>
+                        <%= t.name %>
+                        <span class="pull-right"><%= time_ago_in_words( t.created_at ) + " ago" %></span>
+                        <p><%= t.comment %></p>
+                      </div>
                     </div>
-
                     <hr>
-                <% end %>
-
-
-
-
+                  <% end %>
                 </div>
               </div>
+
               <div class="tab-pane" id="tab-create">
                 <div class="form-group">
                   <div class="form-group">
@@ -88,20 +80,20 @@
                   <div class="form-group">
                     <label class="col-sm-2 control-label" for="input-description1">Description</label>
                     <div class="col-sm-10">
-                      <textarea name="comment" placeholder="Description" style="min-width: 100%; max-width: 100%;
+                      <textarea type="text" name="comment" placeholder="Description" style="min-width: 100%; max-width: 100%;
                        min-height: 45px;"id="description"></textarea>
                     </div>
                   </div>
 
                   <div class="col-sm-12" align="right">
-                    <button data-toggle="tooltip" title="Save" form="form-review" id="addComment" class="btn btn-primary" style="width: 150px; height: 50px;">Send</button>
+                    <button data-toggle="tooltip" title="Save" form="form-comment" id="addComment" class="btn btn-primary" style="width: 150px; height: 50px;">Send</button>
                   </div>
 
                 </div>
               </div>
-              </form>
             </div>
-          </div>
+          </form>
+        </div>
       </div>
 
       <div class="box social" id="product-social">

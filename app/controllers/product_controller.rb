@@ -126,21 +126,22 @@ def new
 end
 
 def show
-#@list = Product.all.order("id ASC")
-#@consult = CategoryHasProduct.all
-#respond_to do |format|
-#  format.js
-#end
-@product = Product.find( params[:id] )
-@cate = Category.all.order('name ASC')
-@comments = Review.where(product_id: params[:id]).order('created_at DESC')
+	#@list = Product.all.order("id ASC")
+	#@consult = CategoryHasProduct.all
+	#respond_to do |format|
+	#  format.js
+	#end
+	@product = Product.find( params[:id] )
+	@cate = Category.all.order('name ASC')
+	@comments = Review.where(product_id: params[:id]).order('created_at DESC')
 
-respond_to do |format|
-	format.html
-end
-render layout: "application"
+	respond_to do |format|
+		format.html
+	end
+	
+	render layout: "application"
 
-puts @product
+	puts @product
 end
 
 

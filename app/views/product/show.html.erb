@@ -144,27 +144,23 @@ _________________________________________________________ -->
                           <div class="well">
                             <% @comments.each do |t| %>
                               <div class="row">
-                                  <div class="col-md-12">
-                                    <% for i in (0..(t.rating.to_i-1)) %>
-                                      <span class="glyphicon glyphicon-star"></span>
-                                    <% end %>
-                                    <% for i in (1..(5-t.rating.to_i)) %>
-                                      <span class="glyphicon glyphicon-star-empty"></span>
-                                    <% end %>
-                                      <%= t.name %>
-                                      <span class="pull-right"><%= time_ago_in_words( t.created_at ) + " ago" %></span>
-                                      <p><%= t.comment %></p>
-                                  </div>
+                                <div class="col-md-12">
+                                  <% for i in (0..(t.rating.to_i-1)) %>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                  <% end %>
+                                  <% for i in (1..(5-t.rating.to_i)) %>
+                                    <span class="glyphicon glyphicon-star-empty"></span>
+                                  <% end %>
+                                  <%= t.name %>
+                                  <span class="pull-right"><%= time_ago_in_words( t.created_at ) + " ago" %></span>
+                                  <p><%= t.comment %></p>
+                                </div>
                               </div>
-
                               <hr>
-                          <% end %>
-
-
-
-
-                          </div>
+                            <% end %>
                         </div>
+                        </div>
+
                         <div class="tab-pane" id="tab-create">
                           <div class="form-group">
                             <div class="form-group">
@@ -188,11 +184,11 @@ _________________________________________________________ -->
                               <label class="col-sm-2 control-label" for="input-description1">Rating</label>
                               <div class="col-sm-10">
                                 <div class="col-sm-5">
-                                <input name="star2" type="radio" value="1" class="star"/>
-                                <input name="star2" type="radio" value="2" class="star"/>
-                                <input name="star2" type="radio" value="3" class="star" checked="checked"/>
-                                <input name="star2" type="radio" value="4" class="star"/>
-                                <input name="star2" type="radio" value="5" class="star"/>
+                                  <input name="star2" type="radio" value="1" class="star"/>
+                                  <input name="star2" type="radio" value="2" class="star"/>
+                                  <input name="star2" type="radio" value="3" class="star" checked="checked"/>
+                                  <input name="star2" type="radio" value="4" class="star"/>
+                                  <input name="star2" type="radio" value="5" class="star"/>
                                 </div>
                               </div>
                             </div>
@@ -203,9 +199,9 @@ _________________________________________________________ -->
 
                           </div>
                         </div>
-                        </form>
                       </div>
-                    </div>
+                    </form>
+                  </div>
                 </div>
 
 

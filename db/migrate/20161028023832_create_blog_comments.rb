@@ -5,7 +5,6 @@ class CreateBlogComments < ActiveRecord::Migration[5.0]
       t.string :email
       t.text :comment
       t.references :article, foreign_key: true
-      t.references :blog_comment, foreign_key: true
       t.timestamps
     end
   end

@@ -44,11 +44,9 @@ ActiveRecord::Schema.define(version: 20161028023832) do
     t.string   "email"
     t.text     "comment"
     t.integer  "article_id"
-    t.integer  "blog_comment_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["article_id"], name: "index_blog_comments_on_article_id", using: :btree
-    t.index ["blog_comment_id"], name: "index_blog_comments_on_blog_comment_id", using: :btree
   end
 
   create_table "categories", force: :cascade do |t|
@@ -259,7 +257,6 @@ ActiveRecord::Schema.define(version: 20161028023832) do
   add_foreign_key "addresses", "countries"
   add_foreign_key "addresses", "customers"
   add_foreign_key "blog_comments", "articles"
-  add_foreign_key "blog_comments", "blog_comments"
   add_foreign_key "category_has_products", "categories"
   add_foreign_key "category_has_products", "products"
   add_foreign_key "confirmation_orders", "addresses"
