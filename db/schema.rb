@@ -14,7 +14,6 @@ ActiveRecord::Schema.define(version: 20161019211207) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "pg_stat_statements"
 
   create_table "addresses", force: :cascade do |t|
     t.string   "address"
@@ -31,6 +30,7 @@ ActiveRecord::Schema.define(version: 20161019211207) do
 
   create_table "articles", force: :cascade do |t|
     t.integer  "by"
+    t.text     "name"
     t.text     "title"
     t.text     "description"
     t.text     "content",       default: [],              array: true

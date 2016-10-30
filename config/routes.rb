@@ -126,6 +126,7 @@ Rails.application.routes.draw do
           collection do
             get 'add', to: :add
             post 'new', to: :new
+            post 'change', to: :change
           end
         end
       end
