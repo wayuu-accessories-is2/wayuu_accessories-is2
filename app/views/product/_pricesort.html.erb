@@ -9,7 +9,6 @@
 						<a href="<%=product_path( c.id ) %>">
 							<%product_image = ProductImage.find_by(product_id: c.id.to_s )%>
 							<%if product_image.nil?%>
-							<!--img src="http://c9a023018b7727eeeae9-5cb13b2b77b05284d2f5230b4c21c288.r0.cf1.rackcdn.com/uploads/nopreview.png" alt="" class="img-responsive image1"-->
 							<%= image_tag("shop/no-preview.jpg", class: "img-responsive image1") %>
 							<%else%>
 							<img src="<%=product_image.image.url%>" class="img-responsive">
