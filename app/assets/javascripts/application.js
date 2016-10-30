@@ -18,3 +18,4 @@
 //= require jquery-ui.js
 //= require devise/mensajes.js
 //= require payment/demo
+//= require froala_editor.min.js
