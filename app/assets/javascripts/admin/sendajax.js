@@ -54,11 +54,17 @@ $(document).ready(function(){
 	});
 
 	$(document).on("click","#addblog",function(){
+			var contentHash = $.getElementsByName( "all" );
+			var contentA = [];
+			var index, len;
+			for( index = 0, len = contentHash.length; index < len; index++ ){
+				contentA.push( contentHash[index].value );
+			}
 		$.ajax({
 			url: 'admin/blog/new',
 			type: 'POST',
-			data: { by: $("#by").val(), title: $("#title").val(), description: $("#description").val(),
-							content: $("#content").val(), img_reference: $("#image").val()},
+			data: { title: $("#title").val(), description: $("#description").val(),
+							content: $(contentA).val(), img_reference: $("#image").val()},
 			success: function( result ){}
 		});
 		$('#addblog').addClass('hidden');

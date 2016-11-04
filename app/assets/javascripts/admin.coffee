@@ -12,3 +12,4 @@
 #= require admin/product_image
 #= require highcharts
 #= require chartkick
+#= require admin/create_article
