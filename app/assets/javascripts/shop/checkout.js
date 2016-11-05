@@ -1,5 +1,4 @@
 $(document).ready(function(){
-	//alert("si carga0");
 	$(document).on("click","#index",function(){
 		$.ajax({
 			url: '/checkout/first',
