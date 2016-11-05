@@ -3,7 +3,6 @@ $(document).on("click","#container-categories .pagination a ,#product-containter
     return false;
 });
 $(document).on("click","#prange",function(){
-  alert("Precio");
   $.ajax({
 
     url: $("#path").val() ,
