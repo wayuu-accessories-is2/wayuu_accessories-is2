@@ -1,7 +1,6 @@
 $(document).ready(function(){
 	//alert("si carga0");
 	$(document).on("click","#index",function(){
-		alert("si carga1");
 		$.ajax({
 			url: '/checkout/first',
 			type: 'GET',
@@ -13,7 +12,6 @@ $(document).ready(function(){
 
 
 	$(document).on("click","#first-data",function(){
-		alert("agg");
 		document.getElementById('ocultar').style.display = 'none';
 		document.getElementById('cent').style.display = 'block';
 		document.getElementById('load').style.display = 'block';
@@ -39,7 +37,6 @@ $(document).ready(function(){
 	});
 
 	$(document).on("click","#addcart",function(){
-		alert("si carga1");
 		$.ajax({
 			url: '/addtocart',
 			type: 'POST',
