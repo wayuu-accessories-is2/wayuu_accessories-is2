@@ -113,7 +113,11 @@
 										</thead>
 									</table>
 								</div>
-								<li class="text-center"><button href="<%= cart_checkout_index_path %>" class="btn btn-template-main"><i class="fa fa-shopping-cart"></i>Go to cart</button></li>
+								<li class="text-center">
+									<a class="text-center" href="<%= cart_checkout_index_path %>">
+										<button href="<%= cart_checkout_index_path %>" class="btn btn-template-main" disabled><i class="fa fa-shopping-cart"></i>Go to cart</button>
+									</a>
+								</li>
 							</ul>
 						</li>
 						<li class="dropdown">
