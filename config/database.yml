@@ -5,12 +5,11 @@ default: &default
 
 development:
   <<: *default
-
   host: localhost
   database: wayuu1
   username: postgres
   password: 12345
-  
+
   #url: <%= ENV['POSTGRE_URL'] %>
   #host: <%= ENV['POSTGRE_HOST'] %>
   #database: <%= ENV['POSTGRE_DB'] %>

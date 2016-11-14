@@ -57,7 +57,7 @@ $(document).ready(function(){
 		$.ajax({
 			url: 'admin/blog/new',
 			type: 'POST',
-			data: { by: $("#by").val(), title: $("#title").val(), description: $("#description").val(),
+			data: { name: $("#name").val(), title: $("#title").val(), description: $("#description").val(),
 							content: $("#content").val(), img_reference: $("#image").val()},
 			success: function( result ){}
 		});

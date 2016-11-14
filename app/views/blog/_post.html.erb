@@ -4,11 +4,15 @@
 
     <div class="col-md-9" id="blog-post">
       <p class="text-muted text-uppercase mb-small text-right">Posted on <%= @article.created_at.strftime("%b %d, %Y") %>
-        by <%= link_to "John Snow", "#" %>
+        by <%= @article.name  %>
       </p>
 
       <br>
       <p class="lead" align="justify"><%= @article.description %></p>
+
+      <div class="col-xs-7 col-lg-8">
+        <%=  @article.content[0].html_safe %>
+      </div>
 
       <div id="post-content">
         <% count = 0 %>

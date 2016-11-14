@@ -10,7 +10,7 @@ class BlogCommentController < ApplicationController
 
     a.save!
 
-    redirect_to blog_path( @article )
+    #redirect_to blog_path( @article )
   end
 
 end

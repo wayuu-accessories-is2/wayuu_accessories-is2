@@ -16,8 +16,6 @@ class BlogController < ApplicationController
     t.description = params['description']
     t.content[0] = params['content']
     t.img_reference = params['image']
-    #count = 0
-    #length = @article.params['content'].length
     t.save!
   end
 

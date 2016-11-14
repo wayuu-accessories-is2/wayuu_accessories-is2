@@ -12,14 +12,14 @@
                         <div class="col-md-8">
                           <h2><%= link_to article.title, blog_path(article.id) %></h2>
                           <div class="clearfix">
-                            <p class="author-category">By <a href="#"><% article.by %></a> in <a href="#">Wayuu Mochila Bags' Company Info Leave a comment</a>
+                            <p class="author-category">By <%= article.name %> </a> in <a href="#">Wayuu Mochila Bags' Company Info Leave a comment</a>
                             </p>
                             <p class="date-comments">
                               <a href="#"><i class="fa fa-calendar-o"></i><% t=article.created_at %><%= t.strftime("%b %d, %Y") %></a>
-                              <a href="#"><i class="fa fa-comment-o"></i>2 Comments</a>
+                              <a href="#"><i class="fa fa-comment-o"></i> Comments</a>
                             </p>
                           </div>
-                          <p class="intro"><%= article.description %></p>
+                          <p class="intro"><%= article.description.html_safe %></p>
                           <p class="read-more"><%= link_to "Continue reading", blog_path(article.id),class:"btn btn-template-main" %></p>
                         </div>
                       </div>
