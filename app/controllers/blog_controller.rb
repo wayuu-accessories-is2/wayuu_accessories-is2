@@ -14,7 +14,7 @@ class BlogController < ApplicationController
     t.name = params['name']
     t.title = params['title']
     t.description = params['description']
-    t.content[0] = params['content']
+    t.content = params['content']
     t.img_reference = params['image']
     t.save!
   end
