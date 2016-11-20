@@ -11,12 +11,19 @@ class BlogController < ApplicationController
 
   def new
     t = Article.new
-    t.name = params['name']
+    #t.name = params['name']
     t.title = params['title']
     t.description = params['description']
     t.content = params['content']
-    t.img_reference = params['image']
+    #t.img_reference = params['image']
     t.save!
+
+    if request.xhr?
+    	respond_to do |format|
+    		format.js
+    	end
+
+    end
   end
 
   def index
