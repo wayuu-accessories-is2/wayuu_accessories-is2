@@ -5,7 +5,7 @@ class CreateArticles < ActiveRecord::Migration[5.0]
       t.text    :name
       t.text    :title
       t.text    :description
-      t.text    :content, array: true, default: []
+      t.text    :content
       t.text    :img_reference
       t.timestamps
     end
