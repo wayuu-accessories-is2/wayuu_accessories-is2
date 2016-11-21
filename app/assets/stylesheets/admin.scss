@@ -8,17 +8,55 @@
 //= require admin/font-awesome
 //= require admin/basic
 //= require products/products_style.css
-// require fontawesome-webfont.eot
-// require fontawesome-webfont.ttf
-// require fontawesome-webfont.woff
-// require fontawesome-webfont.woff2
-// require FontAwesome.otf
-// require glyphicons-halflings-regular.eot
-// require glyphicons-halflings-regular.svg
-// require glyphicons-halflings-regular.ttf
-// require glyphicons-halflings-regular.woff
-// require glyphicons-halflings-regular.woff2
+//= require fontawesome-webfont.eot
+//= require fontawesome-webfont.ttf
+//= require fontawesome-webfont.woff
+//= require fontawesome-webfont.woff2
+//= require FontAwesome.otf
+//= require glyphicons-halflings-regular.eot
+//= require glyphicons-halflings-regular.svg
+//= require glyphicons-halflings-regular.ttf
+//= require glyphicons-halflings-regular.woff
+//= require glyphicons-halflings-regular.woff2
 
 //= require dropzone/dropzone
 //= require product_image
-// require jquery-ui
+//= require jquery-ui
+
+//////////////////////////////////////
+// Style assets for froalaEditor
+//////////////////////////////////////
+
+/*
+ *= require blog/font-awesome.min.css
+ *= require blog/codemirror.min.css
+
+ *= require blog/froala_editor.css
+ *= require blog/froala_style.css
+ *= require blog/plugins/code_view.css
+ *= require blog/plugins/colors.css
+ *= require blog/plugins/emoticons.css
+ *= require blog/plugins/image_manager.css
+ *= require blog/plugins/image.css
+ *= require blog/plugins/line_breaker.css
+ *= require blog/plugins/table.css
+ *= require blog/plugins/char_counter.css
+ *= require blog/plugins/video.css
+ *= require blog/plugins/fullscreen.css
+ *= require blog/plugins/file.css
+ *= require blog/plugins/quick_insert.css
+*/
+
+body {
+  text-align: center;
+}
+
+div#editor {
+  width: 100%;
+  margin: auto;
+  text-align: left;
+}
+
+.ss {
+  background-color: red;
+}
