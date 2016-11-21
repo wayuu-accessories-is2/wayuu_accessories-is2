@@ -33,10 +33,10 @@ ActiveRecord::Schema.define(version: 20161028174342) do
     t.text     "name"
     t.text     "title"
     t.text     "description"
-    t.text     "content",       default: [],              array: true
+    t.text     "content"
     t.text     "img_reference"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "blog_comment_replies", force: :cascade do |t|

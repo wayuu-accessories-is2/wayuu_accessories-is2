@@ -57,21 +57,20 @@ $(document).ready(function(){
 		$.ajax({
 			url: 'admin/blog/new',
 			type: 'POST',
-			data: { by: $("#by").val(), title: $("#title").val(), description: $("#description").val(),
-							content: $("#content").val(), img_reference: $("#image").val()},
+			data: {title: $("#title").val(), description: $("#description").val(), content: $("#content").val()},
 			success: function( result ){}
 		});
 		$('#addblog').addClass('hidden');
-		$('#saveimage').removeClass('hidden');
+		//$('#saveimage').removeClass('hidden');
 		$('#finishadd').removeClass('hidden');
-		$('#idImage').removeClass('hidden');
-		$('#idImage').addClass('active');
+		//$('#idImage').removeClass('hidden');
+		//$('#idImage').addClass('active');
 		$('#general').removeClass('active');
 		$('#general').addClass('hidden');
-		$('#link').addClass('hidden');
-		$('#tab-data').removeClass('active');
-		$('#tab-links').removeClass('active');
-		$('#tab-image').addClass('active');
+		//$('#link').addClass('hidden');
+		//$('#tab-data').removeClass('active');
+		//$('#tab-links').removeClass('active');
+		//$('#tab-image').addClass('active');
 	});
 
 	// $(document).on("click","#saveimage",function(){

@@ -1,72 +1,61 @@
-
- <div id="page-wrapper" style="background-color: #FFFFFF; margin-top: 15px">
+<%= tinymce_assets %>
+<div id="page-wrapper" style="background-color: #FFFFFF; margin-top: 15px">
 
 <div class="container-fluid">
 
     <div class="pull-right">
       <button data-toggle="tooltip" title="Save" id="addblog" class="btn btn-primary"><i class="fa fa-save"></i></button>
-      <button title="Saveimage" id="saveimage" class="btn btn-primary hidden"><i class="fa fa-save"></i></button>
+      <!--<button title="Saveimage" id="saveimage" class="btn btn-primary hidden"><i class="fa fa-save"></i></button>-->
       <a href="/admin/index" id="finishadd" title="Finish" class="btn btn-primary hidden"><i class="fa fa-check"></i></a>
       <a href="/admin/index" data-toggle="tooltip" title="Cancel" class="btn btn-default"><i class="fa fa-reply"></i></a></div>
       <h1>Blog</h1>
     </div>
+
+
 
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title"><i class="fa fa-pencil"></i>Add a new post</h3>
       </div>
       <div class="panel-body" style="margin-top: 20px">
-        <form action="/blog/new" method="post" enctype="multipart/form-data" id="form-product" class="form-horizontal">
+        <form action="/blog/new" method="post" enctype="multipart/form-data" id="form-blog" class="form-horizontal">
           <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
           <ul class="nav nav-tabs">
             <li class="active" id="general"><a href="#tab-data" data-toggle="tab">General</a></li>
-            <li id="idImage" class="hidden"><a href="#tab-image" data-toggle="tab">Images</a></li>
           </ul>
 
           <div class="tab-content" style="margin-top: 15px">
             <div class="tab-pane active" id="tab-data">
               <div class="form-group required">
-                <label class="col-sm-2 control-label" for="input-by">Name</label>
+                <label class="col-sm-2 control-label" for="input-title">Author</label>
                 <div class="col-sm-10">
-                  <input type="text" name="blog_name" value="" placeholder="Post your name" id="by" class="form-control" />
+                  <input type="text" name="blog_author" value="" placeholder="Post author" id="name" class="form-control">
                 </div>
+              </div>
+              <div class="form-group required">
                 <label class="col-sm-2 control-label" for="input-title">Title</label>
                 <div class="col-sm-10">
-                  <input type="text" name="blog_tittle" value="" placeholder="Post title" id="title" class="form-control" />
+                  <input type="text" name="blog_tittle" value="" placeholder="Post title" id="title" class="form-control">
                 </div>
               </div>
-              <div class="form-group">
-                <label class="col-sm-2 control-label" for="input-description">Short description</label>
+              <div class="form-group required">
+                <label class="col-sm-2 control-label" for="input-description1">Short description</label>
                 <div class="col-sm-10">
-                  <textarea name="blog_description1" placeholder="Description" style="min-width: 100%" id="description"></textarea>
+                  <textarea name="blog_description1" placeholder="Description" style="max-width: 100%"  id="description"></textarea>
                 </div>
               </div>
+
               <div class="form-group">
                 <label class="col-sm-2 control-label" for="input-content">Content</label>
                 <div class="col-sm-10">
-                  <textarea name="blog_content" placeholder="Content" style="min-width: 100%" id="content"></textarea>
+                  <%= tinymce %>
+                   <textarea name="content" rows="15" id="content" class="tinymce">
                 </div>
               </div>
 
-              <div class="form-group">
-                <label class="col-sm-2 control-label" for="input-image">Image </label>
-                <input type="file" data-buttonName="btn-primary">
-              </div>
-              <hr>
             </div>
-              </form>
-
-
-            <div class="tab-pane" id="tab-image">
-              <div class="modal-body">
-                <form method="post" action="/admin/product_images/create" id="image" class="dropzone" enctype="multipart/form-data">
-                  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-                  <div class="fallback">
-                    <input name="media" type="file">
-                  </div>
-                </form>
-              </div>
-            </div>
+          </div>
+            </form>
           </div>
         </div>
     </div>
