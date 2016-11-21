@@ -1,15 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  by: 1
   title: MyText
   description: MyText
-  content: MyText
-  img_reference: MyText
+  content: MyString
+  author: one
 
 two:
-  by: 1
   title: MyText
   description: MyText
-  content: MyText
-  img_reference: MyText
+  content: MyString
+  author: two

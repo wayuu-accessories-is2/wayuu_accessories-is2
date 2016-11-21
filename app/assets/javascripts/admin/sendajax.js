@@ -55,23 +55,13 @@ $(document).ready(function(){
 
 	$(document).on("click","#addblog",function(){
 		$.ajax({
-			url: 'admin/blog/new',
+			url: '/admin/blog/new',
 			type: 'POST',
-			data: { name: $("#name").val(), title: $("#title").val(), description: $("#description").val(),
-							content: $("#content").val()},
+			data: { title: $("#title").val(),
+							description: $("#description").val(),
+							content: $("#edit").froalaEditor('save.save')},
 			success: function( result ){}
 		});
-		$('#addblog').addClass('hidden');
-		//$('#saveimage').removeClass('hidden');
-		$('#finishadd').removeClass('hidden');
-		//$('#idImage').removeClass('hidden');
-		//$('#idImage').addClass('active');
-		$('#general').removeClass('active');
-		$('#general').addClass('hidden');
-		//$('#link').addClass('hidden');
-		//$('#tab-data').removeClass('active');
-		//$('#tab-links').removeClass('active');
-		//$('#tab-image').addClass('active');
 	});
 
 	// $(document).on("click","#saveimage",function(){

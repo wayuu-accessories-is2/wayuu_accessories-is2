@@ -11,5 +11,3 @@
 //= require admin/paginate_admin
 //= require highcharts
 //= require chartkick
-
-$(function(){$('#edit').froalaEditor()});
