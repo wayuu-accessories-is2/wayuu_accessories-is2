@@ -6,7 +6,7 @@ default: &default
 development:
   <<: *default
   host: localhost
-  database: wayuu1
+  database: wayuu2
   username: postgres
   password: 12345
 
