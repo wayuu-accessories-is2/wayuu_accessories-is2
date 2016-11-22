@@ -8,6 +8,15 @@ Rails.application.routes.draw do
 
   resources :blog, only: [:show,:index]
 
+  scope 'admin' do
+    resources :blog do
+      collection do
+        post 'new', to: :new
+        post 'update', to: :update
+      end
+    end
+  end
+
   root to: 'home_page#home'
   get 'ling/index', to: 'ling#ling_index'
 

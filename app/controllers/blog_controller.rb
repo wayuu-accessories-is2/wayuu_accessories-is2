@@ -11,11 +11,9 @@ class BlogController < ApplicationController
 
   def new
     t = Article.new
-    t.name = params['name']
     t.title = params['title']
     t.description = params['description']
     t.content = params['content']
-    t.img_reference = params['image']
     t.save!
   end
 
@@ -33,6 +31,10 @@ class BlogController < ApplicationController
       replies = BlogCommentReply.where(blog_comment_id: t.id)
       @replies += replies
     end
+
+  end
+
+  def update
 
   end
 

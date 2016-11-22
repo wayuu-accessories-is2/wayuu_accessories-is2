@@ -2,7 +2,6 @@ $(document).ready(function(){
 	//alert("si carga0");
 
 	$(document).on("click","#addcategory",function(){
-		alert("si carga1");
 		$.ajax({
 			url: '/admin/category/new',
 			type: 'POST',
@@ -59,10 +58,12 @@ $(document).ready(function(){
 			type: 'POST',
 			data: { title: $("#title").val(),
 							description: $("#description").val(),
-							content: $("#edit").froalaEditor('save.save')},
+							content: $("#edit").froalaEditor('html.get', true)},
 			success: function( result ){}
 		});
+		alert( "paso" );
 	});
+
 
 	// $(document).on("click","#saveimage",function(){
 	// 	$( "#indexcambio" ).html( "<%= escape_javascript( render( "addproduct" ) ) %>" );

@@ -4,6 +4,7 @@
 Rails.application.config.assets.version = '1.0'
 
 Rails.application.config.assets.precompile += %w( hometeam.scss )
+Rails.application.config.assets.precompile += %w( blog.scss )
 Rails.application.config.assets.precompile += %w( hometeam.coffee )
 Rails.application.config.assets.precompile += %w( admin.css )
 Rails.application.config.assets.precompile += %w( admin.js )
