@@ -11,7 +11,7 @@ class BlogController < ApplicationController
 
   def new
     t = Article.new
-    #t.name = params['name']
+    t.name = params['name']
     t.title = params['title']
     t.description = params['description']
     t.content = params['content']

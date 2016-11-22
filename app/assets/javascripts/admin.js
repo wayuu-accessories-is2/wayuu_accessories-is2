@@ -11,3 +11,4 @@
 //= require admin/paginate_admin
 //= require highcharts
 //= require chartkick
+//= require tinymce

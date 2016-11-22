@@ -4,7 +4,7 @@
 
     <div class="col-md-9" id="blog-post">
       <p class="text-muted text-uppercase mb-small text-right">Posted on <%= @article.created_at.strftime("%b %d, %Y") %>
-        by
+        by <%= @article.name %>
       </p>
 
       <br>
@@ -14,6 +14,7 @@
         <p align="justify"><%= @article.content %></p>
       </div>
     </div>
+  </div>
 
       <!---  REVIEWS  ----------->
       <div class="panel panel-default">

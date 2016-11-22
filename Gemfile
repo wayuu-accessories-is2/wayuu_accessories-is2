@@ -64,7 +64,7 @@ end
 gem 'carrierwave'
 gem 'fog'
 gem 'mini_magick', '~> 4.5', '>= 4.5.1'
-gem 'tinymce-rails'
+
 gem 'jquery-star-rating-rails'
 #Gem for api
 gem 'active_model_serializers'

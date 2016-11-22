@@ -57,7 +57,9 @@ $(document).ready(function(){
 		$.ajax({
 			url: 'admin/blog/new',
 			type: 'POST',
-			data: {title: $("#title").val(), description: $("#description").val(), content: $("#content").val()},
+			data: {name: $("#name").val(), title: $("#title").val(), description: $("#description").val(),
+			content: $("#content").val()
+		  },
 			success: function( result ){}
 		});
 		$('#addblog').addClass('hidden');
