@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161123034651) do
+ActiveRecord::Schema.define(version: 20161123052821) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,16 @@ ActiveRecord::Schema.define(version: 20161123034651) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["users_id"], name: "index_articles_on_users_id", using: :btree
+  end
+
+  create_table "blog_comments", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.text     "comment"
+    t.integer  "article_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_blog_comments_on_article_id", using: :btree
   end
 
   create_table "categories", force: :cascade do |t|
@@ -265,6 +275,7 @@ ActiveRecord::Schema.define(version: 20161123034651) do
   add_foreign_key "addresses", "countries"
   add_foreign_key "addresses", "customers"
   add_foreign_key "articles", "users", column: "users_id"
+  add_foreign_key "blog_comments", "articles"
   add_foreign_key "category_has_products", "categories"
   add_foreign_key "category_has_products", "products"
   add_foreign_key "confirmation_orders", "addresses"
