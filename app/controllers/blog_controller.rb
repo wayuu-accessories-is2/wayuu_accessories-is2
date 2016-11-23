@@ -27,7 +27,7 @@ class BlogController < ApplicationController
   def show
     @article = Article.find_by( id: params[:id] )
     @comments = BlogComment.where(article_id: params[:id]).order('created_at DESC')
-    
+
   end
 
   def update

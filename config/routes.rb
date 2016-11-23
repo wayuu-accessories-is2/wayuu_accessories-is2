@@ -70,6 +70,14 @@ Rails.application.routes.draw do
       #end
     end
 
+    resources :blog_comment, only: [] do
+      collection do
+        get 'new', to: :new
+      end
+    end
+
+    resources :blog, only: [:show,:index]
+
     resources :product, only:[]  do
       member do
         get 'show', to: :show
