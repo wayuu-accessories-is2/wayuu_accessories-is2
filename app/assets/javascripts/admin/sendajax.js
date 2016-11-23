@@ -53,6 +53,14 @@ $(document).ready(function(){
 	});
 
 	$(document).on("click","#saveContent",function(){
+		$.ajax({
+			url: '/admin/blog/new',
+			type: 'POST',
+			data: { title: $("#title").val(),
+							description: $("#description").val(),
+							content: $("#edit").froalaEditor('html.get', true)},
+			success: function( result ){}
+		});
 		$('#saveContent').addClass('hidden');
 		$('#finish').removeClass('hidden');
 		$('#general').addClass('hidden');
@@ -62,14 +70,6 @@ $(document).ready(function(){
 	});
 
 	$(document).on("click","#addblog",function(){
-		$.ajax({
-			url: '/admin/blog/new',
-			type: 'POST',
-			data: { title: $("#title").val(),
-							description: $("#description").val(),
-							content: $("#edit").froalaEditor('html.get', true)},
-			success: function( result ){}
-		});
 		alert( "Post was successfully saved" );
 	});
 
