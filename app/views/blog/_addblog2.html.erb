@@ -1,0 +1,58 @@
+<%= stylesheet_link_tag 'blog', media: 'all' %>
+
+<div id="page-wrapper" style="background-color: #FFFFFF; margin-top: 15px">
+
+<div class="container-fluid">
+  <div class="pull-right">
+    <button data-toggle="tooltip" title="Save" id="saveContent" class="btn btn-primary"><i class="fa fa-save"></i></button>
+    <%= link_to('<button title="Save" id="addblog" class="btn btn-primary"><i class="fa fa-check"></i></button>'.html_safe, admin_index_path, id:"finish",class:"hidden") %>
+  </div>
+  <h1>Blog</h1>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><i class="fa fa-pencil"></i>Post new article</h3>
+  </div>
+  <ul class="nav nav-tabs" style="margin: 1em;">
+    <li class="active" id="general"><a href="#tab-data" data-toggle="tab">General</a></li>
+    <li id="idImage" class="active hidden"><a href="#tab-image" data-toggle="tab">Image</a></li>
+  </ul>
+  <div class="panel-body" id="tab-data" style="margin-top: 20px">
+      <%= form_tag('admin/blog/new', id: 'form-blog', class: 'form-horizontal') do %>
+      <div id="tab-data">
+        <div class="form-group required">
+          <label class="col-sm-1 control-label">Title</label>
+          <div class="col-sm-11 ">
+            <input type="text" placeholder="Article Title" class="form-control" id="title" style="text-align:center; font-weight: bold;"/>
+          </div>
+        </div>
+        <div class="form-group required">
+          <label class="col-sm-1 control-label">Summary</label>
+          <div class="col-sm-11">
+            <textarea class="form-control" placeholder="Put here a brief description about article" style="min-width: 100%; max-width: 100%; min-height: 35px;" id="description"></textarea>
+          </div>
+        </div>
+        <div class="form-group required">
+          <label class="col-sm-1 control-label">Content</label>
+          <div class="col-sm-11">
+            <div id="editor">
+              <div id='edit' style="margin-top: 30px;">
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+      </div>
+    <%  end %>
+  </div>
+  <div class="panel-body hidden" id="tab-image">
+    <form action="/media_contents" id="media-dropzone" class="dropzone" enctype="multipart/form-data">
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+      <div class="fallback">
+        <input name="media" type="file" multiple />
+      </div>
+    </form>
+  </div>
+</div>
+<%= javascript_include_tag 'blog' %>

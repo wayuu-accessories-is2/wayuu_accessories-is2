@@ -13,11 +13,14 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-
+gem 'coffee-script-source', '1.8.0'
 #Blog gem
 gem "wysiwyg-rails"
 #font-awesome
 gem "font-awesome-rails"
+
+#tinymce-rails
+gem 'tinymce-rails'
 
 #bootstrap-sass
 gem 'bootstrap-sass', '~> 3.3.6'
@@ -32,6 +35,7 @@ gem 'json'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
+gem 'execjs'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -60,7 +64,7 @@ end
 gem 'carrierwave'
 gem 'fog'
 gem 'mini_magick', '~> 4.5', '>= 4.5.1'
-gem 'tinymce-rails'
+
 gem 'jquery-star-rating-rails'
 #Gem for api
 gem 'active_model_serializers'

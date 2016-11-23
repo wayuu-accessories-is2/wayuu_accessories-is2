@@ -1,3 +1,0 @@
-class BlogImageController < ApplicationController
-
-end
