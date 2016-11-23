@@ -9,8 +9,8 @@ development:
 
   database: wayuu1
   username: ingesoft
-  database: wayuu2
-  username: postgres
+  #database: wayuu2
+  #username: postgres
   password: 12345
 
   #url: <%= ENV['POSTGRE_URL'] %>

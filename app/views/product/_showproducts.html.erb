@@ -7,7 +7,7 @@
 				<div class="box-image custom-box-image">
 					<div class="image" id= "pimage">
 						<a href="<%=product_path( c.id ) %>">
-							<%product_image = ProductImage.find_by(product_id: c.id.to_s )%>
+							<%product_image = ProductImage.where("product_id = ? AND sort_order = 1", c.id.to_s )%>
 							<%if product_image.nil?%>
 							<%= image_tag("shop/no-preview.jpg", class: "img-responsive image1") %>
 							<%else%>
