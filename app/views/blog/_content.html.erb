@@ -1,0 +1,31 @@
+<div class="container">
+                <div class="row">
+                  <div class="col-md-9" id="blog-listing-medium">
+                    <% @articles.each do |article|%>
+                    <section class="post">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <div class="image" style="height: 197px;">
+                              <% image = @image.find_by article_id: article.id %>
+                              <%= link_to( image_tag( image.file_name.url , class:"img-responsive", alt:"Example blog post alt" ), blog_path(article.id) )%>
+                          </div>
+                        </div>
+                        <div class="col-md-8">
+                          <h2><%= link_to article.title, blog_path(article.id) %></h2>
+                          <div class="clearfix">
+                            <p class="author-category">By Diana Miller </a> in <a href="#">Wayuu Mochila Bags' Company Info Leave a comment</a>
+                            </p>
+                            <p class="date-comments">
+                              <a href="#"><i class="fa fa-calendar-o"></i><% t=article.created_at %><%= t.strftime("%b %d, %Y") %></a>
+                              <a href="#"><i class="fa fa-comment-o"></i> Comments</a>
+                            </p>
+                          </div>
+                          <p class="intro"><%= article.description %></p>
+                          <p class="read-more"><%= link_to "Continue reading", blog_path(article.id),class:"btn btn-template-main" %></p>
+                        </div>
+                      </div>
+                    </section>
+                    <% end %>
+                  </div>
+                </div>
+            </div>

@@ -1,0 +1,94 @@
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-md-9" id="blog-post">
+      <p class="text-muted text-uppercase mb-small text-right">Posted on <%= @article.created_at.strftime("%b %d, %Y") %>
+        by Diana Miller
+      </p>
+
+      <br>
+      <p class="lead" align="justify"><%= @article.description %></p>
+
+      <div>
+        <%=  @article.content.html_safe %>
+      </div>
+    </div>
+  </div>
+
+      <!---  REVIEWS  ----------->
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"><i class="fa fa-pencil"></i>Reviews</h3>
+        </div>
+        <div class="panel-body" style="margin-top: 20px">
+          <form action="<%= blog_comment_index_path %>" method="get" id="form-comment" class="form-horizontal">
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+            <%= hidden_field_tag :article, @article.id %>
+            <ul class="nav nav-tabs">
+              <li class="active" id="general"><a href="#tab-data" data-toggle="tab">Reviews</a></li>
+              <li id="create"><a href="#tab-create" data-toggle="tab">Write reviews</a></li>
+            </ul>
+
+            <div class="tab-content" style="margin-top: 15px">
+              <div class="tab-pane active" id="tab-data">
+                <div class="well">
+                  <% @comments.each do |t| %>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <p><%= t.name %></p>
+                        <span class="pull-right"><%= time_ago_in_words( t.created_at ) + " ago" %></span>
+                        <p><%= t.comment %></p>
+                      </div>
+                    </div>
+                    <hr>
+                  <% end %>
+                </div>
+              </div>
+
+              <div class="tab-pane" id="tab-create">
+                <div class="form-group">
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label" for="input-name">Name</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="name" value="" placeholder="Name" id="name" class="form-control" />
+                    </div>
+                    <br><br>
+                    <label class="col-sm-2 control-label" for="input-name">Email</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="email" value="" placeholder="Email" id="email" class="form-control" />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label" for="input-description1">Description</label>
+                    <div class="col-sm-10">
+                      <textarea class="form-control" type="text" name="comment" placeholder="Description" style="min-width: 100%; max-width: 100%;
+                       min-height: 45px;"id="description"></textarea>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-12" align="right">
+                    <button data-toggle="tooltip" title="Save" form="form-comment" id="addComment" class="btn btn-primary" style="width: 150px; height: 50px;">Send</button>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="box social" id="product-social">
+          <h4>Show it to your friends</h4>
+          <p>
+              <a href="#" class="external facebook" data-animate-hover="pulse"><i class="fa fa-facebook"></i></a>
+              <a href="#" class="external gplus" data-animate-hover="pulse"><i class="fa fa-google-plus"></i></a>
+              <a href="#" class="external twitter" data-animate-hover="pulse"><i class="fa fa-twitter"></i></a>
+              <a href="#" class="email" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>
+          </p>
+      </div>
+      <br>
+
+    </div>
+  </div>
+</div>

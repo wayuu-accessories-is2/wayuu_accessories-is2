@@ -1,0 +1,62 @@
+<div id="heading-breadcrumbs">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-7">
+				<h1>Categories </h1>
+			</div>
+			<div class="col-md-5">
+				<ul class="breadcrumb">
+					<li><%= link_to "HOME", root_path%>
+					</li>
+					<li>Categories</li>
+				</ul>
+
+			</div>
+		</div>
+	</div>
+</div>
+<div id="content">
+	<div class="container">
+		<div class="panel-heading">
+			<h3 class="panel-title pull-left">Price</h3>
+			<a class="pull-right" href="#"><i class="fa fa-times-circle fa-lg"></i></a>
+		</div>
+		<div class="panel-body">
+			<div id="price-filter-container">
+				<input id="price-filter" name="price" type="text" class="span2" value="" data-slider-min="7" data-slider-max="224" data-slider-step="5" data-slider-value="[7,224]"/>
+				<br>
+				<span id="CurrentSliderValLabel">Price: <span id="SliderVal">$7 - $224</span></span>
+			</div>
+			<button id="prange" class="btn btn-default btn-sm btn-template-main"><i class="fa fa-pencil"></i> Apply</button>
+		</div>
+		<div class="panel-heading">
+			<h3 class="panel-title">Categories</h3>
+		</div>
+		<div class="panel-body">
+			<div class="dropdown pull-left">
+				<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+					Select a category <span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu">
+					<% allCategories = Category.all.order("name ASC") %>
+					<% allCategories.each do |c| %>
+					<li><a href="<%= showall_category_product_index_path(c.id.to_s) %>"><%=c.name%></a></li>
+					<%end%>
+				</ul>
+			</div>
+			<div class="dropdown pull-right">
+				<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+					Sort by <span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu dropdown-menu-right">
+					<li><a href="#">Sort by newness</a></li>
+					<li><a href="#">Sort by price: low to high</a></li>
+					<li><a href="#">Sort by price: high to low</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="container" id="container-categories">
+		<%= render 'category/showcategories' %>
+	</div>
+</div>
