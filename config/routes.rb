@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'survey/landing'
+
   resources :blog_comment, only: [] do
     collection do
       get 'new', to: :new
@@ -181,6 +183,9 @@ Rails.application.routes.draw do
     get 'home', to: 'home_page#home'
     get 'team', to: 'hometeam#index'
     get 'admin/index', to: 'admin#admin_index'
+    get 'customer-survey', to: 'survey#landing'
+    get 'great', to: 'survey#yes'
+    get 'oh-no', to: 'survey#no'
 
     resources :admin do
       collection do
