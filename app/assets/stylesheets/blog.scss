@@ -1,0 +1,35 @@
+//////////////////////////////////////
+// Style assets for froalaEditor
+//////////////////////////////////////
+
+/*
+ *= require blog/font-awesome.min.css
+ *= require blog/codemirror.min.css
+
+ *= require blog/froala_editor.css
+ *= require blog/froala_style.css
+ *= require blog/plugins/code_view.css
+ *= require blog/plugins/colors.css
+ *= require blog/plugins/emoticons.css
+ *= require blog/plugins/image_manager.css
+ *= require blog/plugins/image.css
+ *= require blog/plugins/line_breaker.css
+ *= require blog/plugins/table.css
+ *= require blog/plugins/char_counter.css
+ *= require blog/plugins/video.css
+ *= require blog/plugins/fullscreen.css
+ *= require blog/plugins/file.css
+ *= require blog/plugins/quick_insert.css
+
+ *= require dropzone/dropzone
+*/
+
+div#editor {
+  width: 100%;
+  margin: auto;
+  text-align: left;
+}
+
+.ss {
+  background-color: red;
+}

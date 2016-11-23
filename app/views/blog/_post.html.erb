@@ -4,14 +4,14 @@
 
     <div class="col-md-9" id="blog-post">
       <p class="text-muted text-uppercase mb-small text-right">Posted on <%= @article.created_at.strftime("%b %d, %Y") %>
-        by <%= @article.name %>
+        by Diana Miller
       </p>
 
       <br>
       <p class="lead" align="justify"><%= @article.description %></p>
 
-      <div id="post-content" class="col-xs-7 col-lg-8">
-        <p align="justify"><%= @article.content %></p>
+      <div>
+        <%=  @article.content.html_safe %>
       </div>
     </div>
   </div>
@@ -39,15 +39,6 @@
                         <p><%= t.name %></p>
                         <span class="pull-right"><%= time_ago_in_words( t.created_at ) + " ago" %></span>
                         <p><%= t.comment %></p>
-                        <% @replies.each do |r| %>
-                          <% if r.blog_comment_id == t.id %>
-                            <div style="padding: 0.5em; background-color: #FFFFFF;">
-                              <p><%= r.name %></p>
-                              <span class="pull-right"><%= time_ago_in_words( r.created_at ) + " ago" %></span>
-                              <p><%= r.reply %></p>
-                            </div>
-                          <% end %>
-                        <% end %>
                       </div>
                     </div>
                     <hr>
@@ -71,7 +62,7 @@
                   <div class="form-group">
                     <label class="col-sm-2 control-label" for="input-description1">Description</label>
                     <div class="col-sm-10">
-                      <textarea type="text" name="comment" placeholder="Description" style="min-width: 100%; max-width: 100%;
+                      <textarea class="form-control" type="text" name="comment" placeholder="Description" style="min-width: 100%; max-width: 100%;
                        min-height: 45px;"id="description"></textarea>
                     </div>
                   </div>

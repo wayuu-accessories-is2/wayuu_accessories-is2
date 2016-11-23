@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161028174342) do
+ActiveRecord::Schema.define(version: 20161123052821) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "pg_stat_statements"
 
   create_table "addresses", force: :cascade do |t|
     t.string   "address"
@@ -29,24 +30,13 @@ ActiveRecord::Schema.define(version: 20161028174342) do
   end
 
   create_table "articles", force: :cascade do |t|
-    t.integer  "by"
-    t.text     "name"
     t.text     "title"
     t.text     "description"
-    t.text     "content"
-    t.text     "img_reference"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
-
-  create_table "blog_comment_replies", force: :cascade do |t|
-    t.string   "name"
-    t.string   "email"
-    t.text     "reply"
-    t.integer  "blog_comment_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.index ["blog_comment_id"], name: "index_blog_comment_replies_on_blog_comment_id", using: :btree
+    t.string   "content"
+    t.integer  "users_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["users_id"], name: "index_articles_on_users_id", using: :btree
   end
 
   create_table "blog_comments", force: :cascade do |t|
@@ -137,6 +127,14 @@ ActiveRecord::Schema.define(version: 20161028174342) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_customers_on_user_id", using: :btree
+  end
+
+  create_table "media", force: :cascade do |t|
+    t.string   "file_name"
+    t.integer  "article_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_media_on_article_id", using: :btree
   end
 
   create_table "order_products", force: :cascade do |t|
@@ -231,6 +229,16 @@ ActiveRecord::Schema.define(version: 20161028174342) do
     t.index ["product_id"], name: "index_reviews_on_product_id", using: :btree
   end
 
+  create_table "translations", force: :cascade do |t|
+    t.string   "locale"
+    t.string   "key"
+    t.text     "value"
+    t.text     "interpolations"
+    t.boolean  "is_proc",        default: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -266,7 +274,7 @@ ActiveRecord::Schema.define(version: 20161028174342) do
 
   add_foreign_key "addresses", "countries"
   add_foreign_key "addresses", "customers"
-  add_foreign_key "blog_comment_replies", "blog_comments"
+  add_foreign_key "articles", "users", column: "users_id"
   add_foreign_key "blog_comments", "articles"
   add_foreign_key "category_has_products", "categories"
   add_foreign_key "category_has_products", "products"
@@ -278,6 +286,7 @@ ActiveRecord::Schema.define(version: 20161028174342) do
   add_foreign_key "customer_transactions", "customers"
   add_foreign_key "customer_transactions", "orders"
   add_foreign_key "customers", "users"
+  add_foreign_key "media", "articles"
   add_foreign_key "order_products", "orders"
   add_foreign_key "orders", "addresses"
   add_foreign_key "orders", "customers"

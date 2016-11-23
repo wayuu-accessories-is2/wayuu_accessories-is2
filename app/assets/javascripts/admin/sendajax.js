@@ -2,7 +2,6 @@ $(document).ready(function(){
 	//alert("si carga0");
 
 	$(document).on("click","#addcategory",function(){
-		alert("si carga1");
 		$.ajax({
 			url: '/admin/category/new',
 			type: 'POST',
@@ -53,27 +52,27 @@ $(document).ready(function(){
 		});
 	});
 
-	$(document).on("click","#addblog",function(){
+	$(document).on("click","#saveContent",function(){
 		$.ajax({
-			url: 'admin/blog/new',
+			url: '/admin/blog/new',
 			type: 'POST',
-			data: {name: $("#name").val(), title: $("#title").val(), description: $("#description").val(),
-			content: $("#content").val()
-		  },
+			data: { title: $("#title").val(),
+							description: $("#description").val(),
+							content: $("#edit").froalaEditor('html.get', true)},
 			success: function( result ){}
 		});
-		$('#addblog').addClass('hidden');
-		//$('#saveimage').removeClass('hidden');
-		$('#finishadd').removeClass('hidden');
-		//$('#idImage').removeClass('hidden');
-		//$('#idImage').addClass('active');
-		$('#general').removeClass('active');
+		$('#saveContent').addClass('hidden');
+		$('#finish').removeClass('hidden');
 		$('#general').addClass('hidden');
-		//$('#link').addClass('hidden');
-		//$('#tab-data').removeClass('active');
-		//$('#tab-links').removeClass('active');
-		//$('#tab-image').addClass('active');
+		$('#idImage').removeClass('hidden');
+		$('#tab-data').addClass('hidden');
+		$('#tab-image').removeClass('hidden');
 	});
+
+	$(document).on("click","#addblog",function(){
+		alert( "Post was successfully saved" );
+	});
+
 
 	// $(document).on("click","#saveimage",function(){
 	// 	$( "#indexcambio" ).html( "<%= escape_javascript( render( "addproduct" ) ) %>" );
