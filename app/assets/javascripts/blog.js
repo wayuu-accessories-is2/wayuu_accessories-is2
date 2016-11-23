@@ -34,7 +34,18 @@
 //= require blog/plugins/url.min.js
 //= require blog/plugins/video.min.js
 
+//= require dropzone
+
 
 $(function(){
   $('#edit').froalaEditor()
+});
+
+$(function() {
+  var mediaDropzone;
+  mediaDropzone = new Dropzone("#media-dropzone");
+  return mediaDropzone.on("success", function(file, responseText) {
+    var imageUrl;
+    imageUrl = responseText.file_name.url;
+  });
 });

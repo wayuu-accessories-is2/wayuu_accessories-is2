@@ -55,6 +55,7 @@ $(document).ready(function(){
 	$(document).on("click","#saveContent",function(){
 		$('#saveContent').addClass('hidden');
 		$('#finish').removeClass('hidden');
+		$('#general').addClass('hidden');
 		$('#idImage').removeClass('hidden');
 		$('#tab-data').addClass('hidden');
 		$('#tab-image').removeClass('hidden');

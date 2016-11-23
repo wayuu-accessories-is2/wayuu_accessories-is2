@@ -15,6 +15,7 @@ class BlogController < ApplicationController
     t.description = params['description']
     t.content = params['content']
     t.save!
+    session[:articleid] = t.id
   end
 
   def index

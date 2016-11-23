@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
 
   resources :blog, only: [:show,:index]
+  resources :media_contents, only: [:create]
 
   scope 'admin' do
     resources :blog do
